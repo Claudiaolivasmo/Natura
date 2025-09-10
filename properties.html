@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades - Natura Real Estate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    
+    <!-- CSS locales -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="properties.css">
+    <link rel="stylesheet" href="animation.css">
+
+
+</head>
+
+
+<body>
+  <header class="header" id="header">
+        <a href="#" class="logo">
+            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
+        </a>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="properties.html">Propiedades</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <nav class="breadcrumb">
+    <div class="inner-page-container">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Inicio</a>
+        <span>›</span>
+        <a href="properties.html">Propiedades</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="inner-page-container">
+      <h1 class="page-title">Nuestras Propiedades</h1>
+      <p class="page-subtitle">
+        Descubra espacios únicos donde la arquitectura abraza la naturaleza.
+        Cada propiedad es una invitación a vivir en armonía con el entorno.
+      </p>
+    </div>
+  </section>
+
+  <div class="inner-page-container">
+    <main class="main-content">
+      <!-- =========================================================
+           FILTROS
+      ========================================================== -->
+    <!-- 
+      <aside class="filters-sidebar">
+        <div class="filter-section">
+          <h3 class="filter-title">Filtros</h3>
+
+          <!-- TIPO DE PROPIEDAD 
+          <div class="filter-dropdown" data-filter="type">
+            <button class="filter-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              Tipo de Propiedad
+            </button>
+            <div class="filter-panel" role="listbox" aria-label="Tipo de Propiedad">
+              <button type="button" role="option" data-value="" aria-selected="true">Todos los tipos</button>
+              <button type="button" role="option" data-value="casa">Casa</button>
+              <button type="button" role="option" data-value="villa">Villa</button>
+              <button type="button" role="option" data-value="cabana">Cabaña</button>
+              <button type="button" role="option" data-value="terreno">Terreno</button>
+              <button type="button" role="option" data-value="apartamento">Apartamento</button>
+            </div>
+            <!-- Select nativo (oculto) 
+            <select id="property-type" name="property-type" hidden>
+              <option value="" selected>Todos los tipos</option>
+              <option value="casa">Casa</option>
+              <option value="villa">Villa</option>
+              <option value="cabana">Cabaña</option>
+              <option value="terreno">Terreno</option>
+              <option value="apartamento">Apartamento</option>
+            </select>
+          </div>
+
+          <!-- TAMAÑO (m²) 
+          <div class="filter-dropdown" data-filter="size">
+            <button class="filter-trigger" aria-haspopup="dialog" aria-expanded="false">
+              Tamaño (m²)
+            </button>
+            <div class="filter-panel" role="dialog" aria-label="Tamaño">
+              <div style="padding:.25rem .25rem .5rem .25rem; display:flex; gap:4%;">
+                <input type="number" id="size-min" placeholder="Mínimo" min="0" style="width:48%">
+                <input type="number" id="size-max" placeholder="Máximo" min="0" style="width:48%">
+              </div>
+            </div>
+          </div>
+
+          <!-- PRECIO (USD) 
+          <div class="filter-dropdown" data-filter="price">
+            <button class="filter-trigger" aria-haspopup="dialog" aria-expanded="false">
+              Rango de Precio (USD)
+            </button>
+            <div class="filter-panel" role="dialog" aria-label="Rango de Precio">
+              <div class="price-range" style="padding:.25rem .25rem .5rem .25rem; display:flex; gap:4%;">
+                <input type="number" id="price-min" placeholder="Mínimo" min="0" style="width:48%">
+                <input type="number" id="price-max" placeholder="Máximo" min="0" style="width:48%">
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================
+               AVANZADO (OCULTO POR DEFECTO)
+          ========================================== 
+          <div id="advancedFilters" class="hidden">
+            <!-- BÚSQUEDA 
+            <div class="filter-dropdown" data-filter="search">
+              <button class="filter-trigger" aria-haspopup="dialog" aria-expanded="false">
+                Búsqueda
+              </button>
+              <div class="filter-panel" role="dialog" aria-label="Búsqueda">
+                <div style="padding:.25rem .25rem .5rem .25rem">
+                  <input type="text" id="search" placeholder="Buscar por nombre o ubicación..." style="width:100%">
+                </div>
+              </div>
+            </div>
+
+            <!-- UBICACIÓN 
+            <div class="filter-dropdown" data-filter="location">
+              <button class="filter-trigger" aria-haspopup="listbox" aria-expanded="false">
+                Ubicación
+              </button>
+              <div class="filter-panel" role="listbox" aria-label="Ubicación">
+                <button role="option" data-value="" aria-selected="true">Todas las ubicaciones</button>
+                <button role="option" data-value="la-fortuna">La Fortuna Centro</button>
+                <button role="option" data-value="lago-arenal">Lago Arenal</button>
+                <button role="option" data-value="el-castillo">El Castillo</button>
+              </div>
+              <select id="location" name="location" hidden>
+                <option value="" selected>Todas las ubicaciones</option>
+                <option value="la-fortuna">La Fortuna Centro</option>
+                <option value="lago-arenal">Lago Arenal</option>
+                <option value="el-castillo">El Castillo</option>
+              </select>
+            </div>
+
+            <!-- HABITACIONES 
+            <div class="filter-dropdown" data-filter="bedrooms">
+              <button class="filter-trigger" aria-haspopup="listbox" aria-expanded="false">
+                Habitaciones
+              </button>
+              <div class="filter-panel" role="listbox" aria-label="Habitaciones">
+                <button role="option" data-value="" aria-selected="true">Cualquier cantidad</button>
+                <button role="option" data-value="1">1+</button>
+                <button role="option" data-value="2">2+</button>
+                <button role="option" data-value="3">3+</button>
+                <button role="option" data-value="4">4+</button>
+                <button role="option" data-value="5">5+</button>
+              </div>
+              <select id="bedrooms" name="bedrooms" hidden>
+                <option value="" selected>Cualquier cantidad</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+
+            <!-- BAÑOS 
+            <div class="filter-dropdown" data-filter="bathrooms">
+              <button class="filter-trigger" aria-haspopup="listbox" aria-expanded="false">
+                Baños
+              </button>
+              <div class="filter-panel" role="listbox" aria-label="Baños">
+                <button role="option" data-value="" aria-selected="true">Cualquier cantidad</button>
+                <button role="option" data-value="1">1+</button>
+                <button role="option" data-value="2">2+</button>
+                <button role="option" data-value="3">3+</button>
+                <button role="option" data-value="4">4+</button>
+              </div>
+              <select id="bathrooms" name="bathrooms" hidden>
+                <option value="" selected>Cualquier cantidad</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ACCIONES 
+          <div class="filter-actions" style="display:flex; gap:.5rem; margin-top:.75rem;">
+            <button id="filterApply" class="btn primary">Filtrar</button>
+            <button id="toggleAdvanced" class="btn" aria-expanded="false">Avanzado</button>
+            <button id="clearFilters" class="btn ghost">Limpiar</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- =========================================================
+           RESULTADOS / ORDEN / VISTAS
+      ========================================================== -->
+      <div class="properties-content">
+        <div class="properties-header">
+          <div class="results-count">
+            <span id="resultsCount">0</span> propiedades encontradas
+          </div>
+          <div class="sort-controls">
+            <select class="sort-select" id="sortBy">
+               <option value="featured">Destacadas</option>
+              <option value="price-low">Precio: Menor a Mayor</option>
+              <option value="price-high">Precio: Mayor a Menor</option>
+              <option value="newest">Más Recientes</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active" id="gridView" aria-label="Vista grid">📱</button>
+            </div>
+          </div>
+        </div>
+
+ 
+
+        <div class="properties-grid" id="propertiesGrid">
+          <!-- Grid generado por JavaScript -->
+        </div>
+
+        <div class="properties-list" id="propertiesList">
+          <!-- Lista generada por JavaScript -->
+        </div>
+
+        <div id="pagination" class="pagination mt-8 text-center"></div>
+      </div>
+    </main>
+  </div>
+
+
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-content centered">
+    <!-- Logo -->
+    <img src="1A2E35.png" alt="Natura Real Estate" class="footer-logo">
+
+    <!-- Descripción -->
+    <p class="footer-text">
+      Propiedades seleccionadas en La Fortuna y alrededores.
+    </p>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <form 
+        class="newsletter-form" 
+        action="https://formspree.io/f/xwpqdyka" 
+        method="POST" 
+        target="_blank">
+        
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Tu email" 
+          class="newsletter-input" 
+          required>
+          
+        <button type="submit" class="newsletter-btn">
+          Suscribirse
+        </button>
+      </form>
+      
+      <div class="newsletter-status" aria-live="polite"></div>
+    </section>
+
+
+    <!-- Contacto -->
+    <div class="footer-contact">
+      <p><strong>La Fortuna · Costa Rica</strong></p>
+      <p>
+        <a href="mailto:contacto@natura.cr">naturarealstate@gmail.com</a><br>
+        <a href="https://wa.me/50600000000" rel="noopener">WhatsApp: +506 8301 8999</a>
+      </p>
+    </div>
+
+    <!-- Derechos -->
+    <p class="footer-bottom">
+      &copy; 2025 Natura Real Estate · Todos los derechos reservados
+    </p>
+  </div>
+</footer>
+
+  <!-- (opcional, lo dejé tal cual venía) -->
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96562e47811a92ff',t:'MTc1MzU1Njg1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+  <!-- Tu JS -->
+  <script src="utils.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="properties.js" defer></script>
+</body>
+
+
+</html>

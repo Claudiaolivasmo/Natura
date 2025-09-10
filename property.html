@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Propiedad - Natura Real Estate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS locales -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="property.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <a href="#" class="logo">
+            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
+        </a>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="properties.html">Propiedades</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BREADCRUMB con contenedor global -->
+    <nav class="breadcrumb">
+        <div class="inner-page-container">
+            <div class="breadcrumb-nav">
+                <a href="index.html">Inicio</a>
+                <span>›</span>
+                <a href="properties.html">Propiedades</a>
+                <span>›</span>
+                <span id="breadcrumbTitle">Casa Vista Volcán</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN con contenedor global -->
+    <main class="main-content">
+    <div class="inner-page-container">
+
+        <!-- Encabezado de la propiedad -->
+        <header class="property-header mb-8">
+            <h1 id="propertyTitle" class="property-title">Terreno con Vista Natural</h1>
+            <span id="propertyPriceTag" class="price-tag">USD 100 000</span>
+            <p id="propertyLocation" class="property-location">Lago Arenal</p>
+        </header>
+
+
+        <!-- Contenido principal y sidebar en grid -->
+        <section class="property-details lg:grid lg:grid-cols-3 lg:gap-12">
+
+          <!-- Galería y descripción -->
+          <div class="details-tabs lg:col-span-2">
+
+            <!-- Galería -->
+            <div class="gallery-section mb-8">
+              <div class="main-image relative mb-4" id="mainImage">
+                <button class="gallery-nav prev" onclick="previousImage()">‹</button>
+                <button class="gallery-nav next" onclick="nextImage()">›</button>
+                <div class="image-placeholder"></div>
+              </div>
+              <div class="thumbnail-grid" id="thumbnailGrid">
+                <!-- Thumbnails generados por JavaScript -->
+              </div>
+            </div>
+
+            <!-- Descripción (marco con título adentro) -->
+            <section class="description-section bg-white p-6 rounded shadow mb-6">
+              <h2 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
+                <i class="fa-solid fa-align-left"></i> Descripción General
+              </h2>
+              <div class="prose prose-gray max-w-none" id="propertyDescription">
+                <!-- Se cargará la descripción aquí -->
+              </div>
+            </section>
+
+            <!-- Características -->
+            <section class="property-section features-section bg-white p-6 rounded shadow">
+              <h3 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
+                <i class="fa-solid fa-list-check"></i> Características
+              </h3>
+              <ul id="featuresList" class="features-grid"></ul>
+            </section>
+
+            <!-- Ubicación -->
+            <section id="locationSection" class="map-section bg-white p-6 rounded shadow mt-6 hidden">
+                <h2 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
+                    <i class="fa-solid fa-map-location-dot"></i> Ubicación
+                </h2>
+
+                <p id="locationText" class="mb-4 text-gray-600"></p>
+
+                <div class="map-embed-wrapper rounded overflow-hidden">
+                    <iframe
+                    id="mapIframe"
+                    class="w-full"
+                    style="border:0; min-height: 320px;"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                    ></iframe>
+                </div>
+
+                <a id="mapLink" href="#" target="_blank" rel="noopener"
+                    class="inline-block mt-3 text-sm underline text-green-700">
+                    Ver en Google Maps
+                </a>
+            </section>
+
+
+          </div>
+
+          <!-- Sidebar de contacto (dentro del grid) -->
+          <aside class="lg:col-span-1">
+            <div
+              class="contact-agent p-6 rounded-lg mb-6 bg-white shadow lg:sticky lg:top-24"
+              data-whatsapp="50683018999"
+              data-property-name="Casa Tropical en La Fortuna"
+            >
+              <div class="text-center mb-6">
+                <h3 class="font-display text-xl font-semibold text-gray-900">Contáctenos</h3>
+                <p class="text-gray-600">Estamos aquí para ayudarle</p>
+              </div>
+
+              <form id="contactForm" class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                  <input id="name" type="text"
+                    class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Su nombre">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <input id="email" type="email"
+                    class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="su@email.com">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+                  <input id="phone" type="tel"
+                    class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="+506 0000-0000">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Mensaje</label>
+                  <textarea id="message" rows="3"
+                    class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Estoy interesado en esta propiedad..."></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-3 font-medium">
+                  Enviar Whatsapp
+                </button>
+              </form>
+            </div>
+          </aside>
+
+        </section>
+
+    </main>
+
+
+
+
+
+
+    <footer class="footer" role="contentinfo">
+  <div class="footer-content centered">
+    <!-- Logo -->
+    <img src="1A2E35.png" alt="Natura Real Estate" class="footer-logo">
+
+    <!-- Descripción -->
+    <p class="footer-text">
+      Propiedades seleccionadas en La Fortuna y alrededores.
+    </p>
+ 
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <form 
+        class="newsletter-form" 
+        action="https://formspree.io/f/xwpqdyka" 
+        method="POST" 
+        target="_blank">
+        
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Tu email" 
+          class="newsletter-input" 
+          required>
+          
+        <button type="submit" class="newsletter-btn">
+          Suscribirse
+        </button>
+      </form>
+      
+      <div class="newsletter-status" aria-live="polite"></div>
+    </section>
+
+
+    <!-- Contacto -->
+    <div class="footer-contact">
+      <p><strong>La Fortuna · Costa Rica</strong></p>
+      <p>
+        <a href="mailto:contacto@natura.cr">naturarealstate@gmail.com</a><br>
+        <a href="https://wa.me/50600000000" rel="noopener">WhatsApp: +506 8301 8999</a>
+      </p>
+    </div>
+
+    <!-- Derechos -->
+    <p class="footer-bottom">
+      &copy; 2025 Natura Real Estate · Todos los derechos reservados
+    </p>
+  </div>
+</footer>
+
+    <div id="lightbox" class="lb hidden" aria-hidden="true" tabindex="-1">
+    <button id="lbClose" class="lb-close" aria-label="Cerrar">×</button>
+    <button id="lbPrev"  class="lb-nav lb-prev" aria-label="Anterior">‹</button>
+    <img id="lightboxImage" class="lb-img" alt="">
+    <button id="lbNext"  class="lb-nav lb-next" aria-label="Siguiente">›</button>
+    <div id="lbCounter" class="lb-counter">1 / 1</div>
+  </div>
+
+    <!-- (Tu script Cloudflare ofuscado, respetado tal cual) -->
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965617e6100192fb',t:'MTc1MzU1NTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+    <!-- JS de tu proyecto -->
+    <script src="utils.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="property.js" defer></script>
+    <script src="layout.js" defer></script>
+</body>
+</html>

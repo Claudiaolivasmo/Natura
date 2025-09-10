@@ -1,0 +1,31 @@
+[
+{
+  "id": 1,
+  "slug": "lote-san-francisco-burrito",
+  "type": "lote",
+  "title": "Lote en San Francisco de Peñas Blancas",
+  "location": "San Ramón - El Burrito",
+  "price": 100000,
+  "lotSize": 2296,
+  "badge": "Destacado",
+  "folder": "008-lote-burrito",
+  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"],
+  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+  "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
+  "description": [
+  "Ubicado a tan solo 15 minutos del centro de La Fortuna de San Carlos, este lote ofrece una oportunidad única para quienes buscan tranquilidad, contacto con la naturaleza y una excelente ubicación. La propiedad cuenta con una pequeña construcción tipo rancho, ideal como espacio recreativo o punto de partida para desarrollar un proyecto personal o turístico.",
+  "Uno de sus mayores atractivos es que colinda con el río Burrito, lo que convierte este terreno en un pequeño refugio natural rodeado de árboles y con el sonido relajante del agua. Un lugar perfecto para quienes sueñan con un rincón privado para descanso, retiro o incluso como inversión en turismo rural."
+],
+  "features": [
+    "Frente a río",
+    "Zona tranquila",
+    "Entorno natural",
+    "Acceso por calle pública",
+    "Agua disponible",
+    "Electricidad disponible"
+  ]
+}
+
+]
+
+
