@@ -24,6 +24,39 @@
     "Agua disponible",
     "Electricidad disponible"
   ]
+},
+
+{
+  "id": 2,
+  "slug": "lote-residencial-villa-azul",
+  "type": "lote",
+  "title": "Lote en Residencial Villa Azul",
+  "location": "La Fortuna - San Carlos",
+  "price": 115000,
+  "lotSize": 1019,
+  "badge": "Financiamiento disponible",
+  "folder": "002-lote-residencial-villa-azul",
+  "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"],
+  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+  "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
+  "description": [
+  "Lote ubicado en la entrada de Agua Azul, La Fortuna, a tan solo unos minutos del centro del pueblo. Su localización combina cercanía a todos los servicios esenciales con la tranquilidad de un entorno residencial.",
+  "Con una medida de 1.019 m², este terreno ofrece el espacio ideal para construir una casa, una villa vacacional o un proyecto turístico en una de las zonas más buscadas de San Carlos.",
+  "La propiedad cuenta con acceso por calle pública, disponibilidad de agua y electricidad, y además ofrece una vista privilegiada al volcán. Una excelente oportunidad de inversión con opciones de financiamiento disponibles."
+]
+,
+  "features": [
+    "Zona tranquila",
+    "Entorno natural",
+    "Acceso por calle pública",
+    "Agua disponible",
+    "Electricidad disponible",
+    "Vista al volcán",
+    "Cercanía a servicios",
+    "Oportunidad de inversión",
+    "Financiamiento disponible"
+
+  ]
 }
 
 ]
