@@ -1,16 +1,5 @@
 // === 🛠️ UTILS.JS ===
 
-// Etiquetas de características amigables para mostrar
-function getFeatureLabel(feature) {
-  const labels = {
-    'piscina': 'Piscina',
-    'jardin': 'Jardín',
-    'vista-volcan': 'Vista Volcán',
-    'eco-friendly': 'Eco-Friendly',
-    'amueblado': 'Amueblado'
-  };
-  return labels[feature] || feature;
-}
 
 // Convertir texto en slug (opcional para futuros enlaces o filtros)
 function slugify(text) {

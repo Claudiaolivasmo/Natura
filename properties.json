@@ -34,7 +34,7 @@
   "location": "La Fortuna - San Carlos",
   "price": 115000,
   "lotSize": 1019,
-  "badge": "Financiamiento disponible",
+  "badge": "Destacado",
   "folder": "002-lote-residencial-villa-azul",
   "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"],
   "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
