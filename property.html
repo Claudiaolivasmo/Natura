@@ -12,20 +12,44 @@
     <link rel="stylesheet" href="layout.css">
     <link rel="stylesheet" href="animation.css">
     <link rel="stylesheet" href="property.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <header class="header" id="header">
-        <a href="#" class="logo">
-            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
+      <!-- Header -->
+        <header class="header" id="header">
+        <a href="index.html" class="logo">
+          <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
         </a>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="properties.html">Propiedades</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            </ul>
+
+        <!-- Navegación desktop -->
+        <nav class="nav" aria-label="Principal">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="properties.html">Propiedades</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
         </nav>
-    </header>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" id="hamburger"
+                aria-label="Abrir menú"
+                aria-controls="navMobile"
+                aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Menú móvil -->
+        <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+          <div class="mobile-logo">
+            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
+          </div>
+          <ul>
+            <li><a href="index.html" data-close>Inicio</a></li>
+            <li><a href="properties.html" data-close>Propiedades</a></li>
+            <li><a href="contact.html" data-close>Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
 
     <!-- BREADCRUMB con contenedor global -->
     <nav class="breadcrumb">
@@ -238,5 +262,6 @@
     <script src="main.js" defer></script>
     <script src="property.js" defer></script>
     <script src="layout.js" defer></script>
+    <script src="header.js"></script>
 </body>
 </html>
