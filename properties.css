@@ -182,7 +182,7 @@ aside.filters-sidebar{
   box-shadow:0 6px 24px rgba(0,0,0,.1);
   display:flex; flex-direction:column;
   transition:transform .25s ease, box-shadow .25s ease;
-  border-radius:12px; overflow:hidden;
+  overflow:hidden;
   height:100%;                   /* ocupa todo el track */
 }
 .property-card:hover{ transform:translateY(-6px); box-shadow:0 14px 44px rgba(0,0,0,.16); }

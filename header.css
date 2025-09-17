@@ -6,6 +6,9 @@
   --text-dark:#1D1D1D;
   --font-title:'Cormorant Garamond',serif;
   --font-text:'Lato',sans-serif;
+
+  /* 🔒 Altura base del header para sticky/offset */
+  --header-h: 72px;
 }
 
 /* Reset básico */
@@ -18,20 +21,26 @@ body{
   line-height:1.6;
 }
 
-/* ===== Header ===== */
+/* ===== Header (STICKY) ===== */
 .header{
-  position:relative;
+  position:-webkit-sticky; /* iOS */
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:var(--header-h);
+  width:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:1rem 2rem;
+  padding:0 2rem;                 /* padding lateral, sin sumar a la altura */
   background:#fff;
   box-shadow:0 2px 10px rgba(0,0,0,.1);
-  z-index:100;
+  will-change:transform;
 }
 
+/* Logo dimensionado respecto a la altura del header */
 .logo img{
-  height:50px;
+  height:calc(var(--header-h) - 22px); /* deja margen vertical interno */
   width:auto;
   display:block;
 }
@@ -83,23 +92,21 @@ body{
   background:rgba(26,46,53,.95);
   -webkit-backdrop-filter:blur(10px);
   backdrop-filter:blur(10px);
-  display:flex;              /* se controla con [hidden] en HTML + JS */
+  display:flex;              /* se controla con [hidden]/aria-hidden en HTML+JS */
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  padding-top:72px;
+  padding-top:var(--header-h);
   z-index:1000;
 
-  /* Animación de aparición */
   opacity:0;
   pointer-events:none;
   transition:opacity .25s ease;
 }
 .nav-mobile[aria-hidden="false"]{
-  opacity:1;
-  pointer-events:auto;
+  opacity:1; pointer-events:auto;
 }
-.nav-mobile[hidden]{ display:flex; } /* mantiene layout pero oculto accesible vía atributo */
+.nav-mobile[hidden]{ display:flex; }
 
 .mobile-logo{ margin-bottom:2rem; padding:1rem; }
 .mobile-logo img{
@@ -122,11 +129,20 @@ body{
 
 /* ===== Responsive ===== */
 @media (max-width:768px){
+  :root{ --header-h: 64px; }  /* header un poco más bajo en móvil */
   .nav{ display:none; }
   .hamburger{ display:flex; }
-  .header{ padding:1rem; }
-  .logo img{ height:40px; }
+  .header{ padding:0 1rem; }
+  .logo img{ height:calc(var(--header-h) - 18px); }
 }
+
+/* ===== Offset para anclas (no se oculten bajo el header) ===== */
+html{ scroll-padding-top: var(--header-h); }
+section[id], [id].anchor{ scroll-margin-top: var(--header-h); }
+
+/* ===== Fallback opcional a fixed si algún contenedor rompe sticky ===== */
+body.header-fixed .header{ position:fixed; top:0; left:0; right:0; }
+body.header-fixed::before{ content:""; display:block; height:var(--header-h); }
 
 /* Demo contenido */
 .content{

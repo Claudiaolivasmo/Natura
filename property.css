@@ -309,6 +309,7 @@ html, body {
   white-space: normal;                /* 👈 permite varias líneas si es necesario */
   text-align: center;                 /* 👈 centra el texto */
   line-height: 1.25;
+  min-width: 140px; 
   max-width: 100%;
 }
 .feature-item i {
@@ -451,7 +452,7 @@ html, body {
 
   /* Features: 2 columnas en móviles medianos */
   .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .feature-item { font-size: 0.92rem; }
+  .feature-item { font-size: 0.92rem; min-width: 120px; }
   
   /* Lightbox: sin animaciones (más fluido en móvil) */
   .lb-close, .lb-nav { transition: none; }

@@ -1,87 +1,3 @@
-/* Tamaño inicial de la barra */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    height: 120px;                 /* altura inicial */
-    background-color: var(--background-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    transition: height 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Barra reducida al hacer scroll */
-.header.scrolled {
-    height: 90px;                  /* altura más pequeña */
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo inicial */
-.logo img {
-    height: 100px;
-    width: auto;
-    display: block;
-    transition: height 0.3s ease;
-}
-
-/* Logo reducido */
-.header.scrolled .logo img {
-    height: 70px;
-}
-
-
-/* Navegación intacta */
-.nav ul {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-}
-
-.nav a {
-    position: relative;
-    text-decoration: none;
-    color: var(--main-color);
-    font-weight: 400;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: var(--main-color);
-    transition: width 0.3s ease, left 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.nav a:hover { color: var(--accent-color); }
-.nav a:hover::after { width: 100%; }
-
-/* --- Bonus anti-rebote al ir a secciones con ancla ---
-   Si usas secciones con id (#about, #contact...), esto asegura
-   que el navegador detenga el scroll antes del header fijo. */
-html {
-  /* si usas CSS smooth global, puedes activarlo aquí */
-  /* scroll-behavior: smooth; */
-  scroll-padding-top: var(--header-h);
-}
-
-/* Alternativa puntual:
-   en cada sección con ancla, añade scroll-margin-top */
-section[id], [id].anchor {
-  scroll-margin-top: var(--header-h);
-}
-
-
 
 
 
@@ -197,18 +113,6 @@ section[id], [id].anchor {
 
 /* ====== Mobile (≤480px) ====== */
 @media (max-width: 480px) {
-  :root { --header-h: 64px; }
-
-  .header {
-    height: 64px;
-    padding: 0 .75rem;
-  }
-  .header.scrolled { height: 56px; }
-
-  .logo img { height: 44px; }
-  .header.scrolled .logo img { height: 40px; }
-
-  .nav ul { display: none; } /* ocultar menú horizontal en mobile */
 
   .breadcrumb { padding: .75rem 1rem; }
   .breadcrumb-nav { font-size: .85rem; gap: .35rem; }
@@ -231,13 +135,6 @@ section[id], [id].anchor {
 
 /* ====== Small devices (≤640px) ====== */
 @media (max-width: 640px) {
-  :root { --header-h: 72px; }
-
-  .header { height: 72px; padding: 0 1rem; }
-  .header.scrolled { height: 60px; }
-
-  .logo img { height: 52px; }
-  .header.scrolled .logo img { height: 44px; }
 
   .breadcrumb { padding: .9rem 1.25rem; }
   .breadcrumb-nav { max-width: 100%; }
@@ -247,21 +144,7 @@ section[id], [id].anchor {
 
 /* ====== Tablets (≥768px) ====== */
 @media (min-width: 768px) {
-  :root { --header-h: 90px; }
 
-  .header {
-    height: 90px;
-    padding: 0 1.5rem;
-  }
-  .header.scrolled { height: 80px; }
-
-  .logo img { height: 70px; }
-  .header.scrolled .logo img { height: 60px; }
-
-  .nav ul {
-    display: flex;
-    gap: 1.25rem;
-  }
 
   .breadcrumb { padding: 1rem 2rem; }
   .breadcrumb-nav { max-width: 1200px; font-size: .95rem; }
@@ -281,18 +164,6 @@ section[id], [id].anchor {
 
 /* ====== Laptops (≥1024px) ====== */
 @media (min-width: 1024px) {
-  :root { --header-h: 100px; }
-
-  .header {
-    height: 100px;
-    padding: 0 2rem;
-  }
-  .header.scrolled { height: 86px; }
-
-  .logo img { height: 88px; }
-  .header.scrolled .logo img { height: 70px; }
-
-  .nav ul { gap: 1.75rem; }
 
   .breadcrumb-nav { max-width: 1400px; }
 
@@ -302,18 +173,6 @@ section[id], [id].anchor {
 
 /* ====== Desktops grandes (≥1280px) ====== */
 @media (min-width: 1280px) {
-  :root { --header-h: 110px; }
-
-  .header {
-    height: 110px;
-    padding: 0 3rem;
-  }
-  .header.scrolled { height: 90px; }
-
-  .logo img { height: 100px; }
-  .header.scrolled .logo img { height: 72px; }
-
-  .nav ul { gap: 2rem; }
 
   .footer { padding: 3.5rem 2rem; }
   .footer-content.centered { max-width: 760px; }
