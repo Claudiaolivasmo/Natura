@@ -137,136 +137,137 @@
 
 
 
-
-
-
-        
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: auto;
-            padding: 0 1rem;
+        /* === GRID: columnas fluidas y cards con misma altura === */
+        .property-grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 16px;
+        align-items: stretch;                /* estira las cards a misma altura */
         }
 
-        .property-card {
-            background: white;
-            border-radius: 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+        /* === CARD base === */
+        .property-card{
+        display:flex;                        /* permite que el body se estire */
+        flex-direction:column;
+        background:#fff;
+        box-shadow:0 4px 20px rgba(0,0,0,.08);
+        overflow:hidden;
+        position:relative;
+        cursor:pointer;
+        transition:transform .25s ease, box-shadow .25s ease;
+        }
+        .property-card:hover{
+        transform:translateY(-6px);
+        box-shadow:0 12px 34px rgba(0,0,0,.14);
         }
 
-        .property-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        .property-card-link {
+            display: block;             /* el anchor ocupa toda la card */
+            text-decoration: none;
+            color: inherit;
         }
 
-        .property-image {
-            position: relative;
-            height: 280px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+
+        /* === MEDIA: altura consistente con relación de aspecto === */
+        .property-image{
+        position:relative;
+        aspect-ratio: 16/9;                  /* en vez de height fijo */
+        overflow:hidden;
+        background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+        }
+        @media (max-width: 640px){
+        .property-image{ aspect-ratio: 4/3; }/* más alto en móvil */
         }
 
-        .property-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(32,64,16,0.1), rgba(123,63,0,0.1));
-            z-index: 1;
+        /* imagen real dentro del contenedor */
+        .property-image img,
+        .property-img{                          /* por si usas class="property-img" */
+        width:100%;
+        height:100%;
+        object-fit:cover;                     /* recorta sin deformar */
+        display:block;
         }
 
-        .property-placeholder {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 2;
+        /* velito superior opcional (si lo quieres, mantenlo suave) */
+        .property-image::before{
+        content:'';
+        position:absolute; inset:0;
+        background: linear-gradient(45deg, rgba(32,64,16,.08), rgba(123,63,0,.08));
+        z-index:1;
         }
 
-        .property-placeholder .icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            display: block;
+        /* placeholders (solo si no hay imagen) */
+        .property-placeholder{
+        position:absolute; inset:0;
+        display:flex; flex-direction:column; align-items:center; justify-content:center;
+        color:#fff; z-index:2; text-align:center;
+        }
+        .property-placeholder .icon{ font-size:3rem; margin-bottom:.5rem; }
+        .property-placeholder .label{ font-size:.9rem; letter-spacing:1px; opacity:.9; text-transform:uppercase; }
+
+        /* badge siempre visible sobre la imagen */
+        .property-badge{
+        position:absolute; top:12px; right:12px; z-index:3;
+        background: var(--accent-color);
+        color:#fff; font-size:.78rem; font-weight:600;
+        padding:.35rem .7rem; letter-spacing:.02em;
+        text-transform:uppercase;
         }
 
-        .property-placeholder .label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* === BODY de la card === */
+        .property-content{
+        flex:1;                               /* ocupa alto restante => cards iguales */
+        display:flex; flex-direction:column; gap:10px;
+        padding:20px;
         }
 
-        .property-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            z-index: 3;
+        .property-title{
+        font-family: var(--font-title);
+        font-size: clamp(1.1rem, 1.2vw + 1rem, 1.45rem);
+        font-weight:600; color: var(--main-color);
+        margin:0 0 .3rem 0;
+        line-height:1.2;
         }
 
-        .property-content {
-            padding: 2rem;
+        .property-details{
+        color: var(--text-dark);
+        opacity:.75; margin:0 0 .75rem 0;
+        font-size: .98rem;
         }
 
-        .property-title {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--main-color);
-            margin-bottom: 0.8rem;
+        /* chips */
+        .property-features{
+        display:flex; flex-wrap:wrap; gap:.5rem;
+        margin-bottom:1rem;
+        }
+        .feature-tag{
+        background: rgba(32,64,16,.1);
+        color: var(--main-color);
+        padding:.28rem .6rem;
+        font-size:.82rem; font-weight:500;
+
         }
 
-        .property-details {
-            color: var(--text-dark);
-            opacity: 0.7;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+        /* zona inferior pegada al fondo */
+        .property-price{
+        margin-top:auto;                      /* empuja hacia el fondo */
+        display:flex; justify-content:space-between; align-items:center; gap:12px;
+        }
+        .price{
+        font-family: var(--font-text);
+        font-size:1.1rem; font-weight:700;
+        color: var(--text-dark); opacity:.9;
         }
 
-        .property-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
 
-        .feature-tag {
-            background: rgba(32,64,16,0.1);
-            color: var(--main-color);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
 
-        .property-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .price {
-            font-family: var(--font-text);
-            font-size: 1.3rem;
-            opacity: 0.85;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
+
+
+
 
 
 

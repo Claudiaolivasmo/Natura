@@ -34,7 +34,7 @@
   "location": "La Fortuna - San Carlos",
   "price": 115000,
   "lotSize": 1019,
-  "badge": "Destacado",
+  "badge": "Financiamiento disponible",
   "folder": "002-lote-residencial-villa-azul",
   "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"],
   "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
@@ -57,7 +57,49 @@
     "Financiamiento disponible"
 
   ]
+},
+{
+  "id": 3,
+  "slug": "villa-el-manzano",
+  "type": "casa",
+  "title": "Villa El Manzano",
+  "location": "Chachagua - San Ramón",
+  "price": 158000,
+  "constructionSize": 140,
+  "lotSize": 1109,
+  "bedrooms": 2,
+  "bathrooms": 2,
+  "totalRooms": 2,
+  "floors": 1,
+  "yearBuilt": 2023,
+  "parking": 2,
+  "badge": "Destacado",
+  "folder": "001-villa-el-manzano",
+  "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg","8.jpeg","9.jpeg","10.jpeg"],
+  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+  "geo": { "lat": 10.470500, "lng": -84.640800, "zoom": 15 },
+  "description": [
+    "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero de 1.109,50 m², con una construcción de 140 m² que integra dos villas contemporáneas y funcionales.",
+    "Cada villa dispone de dos habitaciones, brindando comodidad y un ambiente acogedor.",
+    "La propiedad se distingue por sus amenidades pensadas para el disfrute y la privacidad: cercas vivas alrededor, un espacioso rancho BBQ, cochera, bodega independiente y accesos separados con portones individuales.",
+    "Sus amplias áreas verdes con jardines y árboles frutales crean un entorno natural ideal para el descanso, a tan solo 50 metros del río Chachaguita.",
+    "Una excelente alternativa de inversión, perfecta para residencia familiar o como proyecto de renta vacacional."
+  ],
+  "features": [
+    "2 dormitorios",
+    "2 baños completos",
+    "Construcción de 140 m²",
+    "Lote de 1.109 m²",
+    "1 piso",
+    "Año de construcción: 2023",
+    "Rancho BBQ",
+    "Cochera",
+    "Bodega independiente",
+    "Jardines y árboles frutales",
+    "Cercas vivas"
+  ]
 }
+
 
 ]
 

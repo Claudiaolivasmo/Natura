@@ -1,6 +1,8 @@
+
+
 // === 🏠 HOME.JS ===
 
-// Botones principales del hero
+// ───────────────────────── Hero Buttons ─
 const exploreBtn = document.getElementById('exploreBtn');
 if (exploreBtn) {
   exploreBtn.addEventListener('click', () => {
@@ -23,14 +25,12 @@ if (viewAllBtn) {
   });
 }
 
-// Utilidad para aplicar hover a cards existentes (y poder reusarla tras render)
+// ───────────────────────── Hover effect ─
 function attachHoverToCards() {
   const hoverCards = document.querySelectorAll('.service-card, .property-card');
   hoverCards.forEach(card => {
-    // evita listeners duplicados
     if (card.__hoverBound) return;
     card.__hoverBound = true;
-
     card.addEventListener('mouseenter', () => {
       card.style.transform = 'translateY(-8px) scale(1.02)';
     });
@@ -41,58 +41,37 @@ function attachHoverToCards() {
 }
 attachHoverToCards();
 
-// ───────────────────────── Featured (Home) ─ 3 tarjetas
+// ───────────────────────── Featured (Home) ─
 
-// Fallbacks mínimos por si no cargas properties.js en home
-const _mapType = (t) => {
-  const x = (t || '').toLowerCase();
-  if (x === 'terreno') return 'lote';
-  return x || '';
-};
-const _isDwelling = (t) => ['casa','apartamento','villa','cabana'].includes((t||'').toLowerCase());
-const _effectiveType = (p) => _mapType(p.type || (
-  ((p.badge||'').toLowerCase().includes('terreno') || (p.title||'').toLowerCase().includes('lote')) ? 'lote' : 'casa'
-));
-const _primaryImage = (p) => `/images/properties/${p.folder}/${p.images?.[0] || ''}`;
-const _linkFor = (p) => p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}` : `property.html?id=${encodeURIComponent(p.id)}`;
+// utils
+const imgSrc = (p) => `/images/properties/${p.folder}/${p.images?.[0] || ''}`;
+const linkFor = (p) =>
+  p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}`
+         : `property.html?id=${encodeURIComponent(p.id)}`;
+const isFeatured = (p) =>
+  p?.featured === true || (p?.badge || '').toLowerCase().includes('destacado');
 
-// Si ya existen las funciones del listado, úsalas; si no, usa los fallbacks
-const mapType = (typeof window.mapType === 'function') ? window.mapType : _mapType;
-const isDwelling = (typeof window.isDwelling === 'function') ? window.isDwelling : _isDwelling;
-const effectiveType = (typeof window.effectiveType === 'function') ? window.effectiveType : _effectiveType;
-const primaryImage = (typeof window.primaryImage === 'function') ? window.primaryImage : _primaryImage;
-const linkFor = (typeof window.linkFor === 'function') ? window.linkFor : _linkFor;
+function buildMeta(p) {
+  const bits = [];
+  if (p.location) bits.push(p.location);
+  if (p.bedrooms != null) bits.push(`${p.bedrooms} Hab`);
+  if (p.bathrooms != null) bits.push(`${p.bathrooms} Baños`);
+  if (p.lotSize != null) bits.push(`${p.lotSize} m² lote`);
+  return bits.join(' • ');
+}
 
-// Card mínima para Home si no existe renderCard global
 function renderCardHome(p) {
-  const t = effectiveType(p);
-  const isHome = isDwelling(t);
-  const meta = [];
-
-  if (isHome) {
-    if (p.bedrooms != null) meta.push(`${p.bedrooms} Hab`);
-    if (p.bathrooms != null) meta.push(`${p.bathrooms} Baños`);
-    if (p.area) meta.push(`${p.area} m² constr.`);
-    if (p.lotSize) meta.push(`${p.lotSize} m² lote`);
-  } else {
-    const s = Number(p.lotSize ?? p.area ?? 0);
-    if (s) meta.push(`${s} m²`);
-    if (p.topography) meta.push(`Topografía: ${p.topography}`);
-  }
-
-  const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
+  const badge = p.badge ? `<div class="property-badge">${p.badge}</div>` : '';
   return `
     <a href="${linkFor(p)}" class="property-card-link">
       <div class="property-card">
         <div class="property-image">
-          <img class="property-photo" src="${primaryImage(p)}" alt="${p.title}">
-          ${badge ? `<div class="property-badge">${badge}</div>` : ''}
-          <div class="property-type-tag">${t}</div>
+          <img class="property-photo" src="${imgSrc(p)}" alt="${p.title}">
+          ${badge}
         </div>
         <div class="property-content">
-          <h4 class="property-title">${p.title}</h4>
-          <p class="property-location">${p.location || ''}</p>
-          ${meta.length ? `<p class="property-meta">${meta.join(' • ')}</p>` : ''}
+          <h4 class="property-title">${p.title || ''}</h4>
+          <p class="property-details">${buildMeta(p)}</p>
           <div class="property-price">
             <span class="price">$${Number(p.price || 0).toLocaleString()}</span>
             <span class="view-btn">Ver Detalles</span>
@@ -103,52 +82,57 @@ function renderCardHome(p) {
   `;
 }
 
-// Usa el render global si existe; si no, usa el de Home
-const renderCardSafe = (typeof window.renderCard === 'function') ? window.renderCard : renderCardHome;
 
-function pickFeatured(props) {
-  // Prioriza featured:true o badge que contenga "destacado"
-  const featured = (props || []).filter(p =>
-    p.featured === true ||
-    (p.badge || '').toLowerCase().includes('destacado')
-  );
-  const base = featured.length ? featured : [...props].sort((a,b) => (b.id||0) - (a.id||0));
-  return base.slice(0, 3);
+
+// prioriza destacados, rellena con recientes
+function pickFeatured(list, n = 3) {
+  const props = Array.isArray(list) ? list : [];
+  const destacados = props.filter(isFeatured).sort((a,b) => (b.id||0)-(a.id||0));
+  const recientes  = [...props].sort((a,b) => (b.id||0)-(a.id||0));
+
+  const out = [];
+  for (const p of destacados) { if (out.length < n) out.push(p); }
+  for (const p of recientes) {
+    if (out.length < n && !out.some(x => x.id === p.id)) out.push(p);
+  }
+  return out;
 }
 
 function renderFeatured(props) {
-  const container = document.querySelector('#propiedades .property-grid');
-  if (!container) return;
+  const container = document.getElementById('featuredGrid');
+  if (!container) { console.warn('[home] NO featuredGrid'); return; }
 
-  const chosen = pickFeatured(props);
-  if (!chosen.length) {
-    container.innerHTML = `<div class="no-results">Aún no hay propiedades destacadas.</div>`;
-    return;
-  }
+  const chosen = pickFeatured(props, 3);
+  container.innerHTML = chosen.length
+    ? chosen.map(renderCardHome).join('')
+    : `<div class="no-results">Aún no hay propiedades destacadas.</div>`;
 
-  container.innerHTML = chosen.map(renderCardSafe).join('');
-  // Aplica hover a las nuevas tarjetas
+  console.log('[home] rendered cards:', container.children.length);
   attachHoverToCards();
 }
 
-// Hook: carga JSON y pinta destacadas
+
+// ───────────────────────── Init ─
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('properties.json')
-    .then(r => r.json())
-    .then(data => {
-      const normalized = (data || []).map(p => ({ ...p, type: effectiveType(p) }));
-      window.properties = normalized;
-      window.filteredProperties = [...normalized];
+  // Si tu JSON está en otra carpeta, ajusta la ruta:
+  // ej. const url = './data/properties.json';
+  const url = 'properties.json';
 
-      renderFeatured(normalized);
-
-      // Si la página home también carga componentes del listado, estos serán opcionales:
-      window.renderProperties?.();
-      window.setupUI?.();
-      window.applyAdvancedState?.(false);
-      window.enforceTypeRules?.();
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
     })
-    .catch(err => console.error('Error al cargar el JSON:', err));
+    .then(data => {
+      const list = Array.isArray(data) ? data : [];
+      window.properties = list;
+      renderFeatured(list);
+    })
+    .catch(err => {
+      console.error('Error al cargar properties.json:', err);
+      const container = document.getElementById('featuredGrid');
+      if (container) {
+        container.innerHTML = `<div class="no-results">No se pudieron cargar las propiedades.</div>`;
+      }
+    });
 });
-
-// (Eliminado el listener delegado duplicado de #viewAllBtn)
