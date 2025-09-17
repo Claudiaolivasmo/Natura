@@ -1,27 +1,33 @@
+/* =========================================================
+   Base / Reset
+========================================================= */
 html, body {
   height: 100%;
 }
 
+/* Contenedor general para páginas internas */
 .inner-page-container {
   max-width: 1400px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   box-sizing: border-box;
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
-/* === Layout General (ancho consistente) === */
+/* =========================================================
+   Breadcrumb / Layout general
+========================================================= */
 .breadcrumb {
-  background: white;
+  background: #fff;
   padding: 1rem 0;
   border-bottom: 1px solid #eee;
 }
 .breadcrumb-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Siempre inicia a la izquierda */
+  justify-content: flex-start; /* Inicia a la izquierda */
   gap: 0.5rem;
   font-size: 0.9rem;
   text-align: left;
@@ -34,6 +40,7 @@ html, body {
   text-decoration: underline;
 }
 
+/* Contenido principal */
 .main-content {
   max-width: none;
   margin: 0;
@@ -42,26 +49,27 @@ html, body {
   box-sizing: border-box;
 }
 
-/* === Propiedad Header === */
-/* === Propiedad Header === */
+/* =========================================================
+   Encabezado de Propiedad
+========================================================= */
 .property-header {
   margin-top: 2rem;
+  margin-bottom: 1rem;
   display: grid;
   gap: 0.5rem;
-  margin-bottom: 1rem;
   justify-items: start;
 }
 
-/* Etiqueta de precio destacada */
+/* Etiqueta de precio */
 .price-tag {
-  display: inline-block;   /* 👈 envuelve solo el contenido */
+  display: inline-block;
   padding: 0.45rem 0.9rem;
   background: var(--main-color);
   color: #fff;
   font-family: var(--font-text);
   font-weight: 700;
   font-size: 1.2rem;
-  border-radius: 8px;     
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin: 0.5rem 0;
 }
@@ -72,7 +80,7 @@ html, body {
   font-size: 2.2rem;
   font-weight: 600;
   color: var(--main-color);
-  margin: 0; /* sin margenes raros */
+  margin: 0;
 }
 
 /* Ubicación */
@@ -83,13 +91,13 @@ html, body {
   font-size: 1.1rem;
 }
 
-
-
-
-/* === Galería === */
+/* =========================================================
+   Galería
+========================================================= */
 .gallery-section {
   position: relative;
 }
+
 .main-image {
   width: 100%;
   height: 500px;
@@ -99,14 +107,15 @@ html, body {
   margin-bottom: 1rem;
   background-size: cover;
   background-position: center;
+  cursor: zoom-in; /* pista visual para lightbox */
 }
+
 .image-placeholder {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: #fff;
 }
 .image-placeholder .icon {
   font-size: 4rem;
@@ -117,12 +126,14 @@ html, body {
   font-size: 1.2rem;
   font-weight: 500;
 }
+
+/* Navegación */
 .gallery-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   border: none;
   padding: 1rem;
   cursor: pointer;
@@ -130,15 +141,11 @@ html, body {
   transition: all 0.3s ease;
   z-index: 1;
 }
-.gallery-nav:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-.gallery-nav.prev {
-  left: 1rem;
-}
-.gallery-nav.next {
-  right: 1rem;
-}
+.gallery-nav:hover { background: rgba(0, 0, 0, 0.7); }
+.gallery-nav.prev { left: 1rem; }
+.gallery-nav.next { right: 1rem; }
+
+/* Miniaturas */
 .thumbnail-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -155,22 +162,18 @@ html, body {
   opacity: 1;
   border: 3px solid var(--accent-color);
 }
-.thumbnail:hover {
-  opacity: 1;
-}
+.thumbnail:hover { opacity: 1; }
 .thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-.thumbnail:hover img {
-  transform: scale(1.05);
-}
+.thumbnail:hover img { transform: scale(1.05); }
 
-
-
-/* === Botones === */
+/* =========================================================
+   Botones
+========================================================= */
 .btn-primary,
 .btn-secondary {
   padding: 1rem 2rem;
@@ -188,7 +191,7 @@ html, body {
 }
 .btn-primary {
   background: var(--accent-color);
-  color: white;
+  color: #fff;
   border: none;
 }
 .btn-primary:hover {
@@ -202,10 +205,12 @@ html, body {
 }
 .btn-secondary:hover {
   background: var(--main-color);
-  color: white;
+  color: #fff;
 }
 
-/* === Tabs & Descripción === */
+/* =========================================================
+   Tabs & Descripción
+========================================================= */
 .property-details,
 .details-tabs {
   display: grid;
@@ -213,13 +218,10 @@ html, body {
   width: 100%;
   align-items: start;
   overflow: visible;
-
 }
+.property-details > aside { align-self: start; }
 
-.property-details > aside {
-  align-self: start;        /* por si algún reset lo centra verticalmente */
-}
-
+/* Navegación de tabs */
 .tab-navigation {
   display: flex;
   background: rgba(32, 64, 16, 0.05);
@@ -239,21 +241,27 @@ html, body {
   text-align: center;
 }
 .tab-button.active {
-  background: white;
+  background: #fff;
   color: var(--main-color);
   border-bottom-color: var(--accent-color);
 }
-.tab-button:hover {
-  background: rgba(255, 255, 255, 0.7);
-}
+.tab-button:hover { background: rgba(255, 255, 255, 0.7); }
+
+/* Título de sección (único) */
 .section-title {
-  font-family: var(--font-title);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--font-title, serif);
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--main-color);
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--accent-color);
 }
+.section-title i { color: var(--main-color, #0a7); }
+
+/* Descripción */
 #propertyDescription p {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -262,87 +270,72 @@ html, body {
   opacity: 0.9;
 }
 
-
-
-/* ---------- Sección general ---------- */
-.features-section{
+/* =========================================================
+   Features (centrado)
+========================================================= */
+.features-section {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 1.25rem 1.25rem 1rem;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,.04);
-  margin-bottom: 2rem;
 }
 
-.section-title{
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  font-family: var(--font-title, serif);
-  font-size: 1.25rem;
-  margin: 0 0 1rem 0;
-  color: #1d2939;
-}
-
-.section-title i{ color: var(--main-color, #0a7); }
-
-.contact-agent {
-  position: sticky;
-  top: 100px;
-  align-self: start;
-}
-
-/* ---------- Grid de features ---------- */
-.features-grid{
+/* Grid de features: centramos el contenido en cada celda */
+.features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: .75rem .85rem;
   list-style: none;
   padding: 0;
   margin: 0;
+  justify-items: center;              /* 👈 centra horizontalmente cada pill en su celda */
 }
 
-.feature-item{
+/* Pill de feature: texto centrado y con wrap */
+.feature-item {
   display: inline-flex;
   align-items: center;
+  justify-content: center;            /* 👈 centra icono+texto dentro del pill */
   gap: .55rem;
   padding: .6rem .9rem;
-  background: var(--main-color, #0a7);   /* 👈 círculo con main color */
-  border-radius: 999px;                  /* pill */
+  background: var(--main-color, #0a7);
+  border-radius: 999px;
   font-size: .95rem;
-  color: #fff;                           /* texto blanco */
+  color: #fff;
   transition: transform .12s ease, box-shadow .12s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;                /* 👈 permite varias líneas si es necesario */
+  text-align: center;                 /* 👈 centra el texto */
+  line-height: 1.25;
+  max-width: 100%;
 }
-
-.feature-item i{
+.feature-item i {
   flex: 0 0 auto;
   font-size: .95rem;
-  color: #fff;                           /* icono blanco */
+  color: #fff;
 }
-
-.feature-item:hover{
+.feature-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,.15);
 }
 
-/* ---------- Ajustes responsivos ---------- */
-@media (max-width: 640px){
-  .features-section{ padding: 1rem; }
-  .features-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .feature-item{ font-size: .92rem; }
+/* Contacto del agente */
+.contact-agent {
+  position: sticky;
+  top: 100px;
+  align-self: start;
 }
 
-
-/* === Mapa === */
+/* =========================================================
+   Mapa
+========================================================= */
 .map-section {
-  padding: 1.25rem 1.25rem 1rem;  /* mismo padding que features */
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:14px;
+  padding: 1.25rem 1.25rem 1rem;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,.04);
   margin-bottom: 2rem;
 }
@@ -357,15 +350,9 @@ html, body {
   margin-top: 1rem;
 }
 
-
-
-
-
-
-
-
-
-/* === LIGHTBOX / FULLSCREEN === */
+/* =========================================================
+   Lightbox / Fullscreen
+========================================================= */
 .lb.hidden { display: none; }
 
 .lb {
@@ -375,18 +362,15 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;               /* por encima de todo */
+  z-index: 9999;
   user-select: none;
 }
-
 .lb-img {
   max-width: 92vw;
   max-height: 92vh;
   object-fit: contain;
   box-shadow: 0 10px 40px rgba(0,0,0,.5);
 }
-
-/* Controles del lightbox */
 .lb-close,
 .lb-nav {
   position: absolute;
@@ -404,17 +388,14 @@ html, body {
   backdrop-filter: blur(2px);
   transition: background .2s ease, transform .2s ease;
 }
-
 .lb-close { top: 18px; right: 18px; font-size: 28px; }
 .lb-prev  { left: 18px; }
 .lb-next  { right: 18px; }
-
 .lb-close:hover,
 .lb-nav:hover {
   background: rgba(0, 0, 0, .55);
   transform: translateY(-1px);
 }
-
 .lb-counter {
   position: absolute;
   bottom: 16px;
@@ -427,70 +408,66 @@ html, body {
   border-radius: 999px;
 }
 
-/* Pista visual en la imagen principal */
-#mainImage { cursor: zoom-in; }
+/* =========================================================
+   Responsive
+========================================================= */
 
-/* Opcional: mejor foco accesible en controles del lightbox */
-.lb-close:focus-visible,
-.lb-nav:focus-visible {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
+/* ≤1280px: ajustes suaves */
+@media (max-width: 1280px) {
+  .property-title { font-size: 2rem; }
+  .thumbnail { height: 90px; }
 }
 
-
-
-
-
-
-
-
-
-
-/* === Responsive === */
+/* ≤1024px: stack header y miniaturas 3 columnas */
 @media (max-width: 1024px) {
-  .property-header{ 
-    grid-template-columns:1fr; 
-    gap:2rem; 
-  }
-
-  .property-info {
-    position: static;
+  .property-header { 
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
   }
   .thumbnail-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 768px) {
-    .inner-page-container{ 
-      padding-left:1rem; 
-      padding-right:1rem; 
-    
-  }
 
-  .main-content {
-    padding: 1rem;
+/* ≤768px: padding, tamaños de galería y tabs compactos */
+@media (max-width: 768px) {
+  .inner-page-container { 
+    padding-left: 1rem; 
+    padding-right: 1rem; 
   }
-  .main-image {
-    height: 300px;
-  }
-  .property-title {
-    font-size: 1.8rem;
-  }
-  .property-price {
-    font-size: 2rem;
-  }
-  .thumbnail-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .tab-navigation {
-    flex-wrap: wrap;
-  }
+  .main-content { padding: 1rem; }
+  .main-image { height: 300px; }
+  .property-title { font-size: 1.8rem; }
+  .price-tag { font-size: 1.05rem; }
+  .thumbnail-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .tab-navigation { flex-wrap: wrap; }
   .tab-button {
     flex: 1;
     min-width: 120px;
     padding: 1rem;
     font-size: 0.9rem;
   }
+
+  /* Features: 2 columnas en móviles medianos */
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-item { font-size: 0.92rem; }
+  
+  /* Lightbox: sin animaciones (más fluido en móvil) */
   .lb-close, .lb-nav { transition: none; }
 }
 
+/* ≤480px: tipografías y controles más pequeños */
+@media (max-width: 480px) {
+  .breadcrumb { padding: 0.75rem 0; }
+  .gallery-nav { padding: 0.75rem; font-size: 1.2rem; }
+  .thumbnail { height: 80px; }
+  .section-title { font-size: 1.4rem; }
+  .map-placeholder { height: 300px; }
+
+  /* Features: 1-2 columnas según ancho */
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Si deseas estrictamente 1 columna en teléfonos muy estrechos, descomenta:
+  .features-grid { grid-template-columns: 1fr; } 
+  */
+}

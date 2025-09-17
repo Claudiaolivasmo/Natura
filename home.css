@@ -1,732 +1,443 @@
-        .hero {
-            position: relative;
-            background: url('/images/hero-bg.jpg') center center / cover no-repeat;
-            color: #fff;
-            min-height: 800px;  /* ajusta a tu gusto (500px, 650px, etc.) */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            }
-
-            /* Opcional: overlay oscuro para que el texto se lea mejor */
-            .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.45); /* nivel de oscuridad */
-            }
-
-            .hero-content {
-            position: relative; /* asegura que el texto quede encima del overlay */
-            max-width: 900px;
-            margin: 0 auto;
-            z-index: 1;
-            }
-
-
-        .tagline {
-            font-family: var(--font-text);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .main-text {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-bottom: 3rem;
-            line-height: 1.4;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            border: none;
-            padding: 1rem 2rem;
-            color: var(--background-light);
-            font-family: var(--font-text);
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            border-radius: 0;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--main-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--background-light);
-            padding: 1rem 2rem;
-            color: var(--background-light);
-            font-family: var(--font-text);
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--background-light);
-            color: var(--main-color);
-            transform: translateY(-2px);
-        }
-
-        .featured {
-            padding: 6rem 2rem;
-            background-color: var(--background-light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h3 {
-            font-family: var(--font-title);
-            font-size: 2.8rem;
-            font-weight: 600;
-            color: var(--main-color);
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
-
-        .section-title h3::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-
-        .section-title p {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            opacity: 0.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-
-
-        /* === GRID: columnas fluidas y cards con misma altura === */
-        .property-grid{
-        display:grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 28px;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 16px;
-        align-items: stretch;                /* estira las cards a misma altura */
-        }
-
-        /* === CARD base === */
-        .property-card{
-        display:flex;                        /* permite que el body se estire */
-        flex-direction:column;
-        background:#fff;
-        box-shadow:0 4px 20px rgba(0,0,0,.08);
-        overflow:hidden;
-        position:relative;
-        cursor:pointer;
-        transition:transform .25s ease, box-shadow .25s ease;
-        }
-        .property-card:hover{
-        transform:translateY(-6px);
-        box-shadow:0 12px 34px rgba(0,0,0,.14);
-        }
-
-        .property-card-link {
-            display: block;             /* el anchor ocupa toda la card */
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* === MEDIA: altura consistente con relación de aspecto === */
-        .property-image{
-        position:relative;
-        aspect-ratio: 16/9;                  /* en vez de height fijo */
-        overflow:hidden;
-        background: linear-gradient(135deg, var(--main-color), var(--accent-color));
-        }
-        @media (max-width: 640px){
-        .property-image{ aspect-ratio: 4/3; }/* más alto en móvil */
-        }
-
-        /* imagen real dentro del contenedor */
-        .property-image img,
-        .property-img{                          /* por si usas class="property-img" */
-        width:100%;
-        height:100%;
-        object-fit:cover;                     /* recorta sin deformar */
-        display:block;
-        }
-
-        /* velito superior opcional (si lo quieres, mantenlo suave) */
-        .property-image::before{
-        content:'';
-        position:absolute; inset:0;
-        background: linear-gradient(45deg, rgba(32,64,16,.08), rgba(123,63,0,.08));
-        z-index:1;
-        }
-
-        /* placeholders (solo si no hay imagen) */
-        .property-placeholder{
-        position:absolute; inset:0;
-        display:flex; flex-direction:column; align-items:center; justify-content:center;
-        color:#fff; z-index:2; text-align:center;
-        }
-        .property-placeholder .icon{ font-size:3rem; margin-bottom:.5rem; }
-        .property-placeholder .label{ font-size:.9rem; letter-spacing:1px; opacity:.9; text-transform:uppercase; }
-
-        /* badge siempre visible sobre la imagen */
-        .property-badge{
-        position:absolute; top:12px; right:12px; z-index:3;
-        background: var(--accent-color);
-        color:#fff; font-size:.78rem; font-weight:600;
-        padding:.35rem .7rem; letter-spacing:.02em;
-        text-transform:uppercase;
-        }
-
-        /* === BODY de la card === */
-        .property-content{
-        flex:1;                               /* ocupa alto restante => cards iguales */
-        display:flex; flex-direction:column; gap:10px;
-        padding:20px;
-        }
-
-        .property-title{
-        font-family: var(--font-title);
-        font-size: clamp(1.1rem, 1.2vw + 1rem, 1.45rem);
-        font-weight:600; color: var(--main-color);
-        margin:0 0 .3rem 0;
-        line-height:1.2;
-        }
-
-        .property-details{
-        color: var(--text-dark);
-        opacity:.75; margin:0 0 .75rem 0;
-        font-size: .98rem;
-        }
-
-        /* chips */
-        .property-features{
-        display:flex; flex-wrap:wrap; gap:.5rem;
-        margin-bottom:1rem;
-        }
-        .feature-tag{
-        background: rgba(32,64,16,.1);
-        color: var(--main-color);
-        padding:.28rem .6rem;
-        font-size:.82rem; font-weight:500;
-
-        }
-
-        /* zona inferior pegada al fondo */
-        .property-price{
-        margin-top:auto;                      /* empuja hacia el fondo */
-        display:flex; justify-content:space-between; align-items:center; gap:12px;
-        }
-        .price{
-        font-family: var(--font-text);
-        font-size:1.1rem; font-weight:700;
-        color: var(--text-dark); opacity:.9;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        .lafortuna {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f8f6f0 0%, #f0ede3 100%);
-        }
-
-        .lafortuna-content {
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .lafortuna-content h3 {
-            font-family: var(--font-title);
-            font-size: 2.8rem;
-            font-weight: 600;
-            color: var(--main-color);
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .lafortuna-content h3::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-
-        .lafortuna-content > p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-dark);
-            opacity: 0.9;
-        }
-            /* Grid */
-            .lafortuna-grid{
-                margin-top: 3rem;
-                display:grid;
-                grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-                gap:2.5rem;
-            }
-
-            /* Caja con imagen (¡altura!) */
-            .lafortuna-box{
-                position: relative;
-                aspect-ratio: 4 / 5;
-                background-size: 100%;
-                background-position: center;
-                overflow: hidden;
-                cursor: pointer;
-                transition: transform .4s ease, background-size .6s ease;
-            }
-            .lafortuna-box:hover {
-                transform: scale(1.03);
-                background-size: 110%; /* zoom suave */
-            }
-
-
-            /* Overlay */
-            
-
-            /* En móviles (sin hover), muéstralo siempre */
-            @media (hover:none){
-            .overlay{ opacity:1; transform:none; }
-            }
-
-        /* === Overlay general === */
-        .overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78));
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0s ease, transform 0s ease;
-        }
-
-        /* Mostrar overlay en hover */
-        .lafortuna-box:hover .overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* === Contenedor del texto con efecto marco === */
-        .overlay-inner {
-            position: relative;
-            text-align: center;
-            padding: 1.5rem 1.75rem;
-            max-width: 80%;
-            background: rgba(0,0,0,.22);
-            backdrop-filter: blur(2px);
-            text-shadow: 0 2px 8px rgba(0,0,0,.7);
-            color: #fff;
-        }
-
-        /* Líneas superiores e izquierda */
-        .overlay-inner::before,
-        .overlay-inner::after {
-            content: '';
-            position: absolute;
-            background: rgba(255,255,255,0.9);
-            transition: all 1s ease;
-        }
-
-        /* Línea horizontal (top) */
-        .overlay-inner::before {
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 0;
-        }
-
-        /* Línea vertical (left) */
-        .overlay-inner::after {
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 0;
-        }
-
-        /* Líneas inferiores y derecha usando un span */
-        .overlay-inner span::before,
-        .overlay-inner span::after {
-            content: '';
-            position: absolute;
-            background: rgba(255,255,255,0.9);
-            transition: all 1s ease;
-        }
-
-        /* Línea horizontal (bottom) */
-        .overlay-inner span::before {
-            bottom: 0;
-            right: 0;
-            height: 2px;
-            width: 0;
-        }
-
-        /* Línea vertical (right) */
-        .overlay-inner span::after {
-            bottom: 0;
-            right: 0;
-            width: 2px;
-            height: 0;
-        }
-
-        /* Animación en hover: dibuja el marco */
-        .lafortuna-box:hover .overlay-inner::before { width: 100%; }
-        .lafortuna-box:hover .overlay-inner::after { height: 100%; }
-        .lafortuna-box:hover .overlay-inner span::before { width: 100%; }
-        .lafortuna-box:hover .overlay-inner span::after { height: 100%; }
-
-        /* === Tipografía === */
-        .overlay-inner h4 {
-            margin: 0 0 .5rem;
-            font-weight: 800;
-            letter-spacing: .5px;
-            color: #fff;
-        }
-
-        .overlay-inner p {
-            margin: 0;
-            line-height: 1.5;
-            color: #fff;
-        }
-
-
-        .stats-section {
-            background: var(--main-color);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .stat-item {
-            padding: 1rem;
-        }
-
-        .stat-number {
-            font-family: var(--font-title);
-            font-size: 3rem;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-
-
-
-
-/* Services Section Styles */
-        .services-section {
-            padding: 6rem 2rem;
-            background: white;
-        }
-
-        .services-content {
-            max-width: 1400px;
-            margin: auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .service-card {
-            background: var(--background-light);
-            padding: 2.5rem;
-            border-left: 4px solid var(--main-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border-left-color: var(--accent-color);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .service-card h4 {
-            font-family: var(--font-title);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--main-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            opacity: 0.9;
-        }
-
-        .service-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .service-card ul li {
-            padding: 0.5rem 0;
-            color: var(--text-dark);
-            opacity: 0.8;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .service-card ul li::before {
-            content: "🌿";
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-
-
-
-        
-/* === Íconos redondos verdes === */
-.service-circle {
-  width: 3rem;
-  height: 3rem;
-  background-color: var(--main-color-light);
-  border-radius: 9999px;
+/* ===========================
+   HOME.CSS — Mobile-first
+   =========================== */
+
+/* ===== Hero ===== */
+.hero{
+  position: relative;
+  background: url('/images/hero-bg.jpg') center center / cover no-repeat;
+  color: #fff;
+  min-height: 65vh;                 /* mobile-first */
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.45);
+}
+.hero-content{
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  z-index: 1;
 }
 
-.service-circle-inner {
-  width: 1.5rem;
-  height: 1.5rem;
+.tagline{
+  font-family: var(--font-text);
+  font-size: .95rem;
+  margin-bottom: 1rem;
+  letter-spacing: .12rem;
+  text-transform: uppercase;
+  opacity: .9;
+  animation: fadeInUp 1s ease-out;
+}
+.main-text{
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  line-height: 1.35;
+  animation: fadeInUp 1s ease-out .3s both;
+}
+.hero-buttons{
+  display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;
+  animation: fadeInUp 1s ease-out .6s both;
+}
+.btn-primary{
+  background-color: var(--accent-color);
+  border: none;
+  padding: .85rem 1.25rem;
+  color: var(--background-light);
+  font-family: var(--font-text);
+  font-size: .9rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all .3s ease;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+.btn-primary:hover{
   background-color: var(--main-color);
-  border-radius: 9999px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+.btn-secondary{
+  background-color: transparent;
+  border: 2px solid var(--background-light);
+  padding: .85rem 1.25rem;
+  color: var(--background-light);
+  font-family: var(--font-text);
+  font-size: .9rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all .3s ease;
+  text-transform: uppercase;
+}
+.btn-secondary:hover{
+  background-color: var(--background-light);
+  color: var(--main-color);
+  transform: translateY(-2px);
 }
 
-/* === Títulos de servicios individuales === */
-#servicios h4 {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1D1D1D;
-    font-size: 1.1rem;
+/* ===== Featured / secciones base ===== */
+.featured{ padding: 3.5rem 1.25rem; background-color: var(--background-light); }
+
+.section-title{ text-align:center; margin-bottom: 2.5rem; }
+.section-title h3{
+  font-family: var(--font-title);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+  letter-spacing: .5px;
+  position: relative;
+}
+.section-title h3::after{
+  content:"";
+  position:absolute; bottom:-15px; left:50%; transform:translateX(-50%);
+  width:80px; height:3px; background-color: var(--accent-color);
+}
+.section-title p{
+  font-size: 1rem; color: var(--text-dark);
+  opacity:.8; max-width: 600px; margin: 0 auto;
 }
 
-/* === Tarjeta del formulario === */
-#servicios form {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    padding: 2rem;
+/* ===== Grid de propiedades ===== */
+.property-grid{
+  display:grid;
+  grid-template-columns: 1fr;        /* mobile: 1 columna */
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 12px;
+  align-items: stretch;
 }
 
-/* === Campos del formulario === */
-#servicios input,
-#servicios select,
-#servicios textarea {
-    border: 1px solid #ccc;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    padding: 0.75rem;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
+/* Card base */
+.property-card{
+  display:flex; flex-direction:column;
+  background:#fff; box-shadow:0 4px 20px rgba(0,0,0,.08);
+  overflow:hidden; position:relative; cursor:pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.property-card:hover{ transform: translateY(-6px); box-shadow:0 12px 34px rgba(0,0,0,.14); }
+.property-card-link{ display:block; text-decoration:none; color:inherit; }
+
+/* Media / imagen */
+.property-image{
+  position:relative;
+  aspect-ratio: 4/3; /* mobile más alto */
+  overflow:hidden;
+  background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+}
+.property-image img,
+.property-img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.property-image::before{
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(45deg, rgba(32,64,16,.08), rgba(123,63,0,.08));
+  z-index:1;
 }
 
-#servicios input:focus,
-#servicios select:focus,
-#servicios textarea:focus {
-    outline: none;
-    border-color: #15803D;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+/* Placeholder si no hay imagen */
+.property-placeholder{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; color:#fff; z-index:2; text-align:center;
+}
+.property-placeholder .icon{ font-size:3rem; margin-bottom:.5rem; }
+.property-placeholder .label{ font-size:.9rem; letter-spacing:1px; opacity:.9; text-transform:uppercase; }
+
+/* Badge */
+.property-badge{
+  position:absolute; top:12px; right:12px; z-index:3;
+  background: var(--accent-color);
+  color:#fff; font-size:.78rem; font-weight:600;
+  padding:.35rem .7rem; letter-spacing:.02em; text-transform:uppercase;
 }
 
-/* === Botón de enviar === */
-#servicios button.btn-primary {
-    background-color: var(--main-color, #204010);
-    border-radius: 0.375rem;
-    transition: background-color 0.3s ease;
+/* Body */
+.property-content{
+  flex:1; display:flex; flex-direction:column; gap:10px; padding:20px;
+}
+.property-title{
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight:600; color: var(--main-color);
+  margin:0 0 .3rem 0; line-height:1.2;
+}
+.property-details{
+  color: var(--text-dark); opacity:.75; margin:0 0 .75rem 0; font-size: .95rem;
+}
+.property-features{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }
+.feature-tag{ background: rgba(32,64,16,.1); color: var(--main-color); padding:.28rem .6rem; font-size:.78rem; font-weight:500; }
+
+.property-price{
+  margin-top:auto; display:flex; justify-content:space-between; align-items:center; gap:12px;
+}
+.price{ font-family: var(--font-text); font-size:1rem; font-weight:700; color: var(--text-dark); opacity:.9; }
+
+/* ===== Sección La Fortuna ===== */
+.lafortuna{
+  padding: 3.5rem 1.25rem;
+  background: linear-gradient(135deg, #f8f6f0 0%, #f0ede3 100%);
+}
+.lafortuna-content{ max-width: 1200px; margin:auto; text-align:center; }
+.lafortuna-content h3{
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 600; color: var(--main-color);
+  margin-bottom: 2rem; position:relative;
+}
+.lafortuna-content h3::after{
+  content:""; position:absolute; bottom:-15px; left:50%; transform:translateX(-50%);
+  width:80px; height:3px; background-color: var(--accent-color);
+}
+.lafortuna-content > p{
+  font-size: 1rem; line-height: 1.7; margin-bottom: 2.5rem;
+  max-width: 800px; margin-left:auto; margin-right:auto; color: var(--text-dark); opacity:.9;
 }
 
-#servicios button.btn-primary:hover {
-    background-color: #1a330d;
+/* Grid de tarjetas de destino */
+.lafortuna-grid{
+  margin-top: 3rem;
+  display:grid;
+  grid-template-columns: 1fr;        /* mobile */
+  gap: 1.25rem;
+}
+.lafortuna-box{
+  position:relative; aspect-ratio: 4/5;
+  background-size: 100%; background-position: center;
+  overflow:hidden; cursor:pointer;
+  transition: transform .4s ease, background-size .6s ease;
+}
+.lafortuna-box:hover{ transform: scale(1.03); background-size:110%; }
+
+/* Overlay */
+@media (hover:none){ .overlay{ opacity:1; transform:none; } }
+.overlay{
+  position:absolute; inset:0; z-index:2; display:flex; justify-content:center; align-items:center;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78));
+  opacity:0; transform: translateY(10px);
+  transition: opacity 0s ease, transform 0s ease; /* sin animación en mobile */
+}
+.lafortuna-box:hover .overlay{ opacity:1; transform:translateY(0); }
+
+/* Marco de texto */
+.overlay-inner{
+  position:relative; text-align:center; padding: 1rem 1.25rem; max-width:88%;
+  background: rgba(0,0,0,.22); backdrop-filter: blur(2px);
+  text-shadow: 0 2px 8px rgba(0,0,0,.7); color:#fff;
+}
+.overlay-inner::before, .overlay-inner::after{
+  content:''; position:absolute; background: rgba(255,255,255,.9); transition: all 1s ease;
+}
+.overlay-inner::before{ top:0; left:0; height:2px; width:0; }
+.overlay-inner::after{ top:0; left:0; width:2px; height:0; }
+.overlay-inner span::before, .overlay-inner span::after{
+  content:''; position:absolute; background: rgba(255,255,255,.9); transition: all 1s ease;
+}
+.overlay-inner span::before{ bottom:0; right:0; height:2px; width:0; }
+.overlay-inner span::after{ bottom:0; right:0; width:2px; height:0; }
+.lafortuna-box:hover .overlay-inner::before{ width:100%; }
+.lafortuna-box:hover .overlay-inner::after{ height:100%; }
+.lafortuna-box:hover .overlay-inner span::before{ width:100%; }
+.lafortuna-box:hover .overlay-inner span::after{ height:100%; }
+
+.overlay-inner h4{ margin:0 0 .5rem; font-weight:800; letter-spacing:.5px; color:#fff; }
+.overlay-inner p{ margin:0; line-height:1.5; color:#fff; }
+
+/* ===== Stats ===== */
+
+/* ===== Stats ===== */
+.stats-section{
+  background: var(--main-color);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 4rem 1.5rem;
+  text-align:center;
 }
 
-/* === Nota informativa === */
-#servicios .form-note {
-    background-color: #FFFBEB;
-    border: 1px solid #FEF3C7;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    border-radius: 0.375rem;
-    color: #92400E;
-    font-size: 0.875rem;
+.stats-grid{
+  display:grid;
+  /* columnas que se “plegan” y quedan centradas sin crear huecos */
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  gap: 2rem;
+  justify-content: center;   /* centra el conjunto de columnas */
+  justify-items: center;     /* centra cada celda */
+  width: min(100%, 900px);
+  margin: 0 auto;
 }
 
-
-
-
-
-/* === Sección "Nosotros" === */
-#nosotros {
-    background-color: #ffffff;
-    font-family: var(--font-text, 'Lato', sans-serif);
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+.stat-item{
+  padding: 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 
-/* === Título central === */
-#nosotros h3 {
-    font-family: var(--font-title, 'Cormorant Garamond', serif);
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #1D1D1D;
-    margin-bottom: 1rem;
+.stat-number{
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 600;
+  display:block;
+  margin-bottom:.5rem;
 }
 
-/* === Párrafo central === */
-#nosotros p {
-    font-size: 1.125rem;
-    color: #555;
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto;
+.stat-label{
+  font-size: 1.1rem;
+  opacity:.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* === Contenedor de íconos circulares verdes === */
-.nosotros-icon {
-    width: 4rem;
-    height: 4rem;
-    background-color: #DCFCE7;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem auto;
+/* ===== Servicios ===== */
+.services-section{ padding: 3.5rem 1.25rem; background:#fff; }
+.services-content{ max-width: 1400px; margin:auto; }
+.services-grid{
+  display:grid;
+  grid-template-columns: 1fr;         /* mobile */
+  gap: 1.5rem; margin-top: 2.25rem;
+}
+.service-card{
+  background: var(--background-light);
+  padding: 1.5rem;
+  border-left: 4px solid var(--main-color);
+  transition: all .3s ease;
+  position: relative;
+}
+.service-card:hover{ transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.1); border-left-color: var(--accent-color); }
+.service-icon{ font-size: 2rem; margin-bottom: 1rem; display:block; }
+.service-card h4{
+  font-family: var(--font-title);
+  font-size: 1.25rem; font-weight:600; color: var(--main-color); margin-bottom: 1rem;
+}
+.service-card p{ font-size: 1rem; line-height:1.6; margin-bottom:1rem; color: var(--text-dark); opacity:.9; }
+.service-card ul{ list-style:none; padding:0; }
+.service-card ul li{
+  padding:.5rem 0; color:var(--text-dark); opacity:.8; position:relative; padding-left:1.5rem;
+}
+.service-card ul li::before{
+  content:"🌿"; position:absolute; left:0; top:.5rem; font-size:.8rem;
 }
 
-.nosotros-icon-inner {
-    width: 2rem;
-    height: 2rem;
-    background-color: #15803D;
-    border-radius: 9999px;
+/* Iconos circulares de servicios (reutilizables) */
+.service-circle{
+  width:3rem; height:3rem; background: var(--main-color-light);
+  border-radius:9999px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.service-circle-inner{
+  width:1.5rem; height:1.5rem; background: var(--main-color); border-radius:9999px;
 }
 
-/* === Subtítulos debajo de cada ícono === */
-#nosotros h4 {
-    font-family: var(--font-title, 'Cormorant Garamond', serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1D1D1D;
-    margin-bottom: 1rem;
+/* ===== Nosotros ===== */
+#nosotros{
+  background:#fff; font-family: var(--font-text); padding: 3.5rem 0;
 }
-
-/* === Texto de cada bloque === */
-#nosotros .nosotros-block p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.7;
-    max-width: 95%;
-    margin: 0 auto;
+#nosotros h3{
+  font-family: var(--font-title);
+  font-size: 2rem; font-weight:600; color:#1D1D1D; margin-bottom:1rem; text-align:center;
 }
-
-/* Hotfix: que el texto del overlay sea blanco encima de las reglas #nosotros */
+#nosotros p{
+  font-size: 1rem; color:#555; line-height:1.8; max-width:800px; margin: 0 auto; padding: 0 1rem;
+}
+.nosotros-icon{
+  width:4rem; height:4rem; background:#DCFCE7; border-radius:9999px;
+  display:flex; align-items:center; justify-content:center; margin: 0 auto 1.5rem auto;
+}
+.nosotros-icon-inner{ width:2rem; height:2rem; background:#15803D; border-radius:9999px; }
+#nosotros h4{
+  font-family: var(--font-title);
+  font-size: 1.25rem; font-weight:600; color:#1D1D1D; margin-bottom:1rem; text-align:center;
+}
+#nosotros .nosotros-block p{
+  font-size: 1rem; color:#666; line-height:1.7; max-width:95%; margin:0 auto;
+}
+/* Hotfix: texto overlay en blanco sobre sección */
 #nosotros .overlay-inner h4,
-#nosotros .overlay-inner p {
-  color: #fff !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,.7);
+#nosotros .overlay-inner p{ color:#fff !important; text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+
+/* ===========================
+   MEDIA QUERIES
+   =========================== */
+
+/* ≤640px (ya mobile por defecto) — ajustes menores */
+@media (max-width: 640px){
+  .hero{ min-height: 70vh; }
+  .tagline{ font-size: 1rem; }
+  .main-text{ font-size: 1.75rem; }
+
+  .section-title h3{ font-size: 2.1rem; }
+  .section-title p{ font-size: 1.05rem; }
+
+  /* ya aplicado: .property-image { aspect-ratio: 4/3; } */
+  .overlay-inner{ padding: 1rem 1.25rem; max-width: 88%; }
 }
 
+/* ≥768px (tablets) */
+@media (min-width: 768px){
+  .hero{ min-height: 75vh; padding: 4rem 2rem; }
+  .tagline{ font-size: 1.05rem; }
+  .main-text{ font-size: 2.2rem; margin-bottom: 2.25rem; }
 
+  .featured, .services-section, .lafortuna{ padding: 5rem 2rem; }
 
+  .section-title h3{ font-size: 2.4rem; }
+  .section-title p{ font-size: 1.1rem; }
 
+  .property-grid{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0 16px; }
+  .property-title{ font-size: 1.3rem; }
+  .property-details{ font-size: 1rem; }
 
+  .lafortuna-content h3{ font-size: 2.4rem; }
+  .lafortuna-content > p{ font-size: 1.15rem; }
+  .lafortuna-grid{ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
 
+  .stats-section{ padding: 4rem 2rem; }
+  .stats-grid{
+    grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+    width: min(100%, 1000px);
+  }
 
+  .services-grid{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .service-icon{ font-size: 2.5rem; margin-bottom: 1.25rem; }
+  .service-card{ padding: 2rem; }
+}
 
+/* ≥1024px (laptops) */
+@media (min-width: 1024px){
+  .hero{ min-height: 80vh; }
+  .main-text{ font-size: 2.4rem; }
 
+  .property-grid{ grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+  .property-title{ font-size: 1.4rem; }
 
+  .lafortuna-grid{ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .overlay-inner{ padding: 1.5rem 1.75rem; max-width: 72%; }
+  .stats-grid{ gap: 2.5rem; }
+}
 
+/* ≥1280px (desktops grandes) */
+@media (min-width: 1280px){
+  .hero{ min-height: 800px; }
+  .main-text{ font-size: 2.6rem; }
 
+  .section-title h3{ font-size: 2.8rem; }
+  .lafortuna-content h3{ font-size: 2.8rem; }
+
+  .property-grid{ max-width: 1400px; }
+}
+
+/* Accesibilidad/motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+}

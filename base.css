@@ -42,3 +42,46 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+/* === Breakpoints estandarizados === */
+
+/* Pantallas pequeñas (≥480px) */
+@media (min-width: 480px) {
+  body {
+    font-size: 1rem; /* un poco más grande que en mobile */
+  }
+}
+
+/* Tablets en vertical (≥768px) */
+@media (min-width: 768px) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* Tablets horizontales y laptops pequeñas (≥1024px) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.1rem;
+  }
+
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.35rem; }
+}
+
+/* Escritorios grandes (≥1280px) */
+@media (min-width: 1280px) {
+  body {
+    font-size: 1.15rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+}

@@ -192,3 +192,129 @@ section[id], [id].anchor {
   padding-top: 1rem;
   opacity: 0.7;
 }
+
+
+
+/* ====== Mobile (≤480px) ====== */
+@media (max-width: 480px) {
+  :root { --header-h: 64px; }
+
+  .header {
+    height: 64px;
+    padding: 0 .75rem;
+  }
+  .header.scrolled { height: 56px; }
+
+  .logo img { height: 44px; }
+  .header.scrolled .logo img { height: 40px; }
+
+  .nav ul { display: none; } /* ocultar menú horizontal en mobile */
+
+  .breadcrumb { padding: .75rem 1rem; }
+  .breadcrumb-nav { font-size: .85rem; gap: .35rem; }
+
+  .footer { padding: 2.25rem 1rem; }
+  .footer-logo { height: 56px; margin-bottom: .75rem; }
+  .footer-text { font-size: .95rem; }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+  }
+  .newsletter-input { max-width: 100%; }
+  .newsletter-btn { width: 100%; }
+
+  .footer-contact { font-size: .9rem; }
+  .footer-bottom { font-size: .8rem; }
+}
+
+/* ====== Small devices (≤640px) ====== */
+@media (max-width: 640px) {
+  :root { --header-h: 72px; }
+
+  .header { height: 72px; padding: 0 1rem; }
+  .header.scrolled { height: 60px; }
+
+  .logo img { height: 52px; }
+  .header.scrolled .logo img { height: 44px; }
+
+  .breadcrumb { padding: .9rem 1.25rem; }
+  .breadcrumb-nav { max-width: 100%; }
+
+  .footer-content.centered { max-width: 520px; }
+}
+
+/* ====== Tablets (≥768px) ====== */
+@media (min-width: 768px) {
+  :root { --header-h: 90px; }
+
+  .header {
+    height: 90px;
+    padding: 0 1.5rem;
+  }
+  .header.scrolled { height: 80px; }
+
+  .logo img { height: 70px; }
+  .header.scrolled .logo img { height: 60px; }
+
+  .nav ul {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .breadcrumb { padding: 1rem 2rem; }
+  .breadcrumb-nav { max-width: 1200px; font-size: .95rem; }
+
+  .footer { padding: 3rem 1.5rem; }
+  .footer-content.centered { max-width: 640px; }
+
+  .newsletter-form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+  }
+  .newsletter-input { max-width: 300px; }
+  .newsletter-btn { width: auto; }
+}
+
+/* ====== Laptops (≥1024px) ====== */
+@media (min-width: 1024px) {
+  :root { --header-h: 100px; }
+
+  .header {
+    height: 100px;
+    padding: 0 2rem;
+  }
+  .header.scrolled { height: 86px; }
+
+  .logo img { height: 88px; }
+  .header.scrolled .logo img { height: 70px; }
+
+  .nav ul { gap: 1.75rem; }
+
+  .breadcrumb-nav { max-width: 1400px; }
+
+  .footer-content.centered { max-width: 700px; }
+  .footer-logo { height: 70px; }
+}
+
+/* ====== Desktops grandes (≥1280px) ====== */
+@media (min-width: 1280px) {
+  :root { --header-h: 110px; }
+
+  .header {
+    height: 110px;
+    padding: 0 3rem;
+  }
+  .header.scrolled { height: 90px; }
+
+  .logo img { height: 100px; }
+  .header.scrolled .logo img { height: 72px; }
+
+  .nav ul { gap: 2rem; }
+
+  .footer { padding: 3.5rem 2rem; }
+  .footer-content.centered { max-width: 760px; }
+}

@@ -80,18 +80,19 @@ const fadeObserver = new IntersectionObserver(entries => {
 
 fadeElements.forEach(el => fadeObserver.observe(el));
 
-// Animated counters
 const statObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // ⚠️ activa la animación de opacidad/translate de tus .fade-in
+      entry.target.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+
       const counters = entry.target.querySelectorAll('.stat-number');
-      counters.forEach(counter => {
-        animateCounter(counter);
-      });
+      counters.forEach(counter => animateCounter(counter));
       statObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
+
 
 const statsSection = document.querySelector('.stats-section');
 if (statsSection) {
