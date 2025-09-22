@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // Puedes enviar como JSON:
-      const resp = await fetch('https://formspree.io/f/xwpqdyka', {
+      const resp = await fetch('https://formspree.io/f/mjkabpze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
