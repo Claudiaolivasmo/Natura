@@ -98,7 +98,85 @@
     "Jardines y árboles frutales",
     "Cercas vivas"
   ]
+},
+{
+  "id": 4,
+  "slug": "finca-agua-azul-lotes-1000",
+  "type": "lote",
+  "title": "Finca Agua Azul – Lotes 1.000 m²",
+  "location": "La Fortuna de San Carlos – Agua Azul",
+  "price": 69500,
+  "currency": "CRC",
+  "priceIsPerM2": false,
+  "pricePerM2": 35000,
+  "lotSize": 1000,
+  "badge": "Financiamiento disponible",
+  "folder": "003-finca-agua-azul",
+  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+  "geo": { "lat": 10.4710, "lng": -84.6450, "zoom": 14 },
+  "description": [
+    "Lotes privados de 1.000 m² en Finca Agua Azul, a pocos minutos del centro de La Fortuna. Entorno natural, silencio y aire puro.",
+    "Vistas al Volcán Arenal y a montañas. Ideal para vivienda, retiro o inversión en alquiler vacacional.",
+    "Acceso por calle pública y disponibilidad de agua y electricidad. Internet residencial factible.",
+    "Precio desde ₡35.000 por m². Opción de financiamiento."
+  ],
+  "features": [
+    "Vistas al volcán",
+    "Privacidad y naturaleza",
+    "Zona tranquila",
+    "Acceso por calle pública",
+    "Agua y electricidad disponibles",
+    "Internet disponible",
+    "Ideal para inversión",
+    "Financiamiento disponible"
+  ],
+  "highlights": [
+    "Desde ₡35.000/m²",
+    "Lote tipo: 1.000 m²",
+    "Rodeado de bosque y fauna"
+  ]
+},
+{
+  "id": 5,
+  "slug": "finca-agua-azul-quintas-5000",
+  "type": "lote",
+  "subcategory": "quinta",
+  "title": "Finca Agua Azul – Quintas 5.000 m²",
+  "location": "La Fortuna de San Carlos – Agua Azul",
+  "price": 198000,
+  "currency": "CRC",
+  "priceIsPerM2": false,
+  "pricePerM2": 20000,
+  "lotSize": 5000,
+  "badge": "Financiamiento disponible",
+  "folder": "003-finca-agua-azul",
+  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
+  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+  "geo": { "lat": 10.4710, "lng": -84.6450, "zoom": 14 },
+  "description": [
+    "Quintas de 5.000 m² en Finca Agua Azul: amplitud, privacidad y contacto directo con la naturaleza.",
+    "Vistas abiertas al Volcán Arenal y cordillera, con espacios perfectos para cabañas, villa principal o proyecto turístico.",
+    "Acceso por calle pública, agua y electricidad disponibles. Internet residencial factible.",
+    "Precio desde ₡20.000 por m². Opción de financiamiento."
+  ],
+  "features": [
+    "Vistas al volcán",
+    "Alta privacidad",
+    "Entorno natural",
+    "Acceso por calle pública",
+    "Agua y electricidad disponibles",
+    "Internet disponible",
+    "Ideal para desarrollo turístico",
+    "Financiamiento disponible"
+  ],
+  "highlights": [
+    "Desde ₡20.000/m²",
+    "Quinta tipo: 5.000 m²",
+    "Zonas planas y arboladas"
+  ]
 }
+
 
 
 ]
