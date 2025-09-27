@@ -90,7 +90,7 @@ export async function handler(event, context) {
       statusCode: 200,
       headers: {
         'Content-Type': 'image/jpeg',
-        'Content-Disposition': `attachment; filename="${filename}-wm.jpg"`,
+        'Content-Disposition': `inline; filename="${filename}-wm.jpg"`,
         // Opcional cache:
         // 'Cache-Control': 'public, max-age=31536000, immutable'
       },
