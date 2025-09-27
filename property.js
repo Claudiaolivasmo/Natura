@@ -1,4 +1,4 @@
-// === property.js (completo, con ajustes) ===
+// === property.js (completo, actualizado) ===
 let currentImageIndex = 0;
 let currentProperty = null;
 let isLightboxOpen = false;
@@ -14,12 +14,24 @@ function lbCloseEl()   { return q('lbClose'); }
 function lbPrevEl()    { return q('lbPrev'); }
 function lbNextEl()    { return q('lbNext'); }
 
-// 🔧 Construye src de imágenes (ruta relativa, sin "/" inicial)
+// ───────────── Util: construir src robusto para imágenes
 function buildImageSrc(i) {
   if (!currentProperty?.images?.length) return '';
-  const file = currentProperty.images[i];
-  // Si mueves property.html a una subcarpeta, ajusta a "../images/..."
-  return `images/properties/${currentProperty.folder}/${file}`;
+  const folder = currentProperty.folder ? String(currentProperty.folder).replace(/^\/+|\/+$/g, '') : '';
+
+  const entry = currentProperty.images[i];
+  // Caso 1: objeto con {src}
+  if (entry && typeof entry === 'object' && entry.src) {
+    const s = String(entry.src);
+    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
+    return `/img/properties/${folder}/${s}`; // relativo al folder
+  }
+  // Caso 2: string (nombre de archivo o ruta)
+  if (typeof entry === 'string') {
+    if (/^https?:\/\//i.test(entry) || entry.startsWith('/')) return entry; // absoluto
+    return `/img/properties/${folder}/${entry}`; // relativo al folder
+  }
+  return '';
 }
 
 // ───────────── Inicio
@@ -31,8 +43,7 @@ async function initPropertyPage() {
   const slugParam = params.get('slug');
 
   try {
-    // Si property.html está en subcarpeta, usa '../properties.json'
-    const res = await fetch('properties.json');
+    const res = await fetch('properties.json'); // ajusta si está en subcarpeta
     const list = await res.json();
 
     if (slugParam) {
@@ -42,6 +53,12 @@ async function initPropertyPage() {
     }
 
     if (!currentProperty) return fallbackToList();
+
+    // Corrige índice inicial por si la propiedad no tiene imágenes
+    if (!Array.isArray(currentProperty.images) || currentProperty.images.length === 0) {
+      currentProperty.images = [];
+    }
+    currentImageIndex = 0;
 
     bindProperty(currentProperty);
     setupContactForm?.();  // si existe, configura el formulario
@@ -54,11 +71,10 @@ async function initPropertyPage() {
 }
 
 function fallbackToList() {
-  // Ajusta ruta si tu listado está en otra ubicación
-  location.href = 'properties.html';
+  location.href = 'properties.html'; // ajusta si tu listado vive en otra ruta
 }
 
-// ───────────── Pintado de datos
+// ───────────── Formatos
 function formatPrice(value) {
   if (value == null) return 'Consultar';
   try {
@@ -73,9 +89,8 @@ function formatPrice(value) {
 function formatLotSize(m2) {
   if (m2 == null || isNaN(m2)) return null;
   const n = Number(m2);
-  // Mostrar en hectáreas si es grande, si no en m²
   if (n >= 10000) {
-    const ha = (n / 10000);
+    const ha = n / 10000;
     return `${ha % 1 === 0 ? ha.toFixed(0) : ha.toFixed(2)} ha`;
   }
   return `${n.toLocaleString('es-CR')} m²`;
@@ -94,12 +109,10 @@ function buildMapsEmbedSrc(p) {
   const zoom = (p?.geo?.zoom && Number(p.geo.zoom)) || 15;
   if (hasCoords(p)) {
     const { lat, lng } = p.geo;
-    // Modo embed por coordenadas
     return `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed`;
   }
-  // Fallback a búsqueda por texto (mapQuery > location > title)
-  const q = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
-  return `https://www.google.com/maps?q=${q}&z=${zoom}&output=embed`;
+  const qq = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
+  return `https://www.google.com/maps?q=${qq}&z=${zoom}&output=embed`;
 }
 
 function buildMapsLink(p) {
@@ -107,8 +120,8 @@ function buildMapsLink(p) {
     const { lat, lng } = p.geo;
     return `https://www.google.com/maps?q=${lat},${lng}`;
   }
-  const q = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
-  return `https://www.google.com/maps?q=${q}`;
+  const qq = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
+  return `https://www.google.com/maps?q=${qq}`;
 }
 
 function renderMap(p) {
@@ -119,26 +132,20 @@ function renderMap(p) {
 
   if (!(sec && iframe && link)) return;
 
-  // Texto descriptivo (si tienes algo específico en el JSON, úsalo; si no, usa p.location)
   const desc = p.mapText || p.location || '';
   if (text) text.textContent = desc;
 
-  // Definir URLs
   const src  = buildMapsEmbedSrc(p);
   const href = buildMapsLink(p);
 
   iframe.src = src;
   link.href  = href;
 
-  // Mostrar sección solo si hay algo que mapear
   const hasSomething = hasCoords(p) || p.mapQuery || p.location;
   sec.classList.toggle('hidden', !hasSomething);
 }
 
-
-
-
-
+// ───────────── Bind de datos
 function bindProperty(p) {
   document.title = `${p.title} - Natura Real Estate`;
 
@@ -149,20 +156,19 @@ function bindProperty(p) {
 
   if (titleEl) titleEl.textContent = p.title || 'Propiedad';
   if (locEl)   locEl.textContent   = p.location || '—';
-  if (priceEl) {
-  const priceStr = formatPrice(p.price);      // "$100,000"
-  const sizeStr  = formatLotSize(p.lotSize);  // "2,296 m²" o "0.23 ha"
-  priceEl.textContent = joinPriceSize(priceStr, sizeStr);
-}
 
-  if (bcEl)    bcEl.textContent    = p.title || 'Propiedad';
+  if (priceEl) {
+    const priceStr = formatPrice(p.price);      // "$100,000"
+    const sizeStr  = formatLotSize(p.lotSize);  // "2,296 m²" o "0.23 ha"
+    priceEl.textContent = joinPriceSize(priceStr, sizeStr);
+  }
+  if (bcEl) bcEl.textContent = p.title || 'Propiedad';
 
   updateMainImage();
   generateThumbnails();
   loadDescription();
   renderFeatures(p);
   renderMap(p);
-
 }
 
 function loadDescription() {
@@ -175,7 +181,6 @@ function loadDescription() {
       `<p class="text-gray-700 leading-relaxed mb-4">${par}</p>`
     ).join('');
   } else if (typeof desc === 'string') {
-    // Soporta saltos de línea (párrafos separados por línea en blanco)
     const parts = desc.split(/\n\s*\n/);
     container.innerHTML = parts.map(par =>
       `<p class="text-gray-700 leading-relaxed mb-4">${par.trim()}</p>`
@@ -190,6 +195,10 @@ function updateMainImage() {
   const mainImageContainer = q('mainImage');
   if (!mainImageContainer || !currentProperty?.images?.length) return;
 
+  // Protege índice fuera de rango
+  if (currentImageIndex < 0) currentImageIndex = 0;
+  if (currentImageIndex >= currentProperty.images.length) currentImageIndex = 0;
+
   mainImageContainer.style.backgroundImage = `url('${buildImageSrc(currentImageIndex)}')`;
   mainImageContainer.style.backgroundSize = 'cover';
   mainImageContainer.style.backgroundPosition = 'center';
@@ -201,20 +210,24 @@ function generateThumbnails() {
   if (!thumbnailGrid || !currentProperty?.images?.length) return;
 
   thumbnailGrid.innerHTML = currentProperty.images
-    .map((img, i) => `
-      <div class="thumbnail ${i === currentImageIndex ? 'active' : ''}" onclick="selectImage(${i})">
-        <img src="${buildImageSrc(i)}" alt="Miniatura ${i + 1}" />
-      </div>
-    `).join('');
+    .map((_, i) => {
+      const src = buildImageSrc(i);
+      const active = i === currentImageIndex ? 'active' : '';
+      return `
+        <div class="thumbnail ${active}" onclick="selectImage(${i})">
+          <img src="${src}" alt="Miniatura ${i + 1}" loading="lazy" decoding="async" />
+        </div>
+      `;
+    }).join('');
 }
 
 function selectImage(index) {
   if (!currentProperty?.images?.length) return;
-  currentImageIndex = index;
+  currentImageIndex = Math.max(0, Math.min(index, currentProperty.images.length - 1));
   updateMainImage();
 
   document.querySelectorAll('.thumbnail').forEach((thumb, i) =>
-    thumb.classList.toggle('active', i === index)
+    thumb.classList.toggle('active', i === currentImageIndex)
   );
 
   if (isLightboxOpen) updateLightboxImage();
@@ -239,7 +252,7 @@ function nextImage() {
 // ───────────── Lightbox
 function updateLightboxImage() {
   const img = lbImgEl();
-  if (!img) return;
+  if (!img || !currentProperty?.images?.length) return;
 
   img.src = buildImageSrc(currentImageIndex);
   img.alt = `${currentProperty.title} – imagen ${currentImageIndex + 1}`;
@@ -251,6 +264,8 @@ function updateLightboxImage() {
   const n = currentProperty.images.length;
   [ (currentImageIndex + 1) % n, (currentImageIndex - 1 + n) % n ].forEach(i => {
     const ph = new Image();
+    ph.loading = 'eager';
+    ph.decoding = 'async';
     ph.src = buildImageSrc(i);
   });
 }
@@ -264,6 +279,7 @@ function openLightbox() {
   lastFocusedBeforeLB = document.activeElement;
   lb.classList.remove('hidden');
   lb.setAttribute('aria-hidden', 'false');
+  lb.setAttribute('tabindex', '-1');
   document.body.style.overflow = 'hidden';
   updateLightboxImage();
   lb.focus?.();
@@ -277,7 +293,6 @@ function closeLightbox() {
   lb.classList.add('hidden');
   lb.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  // Devuelve el foco donde estaba
   if (lastFocusedBeforeLB?.focus) {
     lastFocusedBeforeLB.focus();
     lastFocusedBeforeLB = null;
@@ -289,12 +304,12 @@ function initLightboxEvents() {
   lbPrevEl()?.addEventListener('click', () => previousImage());
   lbNextEl()?.addEventListener('click', () => nextImage());
 
-  // Click en el overlay (fuera del contenido) cierra el lightbox
+  // Click en el overlay cierra
   lightboxEl()?.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeLightbox();
   });
 
-  // Teclado
+  // Teclado dentro del lightbox
   document.addEventListener('keydown', (e) => {
     if (!isLightboxOpen) return;
     if (e.key === 'Escape') closeLightbox();
@@ -316,17 +331,14 @@ function initGalleryEvents() {
   const mainImageContainer = q('mainImage');
   if (!mainImageContainer) return;
 
-  // Accesibilidad/UX
   mainImageContainer.setAttribute('role', 'button');
   mainImageContainer.tabIndex = 0;
 
-  // Abrir lightbox sólo si no clickeaste en los botones prev/next
   mainImageContainer.addEventListener('click', (e) => {
     if (e.target.closest('.gallery-nav')) return;
     openLightbox();
   });
 
-  // Accesible con Enter/Espacio desde el contenedor
   mainImageContainer.addEventListener('keydown', (e) => {
     if (e.target !== mainImageContainer) return;
     if (e.key === 'Enter' || e.key === ' ') {
@@ -335,7 +347,6 @@ function initGalleryEvents() {
     }
   });
 
-  // Evita burbujeo de los botones
   mainImageContainer.querySelectorAll('.gallery-nav').forEach(btn => {
     btn.addEventListener('click', (e) => e.stopPropagation());
     btn.addEventListener('keydown', (e) => e.stopPropagation());
@@ -351,7 +362,7 @@ window.selectImage = selectImage;
 // ───────────── Contacto / WhatsApp / Formspree
 function getWhatsNumber() {
   const box = document.querySelector('.contact-agent');
-  const raw = box?.dataset?.whatsapp || '50683018999'; // Cambia si quieres un número fijo
+  const raw = box?.dataset?.whatsapp || '50683018999'; // cambia si quieres un número fijo
   return raw.replace(/\D/g, '');
 }
 
@@ -463,10 +474,8 @@ function renderFeatures(p) {
   const list = document.getElementById('featuresList');
   if (!list || !p) return;
 
-  // 1) Solo desde JSON
   const raw = Array.isArray(p.features) ? p.features.filter(Boolean) : [];
 
-  // Si no hay nada, ocultamos la sección
   const section = list.closest('.features-section');
   if (!raw.length) {
     if (section) section.style.display = 'none';
@@ -476,7 +485,6 @@ function renderFeatures(p) {
     if (section) section.style.display = '';
   }
 
-  // 2) Mapa de iconos por texto (para strings)
   const ICONS = {
     'frente a río':              'fa-solid fa-water',
     'acceso por calle pública':  'fa-solid fa-road',
@@ -491,11 +499,9 @@ function renderFeatures(p) {
     'zona tranquila':            'fa-solid fa-spa'
   };
 
-  // 3) Normalizador (permite strings u objetos {label, icon})
   const items = raw.map(entry => {
     if (typeof entry === 'string') {
       const label = entry.trim();
-      // icono por prefijo (ej: "tamaño del lote: 2 296 m²")
       const key = Object.keys(ICONS).find(k => label.toLowerCase().startsWith(k));
       const icon = key ? ICONS[key] : 'fa-solid fa-circle';
       return { label, icon };
@@ -510,7 +516,6 @@ function renderFeatures(p) {
     return null;
   }).filter(Boolean);
 
-  // 4) Render
   list.innerHTML = items.map(it => `
     <li class="feature-item">
       <i class="${it.icon}" aria-hidden="true"></i>
@@ -525,6 +530,3 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft')  previousImage();
   if (e.key === 'ArrowRight') nextImage();
 });
-
-
-
