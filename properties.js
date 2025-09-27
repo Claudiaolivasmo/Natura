@@ -100,6 +100,53 @@ function formatMoney(value = 0, currency = 'USD', locale = 'es-CR') {
   }
 }
 
+function getPrices(p) {
+  const usdToCrc = USD_TO_CRC; // tu constante
+  const currency = (p.currency || 'USD').toUpperCase();
+
+  // Si hay priceCRC explícito en el JSON, úsalo para mostrar colones.
+  const crcExplicit = Number(p.priceCRC || 0) || null;
+
+  // Precio “base” segun currency
+  const base = Number(p.price || 0);
+
+  let priceUSD = 0;
+  let priceCRC = 0;
+
+  if (currency === 'CRC') {
+    priceCRC = crcExplicit != null ? crcExplicit : base;
+    // USD solo como referencia aproximada (no se muestra si no quieres)
+    priceUSD = priceCRC ? Math.round(priceCRC / usdToCrc) : 0;
+  } else {
+    // currency === 'USD' (u otro → tratamos como USD)
+    priceUSD = base;
+    priceCRC = crcExplicit != null ? crcExplicit : (priceUSD ? Math.round(priceUSD * usdToCrc) : 0);
+  }
+
+  // Si es precio por m² y hay lotSize, calcula un total estimado como respaldo (solo si no hay priceCRC)
+  if (p.priceIsPerM2 && p.pricePerM2 && p.lotSize) {
+    const perM2 = Number(p.pricePerM2);
+    const size = Number(p.lotSize);
+    const estCRC = Math.round(perM2 * size);
+    if (!crcExplicit && currency === 'CRC') {
+      priceCRC = estCRC;
+      priceUSD = Math.round(estCRC / usdToCrc);
+    } else if (!crcExplicit && currency !== 'CRC') {
+      // si “por m2” y moneda no CRC, no forzamos; dejamos los valores base/convertidos
+    }
+  }
+
+  return { priceUSD, priceCRC, currency };
+}
+
+function effectivePriceUSD(p) {
+  const { priceUSD, priceCRC, currency } = getPrices(p);
+  if (priceUSD) return priceUSD;
+  if (priceCRC) return Math.round(priceCRC / USD_TO_CRC);
+  return 0;
+}
+
+
 // ───────────────────────── Carga inicial
 document.addEventListener('DOMContentLoaded', () => {
   fetch('properties.json')
@@ -198,6 +245,48 @@ function enforceTypeRules() {
 }
 
 // ───────────────────────── Filtrado
+// 🔢 Convierte y unifica precios priorizando priceCRC del JSON
+function getPrices(p) {
+  const usdToCrc = USD_TO_CRC; // tu constante global
+  const currency = (p.currency || 'USD').toUpperCase();
+
+  const crcExplicit = Number(p.priceCRC || 0) || null; // si viene en JSON, tiene prioridad
+  const base = Number(p.price || 0);
+
+  let priceUSD = 0;
+  let priceCRC = 0;
+
+  if (currency === 'CRC') {
+    priceCRC = crcExplicit != null ? crcExplicit : base; // base ya está en CRC
+    priceUSD = priceCRC ? Math.round(priceCRC / usdToCrc) : 0; // referencia
+  } else {
+    // currency = USD (o vacío)
+    priceUSD = base;
+    priceCRC = crcExplicit != null ? crcExplicit : (priceUSD ? Math.round(priceUSD * usdToCrc) : 0);
+  }
+
+  // Respaldo: si es por m² y hay lotSize, calcula total estimado si no vino priceCRC
+  if (p.priceIsPerM2 && p.pricePerM2 && p.lotSize && !crcExplicit) {
+    const estCRC = Math.round(Number(p.pricePerM2) * Number(p.lotSize));
+    if (currency === 'CRC') {
+      priceCRC = estCRC;
+      priceUSD = Math.round(estCRC / usdToCrc);
+    }
+    // si la moneda es USD y es por m², dejamos los valores base (no forzamos)
+  }
+
+  return { priceUSD, priceCRC, currency };
+}
+
+// 💵 Precio efectivo en USD para filtrar/ordenar de forma consistente
+function effectivePriceUSD(p) {
+  const { priceUSD, priceCRC } = getPrices(p);
+  if (priceUSD) return priceUSD;
+  if (priceCRC) return Math.round(priceCRC / USD_TO_CRC);
+  return 0;
+}
+
+// 🔎 FILTRO PRINCIPAL (usa el precio efectivo en USD para comparar con los inputs)
 function getFilteredList() {
   const q = readFiltersFromUI();
   const list = (window.properties || []);
@@ -206,9 +295,10 @@ function getFilteredList() {
     const t = effectiveType(p);
     if (q.type && t !== q.type) return false;
 
-    const price = Number(p.price || 0);
-    if (price < q.priceMin) return false;
-    if (price > q.priceMax) return false;
+    // ⬇️ ahora filtra usando precio unificado en USD (coherente con tus sliders/inputs actuales)
+    const priceUSD = effectivePriceUSD(p);
+    if (priceUSD < q.priceMin) return false;
+    if (priceUSD > q.priceMax) return false;
 
     const size = effectiveSize(p);
     if (size < q.sizeMin) return false;
@@ -222,8 +312,9 @@ function getFilteredList() {
     }
 
     if (q.search) {
-      const hit = (p.title || '').toLowerCase().includes(q.search) ||
-                  (p.location || '').toLowerCase().includes(q.search);
+      const hit =
+        (p.title || '').toLowerCase().includes(q.search) ||
+        (p.location || '').toLowerCase().includes(q.search);
       if (!hit) return false;
     }
 
@@ -234,6 +325,7 @@ function getFilteredList() {
     return true;
   });
 }
+
 
 function readFiltersFromUI() {
   const getNum = (id, def = 0) => {
