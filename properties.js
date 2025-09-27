@@ -35,15 +35,13 @@ const inferType = (p) => {
 const effectiveType = (p) => mapType(p.type || inferType(p));
 const effectiveSize = (p) => Number(p.lotSize ?? p.area ?? 0);
 
-/* -------------------- 🔧 NUEVO: helpers de rutas -------------------- */
-// Devuelve la URL pública limpia para mostrar en <img> (como antes)
+/* -------------------- Rutas de imagen -------------------- */
+// Devuelve la URL pública limpia para mostrar en <img>
 function toPublicSrc(srcOrName, folder) {
   if (!srcOrName) return '';
-  // Si ya es http(s) o ruta absoluta, respétala
   if (/^https?:\/\//i.test(srcOrName) || String(srcOrName).startsWith('/')) {
     return String(srcOrName);
   }
-  // Si es un nombre suelto "1.jpg" => construye /assets/images/properties/{folder}/1.jpg
   const cleanFolder = String(folder || '').replace(/^\/+|\/+$/g, '');
   return `/assets/images/properties/${cleanFolder}/${srcOrName}`;
 }
@@ -51,37 +49,27 @@ function toPublicSrc(srcOrName, folder) {
 // Construye la URL que pasa por tu función (redirect /download/* → watermark)
 function toDownloadUrl(srcOrNameOrAbs, folder, filename = 'imagen') {
   if (!srcOrNameOrAbs) return '';
-  // Si ya apunta a /download, respétala
   if (String(srcOrNameOrAbs).startsWith('/download/')) {
     return srcOrNameOrAbs.includes('filename=')
       ? srcOrNameOrAbs
       : `${srcOrNameOrAbs}?filename=${encodeURIComponent(filename)}`;
   }
-  // Si viene absoluta bajo /assets/images, conviértela a /download/...
   if (String(srcOrNameOrAbs).startsWith('/assets/images/')) {
-    const rel = srcOrNameOrAbs.replace(/^\/assets\/images\//, ''); // properties/...
+    const rel = srcOrNameOrAbs.replace(/^\/assets\/images\//, '');
     return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
   }
-  // Nombre suelto → arma properties/{folder}/archivo y pásalo por /download
   const cleanFolder = String(folder || '').replace(/^\/+|\/+$/g, '');
   const rel = `properties/${cleanFolder}/${srcOrNameOrAbs}`;
   return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
 }
-/* ------------------------------------------------------------------- */
 
-// 🔙 VOLVER A COMO ANTES: primaryImage muestra la foto limpia de /assets/images/...
+// Imagen principal
 function primaryImage(p) {
   const folder = p.folder ? String(p.folder).replace(/^\/+|\/+$/g, '') : '';
   const first = p.images?.[0];
   if (!first) return '';
-  // Caso objeto {src, download}
-  if (first && typeof first === 'object' && first.src) {
-    return toPublicSrc(first.src, folder);
-  }
-  // Caso string "1.jpg" o ruta
-  if (typeof first === 'string') {
-    return toPublicSrc(first, folder);
-  }
+  if (first && typeof first === 'object' && first.src) return toPublicSrc(first.src, folder);
+  if (typeof first === 'string') return toPublicSrc(first, folder);
   return '';
 }
 
@@ -100,54 +88,41 @@ function formatMoney(value = 0, currency = 'USD', locale = 'es-CR') {
   }
 }
 
+/* -------------------- PRECIOS (Opción 1) -------------------- */
+/*
+  Regla: priceCRC del JSON es OBLIGATORIO/FIJO cuando currency = 'USD'.
+  - Si currency = 'USD': mostramos USD desde p.price y CRC SOLO si viene p.priceCRC explícito.
+  - Si currency = 'CRC': mostramos CRC desde p.priceCRC (si existe) o desde p.price (si guardaste el total en price).
+*/
 function getPrices(p) {
-  const usdToCrc = USD_TO_CRC; // tu constante
   const currency = (p.currency || 'USD').toUpperCase();
-
-  // Si hay priceCRC explícito en el JSON, úsalo para mostrar colones.
-  const crcExplicit = Number(p.priceCRC || 0) || null;
-
-  // Precio “base” segun currency
   const base = Number(p.price || 0);
+  const crcExplicit = (p.priceCRC !== undefined && p.priceCRC !== null) ? Number(p.priceCRC) : null;
 
   let priceUSD = 0;
   let priceCRC = 0;
 
   if (currency === 'CRC') {
-    priceCRC = crcExplicit != null ? crcExplicit : base;
-    // USD solo como referencia aproximada (no se muestra si no quieres)
-    priceUSD = priceCRC ? Math.round(priceCRC / usdToCrc) : 0;
+    priceCRC = crcExplicit !== null ? crcExplicit : base; // usa priceCRC o, en su defecto, price en CRC
+    priceUSD = 0; // referencia opcional si quisieras, pero Opción 1 no convierte
   } else {
-    // currency === 'USD' (u otro → tratamos como USD)
-    priceUSD = base;
-    priceCRC = crcExplicit != null ? crcExplicit : (priceUSD ? Math.round(priceUSD * usdToCrc) : 0);
-  }
-
-  // Si es precio por m² y hay lotSize, calcula un total estimado como respaldo (solo si no hay priceCRC)
-  if (p.priceIsPerM2 && p.pricePerM2 && p.lotSize) {
-    const perM2 = Number(p.pricePerM2);
-    const size = Number(p.lotSize);
-    const estCRC = Math.round(perM2 * size);
-    if (!crcExplicit && currency === 'CRC') {
-      priceCRC = estCRC;
-      priceUSD = Math.round(estCRC / usdToCrc);
-    } else if (!crcExplicit && currency !== 'CRC') {
-      // si “por m2” y moneda no CRC, no forzamos; dejamos los valores base/convertidos
-    }
+    // currency = 'USD' (o vacío)
+    priceUSD = base; // USD del JSON
+    priceCRC = crcExplicit !== null ? crcExplicit : 0; // SOLO muestra CRC si viene en JSON
   }
 
   return { priceUSD, priceCRC, currency };
 }
 
+// Precio efectivo en USD para filtrar/ordenar de forma consistente
 function effectivePriceUSD(p) {
-  const { priceUSD, priceCRC, currency } = getPrices(p);
+  const { priceUSD, priceCRC } = getPrices(p);
   if (priceUSD) return priceUSD;
-  if (priceCRC) return Math.round(priceCRC / USD_TO_CRC);
+  if (priceCRC) return Math.round(priceCRC / USD_TO_CRC); // solo para comparar internamente
   return 0;
 }
 
-
-// ───────────────────────── Carga inicial
+/* -------------------- Carga inicial -------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   fetch('properties.json')
     .then(r => r.json())
@@ -160,14 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
       setupUI();
       applyAdvancedState(false);
       enforceTypeRules();
-
-      // 🔧 Inicializa el forzado de descarga con marca en clic derecho
       initRightClickDownload();
     })
     .catch(err => console.error('Error al cargar el JSON:', err));
 });
 
-// ───────────────────────── UI
+/* -------------------- UI -------------------- */
 function setupUI() {
   const gridBtn = document.getElementById('gridView');
   const listBtn = document.getElementById('listView');
@@ -244,49 +217,7 @@ function enforceTypeRules() {
   });
 }
 
-// ───────────────────────── Filtrado
-// 🔢 Convierte y unifica precios priorizando priceCRC del JSON
-function getPrices(p) {
-  const usdToCrc = USD_TO_CRC; // tu constante global
-  const currency = (p.currency || 'USD').toUpperCase();
-
-  const crcExplicit = Number(p.priceCRC || 0) || null; // si viene en JSON, tiene prioridad
-  const base = Number(p.price || 0);
-
-  let priceUSD = 0;
-  let priceCRC = 0;
-
-  if (currency === 'CRC') {
-    priceCRC = crcExplicit != null ? crcExplicit : base; // base ya está en CRC
-    priceUSD = priceCRC ? Math.round(priceCRC / usdToCrc) : 0; // referencia
-  } else {
-    // currency = USD (o vacío)
-    priceUSD = base;
-    priceCRC = crcExplicit != null ? crcExplicit : (priceUSD ? Math.round(priceUSD * usdToCrc) : 0);
-  }
-
-  // Respaldo: si es por m² y hay lotSize, calcula total estimado si no vino priceCRC
-  if (p.priceIsPerM2 && p.pricePerM2 && p.lotSize && !crcExplicit) {
-    const estCRC = Math.round(Number(p.pricePerM2) * Number(p.lotSize));
-    if (currency === 'CRC') {
-      priceCRC = estCRC;
-      priceUSD = Math.round(estCRC / usdToCrc);
-    }
-    // si la moneda es USD y es por m², dejamos los valores base (no forzamos)
-  }
-
-  return { priceUSD, priceCRC, currency };
-}
-
-// 💵 Precio efectivo en USD para filtrar/ordenar de forma consistente
-function effectivePriceUSD(p) {
-  const { priceUSD, priceCRC } = getPrices(p);
-  if (priceUSD) return priceUSD;
-  if (priceCRC) return Math.round(priceCRC / USD_TO_CRC);
-  return 0;
-}
-
-// 🔎 FILTRO PRINCIPAL (usa el precio efectivo en USD para comparar con los inputs)
+/* -------------------- Filtrado -------------------- */
 function getFilteredList() {
   const q = readFiltersFromUI();
   const list = (window.properties || []);
@@ -295,8 +226,7 @@ function getFilteredList() {
     const t = effectiveType(p);
     if (q.type && t !== q.type) return false;
 
-    // ⬇️ ahora filtra usando precio unificado en USD (coherente con tus sliders/inputs actuales)
-    const priceUSD = effectivePriceUSD(p);
+    const priceUSD = effectivePriceUSD(p); // unificado para comparaciones
     if (priceUSD < q.priceMin) return false;
     if (priceUSD > q.priceMax) return false;
 
@@ -318,14 +248,11 @@ function getFilteredList() {
       if (!hit) return false;
     }
 
-    if (q.location && !(p.location || '').toLowerCase().includes(q.location)) {
-      return false;
-    }
+    if (q.location && !(p.location || '').toLowerCase().includes(q.location)) return false;
 
     return true;
   });
 }
-
 
 function readFiltersFromUI() {
   const getNum = (id, def = 0) => {
@@ -357,7 +284,7 @@ function readFiltersFromUI() {
   return { type, priceMin, priceMax, sizeMin, sizeMax, bedroomsMin, bathroomsMin, search, location };
 }
 
-// ───────────────────────── Render + paginación + orden
+/* -------------------- Render + paginación + orden -------------------- */
 function renderProperties() {
   const grid = document.getElementById('propertiesGrid');
   const list = document.getElementById('propertiesList');
@@ -416,10 +343,10 @@ function renderCard(p) {
 
   const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
 
-  // ↩️ Mostrar imagen limpia (como antes)
+  // Imagen
   const imgSrc = primaryImage(p);
 
-  // URL de descarga con marca (desde el primer item de images)
+  // URL de descarga con marca
   const first = p.images?.[0];
   let dlUrl = '';
   if (first && typeof first === 'object') {
@@ -428,11 +355,28 @@ function renderCard(p) {
     dlUrl = toDownloadUrl(first, p.folder, p.slug || p.title || 'propiedad');
   }
 
-  const priceUSD = Number(p.price || 0);
-  const priceCRC = priceUSD ? Math.round(priceUSD * USD_TO_CRC) : 0;
+  // 🧠 USAR getPrices (Opción 1)
+  const { priceUSD, priceCRC, currency } = getPrices(p);
+  let priceHTML = 'Consultar';
+
+  if (currency === 'CRC') {
+    // Moneda principal CRC
+    if (priceCRC) {
+      priceHTML = `${formatMoney(priceCRC, 'CRC')}`;
+    }
+  } else {
+    // Moneda principal USD
+    if (priceUSD) {
+      priceHTML = `${formatMoney(priceUSD, 'USD')}`;
+      // Muestra CRC SOLO si viene fijo en JSON (priceCRC)
+      if (priceCRC) {
+        priceHTML += ` <small>(${formatMoney(priceCRC, 'CRC')})</small>`;
+      }
+    }
+  }
 
   return `
-    <a href="${linkFor(p)}" class="property-card-link">
+    <a href="\${linkFor(p)}" class="property-card-link">
       <div class="property-card img-card" ${dlUrl ? `data-download="${dlUrl}"` : ''}>
         <div class="property-image">
           <img class="property-photo"
@@ -450,8 +394,8 @@ function renderCard(p) {
           <p class="property-location">${p.location || ''}</p>
           ${meta.length ? `<p class="property-meta">${meta.join(' • ')}</p>` : ''}
           <div class="property-price">
-            <span class="price" title="Precio en dólares y colones">
-              ${priceUSD ? `${formatMoney(priceUSD, 'USD')} <small>(${formatMoney(priceCRC, 'CRC')})</small>` : 'Consultar'}
+            <span class="price" title="Precio">
+              ${priceHTML}
             </span>
             <span class="view-btn" aria-hidden="true">Ver Detalles</span>
           </div>
@@ -465,10 +409,10 @@ function sortProperties() {
   const v = document.getElementById('sortBy')?.value || '';
   switch (v) {
     case 'price-low':
-      window.filteredProperties.sort((a, b) => (a.price || 0) - (b.price || 0));
+      window.filteredProperties.sort((a, b) => effectivePriceUSD(a) - effectivePriceUSD(b));
       break;
     case 'price-high':
-      window.filteredProperties.sort((a, b) => (b.price || 0) - (a.price || 0));
+      window.filteredProperties.sort((a, b) => effectivePriceUSD(b) - effectivePriceUSD(a));
       break;
     case 'bedrooms':
       window.filteredProperties.sort((a, b) => {
@@ -533,7 +477,7 @@ function clearFiltersUI() {
   enforceTypeRules();
 }
 
-/* -------------------- 🖱️ NUEVO: clic derecho => descarga con marca -------------------- */
+/* -------------------- clic derecho => descarga con marca -------------------- */
 function initRightClickDownload() {
   const SELECTOR_IMG = '.property-photo, .property-image img, .img-card img, img[data-download]';
 
@@ -542,15 +486,12 @@ function initRightClickDownload() {
     if (!img) return;
     e.preventDefault();
 
-    // Busca URL en data-download del <img> o del contenedor .img-card
     let dlUrl = img.dataset.download || img.closest('.img-card')?.dataset?.download || '';
 
-    // Último recurso: intenta construirla desde el src
     if (!dlUrl && img.src) {
       try {
         const url = new URL(img.src, window.location.origin);
         const abs = url.pathname; // /assets/images/...
-        // Construye /download/...
         const rel = abs.replace(/^\/assets\/images\//, '');
         dlUrl = rel ? `/download/${rel}?filename=${encodeURIComponent(img.alt || 'propiedad')}` : '';
       } catch (_) {}
@@ -569,4 +510,3 @@ function initRightClickDownload() {
     a.remove();
   }, { passive: false });
 }
-/* -------------------------------------------------------------------------------------- */
