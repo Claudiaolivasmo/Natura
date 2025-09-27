@@ -1,5 +1,3 @@
-
-
 // === 🏠 HOME.JS ===
 
 // ───────────────────────── Hero Buttons ─
@@ -41,13 +39,33 @@ function attachHoverToCards() {
 }
 attachHoverToCards();
 
-// ───────────────────────── Featured (Home) ─
+// ───────────────────────── Utils de propiedades ─
+// Soporta images: ["1.jpg", ...] o images: [{src:"/img/.../1.jpg?w=1200", ...}]
+function firstImageSrc(p) {
+  const folder = p.folder ? String(p.folder).replace(/^\/+|\/+$/g, '') : '';
+  const first = p.images?.[0];
+  if (!first) return '';
 
-// utils
-const imgSrc = (p) => `/images/properties/${p.folder}/${p.images?.[0] || ''}`;
+  // Objeto con src
+  if (first && typeof first === 'object' && first.src) {
+    const s = String(first.src);
+    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
+    return `/img/properties/${folder}/${s}`; // relativo
+  }
+
+  // String (archivo o ruta)
+  if (typeof first === 'string') {
+    if (/^https?:\/\//i.test(first) || first.startsWith('/')) return first; // absoluto
+    return `/img/properties/${folder}/${first}`;
+  }
+
+  return '';
+}
+
 const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}`
          : `property.html?id=${encodeURIComponent(p.id)}`;
+
 const isFeatured = (p) =>
   p?.featured === true || (p?.badge || '').toLowerCase().includes('destacado');
 
@@ -62,11 +80,17 @@ function buildMeta(p) {
 
 function renderCardHome(p) {
   const badge = p.badge ? `<div class="property-badge">${p.badge}</div>` : '';
+  const img = firstImageSrc(p);
+
   return `
     <a href="${linkFor(p)}" class="property-card-link">
       <div class="property-card">
         <div class="property-image">
-          <img class="property-photo" src="${imgSrc(p)}" alt="${p.title}">
+          <img class="property-photo"
+               src="${img}"
+               alt="${p.title || 'Propiedad'}"
+               loading="lazy"
+               decoding="async">
           ${badge}
         </div>
         <div class="property-content">
@@ -82,9 +106,7 @@ function renderCardHome(p) {
   `;
 }
 
-
-
-// prioriza destacados, rellena con recientes
+// Prioriza destacados, rellena con recientes
 function pickFeatured(list, n = 3) {
   const props = Array.isArray(list) ? list : [];
   const destacados = props.filter(isFeatured).sort((a,b) => (b.id||0)-(a.id||0));
@@ -107,16 +129,12 @@ function renderFeatured(props) {
     ? chosen.map(renderCardHome).join('')
     : `<div class="no-results">Aún no hay propiedades destacadas.</div>`;
 
-  console.log('[home] rendered cards:', container.children.length);
   attachHoverToCards();
 }
 
-
 // ───────────────────────── Init ─
 document.addEventListener('DOMContentLoaded', () => {
-  // Si tu JSON está en otra carpeta, ajusta la ruta:
-  // ej. const url = './data/properties.json';
-  const url = 'properties.json';
+  const url = 'properties.json'; // ajusta si está en otra carpeta
 
   fetch(url)
     .then(r => {
