@@ -2,16 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { fileURLToPath } from 'node:url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
-
-// Directorios fuente dentro del bundle de la función
-const ORIGINALS_DIR = path.resolve(__dirname, '../../assets/originals');
-const IMAGES_DIR    = path.resolve(__dirname, '../../assets/images');
-
-// ───────────────────────── Utilidades
 function safeJoin(base, target) {
   const cleaned = String(target || '').replace(/^\/+/, '');
   const full = path.resolve(base, cleaned);
@@ -19,9 +10,12 @@ function safeJoin(base, target) {
   return full;
 }
 
+async function tryRead(filePath) {
+  try { return await fs.readFile(filePath); } catch { return null; }
+}
+
 function getQS(event) {
   const qs = event?.queryStringParameters || {};
-  // Normaliza claves a minúsculas por comodidad
   const out = {};
   for (const k in qs) out[k.toLowerCase()] = qs[k];
   return out;
@@ -38,28 +32,20 @@ function pickContentType(fmt, fallbackExt) {
   return 'application/octet-stream';
 }
 
-async function tryRead(filePath) {
-  try {
-    const buf = await fs.readFile(filePath);
-    return buf;
-  } catch {
-    return null;
-  }
-}
-
-// ───────────────────────── Handler
-export async function handler(event, context) {
+export async function handler(event) {
   try {
     const qs = getQS(event);
     const imgParam = (qs.img || '').trim();
-    if (!imgParam) {
-      return { statusCode: 400, body: 'Missing ?img=path' };
-    }
+    if (!imgParam) return { statusCode: 400, body: 'Missing ?img=path' };
 
-    // Localiza el archivo: originals → images
+    // 🔧 Directorios resueltos desde la raíz del proyecto en runtime
+    const ROOT = process.cwd();
+    const ORIGINALS_DIR = path.join(ROOT, 'assets', 'originals');
+    const IMAGES_DIR    = path.join(ROOT, 'assets', 'images');
+
+    // Busca primero en originals y luego en images
     let absPath = safeJoin(ORIGINALS_DIR, imgParam);
     let buf = await tryRead(absPath);
-
     if (!buf) {
       absPath = safeJoin(IMAGES_DIR, imgParam);
       buf = await tryRead(absPath);
@@ -72,51 +58,37 @@ export async function handler(event, context) {
     const width  = Number.parseInt(qs.w || qs.width);
     const height = Number.parseInt(qs.h || qs.height);
     const fit    = (qs.fit || 'inside').toLowerCase(); // cover|contain|fill|inside|outside
-    const fmt    = (qs.fmt || qs.format || '').toLowerCase(); // webp|avif|png|jpg|jpeg
+    const fmt    = (qs.fmt || qs.format || '').toLowerCase();
     const q      = Number.parseInt(qs.q || qs.quality || '82');
     const hasResize = Number.isFinite(width) || Number.isFinite(height);
     const ext = path.extname(absPath).slice(1).toLowerCase();
 
-    // Si es SVG y no se pide fmt -> devuélvelo directo (no rasterizamos por defecto)
+    // SVG sin transformación → devolver directo
     if ((ext === 'svg' || ext === 'svgz') && !fmt && !hasResize) {
       return {
         statusCode: 200,
-        headers: {
-          'Content-Type': 'image/svg+xml',
-          'Cache-Control': 'public, max-age=86400',
-        },
+        headers: { 'Content-Type': 'image/svg+xml', 'Cache-Control': 'public, max-age=86400' },
         body: buf.toString('base64'),
         isBase64Encoded: true,
       };
     }
 
-    // Construye pipeline Sharp
-    let img = sharp(buf, { limitInputPixels: false }); // por si hay imágenes grandes
-
+    let img = sharp(buf, { limitInputPixels: false });
     if (hasResize) {
       img = img.resize({
         width: Number.isFinite(width) ? width : null,
         height: Number.isFinite(height) ? height : null,
-        fit: ['cover', 'contain', 'fill', 'inside', 'outside'].includes(fit) ? fit : 'inside',
+        fit: ['cover','contain','fill','inside','outside'].includes(fit) ? fit : 'inside',
         withoutEnlargement: true,
       });
     }
 
-    // Formato de salida (si no se define, mantenemos el original)
     let contentType = pickContentType(fmt, ext);
-    if (fmt === 'webp') {
-      img = img.webp({ quality: Number.isFinite(q) ? q : 82 });
-    } else if (fmt === 'avif') {
-      img = img.avif({ quality: Number.isFinite(q) ? q : 50 }); // AVIF calidad típica más baja
-    } else if (fmt === 'png') {
-      img = img.png({ compressionLevel: 9 });
-    } else if (fmt === 'jpg' || fmt === 'jpeg') {
-      img = img.jpeg({ quality: Number.isFinite(q) ? q : 85 });
-    } else {
-      // Mantén formato original
-      contentType = pickContentType(ext, ext);
-      // Si es jpg/png/gif/etc no hace falta setear salida explícita
-    }
+    if (fmt === 'webp')      img = img.webp({ quality: Number.isFinite(q) ? q : 82 });
+    else if (fmt === 'avif') img = img.avif({ quality: Number.isFinite(q) ? q : 50 });
+    else if (fmt === 'png')  img = img.png({ compressionLevel: 9 });
+    else if (fmt === 'jpg' || fmt === 'jpeg') img = img.jpeg({ quality: Number.isFinite(q) ? q : 85 });
+    else contentType = pickContentType(ext, ext); // mantiene formato original
 
     const out = await img.toBuffer();
 
