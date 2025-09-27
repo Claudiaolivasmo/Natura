@@ -387,22 +387,35 @@
    MEDIA QUERIES
    =========================== */
 
-/* ≤640px (ya mobile por defecto) — ajustes menores */
+
+
+   /* ≤640px (ya mobile por defecto) — ajustes menores */
 @media (max-width: 640px){
-  .hero{ min-height: 70vh; }
+  .hero{ 
+    min-height: 70vh; 
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
   .tagline{ font-size: 1rem; }
   .main-text{ font-size: 1.75rem; }
 
   .section-title h3{ font-size: 2.1rem; }
   .section-title p{ font-size: 1.05rem; }
 
-  /* ya aplicado: .property-image { aspect-ratio: 4/3; } */
   .overlay-inner{ padding: 1rem 1.25rem; max-width: 88%; }
 }
 
 /* ≥768px (tablets) */
 @media (min-width: 768px){
-  .hero{ min-height: 75vh; padding: 4rem 2rem; }
+  .hero{ 
+    min-height: 75vh; 
+    padding: 4rem 2rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
   .tagline{ font-size: 1.05rem; }
   .main-text{ font-size: 2.2rem; margin-bottom: 2.25rem; }
 
@@ -432,7 +445,12 @@
 
 /* ≥1024px (laptops) */
 @media (min-width: 1024px){
-  .hero{ min-height: 80vh; }
+  .hero{ 
+    min-height: 80vh; 
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
   .main-text{ font-size: 2.4rem; }
 
   .property-grid{ grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
@@ -445,7 +463,12 @@
 
 /* ≥1280px (desktops grandes) */
 @media (min-width: 1280px){
-  .hero{ min-height: 800px; }
+  .hero{ 
+    min-height: 800px; 
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
   .main-text{ font-size: 2.6rem; }
 
   .section-title h3{ font-size: 2.8rem; }
@@ -459,38 +482,32 @@
   *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
 }
 
-
 /* === FIX: cards con altura pareja en TODAS las filas === */
-
-/* 1) Asegura que los hijos directos de la grilla se estiren */
 .property-grid { align-items: stretch; }
-.property-grid > * { height: 100%; }          /* <a.property-card-link> o el contenedor directo */
+.property-grid > * { height: 100%; }
 
-/* 2) El enlace (ítem de grid) debe comportarse como contenedor flex de altura completa */
 .property-card-link{
-  display: flex;               /* antes era block */
+  display: flex;
   height: 100%;
   text-decoration: none;
   color: inherit;
 }
 
-/* 3) La card hereda 100% y distribuye en columna */
 .property-card{
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-/* 4) El cuerpo ocupa el espacio libre y el footer baja */
 .property-content{ 
   flex: 1 1 auto; 
-  min-height: 0;               /* evita desbordes raros */
+  min-height: 0;
 }
 .property-price{ 
-  margin-top: auto;            /* pega el precio/CTA al fondo */
+  margin-top: auto;
 }
 
-/* 5) Imagen con relación uniforme (ya tienes 4/3 en móvil) */
+/* Imagen con relación uniforme */
 @media (min-width: 768px){
   .property-image{ aspect-ratio: 16 / 9; }
 }
