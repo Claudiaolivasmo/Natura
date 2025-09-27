@@ -2,6 +2,26 @@
   publish = "."
   functions = "netlify/functions"
 
+[functions]
+  # Asegura bundling moderno y que Sharp se incluya correctamente
+  node_bundler = "esbuild"
+  included_files = ["assets/**"]
+  external_node_modules = ["sharp"] # a veces no es necesario, pero ayuda
+
+# Opcional: headers de caché para /img (servidos por la función "serve")
+# (Si tu serve aplica transformaciones dinámicas, reduce max-age)
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400" # 1 día
+
+# Si quieres forzar descarga en /download (aunque ya lo haces en la función con Content-Disposition)
+[[headers]]
+  for = "/download/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+# Rutas dinámicas → funciones
 [[redirects]]
   from = "/img/*"
   to = "/.netlify/functions/serve?img=:splat"

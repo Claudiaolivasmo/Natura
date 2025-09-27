@@ -1,42 +1,84 @@
+// /netlify/functions/watermark.js (ejemplo)
+// Node ESM
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Directorios dentro del bundle de la función
+// Asegúrate de incluir estos archivos en el build (Netlify: "included_files")
+const ORIGINALS_DIR = path.resolve(__dirname, '../../assets/originals');
+const BRANDING_DIR  = path.resolve(__dirname, '../../assets/branding');
+
+// Sanitiza rutas: evita ../
+function safeJoin(base, target) {
+  const targetPath = path.resolve(base, target.replace(/^\/+/, ''));
+  if (!targetPath.startsWith(base)) throw new Error('Path traversal');
+  return targetPath;
+}
+
+function getQS(event) {
+  // Soporta Netlify y fallback manual
+  const qs = event?.queryStringParameters || {};
+  if (Object.keys(qs).length) return qs;
+
+  // fallback si pasaras rawQuery (no estándar)
+  const raw = event?.rawQuery || '';
+  const params = new URLSearchParams(raw);
+  const obj = {};
+  for (const [k, v] of params.entries()) obj[k] = v;
+  return obj;
+}
 
 export async function handler(event, context) {
   try {
-    const params = new URLSearchParams(event.rawQuery || '');
-    const img = params.get('img');
-    const filename = params.get('filename') || img;
+    const qs = getQS(event);
+    const imgParam = (qs.img || '').trim();
+    if (!imgParam) return { statusCode: 400, body: 'Missing ?img=path' };
 
-    if (!img) return { statusCode: 400, body: 'Missing ?img=path' };
+    // filename opcional, por defecto usa el nombre del archivo
+    const fallbackName = path.basename(imgParam).replace(/\.(png|jpe?g|webp|gif|tiff|avif)$/i, '') || 'imagen';
+    const filename = (qs.filename || fallbackName).replace(/[^\w\-\.]+/g, '_');
 
-    // 1) Leer imagen original (no pública)
-    const inputPath = path.join(process.cwd(), 'assets', 'originals', img);
+    // 1) Lee imagen original (no pública)
+    const inputPath = safeJoin(ORIGINALS_DIR, imgParam);
     const inputBuffer = await fs.readFile(inputPath);
 
-    // 2) Leer logo de Natura (PNG con transparencia)
-    const logoPath = path.join(process.cwd(), 'assets', 'branding', 'natura-logo.png');
+    // 2) Lee logo (PNG con transparencia)
+    const logoPath = safeJoin(BRANDING_DIR, 'natura-logo.png');
     const logoBuffer = await fs.readFile(logoPath);
 
-    // 3) Medir la imagen para escalar el logo de forma proporcional
+    // 3) Medir base y preparar escalado del logo (≈18% del ancho, mínimo 180px)
     const base = sharp(inputBuffer);
     const meta = await base.metadata();
+    const baseW = meta.width || 2000;
+    const baseH = meta.height || 1500;
 
-    // Ancho del logo ≈ 18% del ancho de la foto (ajústalo a gusto)
-    const targetLogoWidth = Math.max( Math.round((meta.width || 2000) * 0.18), 180 );
-    const logoResized = await sharp(logoBuffer)
+    const targetLogoWidth = Math.max(Math.round(baseW * 0.18), 180);
+    const logoResizedBuf = await sharp(logoBuffer)
       .resize({ width: targetLogoWidth, withoutEnlargement: true })
       .toBuffer();
 
-    // 4) Componer: colocar logo en esquina inferior derecha con un poco de margen
-    //    Puedes ajustar opacity para que sea más/menos visible (0–1)
+    const logoMeta = await sharp(logoResizedBuf).metadata();
+    const logoW = logoMeta.width || targetLogoWidth;
+    const logoH = logoMeta.height || Math.round(targetLogoWidth / 3);
+
+    // 4) Calcular offsets para esquina inferior derecha con margen (24px)
+    const MARGIN = 24;
+    const left = Math.max(0, baseW - logoW - MARGIN);
+    const top  = Math.max(0, baseH - logoH - MARGIN);
+
+    // 5) Componer (solo logo, sin hora)
     const watermarked = await base
       .composite([
         {
-          input: logoResized,
-          gravity: 'southeast', // esquina inferior derecha
-          left: 24,             // margen desde el borde derecho
-          top: 24,              // margen desde el borde inferior
+          input: logoResizedBuf,
+          // gravity ignorado si defines top/left (usamos top/left directamente)
+          left,
+          top,
           blend: 'over',
           opacity: 0.85
         },
@@ -48,7 +90,9 @@ export async function handler(event, context) {
       statusCode: 200,
       headers: {
         'Content-Type': 'image/jpeg',
-        'Content-Disposition': `attachment; filename="${filename.replace(/\.(png|jpg|jpeg|webp|gif)$/i,'')}-wm.jpg"`
+        'Content-Disposition': `attachment; filename="${filename}-wm.jpg"`,
+        // Opcional cache:
+        // 'Cache-Control': 'public, max-age=31536000, immutable'
       },
       body: watermarked.toString('base64'),
       isBase64Encoded: true
