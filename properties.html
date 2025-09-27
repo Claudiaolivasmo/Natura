@@ -215,5 +215,41 @@
       });
     })();
   </script>
+  <script>
+(function () {
+  const SELECTOR_IMG = '.property-gallery img, .img-card img, img[data-download]';
+
+  document.addEventListener('contextmenu', function (e) {
+    const img = e.target.closest(SELECTOR_IMG);
+    if (!img) return;
+    e.preventDefault();
+
+    // 1) data-download del <img>
+    let dlUrl = img.dataset.download || '';
+
+    // 2) o data-download del contenedor
+    if (!dlUrl) dlUrl = img.closest('.img-card')?.dataset?.download || '';
+
+    // 3) o un botón/anchor de descarga cercano
+    if (!dlUrl) dlUrl = img.closest('.img-card')?.querySelector('.dl-btn')?.getAttribute('href') || '';
+
+    if (!dlUrl) {
+      console.warn('[WM] No download URL for image', img);
+      return;
+    }
+
+    // añade marca mínima para depurar
+    const url = dlUrl + (dlUrl.includes('?') ? '&' : '?') + 'from=rclick';
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = ''; // sugiere descarga
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }, { passive: false });
+})();
+</script>
+
 </body>
 </html>

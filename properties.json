@@ -42,8 +42,9 @@
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
     "description": [
-      "Ubicado a tan solo 15 minutos del centro de La Fortuna de San Carlos, este lote ofrece una oportunidad única...",
-      "Uno de sus mayores atractivos es que colinda con el río Burrito..."
+      "Ubicado a solo 15 minutos del centro de La Fortuna, este lote de 2.296 m² ofrece un espacio amplio y rodeado de naturaleza.",
+      "Uno de sus principales atractivos es que colinda con el río Burrito, brindando un entorno fresco y tranquilo.",
+      "Cuenta con acceso por calle pública y disponibilidad de agua y electricidad, ideal para desarrollar una residencia, quinta privada o proyecto de retiro."
     ],
     "features": ["Frente a río", "Zona tranquila", "Entorno natural", "Acceso por calle pública", "Agua disponible", "Electricidad disponible"]
   },
@@ -79,9 +80,9 @@
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
     "description": [
-      "Lote ubicado en la entrada de Agua Azul, La Fortuna...",
-      "Con una medida de 1.019 m²...",
-      "La propiedad cuenta con acceso por calle pública..."
+      "Este lote de 1.019 m² se ubica en la entrada de Agua Azul, a pocos minutos del centro de La Fortuna.",
+      "Forma parte de un residencial tranquilo y rodeado de naturaleza, con vistas al Volcán Arenal y excelente accesibilidad.",
+      "Es ideal para construir una casa de retiro o vacaciones, con la ventaja de contar con financiamiento disponible y cercanía a servicios."
     ],
     "features": ["Zona tranquila","Entorno natural","Acceso por calle pública","Agua disponible","Electricidad disponible","Vista al volcán","Cercanía a servicios","Oportunidad de inversión","Financiamiento disponible"]
   },
@@ -148,11 +149,10 @@
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.4705, "lng": -84.6408, "zoom": 15 },
     "description": [
-      "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero...",
-      "Cada villa dispone de una habitación...",
-      "La propiedad se distingue por sus amenidades...",
-      "Amplias áreas verdes...",
-      "Excelente alternativa de inversión..."
+      "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero de 1.109 m², con una construcción de 140 m².",
+      "Cuenta con 2 dormitorios y 2 baños, brindando comodidad y un ambiente acogedor.",
+      "Entre sus amenidades destacan un rancho BBQ, cochera, bodega, accesos separados con portones y amplias áreas verdes con jardines y árboles frutales.",
+      "A tan solo 50 metros del río Chachaguita, es una excelente alternativa de inversión para residencia familiar o renta vacacional."
     ],
     "features": ["2 dormitorios","2 baños completos","Construcción de 140 m²","Lote de 1.109 m²","1 piso","Año 2023","Rancho BBQ","Cochera","Bodega","Jardines y árboles frutales","Cercas vivas"]
   },
@@ -195,10 +195,9 @@
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
     "description": [
-      "Lotes privados de 1.000 m² en Finca Agua Azul...",
-      "Vistas al Volcán Arenal...",
-      "Acceso por calle pública...",
-      "Precio desde ₡35.000 por m²..."
+      "Estos lotes de 1.000 m² en Agua Azul ofrecen privacidad, tranquilidad y vistas privilegiadas al Volcán Arenal.",
+      "Cuentan con acceso por calle pública, así como disponibilidad de agua, electricidad e internet.",
+      "Con precios desde ₡35.000 por m², representan una oportunidad ideal para desarrollar proyectos residenciales o de inversión en un entorno natural."
     ],
     "features": ["Vistas al volcán","Privacidad y naturaleza","Zona tranquila","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para inversión","Financiamiento disponible"],
     "highlights": ["Desde ₡35.000/m²","Lote tipo: 1.000 m²","Rodeado de bosque y fauna"]
@@ -260,10 +259,9 @@
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
     "description": [
-      "Quintas de 5.000 m² en Finca Agua Azul...",
-      "Vistas abiertas al Volcán Arenal...",
-      "Acceso por calle pública...",
-      "Precio desde ₡20.000 por m²..."
+      "Estas quintas de 5.000 m² en Agua Azul combinan privacidad, amplitud y un entorno natural privilegiado.",
+      "Disfrute de vistas abiertas al Volcán Arenal y de un espacio ideal para proyectos turísticos, residenciales o de retiro.",
+      "Con acceso por calle pública, agua, electricidad e internet disponibles, y precios desde ₡20.000 por m², se presentan como una inversión estratégica en la zona."
     ],
     "features": ["Vistas al volcán","Alta privacidad","Entorno natural","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para desarrollo turístico","Financiamiento disponible"],
     "highlights": ["Desde ₡20.000/m²","Quinta tipo: 5.000 m²","Zonas planas y arboladas"]

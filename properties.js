@@ -37,37 +37,43 @@ const inferType = (p) => {
 const effectiveType = (p) => mapType(p.type || inferType(p));
 const effectiveSize = (p) => Number(p.lotSize ?? p.area ?? 0);
 
-// Soporta: images: ["1.jpg", ...] o images: [{src:"/img/.../1.jpg?w=1200", download:"..."}]
-// ⚠️ CORRECCIÓN AQUÍ: Usamos /watermark para la imagen principal de las propiedades.
+// Transforma src (absoluta o relativa) a URL de watermark (vía redirect /download/*)
+function toWatermarkUrl(srcOrName, folder, filename = 'imagen') {
+  // 1) Externas (CDN, http) no las tocamos
+  if (/^https?:\/\//i.test(srcOrName)) return srcOrName;
+
+  // 2) Ya es una URL a la función
+  if (srcOrName.startsWith('/download/')) return srcOrName;
+
+  // 3) Si es una ruta absoluta dentro de /assets/images/... => obtén ruta relativa para ?img=
+  if (srcOrName.startsWith('/assets/images/')) {
+    const rel = srcOrName.replace(/^\/assets\/images\//, '');             // p.ej. "properties/008-lote-burrito/1.jpg"
+    return `/download/${rel}?filename=${encodeURIComponent(filename)}`;    // → redirect a watermark
+  }
+
+  // 4) Si llega un nombre suelto ("1.jpg"), arma "properties/{folder}/1.jpg"
+  const cleanFolder = String(folder || '').replace(/^\/+|\/+$/g, '');
+  const rel = `properties/${cleanFolder}/${srcOrName}`;
+  return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
+}
+
+// Primary image: SIEMPRE por la función para que "Guardar imagen como..." baje con marca
 function primaryImage(p) {
   const folder = p.folder ? String(p.folder).replace(/^\/+|\/+$/g, '') : '';
   const first = p.images?.[0];
   if (!first) return '';
 
-  let imgName = '';
-
-  // a) Objeto con src
+  // si es objeto {src, download}, usa src para construir
   if (first && typeof first === 'object' && first.src) {
-    const s = String(first.src);
-    // Si la ruta ya es absoluta o empieza con '/', la respetamos.
-    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s;
-    imgName = s; // Solo el nombre del archivo
+    return toWatermarkUrl(first.src, folder, p.slug || p.title || 'propiedad');
   }
-  // b) String (nombre de archivo)
-  else if (typeof first === 'string') {
-    if (/^https?:\/\//i.test(first) || first.startsWith('/')) return first;
-    imgName = first; // Solo el nombre del archivo
+  // si es string
+  if (typeof first === 'string') {
+    return toWatermarkUrl(first, folder, p.slug || p.title || 'propiedad');
   }
-
-  if (imgName) {
-    // ⚠️ Llamada a la función de Watermark
-    // El parámetro 'img' debe ser la ruta relativa desde 'assets/images/properties/'
-    return `/watermark?img=${folder}/${imgName}`;
-  }
-
   return '';
 }
-// ⚠️ Fin de la corrección en primaryImage(p)
+
 
 const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}` : `property.html?id=${encodeURIComponent(p.id)}`;
