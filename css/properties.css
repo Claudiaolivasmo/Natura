@@ -211,9 +211,20 @@ aside.filters-sidebar{
   padding:.3rem .65rem; font-size:.85rem; font-weight:600; border-radius:999px;
 }
 .property-price{ margin-top:auto; display:flex; justify-content:space-between; align-items:center; }
-.property-price .price{ font-size:1.4rem; font-weight:700; color:var(--text-dark); }
-.view-btn{ background:var(--main-color); color:#fff; padding:.55rem 1rem; font-weight:600; }
-.view-btn:hover{ opacity:.9; }
+.property-price .price{ font-size:1.2rem; font-weight:700; color:var(--text-dark); }
+.view-btn {
+  background: var(--main-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;    /* texto más pequeño */
+  padding: 0.35rem 0.75rem; /* menos espacio alrededor */
+  border-radius: 4px;    /* opcional: esquinas más suaves */
+}
+
+.view-btn:hover {
+  opacity: 0.9;
+}
+
 
 .property-meta i{ margin-right:4px; color:var(--main-color); }
 

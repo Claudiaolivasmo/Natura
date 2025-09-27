@@ -7,7 +7,7 @@
   --font-title:'Cormorant Garamond',serif;
   --font-text:'Lato',sans-serif;
 
-  /* 🔒 Altura base del header para sticky/offset */
+  /* Altura base del header */
   --header-h: 72px;
 }
 
@@ -21,7 +21,7 @@ body{
   line-height:1.6;
 }
 
-/* ===== Header (STICKY) ===== */
+/* ===== Header (STICKY) con efecto shrink ===== */
 .header{
   position:-webkit-sticky; /* iOS */
   position:sticky;
@@ -32,17 +32,31 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 2rem;                 /* padding lateral, sin sumar a la altura */
+  padding:0 2rem;                 /* padding lateral */
   background:#fff;
   box-shadow:0 2px 10px rgba(0,0,0,.1);
+  transition:
+    height .3s ease,
+    box-shadow .3s ease,
+    background .3s ease,
+    padding .3s ease;
   will-change:transform;
+}
+
+/* Al hacer scroll: encoge el header cambiando su propia var */
+.header.scrolled{
+  --header-h: 56px;                /* reduce altura */
+  background:rgba(255,255,255,.98);
+  box-shadow:0 2px 18px rgba(0,0,0,.12);
+  padding:0 2rem;
 }
 
 /* Logo dimensionado respecto a la altura del header */
 .logo img{
-  height:calc(var(--header-h) - 22px); /* deja margen vertical interno */
+  height:calc(var(--header-h) - 22px); /* margen vertical interno */
   width:auto;
   display:block;
+  transition:height .3s ease;
 }
 
 /* Nav desktop */
@@ -56,7 +70,7 @@ body{
   color:var(--text-dark);
   font-weight:500;
   padding:.5rem 1rem;
-  transition:color .3s ease;
+  transition:color .3s ease, background .3s ease, transform .3s ease;
 }
 .nav a:hover{ color:var(--main-color); }
 
@@ -129,14 +143,16 @@ body{
 
 /* ===== Responsive ===== */
 @media (max-width:768px){
-  :root{ --header-h: 64px; }  /* header un poco más bajo en móvil */
+  :root{ --header-h: 64px; }  /* base un poco más baja en móvil */
   .nav{ display:none; }
   .hamburger{ display:flex; }
   .header{ padding:0 1rem; }
   .logo img{ height:calc(var(--header-h) - 18px); }
 }
 
-/* ===== Offset para anclas (no se oculten bajo el header) ===== */
+/* ===== Offset para anclas ===== */
+/* ojo: scroll-padding-top usa la var global; si quieres compensar dinámicamente,
+   puedes aplicar margen al primer section con JS al cargar. */
 html{ scroll-padding-top: var(--header-h); }
 section[id], [id].anchor{ scroll-margin-top: var(--header-h); }
 
@@ -144,7 +160,7 @@ section[id], [id].anchor{ scroll-margin-top: var(--header-h); }
 body.header-fixed .header{ position:fixed; top:0; left:0; right:0; }
 body.header-fixed::before{ content:""; display:block; height:var(--header-h); }
 
-/* Demo contenido */
+/* Demo contenido opcional */
 .content{
   max-width:1200px;
   margin:0 auto;

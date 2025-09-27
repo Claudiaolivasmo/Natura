@@ -3,8 +3,7 @@ let currentPage = 1;
 const propertiesPerPage = 9;
 
 // ───────────────────────── Config
-// Si tus precios fuente están en USD y quieres mostrar CRC aproximado:
-const USD_TO_CRC = 525; // ⚠️ Ajusta el tipo de cambio si lo deseas.
+const USD_TO_CRC = 525;
 
 // ───────────────────────── Utils robustas
 const normalizeText = (s = '') =>
@@ -18,7 +17,6 @@ const isDwelling = (t) => {
 const mapType = (t) => {
   const x = normalizeText(t || '');
   if (!x) return '';
-  // Normaliza sinónimos/plurales
   if (['terreno', 'terrenos', 'lote', 'lotes', 'solar', 'solares', 'parcela', 'parcelas'].includes(x)) return 'lote';
   if (['apartamento', 'apartamentos', 'apto', 'apt'].includes(x)) return 'apartamento';
   if (['cabana', 'cabaña', 'cabins'].includes(x)) return 'cabana';
@@ -37,43 +35,55 @@ const inferType = (p) => {
 const effectiveType = (p) => mapType(p.type || inferType(p));
 const effectiveSize = (p) => Number(p.lotSize ?? p.area ?? 0);
 
-// Transforma src (absoluta o relativa) a URL de watermark (vía redirect /download/*)
-function toWatermarkUrl(srcOrName, folder, filename = 'imagen') {
-  // 1) Externas (CDN, http) no las tocamos
-  if (/^https?:\/\//i.test(srcOrName)) return srcOrName;
-
-  // 2) Ya es una URL a la función
-  if (srcOrName.startsWith('/download/')) return srcOrName;
-
-  // 3) Si es una ruta absoluta dentro de /assets/images/... => obtén ruta relativa para ?img=
-  if (srcOrName.startsWith('/assets/images/')) {
-    const rel = srcOrName.replace(/^\/assets\/images\//, '');             // p.ej. "properties/008-lote-burrito/1.jpg"
-    return `/download/${rel}?filename=${encodeURIComponent(filename)}`;    // → redirect a watermark
+/* -------------------- 🔧 NUEVO: helpers de rutas -------------------- */
+// Devuelve la URL pública limpia para mostrar en <img> (como antes)
+function toPublicSrc(srcOrName, folder) {
+  if (!srcOrName) return '';
+  // Si ya es http(s) o ruta absoluta, respétala
+  if (/^https?:\/\//i.test(srcOrName) || String(srcOrName).startsWith('/')) {
+    return String(srcOrName);
   }
-
-  // 4) Si llega un nombre suelto ("1.jpg"), arma "properties/{folder}/1.jpg"
+  // Si es un nombre suelto "1.jpg" => construye /assets/images/properties/{folder}/1.jpg
   const cleanFolder = String(folder || '').replace(/^\/+|\/+$/g, '');
-  const rel = `properties/${cleanFolder}/${srcOrName}`;
-  return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
+  return `/assets/images/properties/${cleanFolder}/${srcOrName}`;
 }
 
-// Primary image: SIEMPRE por la función para que "Guardar imagen como..." baje con marca
+// Construye la URL que pasa por tu función (redirect /download/* → watermark)
+function toDownloadUrl(srcOrNameOrAbs, folder, filename = 'imagen') {
+  if (!srcOrNameOrAbs) return '';
+  // Si ya apunta a /download, respétala
+  if (String(srcOrNameOrAbs).startsWith('/download/')) {
+    return srcOrNameOrAbs.includes('filename=')
+      ? srcOrNameOrAbs
+      : `${srcOrNameOrAbs}?filename=${encodeURIComponent(filename)}`;
+  }
+  // Si viene absoluta bajo /assets/images, conviértela a /download/...
+  if (String(srcOrNameOrAbs).startsWith('/assets/images/')) {
+    const rel = srcOrNameOrAbs.replace(/^\/assets\/images\//, ''); // properties/...
+    return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
+  }
+  // Nombre suelto → arma properties/{folder}/archivo y pásalo por /download
+  const cleanFolder = String(folder || '').replace(/^\/+|\/+$/g, '');
+  const rel = `properties/${cleanFolder}/${srcOrNameOrAbs}`;
+  return `/download/${rel}?filename=${encodeURIComponent(filename)}`;
+}
+/* ------------------------------------------------------------------- */
+
+// 🔙 VOLVER A COMO ANTES: primaryImage muestra la foto limpia de /assets/images/...
 function primaryImage(p) {
   const folder = p.folder ? String(p.folder).replace(/^\/+|\/+$/g, '') : '';
   const first = p.images?.[0];
   if (!first) return '';
-
-  // si es objeto {src, download}, usa src para construir
+  // Caso objeto {src, download}
   if (first && typeof first === 'object' && first.src) {
-    return toWatermarkUrl(first.src, folder, p.slug || p.title || 'propiedad');
+    return toPublicSrc(first.src, folder);
   }
-  // si es string
+  // Caso string "1.jpg" o ruta
   if (typeof first === 'string') {
-    return toWatermarkUrl(first, folder, p.slug || p.title || 'propiedad');
+    return toPublicSrc(first, folder);
   }
   return '';
 }
-
 
 const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}` : `property.html?id=${encodeURIComponent(p.id)}`;
@@ -101,15 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderProperties();
       setupUI();
-      applyAdvancedState(false); // Avanzado oculto al inicio
-      enforceTypeRules();        // Deshabilita hab/baños si aplica
+      applyAdvancedState(false);
+      enforceTypeRules();
+
+      // 🔧 Inicializa el forzado de descarga con marca en clic derecho
+      initRightClickDownload();
     })
     .catch(err => console.error('Error al cargar el JSON:', err));
 });
 
 // ───────────────────────── UI
 function setupUI() {
-  // Vista grid/list
   const gridBtn = document.getElementById('gridView');
   const listBtn = document.getElementById('listView');
   if (gridBtn && listBtn) {
@@ -125,41 +137,35 @@ function setupUI() {
     });
   }
 
-  // Botón Filtrar (aplica filtros)
   document.getElementById('filterApply')?.addEventListener('click', () => {
     currentPage = 1;
     window.filteredProperties = getFilteredList();
-    sortProperties(); // respeta el orden seleccionado tras filtrar
+    sortProperties();
     renderProperties();
   });
 
-  // Botón Avanzado (mostrar/ocultar). Toggle literal del estado visible.
   document.getElementById('toggleAdvanced')?.addEventListener('click', () => {
     const panel = document.getElementById('advancedFilters');
-    applyAdvancedState(panel?.classList.contains('hidden')); // si está oculto → abrir
+    applyAdvancedState(panel?.classList.contains('hidden'));
   });
 
-  // Cambios de tipo afectan habilitación de hab/baños (no filtra aún)
   document.getElementById('property-type')?.addEventListener('change', enforceTypeRules);
 
-  // Ordenar → re-ordena lo ya filtrado y re-renderiza
   document.getElementById('sortBy')?.addEventListener('change', () => {
     sortProperties();
     currentPage = 1;
     renderProperties();
   });
 
-  // Limpiar filtros (resetea y re-renderiza todo)
   document.getElementById('clearFilters')?.addEventListener('click', () => {
     clearFiltersUI();
     window.filteredProperties = [...(window.properties || [])];
-    sortProperties(); // aplica orden por defecto
+    sortProperties();
     currentPage = 1;
     renderProperties();
   });
 }
 
-// Mostrar/ocultar contenedor de avanzados
 function applyAdvancedState(open) {
   const panel = document.getElementById('advancedFilters');
   const btn = document.getElementById('toggleAdvanced');
@@ -176,11 +182,10 @@ function applyAdvancedState(open) {
   }
 }
 
-// Habilita/deshabilita filtros de hab/baños según el tipo
 function enforceTypeRules() {
   const typeSel = document.getElementById('property-type');
   const typeValue = mapType(typeSel?.value || '');
-  const isHomeType = !typeValue || isDwelling(typeValue); // sin selección → habilitado
+  const isHomeType = !typeValue || isDwelling(typeValue);
 
   ['bedrooms', 'bathrooms'].forEach(id => {
     const sel = document.getElementById(id);
@@ -188,32 +193,27 @@ function enforceTypeRules() {
     if (!sel) return;
     sel.disabled = !isHomeType;
     dd && dd.classList.toggle('disabled', !isHomeType);
-    if (!isHomeType) sel.value = ''; // limpia para no afectar filtrado
+    if (!isHomeType) sel.value = '';
   });
 }
 
-// ───────────────────────── Filtrado (solo al botón)
+// ───────────────────────── Filtrado
 function getFilteredList() {
   const q = readFiltersFromUI();
   const list = (window.properties || []);
 
   return list.filter(p => {
     const t = effectiveType(p);
-
-    // Tipo
     if (q.type && t !== q.type) return false;
 
-    // Precio (asume p.price en USD; si manejas CRC, adapta aquí)
     const price = Number(p.price || 0);
     if (price < q.priceMin) return false;
     if (price > q.priceMax) return false;
 
-    // Tamaño (usa lotSize y si no hay, area)
     const size = effectiveSize(p);
     if (size < q.sizeMin) return false;
     if (size > q.sizeMax) return false;
 
-    // Avanzados (solo si están activos/habilitados)
     if (q.bedroomsMin && isDwelling(t)) {
       if (Number(p.bedrooms || 0) < q.bedroomsMin) return false;
     }
@@ -221,14 +221,12 @@ function getFilteredList() {
       if (Number(p.bathrooms || 0) < q.bathroomsMin) return false;
     }
 
-    // Búsqueda simple
     if (q.search) {
       const hit = (p.title || '').toLowerCase().includes(q.search) ||
                   (p.location || '').toLowerCase().includes(q.search);
       if (!hit) return false;
     }
 
-    // Ubicación
     if (q.location && !(p.location || '').toLowerCase().includes(q.location)) {
       return false;
     }
@@ -245,9 +243,8 @@ function readFiltersFromUI() {
   };
   const getSel = (id) => (document.getElementById(id)?.value || '').trim();
 
-  // Base
-  const typeRaw = getSel('property-type');              // '' | 'casa' | 'terreno' | ...
-  const type = typeRaw ? mapType(typeRaw) : '';         // normalizado
+  const typeRaw = getSel('property-type');
+  const type = typeRaw ? mapType(typeRaw) : '';
   const priceMin = getNum('price-min', 0);
   const priceMax = (() => {
     const n = getNum('price-max', NaN);
@@ -259,11 +256,9 @@ function readFiltersFromUI() {
     return Number.isNaN(n) ? Infinity : n;
   })();
 
-  // Avanzados
   const bedroomsMin = Number(document.getElementById('bedrooms')?.disabled ? 0 : (getSel('bedrooms') || 0));
   const bathroomsMin = Number(document.getElementById('bathrooms')?.disabled ? 0 : (getSel('bathrooms') || 0));
 
-  // Extra
   const search = (document.getElementById('search')?.value || '').trim().toLowerCase();
   const location = (document.getElementById('location')?.value || '').replace('-', ' ').toLowerCase();
 
@@ -328,22 +323,33 @@ function renderCard(p) {
   }
 
   const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
-  // El cambio en primaryImage() ya asegura que 'img' contiene la URL del watermark.
-  const img = primaryImage(p);
 
-  // Precios: asume fuente en USD y calcula CRC para mostrar ambos
+  // ↩️ Mostrar imagen limpia (como antes)
+  const imgSrc = primaryImage(p);
+
+  // URL de descarga con marca (desde el primer item de images)
+  const first = p.images?.[0];
+  let dlUrl = '';
+  if (first && typeof first === 'object') {
+    dlUrl = toDownloadUrl(first.download || first.src, p.folder, p.slug || p.title || 'propiedad');
+  } else if (typeof first === 'string') {
+    dlUrl = toDownloadUrl(first, p.folder, p.slug || p.title || 'propiedad');
+  }
+
   const priceUSD = Number(p.price || 0);
   const priceCRC = priceUSD ? Math.round(priceUSD * USD_TO_CRC) : 0;
 
   return `
     <a href="${linkFor(p)}" class="property-card-link">
-      <div class="property-card">
+      <div class="property-card img-card" ${dlUrl ? `data-download="${dlUrl}"` : ''}>
         <div class="property-image">
           <img class="property-photo"
-               src="${img}"
+               src="${imgSrc}"
                alt="${p.title}"
                loading="lazy"
-               decoding="async">
+               decoding="async"
+               draggable="false"
+               ${dlUrl ? `data-download="${dlUrl}"` : ''}>
           ${badge ? `<div class="property-badge">${badge}</div>` : ''}
           <div class="property-type-tag">${t}</div>
         </div>
@@ -420,9 +426,7 @@ function changePage(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ───────────────────────── Helpers UI
 function clearFiltersUI() {
-  // Base
   ['property-type', 'price-min', 'price-max', 'size-min', 'size-max', 'bedrooms', 'bathrooms', 'search', 'location']
     .forEach(id => {
       const el = document.getElementById(id);
@@ -436,3 +440,41 @@ function clearFiltersUI() {
     });
   enforceTypeRules();
 }
+
+/* -------------------- 🖱️ NUEVO: clic derecho => descarga con marca -------------------- */
+function initRightClickDownload() {
+  const SELECTOR_IMG = '.property-photo, .property-image img, .img-card img, img[data-download]';
+
+  document.addEventListener('contextmenu', function (e) {
+    const img = e.target.closest(SELECTOR_IMG);
+    if (!img) return;
+    e.preventDefault();
+
+    // Busca URL en data-download del <img> o del contenedor .img-card
+    let dlUrl = img.dataset.download || img.closest('.img-card')?.dataset?.download || '';
+
+    // Último recurso: intenta construirla desde el src
+    if (!dlUrl && img.src) {
+      try {
+        const url = new URL(img.src, window.location.origin);
+        const abs = url.pathname; // /assets/images/...
+        // Construye /download/...
+        const rel = abs.replace(/^\/assets\/images\//, '');
+        dlUrl = rel ? `/download/${rel}?filename=${encodeURIComponent(img.alt || 'propiedad')}` : '';
+      } catch (_) {}
+    }
+
+    if (!dlUrl) {
+      console.warn('[WM] No se encontró URL de descarga con marca para', img);
+      return;
+    }
+
+    const a = document.createElement('a');
+    a.href = dlUrl + (dlUrl.includes('?') ? '&' : '?') + 'from=rclick';
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }, { passive: false });
+}
+/* -------------------------------------------------------------------------------------- */
