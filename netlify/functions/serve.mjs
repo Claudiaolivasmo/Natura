@@ -40,16 +40,14 @@ export async function handler(event) {
 
     // 🔧 Directorios resueltos desde la raíz del proyecto en runtime
     const ROOT = process.cwd();
-    const ORIGINALS_DIR = path.join(ROOT, 'assets', 'originals');
+    // ⚠️ CORRECCIÓN: Eliminada la referencia a ORIGINALS_DIR
     const IMAGES_DIR    = path.join(ROOT, 'assets', 'images');
 
-    // Busca primero en originals y luego en images
-    let absPath = safeJoin(ORIGINALS_DIR, imgParam);
+    // Busca SOLAMENTE en assets/images (incluyendo subcarpetas)
+    let absPath = safeJoin(IMAGES_DIR, imgParam);
     let buf = await tryRead(absPath);
-    if (!buf) {
-      absPath = safeJoin(IMAGES_DIR, imgParam);
-      buf = await tryRead(absPath);
-    }
+    
+    // ⚠️ Se eliminó la doble búsqueda, ahora solo busca en IMAGES_DIR
     if (!buf) {
       return { statusCode: 404, body: 'Image not found' };
     }

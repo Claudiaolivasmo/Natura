@@ -1,4 +1,4 @@
-// /netlify/functions/watermark.js (ejemplo)
+// /netlify/functions/watermark.js
 // Node ESM
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -8,10 +8,9 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Directorios dentro del bundle de la función
-// Asegúrate de incluir estos archivos en el build (Netlify: "included_files")
-const ORIGINALS_DIR = path.resolve(__dirname, '../../assets/originals');
-const BRANDING_DIR  = path.resolve(__dirname, '../../assets/branding');
+// ⚠️ CORRECCIÓN: Apunta a la carpeta raíz de tus propiedades dentro de 'images'
+const PROPERTIES_ROOT_DIR = path.resolve(__dirname, '../../assets/images/properties');
+const BRANDING_DIR = path.resolve(__dirname, '../../assets/branding');
 
 // Sanitiza rutas: evita ../
 function safeJoin(base, target) {
@@ -44,7 +43,8 @@ export async function handler(event, context) {
     const filename = (qs.filename || fallbackName).replace(/[^\w\-\.]+/g, '_');
 
     // 1) Lee imagen original (no pública)
-    const inputPath = safeJoin(ORIGINALS_DIR, imgParam);
+    // ⚠️ CORRECCIÓN: Usando la nueva ruta PROPERTIES_ROOT_DIR
+    const inputPath = safeJoin(PROPERTIES_ROOT_DIR, imgParam);
     const inputBuffer = await fs.readFile(inputPath);
 
     // 2) Lee logo (PNG con transparencia)
@@ -69,7 +69,7 @@ export async function handler(event, context) {
     // 4) Calcular offsets para esquina inferior derecha con margen (24px)
     const MARGIN = 24;
     const left = Math.max(0, baseW - logoW - MARGIN);
-    const top  = Math.max(0, baseH - logoH - MARGIN);
+    const top = Math.max(0, baseH - logoH - MARGIN);
 
     // 5) Componer (solo logo, sin hora)
     const watermarked = await base

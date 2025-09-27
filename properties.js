@@ -19,9 +19,9 @@ const mapType = (t) => {
   const x = normalizeText(t || '');
   if (!x) return '';
   // Normaliza sinónimos/plurales
-  if (['terreno','terrenos','lote','lotes','solar','solares','parcela','parcelas'].includes(x)) return 'lote';
-  if (['apartamento','apartamentos','apto','apt'].includes(x)) return 'apartamento';
-  if (['cabana','cabana','cabaña','cabins'].includes(x)) return 'cabana';
+  if (['terreno', 'terrenos', 'lote', 'lotes', 'solar', 'solares', 'parcela', 'parcelas'].includes(x)) return 'lote';
+  if (['apartamento', 'apartamentos', 'apto', 'apt'].includes(x)) return 'apartamento';
+  if (['cabana', 'cabaña', 'cabins'].includes(x)) return 'cabana';
   return x;
 };
 
@@ -38,26 +38,36 @@ const effectiveType = (p) => mapType(p.type || inferType(p));
 const effectiveSize = (p) => Number(p.lotSize ?? p.area ?? 0);
 
 // Soporta: images: ["1.jpg", ...] o images: [{src:"/img/.../1.jpg?w=1200", download:"..."}]
+// ⚠️ CORRECCIÓN AQUÍ: Usamos /watermark para la imagen principal de las propiedades.
 function primaryImage(p) {
   const folder = p.folder ? String(p.folder).replace(/^\/+|\/+$/g, '') : '';
   const first = p.images?.[0];
   if (!first) return '';
 
-  // a) Objeto con src absoluto o relativo
+  let imgName = '';
+
+  // a) Objeto con src
   if (first && typeof first === 'object' && first.src) {
     const s = String(first.src);
-    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
-    return `/img/properties/${folder}/${s}`; // relativo → usa /img/properties
+    // Si la ruta ya es absoluta o empieza con '/', la respetamos.
+    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s;
+    imgName = s; // Solo el nombre del archivo
+  }
+  // b) String (nombre de archivo)
+  else if (typeof first === 'string') {
+    if (/^https?:\/\//i.test(first) || first.startsWith('/')) return first;
+    imgName = first; // Solo el nombre del archivo
   }
 
-  // b) String (nombre de archivo) → asume carpeta /img/properties
-  if (typeof first === 'string') {
-    if (/^https?:\/\//i.test(first) || first.startsWith('/')) return first; // ya es absoluto
-    return `/img/properties/${folder}/${first}`;
+  if (imgName) {
+    // ⚠️ Llamada a la función de Watermark
+    // El parámetro 'img' debe ser la ruta relativa desde 'assets/images/properties/'
+    return `/watermark?img=${folder}/${imgName}`;
   }
 
   return '';
 }
+// ⚠️ Fin de la corrección en primaryImage(p)
 
 const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}` : `property.html?id=${encodeURIComponent(p.id)}`;
@@ -312,6 +322,7 @@ function renderCard(p) {
   }
 
   const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
+  // El cambio en primaryImage() ya asegura que 'img' contiene la URL del watermark.
   const img = primaryImage(p);
 
   // Precios: asume fuente en USD y calcula CRC para mostrar ambos
@@ -406,7 +417,7 @@ function changePage(page) {
 // ───────────────────────── Helpers UI
 function clearFiltersUI() {
   // Base
-  ['property-type','price-min','price-max','size-min','size-max','bedrooms','bathrooms','search','location']
+  ['property-type', 'price-min', 'price-max', 'size-min', 'size-max', 'bedrooms', 'bathrooms', 'search', 'location']
     .forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
