@@ -3,16 +3,15 @@
    =========================== */
 
 /* ===== Hero ===== */
-.hero{
-  position: relative;
-  background: url('/images/hero-bg.jpg') center center / cover no-repeat;
-  color: #fff;
-  min-height: 65vh;                 /* mobile-first */
+.hero {
+  background-image: url('/assets/images/hero-home.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh; /* o lo que hayas definido */
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 3rem 1rem;
+  color: white;
 }
 .hero::before{
   content:"";
