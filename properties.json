@@ -238,7 +238,24 @@
       {
         "src": "/assets/images/properties/003-finca-agua-azul/5.jpg",
         "download": "/download/properties/003-finca-agua-azul/5.jpg"
+      },
+      {
+        "src": "/assets/images/properties/003-finca-agua-azul/6.jpg",
+        "download": "/download/properties/003-finca-agua-azul/6.jpg"
+      },
+      {
+        "src": "/assets/images/properties/003-finca-agua-azul/7.jpg",
+        "download": "/download/properties/003-finca-agua-azul/7.jpg"
+      },
+      {
+        "src": "/assets/images/properties/003-finca-agua-azul/8.jpg",
+        "download": "/download/properties/003-finca-agua-azul/8.jpg"
+      },
+      {
+        "src": "/assets/images/properties/003-finca-agua-azul/9.jpg",
+        "download": "/download/properties/003-finca-agua-azul/9.jpg"
       }
+
     ],
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
