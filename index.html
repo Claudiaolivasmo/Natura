@@ -46,64 +46,66 @@
 </head>
 
 <body>
+  
   <header class="header" id="header">
-    <a href="index.html" class="logo" aria-label="Natura Real Estate">
-      <!-- Logo por /img -->
+  <a href="index.html" class="logo" aria-label="Natura Real Estate">
+    <!-- Logo corregido -->
+    <img
+      src="/assets/images/natura_realestate_color_footer_600x200.png"
+      alt="Natura Real Estate Logo"
+      width="150"
+      height="50"
+      loading="lazy"
+      decoding="async">
+  </a>
+
+  <!-- Navegación desktop -->
+  <nav class="nav" aria-label="Principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="properties.html">Propiedades</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Botón hamburguesa -->
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-controls="navMobile" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Menú móvil -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+    <div class="mobile-logo">
       <img
-        src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82"
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
         loading="lazy"
         decoding="async">
-    </a>
-
-    <!-- Navegación desktop -->
-    <nav class="nav" aria-label="Principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="properties.html">Propiedades</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <!-- Botón hamburguesa -->
-    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-controls="navMobile" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <!-- Menú móvil -->
-    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
-      <div class="mobile-logo">
-        <img
-          src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82"
-          alt="Natura Real Estate Logo"
-          width="150"
-          height="50"
-          loading="lazy"
-          decoding="async">
-      </div>
-      <ul>
-        <li><a href="index.html" data-close>Inicio</a></li>
-        <li><a href="properties.html" data-close>Propiedades</a></li>
-        <li><a href="contact.html" data-close>Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <p class="tagline">Bienes con raíces en la naturaleza</p>
-      <h2 class="main-text">
-        Ofrecemos espacios donde el lujo habita en la sencillez, el entorno y la conexión.
-        Hogares que nacen de la tierra y se funden con la naturaleza.
-      </h2>
-      <div class="hero-buttons">
-        <a href="properties.html" class="btn-primary">Explorar Propiedades</a>
-        <a href="https://wa.me/50683018999" target="_blank" class="btn-secondary" rel="noopener">Contactar Agente</a>
-      </div>
     </div>
-  </section>
+    <ul>
+      <li><a href="index.html" data-close>Inicio</a></li>
+      <li><a href="properties.html" data-close>Propiedades</a></li>
+      <li><a href="contact.html" data-close>Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <p class="tagline">Bienes con raíces en la naturaleza</p>
+    <h2 class="main-text">
+      Ofrecemos espacios donde el lujo habita en la sencillez, el entorno y la conexión.
+      Hogares que nacen de la tierra y se funden con la naturaleza.
+    </h2>
+    <div class="hero-buttons">
+      <a href="properties.html" class="btn-primary">Explorar Propiedades</a>
+      <a href="https://wa.me/50683018999" target="_blank" class="btn-secondary" rel="noopener">Contactar Agente</a>
+    </div>
+  </div>
+</section>
+
 
   <!-- Stats Section -->
   <section class="stats-section">
@@ -181,29 +183,50 @@
     </div>
   </section>
 
-  <section class="lafortuna" id="vivir-en-la-fortuna">
-    <div class="lafortuna-content">
-      <h3 class="fade-in">Vivir en La Fortuna</h3>
-      <p class="fade-in">
-        Rodeada por el majestuoso Volcán Arenal, aguas termales y selva tropical, La Fortuna es un santuario de tranquilidad y conexión con la naturaleza.
-      </p>
+<section class="lafortuna" id="vivir-en-la-fortuna">
+  <div class="lafortuna-content">
+    <h3 class="fade-in">Vivir en La Fortuna</h3>
+    <p class="fade-in">
+      Rodeada por el majestuoso Volcán Arenal, aguas termales y selva tropical, La Fortuna es un santuario de tranquilidad y conexión con la naturaleza.
+    </p>
 
-      <div class="lafortuna-grid">
-        <!-- Fondo por /img (tu función serve buscará en assets/images y originals) -->
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-naturaleza.jpg?w=1200&fmt=webp')">
-          <div class="overlay"><div class="overlay-inner"><span></span><h4>Naturaleza Viva</h4><p>Vistas al volcán, senderos y cataratas.</p></div></div>
+    <div class="lafortuna-grid">
+      <!-- Naturaleza -->
+      <div class="lafortuna-box fade-in" style="background-image:url('/assets/images/lafortuna-naturaleza.jpg')">
+        <div class="overlay">
+          <div class="overlay-inner">
+            <span></span>
+            <h4>Naturaleza Viva</h4>
+            <p>Vistas al volcán, senderos y cataratas.</p>
+          </div>
         </div>
+      </div>
 
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-bienestar.jpg?w=1200&fmt=webp')">
-          <div class="overlay"><div class="overlay-inner"><span></span><h4>Bienestar Natural</h4><p>Termales, yoga y aire puro.</p></div></div>
+      <!-- Bienestar -->
+      <div class="lafortuna-box fade-in" style="background-image:url('/assets/images/lafortuna-bienestar.jpg')">
+        <div class="overlay">
+          <div class="overlay-inner">
+            <span></span>
+            <h4>Bienestar Natural</h4>
+            <p>Termales, yoga y aire puro.</p>
+          </div>
         </div>
+      </div>
 
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-comunidad.jpg?w=1200&fmt=webp')">
-          <div class="overlay"><div class="overlay-inner"><span></span><h4>Comunidad Vibrante</h4><p>Vecinos acogedores y espíritu sostenible.</p></div></div>
+      <!-- Comunidad -->
+      <div class="lafortuna-box fade-in" style="background-image:url('/assets/images/lafortuna-comunidad.jpg')">
+        <div class="overlay">
+          <div class="overlay-inner">
+            <span></span>
+            <h4>Comunidad Vibrante</h4>
+            <p>Vecinos acogedores y espíritu sostenible.</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Services Section -->
   <section id="servicios" class="py-20 bg-gray-50 fade-in">
@@ -330,47 +353,48 @@
   </section>
 
   <footer class="footer" role="contentinfo">
-    <div class="footer-content centered">
-      <!-- Logo -->
-      <img
-        src="/img/branding/1A2E35.png?w=250&fmt=webp&q=82"
-        alt="Natura Real Estate"
-        class="footer-logo"
-        width="125"
-        height="40"
-        loading="lazy"
-        decoding="async">
+  <div class="footer-content centered">
+    <!-- Logo -->
+    <img
+      src="/assets/images/favicon.png"
+      alt="Natura Real Estate"
+      class="footer-logo"
+      width="125"
+      height="40"
+      loading="lazy"
+      decoding="async">
 
-      <!-- Descripción -->
-      <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
+    <!-- Descripción -->
+    <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
 
-      <!-- Redes Sociales -->
-      <div class="footer-social">
-        <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      </div>
-
-      <!-- Newsletter -->
-      <section class="newsletter">
-        <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
-          <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
-          <button type="submit" class="newsletter-btn">Suscribirse</button>
-        </form>
-        <div class="newsletter-status" aria-live="polite"></div>
-      </section>
-
-      <!-- Contacto -->
-      <div class="footer-contact">
-        <p><strong>La Fortuna · Costa Rica</strong></p>
-        <p>
-          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-          <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
-        </p>
-      </div>
-
-      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
+    <!-- Redes Sociales -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
     </div>
-  </footer>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
+        <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
+        <button type="submit" class="newsletter-btn">Suscribirse</button>
+      </form>
+      <div class="newsletter-status" aria-live="polite"></div>
+    </section>
+
+    <!-- Contacto -->
+    <div class="footer-contact">
+      <p><strong>La Fortuna · Costa Rica</strong></p>
+      <p>
+        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+        <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+      </p>
+    </div>
+
+    <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
+  </div>
+</footer>
+
 
   <!-- Scripts propios -->
   <script src="utils.js" defer></script>
