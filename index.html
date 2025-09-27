@@ -1,499 +1,369 @@
 <!DOCTYPE html>
 <html lang="es">
-
-
 <head>
   <!-- Básico -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Natura Real Estate | Propiedades en La Fortuna y Nosara</title>
-  <meta name="description" content="Compra y venta de propiedades en Costa Rica. Encuentra tu hogar, terreno o inversión en La Fortuna con Natura Real Estate.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.realestatenatura.com/">
+  <meta name="description" content="Compra y venta de propiedades en Costa Rica. Encuentra tu hogar, terreno o inversión en La Fortuna con Natura Real Estate." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.realestatenatura.com/" />
 
-  <!-- (Opcional) Keywords: no ayudan mucho hoy, pero si las quieres, déjalas -->
-  <meta name="keywords" content="real estate Costa Rica, propiedades La Fortuna,  casas en venta Costa Rica, lotes en venta">
+  <!-- (Opcional) -->
+  <meta name="keywords" content="real estate Costa Rica, propiedades La Fortuna, casas en venta Costa Rica, lotes en venta" />
 
-  <!-- Open Graph / Twitter (para vistas previas en redes) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Natura Real Estate | Propiedades en Costa Rica">
-  <meta property="og:description" content="Casas, lotes y proyectos en La Fortuna.">
-  <meta property="og:url" content="https://www.realestatenatura.com/">
-  <meta property="og:image" content="https://www.realestatenatura.com/images/og/home.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Natura Real Estate | Propiedades en Costa Rica" />
+  <meta property="og:description" content="Casas, lotes y proyectos en La Fortuna." />
+  <meta property="og:url" content="https://www.realestatenatura.com/" />
+  <!-- Usa /img para servir la imagen OG (mejor JPG estático) -->
+  <meta property="og:image" content="https://www.realestatenatura.com/img/og/home.jpg?w=1200&fmt=jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Rendimiento / Fuentes -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/animation.css">
-  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/animation.css" />
+  <link rel="stylesheet" href="/css/header.css" />
 
-  <!-- Tailwind (si realmente lo usas). Si no, elimínalo. -->
+  <!-- Tailwind (si no lo usas, elimínalo) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons -->
-  <link rel="icon" href="/images/favicon.png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <!-- Favicons (sirviéndolos desde /img para usar 1 sola carpeta de imágenes) -->
+  <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
 
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
-
+  <!-- Font Awesome (solo el CSS CDN es suficiente para <i class="fab ...">) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
 
-
 <body>
-      <header class="header" id="header">
-        <a href="index.html" class="logo">
-          <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
-        </a>
+  <header class="header" id="header">
+    <a href="index.html" class="logo" aria-label="Natura Real Estate">
+      <!-- Sirve el logo por /img (ajusta el nombre si es distinto) -->
+      <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82" 
+        alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
 
-        <!-- Navegación desktop -->
-        <nav class="nav" aria-label="Principal">
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="properties.html">Propiedades</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-          </ul>
-        </nav>
+    </a>
 
-        <!-- Botón hamburguesa -->
-        <button class="hamburger" id="hamburger"
-                aria-label="Abrir menú"
-                aria-controls="navMobile"
-                aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+    <!-- Navegación desktop -->
+    <nav class="nav" aria-label="Principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="properties.html">Propiedades</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
 
-        <!-- Menú móvil -->
-        <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
-          <div class="mobile-logo">
-            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
-          </div>
-          <ul>
-            <li><a href="index.html" data-close>Inicio</a></li>
-            <li><a href="properties.html" data-close>Propiedades</a></li>
-            <li><a href="contact.html" data-close>Contacto</a></li>
-          </ul>
-        </nav>
-      </header>
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-controls="navMobile" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <p class="tagline">Bienes con raíces en la naturaleza</p>
-            <h2 class="main-text">
-                Ofrecemos espacios donde el lujo habita en la sencillez, el entorno y la conexión.  
-                Hogares que nacen de la tierra y se funden con la naturaleza.
-            </h2>
-            <div class="hero-buttons">
-                <!-- Redirige a properties.html -->
-                <a href="properties.html" class="btn-primary">Explorar Propiedades</a>
-                
-                <!-- Abre WhatsApp (cambia 506XXXXXXXX por tu número real en formato internacional) -->
-                <a href="https://wa.me/50683018999" target="_blank" class="btn-secondary">
-                    Contactar Agente
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Menú móvil -->
+    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+      <div class="mobile-logo">
+        <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82" 
+          alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-item fade-in">
-                <span class="stat-number" data-target="25">0</span>
-                <span class="stat-label">Años de Experiencia en Finanzas</span>
-            </div>
-            <div class="stat-item fade-in">
-                <span class="stat-number" data-target="5">0</span>
-                <span class="stat-label">Años de Experiencia en Bienes y Raíces</span>
-            </div>
-            <div class="stat-item fade-in">
-                <span class="stat-number" data-target="5">0</span>
-                <span class="stat-label">Propiedades Activas</span>
-            </div>
-        </div>
-    </section>
+      </div>
+      <ul>
+        <li><a href="index.html" data-close>Inicio</a></li>
+        <li><a href="properties.html" data-close>Propiedades</a></li>
+        <li><a href="contact.html" data-close>Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <section id="nosotros" class="py-20 bg-white fade in">
-        <div class="max-w-7xl mx-auto px-6 fade-in">
-            <div class="text-center mb-16">
-                <h3 class="font-display text-4xl font-semibold text-gray-900 mb-4">
-                    Sobre Natura Real State
-                </h3>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Acompañamos cada paso de su inversión inmobiliaria con experiencia, transparencia y compromiso con la sostenibilidad.
-                </p>
-                </div>
-                        
-                <div class="grid lg:grid-cols-4 gap-12">
-                <div class="text-center">
-                    <div class="service-circle mx-auto mb-6">
-                        <div class="service-circle-inner"></div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Experiencia Comprobada</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Más de 25 años especializándonos en el mercado de La Fortuna y San Carlos, 
-                        con un profundo conocimiento del territorio y sus oportunidades.
-                    </p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="service-circle mx-auto mb-6">
-                        <div class="service-circle-inner"></div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Compromiso Sostenible</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Promovemos desarrollos que respetan el medio ambiente y contribuyen al desarrollo 
-                        sostenible de la región, preservando su belleza natural para futuras generaciones.
-                    </p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="service-circle mx-auto mb-6">
-                        <div class="service-circle-inner"></div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Servicio Personalizado</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Cada cliente recibe atención personalizada con un agente dedicado que comprende 
-                        sus necesidades específicas y objetivos de inversión a largo plazo.
-                    </p>
-                </div>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="tagline">Bienes con raíces en la naturaleza</p>
+      <h2 class="main-text">
+        Ofrecemos espacios donde el lujo habita en la sencillez, el entorno y la conexión.
+        Hogares que nacen de la tierra y se funden con la naturaleza.
+      </h2>
+      <div class="hero-buttons">
+        <a href="properties.html" class="btn-primary">Explorar Propiedades</a>
+        <a href="https://wa.me/50683018999" target="_blank" class="btn-secondary" rel="noopener">Contactar Agente</a>
+      </div>
+    </div>
+  </section>
 
-                <div class="text-center">
-                    <div class="service-circle mx-auto mb-6">
-                        <div class="service-circle-inner"></div>
-                    </div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Gestión de Créditos</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                        Te ayudamos con todos los trámites bancarios y la documentación necesaria para acceder 
-                        a tu crédito hipotecario de forma rápida y segura.
-                    </p>
-                </div>
-            </div>
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <span class="stat-number" data-target="25">0</span>
+        <span class="stat-label">Años de Experiencia en Finanzas</span>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="stat-number" data-target="5">0</span>
+        <span class="stat-label">Años de Experiencia en Bienes y Raíces</span>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="stat-number" data-target="5">0</span>
+        <span class="stat-label">Propiedades Activas</span>
+      </div>
+    </div>
+  </section>
 
-        </div>
-    </section>
-
-    <section class="featured" id="propiedades">
-      <div class="section-title fade-in">
-        <h3>Propiedades Destacadas</h3>
-        <p>Conoce nuestras selecciones más exclusivas en armonía con la naturaleza.</p>
+  <section id="nosotros" class="py-20 bg-white fade in">
+    <div class="max-w-7xl mx-auto px-6 fade-in">
+      <div class="text-center mb-16">
+        <h3 class="font-display text-4xl font-semibold text-gray-900 mb-4">Sobre Natura Real Estate</h3>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Acompañamos cada paso de su inversión inmobiliaria con experiencia, transparencia y compromiso con la sostenibilidad.
+        </p>
       </div>
 
-      <div class="property-grid" id="featuredGrid"></div>
-
-      <div style="text-align:center; margin-top:3rem;">
-        <button class="btn-primary" id="viewAllBtn">Ver Todas las Propiedades</button>
-      </div>
-    </section>
-
-
-
-
-
-    <section class="lafortuna" id="nosotros">
-  <div class="lafortuna-content">
-    <h3 class="fade-in">Vivir en La Fortuna</h3>
-    <p class="fade-in">
-      Rodeada por el majestuoso Volcán Arenal, aguas termales y selva tropical, 
-      La Fortuna es un santuario de tranquilidad, aventura y conexión con la naturaleza.
-      Aquí, la vida fluye al ritmo del bosque: pura, verde y en armonía con el entorno.
-    </p>
-
-    <div class="lafortuna-grid">
-      <div class="lafortuna-box fade-in" style="background-image:url('/images/lafortuna-naturaleza.jpg')">
-        <div class="overlay">
-          <div class="overlay-inner">
-            <span></span>
-            <h4>Naturaleza Viva</h4>
-            <p>Vistas al volcán, senderos, cataratas y aves exóticas como vecinos diarios.</p>
-          </div>
+      <div class="grid lg:grid-cols-4 gap-12">
+        <div class="text-center">
+          <div class="service-circle mx-auto mb-6"><div class="service-circle-inner"></div></div>
+          <h4 class="font-semibold text-gray-900 mb-2">Experiencia Comprobada</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Más de 25 años especializándonos en el mercado de La Fortuna y San Carlos.
+          </p>
         </div>
-      </div>
 
-      <div class="lafortuna-box fade-in" style="background-image:url('/images/lafortuna-bienestar.jpg')">
-        <div class="overlay">
-          <div class="overlay-inner">
-            <span></span>
-            <h4>Bienestar Natural</h4>
-            <p>Termales, yoga, aire puro y alimentos orgánicos locales.</p>
-          </div>
+        <div class="text-center">
+          <div class="service-circle mx-auto mb-6"><div class="service-circle-inner"></div></div>
+          <h4 class="font-semibold text-gray-900 mb-2">Compromiso Sostenible</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Promovemos desarrollos que respetan el medio ambiente y la belleza natural de la región.
+          </p>
         </div>
-      </div>
 
-      <div class="lafortuna-box fade-in" style="background-image:url('/images/lafortuna-comunidad.jpg')">
-        <div class="overlay">
-          <div class="overlay-inner">
-            <span></span>
-            <h4>Comunidad Vibrante</h4>
-            <p>Vecinos acogedores, emprendedores conscientes y espíritu local sostenible.</p>
-          </div>
+        <div class="text-center">
+          <div class="service-circle mx-auto mb-6"><div class="service-circle-inner"></div></div>
+          <h4 class="font-semibold text-gray-900 mb-2">Servicio Personalizado</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Atención personalizada con un agente dedicado que entiende sus metas de inversión.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="service-circle mx-auto mb-6"><div class="service-circle-inner"></div></div>
+          <h4 class="font-semibold text-gray-900 mb-2">Gestión de Créditos</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Asistencia en trámites y documentación para su crédito hipotecario.
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="featured" id="propiedades">
+    <div class="section-title fade-in">
+      <h3>Propiedades Destacadas</h3>
+      <p>Conoce nuestras selecciones más exclusivas en armonía con la naturaleza.</p>
+    </div>
 
+    <div class="property-grid" id="featuredGrid"></div>
 
-<!-- Services Section -->
-<section id="servicios" class="py-20 bg-gray-50 fade-in">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-      
-      <!-- Columna izquierda -->
-      <div>
-        <h3 class="font-display text-4xl font-semibold text-gray-900 mb-6">
-          Servicios Integrales de Bienes Raíces
-        </h3>
-        <p class="text-lg text-gray-600 mb-10 leading-relaxed">
-          Ofrecemos un servicio completo y personalizado para cada cliente, desde la búsqueda inicial hasta la entrega de llaves, con el respaldo de más de 25 años de experiencia en el mercado costarricense.
-        </p>
+    <div style="text-align:center; margin-top:3rem;">
+      <button class="btn-primary" id="viewAllBtn">Ver Todas las Propiedades</button>
+    </div>
+  </section>
 
-        <div class="space-y-8">
-          <!-- Servicio 1 -->
-          <div class="flex items-start space-x-4">
-            <div class="service-circle mt-1">
-              <div class="service-circle-inner"></div>
+  <section class="lafortuna" id="vivir-en-la-fortuna">
+    <div class="lafortuna-content">
+      <h3 class="fade-in">Vivir en La Fortuna</h3>
+      <p class="fade-in">
+        Rodeada por el majestuoso Volcán Arenal, aguas termales y selva tropical, La Fortuna es un santuario de tranquilidad y conexión con la naturaleza.
+      </p>
+
+      <div class="lafortuna-grid">
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-naturaleza.jpg?w=1200&fmt=webp')">
+          <div class="overlay"><div class="overlay-inner"><span></span><h4>Naturaleza Viva</h4><p>Vistas al volcán, senderos y cataratas.</p></div></div>
+        </div>
+
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-bienestar.jpg?w=1200&fmt=webp')">
+          <div class="overlay"><div class="overlay-inner"><span></span><h4>Bienestar Natural</h4><p>Termales, yoga y aire puro.</p></div></div>
+        </div>
+
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-comunidad.jpg?w=1200&fmt=webp')">
+          <div class="overlay"><div class="overlay-inner"><span></span><h4>Comunidad Vibrante</h4><p>Vecinos acogedores y espíritu sostenible.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicios" class="py-20 bg-gray-50 fade-in">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <h3 class="font-display text-4xl font-semibold text-gray-900 mb-6">Servicios Integrales de Bienes Raíces</h3>
+          <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+            Servicio completo y personalizado desde la búsqueda hasta la entrega de llaves, con más de 25 años de experiencia.
+          </p>
+
+          <div class="space-y-8">
+            <div class="flex items-start space-x-4">
+              <div class="service-circle mt-1"><div class="service-circle-inner"></div></div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Compra y Venta de Propiedades</h4>
+                <p class="text-gray-600 leading-relaxed">Asesoría experta para encontrar o vender con las mejores condiciones.</p>
+              </div>
             </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-2">Compra y Venta de Propiedades</h4>
-              <p class="text-gray-600 leading-relaxed">
-                Asesoría experta para encontrar la propiedad ideal o vender con las mejores condiciones del mercado.
-              </p>
-            </div>
-          </div>
 
-          <!-- Servicio 2 -->
-          <div class="flex items-start space-x-4">
-            <div class="service-circle mt-1">
-              <div class="service-circle-inner"></div>
+            <div class="flex items-start space-x-4">
+              <div class="service-circle mt-1"><div class="service-circle-inner"></div></div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Gestión Legal Completa</h4>
+                <p class="text-gray-600 leading-relaxed">Trámites notariales, permisos y acompañamiento legal integral.</p>
+              </div>
             </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-2">Gestión Legal Completa</h4>
-              <p class="text-gray-600 leading-relaxed">
-                Trámites notariales, permisos municipales y acompañamiento legal durante todo el proceso.
-              </p>
-            </div>
-          </div>
 
-          <!-- Servicio 3 -->
-          <div class="flex items-start space-x-4">
-            <div class="service-circle mt-1">
-              <div class="service-circle-inner"></div>
-            </div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-2">Financiamiento y Créditos</h4>
-              <p class="text-gray-600 leading-relaxed">
-                Asistencia en la obtención de créditos hipotecarios con las mejores condiciones del mercado.
-              </p>
+            <div class="flex items-start space-x-4">
+              <div class="service-circle mt-1"><div class="service-circle-inner"></div></div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-2">Financiamiento y Créditos</h4>
+                <p class="text-gray-600 leading-relaxed">Asistencia para obtener créditos hipotecarios en buenas condiciones.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Columna derecha: formulario -->
-      <div class="bg-white p-8 shadow-lg rounded-xl">
-        <h4 class="font-display text-2xl font-semibold text-gray-900 mb-6">Agende una Cita</h4>
-        <p class="text-gray-600 leading-relaxed">
-          Permítanos acompañarle en el descubrimiento de su propiedad ideal. 
-          Nuestros especialistas están listos para brindarle asesoría personalizada 
-          y mostrarle las mejores oportunidades en La Fortuna.
-        </p>
+        <!-- Columna derecha: formulario -->
+        <div class="bg-white p-8 shadow-lg rounded-xl">
+          <h4 class="font-display text-2xl font-semibold text-gray-900 mb-6">Agende una Cita</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Le acompañamos en el descubrimiento de su propiedad ideal en La Fortuna.
+          </p>
 
-        <!-- Formulario -->
-        <form id="appointmentForm"
-              action="https://formspree.io/f/manpwlzl"
-              method="POST"
-              class="space-y-4 mt-6">
+          <form id="appointmentForm" action="https://formspree.io/f/manpwlzl" method="POST" class="space-y-4 mt-6">
+            <input type="hidden" name="formulario" value="Agendar Cita - Natura Real Estate" />
+            <input type="hidden" name="_subject" value="Nueva cita solicitada desde el sitio" />
+            <input type="hidden" name="_language" value="es" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <!-- Datos ocultos -->
-          <input type="hidden" name="formulario" value="Agendar Cita - Natura Real Estate">
-          <input type="hidden" name="_subject" value="Nueva cita solicitada desde el sitio">
-          <input type="hidden" name="_language" value="es">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-          <!-- Nombre y apellido -->
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
-              <input type="text" id="firstName" name="firstName" required
-                     class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md"
-                     placeholder="Su nombre">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                <input type="text" id="firstName" name="firstName" required class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" placeholder="Su nombre" />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Apellido</label>
+                <input type="text" id="lastName" name="lastName" required class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" placeholder="Su apellido" />
+              </div>
             </div>
+
             <div>
-              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Apellido</label>
-              <input type="text" id="lastName" name="lastName" required
-                     class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md"
-                     placeholder="Su apellido">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" placeholder="su@email.com" />
             </div>
-          </div>
 
-          <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input type="email" id="email" name="email" required
-                   class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md"
-                   placeholder="su@email.com">
-          </div>
-
-          <!-- Teléfono -->
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
-            <input type="tel" id="phone" name="phone"
-                   class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md"
-                   placeholder="+506 0000-0000">
-          </div>
-
-          <!-- Servicio de interés -->
-          <div>
-            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Servicio de Interés</label>
-            <select id="service" name="service" required
-                    class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
-              <option value="">Seleccione un servicio</option>
-              <option value="compra">Compra de Propiedad</option>
-              <option value="venta">Venta de Propiedad</option>
-              <option value="financiamiento">Asesoría Financiera</option>
-            </select>
-          </div>
-
-          <!-- Presupuesto -->
-          <div>
-            <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Presupuesto (USD)</label>
-            <select id="budget" name="budget"
-                    class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
-              <option value="">Seleccione rango</option>
-              <option value="100-250">$100,000 - $250,000</option>
-              <option value="250-500">$250,000 - $500,000</option>
-              <option value="500-1000">$500,000 - $1,000,000</option>
-              <option value="1000+">$1,000,000+</option>
-            </select>
-          </div>
-
-          <!-- Fecha y hora -->
-          <div class="grid grid-cols-2 gap-4">
             <div>
-              <label for="preferredDate" class="block text-sm font-medium text-gray-700 mb-2">Fecha Preferida</label>
-              <input type="date" id="preferredDate" name="preferredDate"
-                     class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+              <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" placeholder="+506 0000-0000" />
             </div>
+
             <div>
-              <label for="preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Hora Preferida</label>
-              <select id="preferredTime" name="preferredTime"
-                      class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
-                <option value="">Seleccione hora</option>
-                <option value="morning">Mañana (8:00 AM - 12:00 PM)</option>
-                <option value="afternoon">Tarde (1:00 PM - 5:00 PM)</option>
-                <option value="evening">Noche (6:00 PM - 8:00 PM)</option>
+              <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Servicio de Interés</label>
+              <select id="service" name="service" required class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
+                <option value="">Seleccione un servicio</option>
+                <option value="compra">Compra de Propiedad</option>
+                <option value="venta">Venta de Propiedad</option>
+                <option value="financiamiento">Asesoría Financiera</option>
               </select>
             </div>
-          </div>
 
-          <!-- Mensaje -->
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje Adicional</label>
-            <textarea id="message" name="message" rows="4" required
-                      class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md"
-                      placeholder="Cuéntenos sobre sus necesidades específicas..."></textarea>
-          </div>
+            <div>
+              <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Presupuesto (USD)</label>
+              <select id="budget" name="budget" class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
+                <option value="">Seleccione rango</option>
+                <option value="100-250">$100,000 - $250,000</option>
+                <option value="250-500">$250,000 - $500,000</option>
+                <option value="500-1000">$500,000 - $1,000,000</option>
+                <option value="1000+">$1,000,000+</option>
+              </select>
+            </div>
 
-          <!-- Botón -->
-          <button type="submit"
-                  class="w-full btn-primary text-white py-3 font-medium rounded-md submit-btn disabled:opacity-60 disabled:cursor-not-allowed">
-            Enviar Consulta
-          </button>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label for="preferredDate" class="block text-sm font-medium text-gray-700 mb-2">Fecha Preferida</label>
+                <input type="date" id="preferredDate" name="preferredDate" class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" />
+              </div>
+              <div>
+                <label for="preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Hora Preferida</label>
+                <select id="preferredTime" name="preferredTime" class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md">
+                  <option value="">Seleccione hora</option>
+                  <option value="morning">Mañana (8:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Tarde (1:00 PM - 5:00 PM)</option>
+                  <option value="evening">Noche (6:00 PM - 8:00 PM)</option>
+                </select>
+              </div>
+            </div>
 
-          <!-- Estado -->
-          <p id="form-status" class="text-sm mt-2" aria-live="polite"></p>
-        </form>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje Adicional</label>
+              <textarea id="message" name="message" rows="4" required class="w-full p-3 border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent rounded-md" placeholder="Cuéntenos sobre sus necesidades específicas..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full btn-primary text-white py-3 font-medium rounded-md submit-btn disabled:opacity-60 disabled:cursor-not-allowed">
+              Enviar Consulta
+            </button>
+
+            <p id="form-status" class="text-sm mt-2" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <!-- Logo -->
+      <img src="/img/branding/1A2E35.png?w=250&fmt=webp&q=82" 
+        alt="Natura Real Estate" class="footer-logo" width="125" height="40" loading="lazy">
+
+
+      <!-- Descripción -->
+      <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
+
+      <!-- Redes Sociales -->
+      <div class="footer-social">
+        <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       </div>
 
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
+          <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
+          <button type="submit" class="newsletter-btn">Suscribirse</button>
+        </form>
+        <div class="newsletter-status" aria-live="polite"></div>
+      </section>
+
+      <!-- Contacto -->
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+          <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+        </p>
+      </div>
+
+      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
     </div>
-  </div>
-</section>
+  </footer>
 
-
-
-
-<footer class="footer" role="contentinfo">
-  <div class="footer-content centered">
-    <!-- Logo -->
-    <img src="1A2E35.png" alt="Natura Real Estate" class="footer-logo">
-
-    <!-- Descripción -->
-    <p class="footer-text">
-      Propiedades seleccionadas en La Fortuna y alrededores.
-    </p>
-
-    <!-- Redes Sociales -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
-      </a>
-    </div>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-      <form 
-        class="newsletter-form" 
-        action="https://formspree.io/f/mjkabpze" 
-        method="POST" 
-        target="_blank">
-        
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Tu email" 
-          class="newsletter-input" 
-          required>
-          
-        <button type="submit" class="newsletter-btn">
-          Suscribirse
-        </button>
-      </form>
-      
-      <div class="newsletter-status" aria-live="polite"></div>
-    </section>
-
-    <!-- Contacto -->
-    <div class="footer-contact">
-      <p><strong>La Fortuna · Costa Rica</strong></p>
-      <p>
-        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
-        <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
-      </p>
-    </div>
-
-    <!-- Derechos -->
-    <p class="footer-bottom">
-      &copy; 2025 Natura Real Estate · Todos los derechos reservados
-    </p>
-  </div>
-</footer>
-
-
-
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965617e6100192fb',t:'MTc1MzU1NTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-
-<script src="utils.js" defer></script>
-<script src="main.js" defer></script>
-<script src="home.js" defer></script>
-<script src="form-handler.js" defer></script>
-<script src="newsletter.js" defer></script>
-<script src="header.js"></script>
-
-
+  <!-- Scripts propios -->
+  <script src="utils.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="home.js" defer></script>
+  <script src="form-handler.js" defer></script>
+  <script src="newsletter.js" defer></script>
+  <script src="header.js" defer></script>
 </body>
 </html>

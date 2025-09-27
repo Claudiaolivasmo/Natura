@@ -1,184 +1,161 @@
 [
-{
-  "id": 1,
-  "slug": "lote-san-francisco-burrito",
-  "type": "lote",
-  "title": "Lote en San Francisco de Peñas Blancas",
-  "location": "San Ramón - El Burrito",
-  "price": 100000,
-  "lotSize": 2296,
-  "badge": "Destacado",
-  "folder": "008-lote-burrito",
-  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"],
-  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
-  "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
-  "description": [
-  "Ubicado a tan solo 15 minutos del centro de La Fortuna de San Carlos, este lote ofrece una oportunidad única para quienes buscan tranquilidad, contacto con la naturaleza y una excelente ubicación. La propiedad cuenta con una pequeña construcción tipo rancho, ideal como espacio recreativo o punto de partida para desarrollar un proyecto personal o turístico.",
-  "Uno de sus mayores atractivos es que colinda con el río Burrito, lo que convierte este terreno en un pequeño refugio natural rodeado de árboles y con el sonido relajante del agua. Un lugar perfecto para quienes sueñan con un rincón privado para descanso, retiro o incluso como inversión en turismo rural."
-],
-  "features": [
-    "Frente a río",
-    "Zona tranquila",
-    "Entorno natural",
-    "Acceso por calle pública",
-    "Agua disponible",
-    "Electricidad disponible"
-  ]
-},
+  {
+    "id": 1,
+    "slug": "lote-san-francisco-burrito",
+    "type": "lote",
+    "title": "Lote en San Francisco de Peñas Blancas",
+    "location": "San Ramón - El Burrito",
+    "price": 100000,
+    "lotSize": 2296,
+    "badge": "Destacado",
+    "folder": "008-lote-burrito",
+    "images": [
+      { "src": "/img/properties/008-lote-burrito/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/1.jpg?date=1&filename=lote-san-francisco-burrito-1" },
+      { "src": "/img/properties/008-lote-burrito/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/2.jpg?date=1&filename=lote-san-francisco-burrito-2" },
+      { "src": "/img/properties/008-lote-burrito/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/3.jpg?date=1&filename=lote-san-francisco-burrito-3" },
+      { "src": "/img/properties/008-lote-burrito/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/4.jpg?date=1&filename=lote-san-francisco-burrito-4" },
+      { "src": "/img/properties/008-lote-burrito/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/5.jpg?date=1&filename=lote-san-francisco-burrito-5" },
+      { "src": "/img/properties/008-lote-burrito/6.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/6.jpg?date=1&filename=lote-san-francisco-burrito-6" },
+      { "src": "/img/properties/008-lote-burrito/7.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/7.jpg?date=1&filename=lote-san-francisco-burrito-7" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+    "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
+    "description": [
+      "Ubicado a tan solo 15 minutos del centro de La Fortuna de San Carlos, este lote ofrece una oportunidad única...",
+      "Uno de sus mayores atractivos es que colinda con el río Burrito..."
+    ],
+    "features": ["Frente a río", "Zona tranquila", "Entorno natural", "Acceso por calle pública", "Agua disponible", "Electricidad disponible"]
+  },
 
-{
-  "id": 2,
-  "slug": "lote-residencial-villa-azul",
-  "type": "lote",
-  "title": "Lote en Residencial Villa Azul",
-  "location": "La Fortuna - San Carlos",
-  "price": 115000,
-  "lotSize": 1019,
-  "badge": "Financiamiento disponible",
-  "folder": "002-lote-residencial-villa-azul",
-  "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"],
-  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
-  "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
-  "description": [
-  "Lote ubicado en la entrada de Agua Azul, La Fortuna, a tan solo unos minutos del centro del pueblo. Su localización combina cercanía a todos los servicios esenciales con la tranquilidad de un entorno residencial.",
-  "Con una medida de 1.019 m², este terreno ofrece el espacio ideal para construir una casa, una villa vacacional o un proyecto turístico en una de las zonas más buscadas de San Carlos.",
-  "La propiedad cuenta con acceso por calle pública, disponibilidad de agua y electricidad, y además ofrece una vista privilegiada al volcán. Una excelente oportunidad de inversión con opciones de financiamiento disponibles."
+  {
+    "id": 2,
+    "slug": "lote-residencial-villa-azul",
+    "type": "lote",
+    "title": "Lote en Residencial Villa Azul",
+    "location": "La Fortuna - San Carlos",
+    "price": 115000,
+    "lotSize": 1019,
+    "badge": "Financiamiento disponible",
+    "folder": "002-lote-residencial-villa-azul",
+    "images": [
+      { "src": "/img/properties/002-lote-residencial-villa-azul/1.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/1.jpeg?date=1&filename=lote-residencial-villa-azul-1" },
+      { "src": "/img/properties/002-lote-residencial-villa-azul/2.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/2.jpeg?date=1&filename=lote-residencial-villa-azul-2" },
+      { "src": "/img/properties/002-lote-residencial-villa-azul/3.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/3.jpeg?date=1&filename=lote-residencial-villa-azul-3" },
+      { "src": "/img/properties/002-lote-residencial-villa-azul/4.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/4.jpeg?date=1&filename=lote-residencial-villa-azul-4" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+    "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
+    "description": [
+      "Lote ubicado en la entrada de Agua Azul, La Fortuna...",
+      "Con una medida de 1.019 m²...",
+      "La propiedad cuenta con acceso por calle pública..."
+    ],
+    "features": ["Zona tranquila","Entorno natural","Acceso por calle pública","Agua disponible","Electricidad disponible","Vista al volcán","Cercanía a servicios","Oportunidad de inversión","Financiamiento disponible"]
+  },
+
+  {
+    "id": 3,
+    "slug": "villa-el-manzano",
+    "type": "casa",
+    "title": "Villa El Manzano",
+    "location": "Chachagua - San Ramón",
+    "price": 158000,
+    "constructionSize": 140,
+    "lotSize": 1109,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "totalRooms": 2,
+    "floors": 1,
+    "yearBuilt": 2023,
+    "parking": 2,
+    "badge": "Destacado",
+    "folder": "001-villa-el-manzano",
+    "images": [
+      { "src": "/img/properties/001-villa-el-manzano/1.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/1.jpeg?date=1&filename=villa-el-manzano-1" },
+      { "src": "/img/properties/001-villa-el-manzano/2.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/2.jpeg?date=1&filename=villa-el-manzano-2" },
+      { "src": "/img/properties/001-villa-el-manzano/3.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/3.jpeg?date=1&filename=villa-el-manzano-3" },
+      { "src": "/img/properties/001-villa-el-manzano/4.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/4.jpeg?date=1&filename=villa-el-manzano-4" },
+      { "src": "/img/properties/001-villa-el-manzano/5.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/5.jpeg?date=1&filename=villa-el-manzano-5" },
+      { "src": "/img/properties/001-villa-el-manzano/6.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/6.jpeg?date=1&filename=villa-el-manzano-6" },
+      { "src": "/img/properties/001-villa-el-manzano/7.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/7.jpeg?date=1&filename=villa-el-manzano-7" },
+      { "src": "/img/properties/001-villa-el-manzano/8.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/8.jpeg?date=1&filename=villa-el-manzano-8" },
+      { "src": "/img/properties/001-villa-el-manzano/9.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/9.jpeg?date=1&filename=villa-el-manzano-9" },
+      { "src": "/img/properties/001-villa-el-manzano/10.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/10.jpeg?date=1&filename=villa-el-manzano-10" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+    "geo": { "lat": 10.4705, "lng": -84.6408, "zoom": 15 },
+    "description": [
+      "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero...",
+      "Cada villa dispone de una habitación...",
+      "La propiedad se distingue por sus amenidades...",
+      "Amplias áreas verdes...",
+      "Excelente alternativa de inversión..."
+    ],
+    "features": ["2 dormitorios","2 baños completos","Construcción de 140 m²","Lote de 1.109 m²","1 piso","Año 2023","Rancho BBQ","Cochera","Bodega","Jardines y árboles frutales","Cercas vivas"]
+  },
+
+  {
+    "id": 4,
+    "slug": "finca-agua-azul-lotes-1000",
+    "type": "lote",
+    "title": "Finca Agua Azul – Lotes 1.000 m²",
+    "location": "La Fortuna de San Carlos – Agua Azul",
+    "price": 69500,
+    "currency": "CRC",
+    "priceIsPerM2": false,
+    "pricePerM2": 35000,
+    "lotSize": 1000,
+    "badge": "Financiamiento disponible",
+    "folder": "003-finca-agua-azul",
+    "images": [
+      { "src": "/img/properties/003-finca-agua-azul/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/1.jpg?date=1&filename=finca-agua-azul-lotes-1000-1" },
+      { "src": "/img/properties/003-finca-agua-azul/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/2.jpg?date=1&filename=finca-agua-azul-lotes-1000-2" },
+      { "src": "/img/properties/003-finca-agua-azul/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/3.jpg?date=1&filename=finca-agua-azul-lotes-1000-3" },
+      { "src": "/img/properties/003-finca-agua-azul/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/4.jpg?date=1&filename=finca-agua-azul-lotes-1000-4" },
+      { "src": "/img/properties/003-finca-agua-azul/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/5.jpg?date=1&filename=finca-agua-azul-lotes-1000-5" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+    "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
+    "description": [
+      "Lotes privados de 1.000 m² en Finca Agua Azul...",
+      "Vistas al Volcán Arenal...",
+      "Acceso por calle pública...",
+      "Precio desde ₡35.000 por m²..."
+    ],
+    "features": ["Vistas al volcán","Privacidad y naturaleza","Zona tranquila","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para inversión","Financiamiento disponible"],
+    "highlights": ["Desde ₡35.000/m²","Lote tipo: 1.000 m²","Rodeado de bosque y fauna"]
+  },
+
+  {
+    "id": 5,
+    "slug": "finca-agua-azul-quintas-5000",
+    "type": "lote",
+    "subcategory": "quinta",
+    "title": "Finca Agua Azul – Quintas 5.000 m²",
+    "location": "La Fortuna de San Carlos – Agua Azul",
+    "price": 198000,
+    "currency": "CRC",
+    "priceIsPerM2": false,
+    "pricePerM2": 20000,
+    "lotSize": 5000,
+    "badge": "Financiamiento disponible",
+    "folder": "003-finca-agua-azul",
+    "images": [
+      { "src": "/img/properties/003-finca-agua-azul/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/1.jpg?date=1&filename=finca-agua-azul-quintas-5000-1" },
+      { "src": "/img/properties/003-finca-agua-azul/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/2.jpg?date=1&filename=finca-agua-azul-quintas-5000-2" },
+      { "src": "/img/properties/003-finca-agua-azul/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/3.jpg?date=1&filename=finca-agua-azul-quintas-5000-3" },
+      { "src": "/img/properties/003-finca-agua-azul/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/4.jpg?date=1&filename=finca-agua-azul-quintas-5000-4" },
+      { "src": "/img/properties/003-finca-agua-azul/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/5.jpg?date=1&filename=finca-agua-azul-quintas-5000-5" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+    "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
+    "description": [
+      "Quintas de 5.000 m² en Finca Agua Azul...",
+      "Vistas abiertas al Volcán Arenal...",
+      "Acceso por calle pública...",
+      "Precio desde ₡20.000 por m²..."
+    ],
+    "features": ["Vistas al volcán","Alta privacidad","Entorno natural","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para desarrollo turístico","Financiamiento disponible"],
+    "highlights": ["Desde ₡20.000/m²","Quinta tipo: 5.000 m²","Zonas planas y arboladas"]
+  }
 ]
-,
-  "features": [
-    "Zona tranquila",
-    "Entorno natural",
-    "Acceso por calle pública",
-    "Agua disponible",
-    "Electricidad disponible",
-    "Vista al volcán",
-    "Cercanía a servicios",
-    "Oportunidad de inversión",
-    "Financiamiento disponible"
-
-  ]
-},
-{
-  "id": 3,
-  "slug": "villa-el-manzano",
-  "type": "casa",
-  "title": "Villa El Manzano",
-  "location": "Chachagua - San Ramón",
-  "price": 158000,
-  "constructionSize": 140,
-  "lotSize": 1109,
-  "bedrooms": 2,
-  "bathrooms": 2,
-  "totalRooms": 2,
-  "floors": 1,
-  "yearBuilt": 2023,
-  "parking": 2,
-  "badge": "Destacado",
-  "folder": "001-villa-el-manzano",
-  "images": ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg","8.jpeg","9.jpeg","10.jpeg"],
-  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-  "geo": { "lat": 10.470500, "lng": -84.640800, "zoom": 15 },
-  "description": [
-    "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero de 1.109,50 m², con una construcción de 140 m² que integra dos villas contemporáneas y funcionales.",
-    "Cada villa dispone de una habitación, brindando comodidad y un ambiente acogedor.",
-    "La propiedad se distingue por sus amenidades pensadas para el disfrute y la privacidad: cercas vivas alrededor, un espacioso rancho BBQ, cochera, bodega independiente y accesos separados con portones individuales.",
-    "Sus amplias áreas verdes con jardines y árboles frutales crean un entorno natural ideal para el descanso, a tan solo 50 metros del río Chachaguita.",
-    "Una excelente alternativa de inversión, perfecta para residencia familiar o como proyecto de renta vacacional."
-  ],
-  "features": [
-    "2 dormitorios",
-    "2 baños completos",
-    "Construcción de 140 m²",
-    "Lote de 1.109 m²",
-    "1 piso",
-    "Año de construcción: 2023",
-    "Rancho BBQ",
-    "Cochera",
-    "Bodega independiente",
-    "Jardines y árboles frutales",
-    "Cercas vivas"
-  ]
-},
-{
-  "id": 4,
-  "slug": "finca-agua-azul-lotes-1000",
-  "type": "lote",
-  "title": "Finca Agua Azul – Lotes 1.000 m²",
-  "location": "La Fortuna de San Carlos – Agua Azul",
-  "price": 69500,
-  "currency": "CRC",
-  "priceIsPerM2": false,
-  "pricePerM2": 35000,
-  "lotSize": 1000,
-  "badge": "Financiamiento disponible",
-  "folder": "003-finca-agua-azul",
-  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
-  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-  "geo": { "lat": 10.4710, "lng": -84.6450, "zoom": 14 },
-  "description": [
-    "Lotes privados de 1.000 m² en Finca Agua Azul, a pocos minutos del centro de La Fortuna. Entorno natural, silencio y aire puro.",
-    "Vistas al Volcán Arenal y a montañas. Ideal para vivienda, retiro o inversión en alquiler vacacional.",
-    "Acceso por calle pública y disponibilidad de agua y electricidad. Internet residencial factible.",
-    "Precio desde ₡35.000 por m². Opción de financiamiento."
-  ],
-  "features": [
-    "Vistas al volcán",
-    "Privacidad y naturaleza",
-    "Zona tranquila",
-    "Acceso por calle pública",
-    "Agua y electricidad disponibles",
-    "Internet disponible",
-    "Ideal para inversión",
-    "Financiamiento disponible"
-  ],
-  "highlights": [
-    "Desde ₡35.000/m²",
-    "Lote tipo: 1.000 m²",
-    "Rodeado de bosque y fauna"
-  ]
-},
-{
-  "id": 5,
-  "slug": "finca-agua-azul-quintas-5000",
-  "type": "lote",
-  "subcategory": "quinta",
-  "title": "Finca Agua Azul – Quintas 5.000 m²",
-  "location": "La Fortuna de San Carlos – Agua Azul",
-  "price": 198000,
-  "currency": "CRC",
-  "priceIsPerM2": false,
-  "pricePerM2": 20000,
-  "lotSize": 5000,
-  "badge": "Financiamiento disponible",
-  "folder": "003-finca-agua-azul",
-  "images": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"],
-  "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-  "geo": { "lat": 10.4710, "lng": -84.6450, "zoom": 14 },
-  "description": [
-    "Quintas de 5.000 m² en Finca Agua Azul: amplitud, privacidad y contacto directo con la naturaleza.",
-    "Vistas abiertas al Volcán Arenal y cordillera, con espacios perfectos para cabañas, villa principal o proyecto turístico.",
-    "Acceso por calle pública, agua y electricidad disponibles. Internet residencial factible.",
-    "Precio desde ₡20.000 por m². Opción de financiamiento."
-  ],
-  "features": [
-    "Vistas al volcán",
-    "Alta privacidad",
-    "Entorno natural",
-    "Acceso por calle pública",
-    "Agua y electricidad disponibles",
-    "Internet disponible",
-    "Ideal para desarrollo turístico",
-    "Financiamiento disponible"
-  ],
-  "highlights": [
-    "Desde ₡20.000/m²",
-    "Quinta tipo: 5.000 m²",
-    "Zonas planas y arboladas"
-  ]
-}
-
-
-
-]
-
-

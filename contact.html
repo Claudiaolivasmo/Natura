@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <!-- Básico -->
   <meta charset="UTF-8">
@@ -16,12 +15,14 @@
   <meta property="og:title" content="Contacto | Natura Real Estate">
   <meta property="og:description" content="¿Listo para dar el siguiente paso? Escríbenos y agenda una cita.">
   <meta property="og:url" content="https://www.realestatenatura.com/contact.html">
-  <meta property="og:image" content="https://www.realestatenatura.com/images/og/contact.jpg">
+  <!-- Servimos la OG desde /img con tamaño y formato correcto -->
+  <meta property="og:image" content="https://www.realestatenatura.com/img/og/contact.jpg?w=1200&fmt=jpg&q=90">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fuentes -->
+  <!-- Fuentes / Iconos -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
@@ -33,57 +34,54 @@
   <!-- Tailwind (si lo usas; si no, elimínalo) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons -->
-  <link rel="icon" href="/images/favicon.png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
-  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
-
+  <!-- Favicons servidos por /img -->
+  <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
 </head>
-
-
 
 <body class="bg-gray-50">
   <!-- Header -->
-        <header class="header" id="header">
-        <a href="index.html" class="logo">
-          <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
-        </a>
+  <header class="header" id="header">
+    <a href="index.html" class="logo" aria-label="Natura Real Estate">
+      <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82"
+           alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
+    </a>
 
-        <!-- Navegación desktop -->
-        <nav class="nav" aria-label="Principal">
-          <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="properties.html">Propiedades</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-          </ul>
-        </nav>
+    <!-- Navegación desktop -->
+    <nav class="nav" aria-label="Principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="properties.html">Propiedades</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
 
-        <!-- Botón hamburguesa -->
-        <button class="hamburger" id="hamburger"
-                aria-label="Abrir menú"
-                aria-controls="navMobile"
-                aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger"
+            aria-label="Abrir menú"
+            aria-controls="navMobile"
+            aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-        <!-- Menú móvil -->
-        <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
-          <div class="mobile-logo">
-            <img src="natura_realestate_color_footer_600x200.png" alt="Natura Real Estate Logo">
-          </div>
-          <ul>
-            <li><a href="index.html" data-close>Inicio</a></li>
-            <li><a href="properties.html" data-close>Propiedades</a></li>
-            <li><a href="contact.html" data-close>Contacto</a></li>
-          </ul>
-        </nav>
-      </header>
+    <!-- Menú móvil -->
+    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+      <div class="mobile-logo">
+        <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=240&fmt=webp&q=82"
+             alt="Natura Real Estate Logo" width="120" height="40" loading="lazy">
+      </div>
+      <ul>
+        <li><a href="index.html" data-close>Inicio</a></li>
+        <li><a href="properties.html" data-close>Propiedades</a></li>
+        <li><a href="contact.html" data-close>Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-[url('arenal-hero.jpg')] bg-cover bg-center">
+  <!-- Hero (fondo servido por /img) -->
+  <section class="relative overflow-hidden bg-cover bg-center"
+           style="background-image:url('/img/hero/arenal-hero.jpg?w=1920&fmt=webp&q=82')">
     <div class="backdrop-brightness-75">
       <div class="mx-auto max-w-6xl px-6 py-24 text-white">
         <p class="uppercase tracking-widest text-sm/6 opacity-90">Natura Real Estate</p>
@@ -93,7 +91,7 @@
         </p>
         <div class="mt-6 flex gap-3">
           <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-5 py-3 text-white rounded-md">Agendar cita</a>
-          <a href="https://wa.me/50683018999?text=Hola,%20me%20gustaría%20agendar%20una%20cita" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-md bg-white/10 ring-1 ring-white/30 hover:bg-white/20">
+          <a href="https://wa.me/50683018999?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20cita" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-md bg-white/10 ring-1 ring-white/30 hover:bg-white/20">
             WhatsApp
           </a>
         </div>
@@ -101,11 +99,8 @@
     </div>
   </section>
 
-
-
   <!-- Contacto + Formulario -->
   <main id="contacto" class="mx-auto max-w-6xl px-6 pb-16 mt-16">
-
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
       <!-- Columna izquierda: Form -->
       <section class="bg-white p-8 shadow-lg rounded-xl">
@@ -116,50 +111,44 @@
           y mostrarle las mejores oportunidades en La Fortuna.
         </p>
 
-        <!-- Formulario (misma lógica y nombres) -->
+        <!-- Formulario -->
         <form id="appointmentForm"
               action="https://formspree.io/f/movkakwl"
               method="POST"
               class="space-y-4 mt-6">
 
-          <!-- Identificador del formulario -->
           <input type="hidden" name="formulario" value="Agendar Cita - Natura Real Estate">
-          <!-- Asunto del correo -->
           <input type="hidden" name="_subject" value="Nueva cita solicitada desde el sitio">
-          <!-- Idioma -->
           <input type="hidden" name="_language" value="es">
-          <!-- Redirección (opcional) -->
-          <!-- <input type="hidden" name="_redirect" value="https://tusitio.com/gracias.html"> -->
-          <!-- Honeypot anti-spam -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
               <input type="text" id="firstName" name="firstName" required
-                    class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Su nombre">
+                     class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                     placeholder="Su nombre">
             </div>
             <div>
               <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Apellido</label>
               <input type="text" id="lastName" name="lastName" required
-                    class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Su apellido">
+                     class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                     placeholder="Su apellido">
             </div>
           </div>
 
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
             <input type="email" id="email" name="email" required
-                  class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="su@email.com">
+                   class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                   placeholder="su@email.com">
           </div>
 
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
             <input type="tel" id="phone" name="phone"
-                  class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="+506 0000-0000">
+                   class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                   placeholder="+506 0000-0000">
           </div>
 
           <div>
@@ -189,7 +178,7 @@
             <div>
               <label for="preferredDate" class="block text-sm font-medium text-gray-700 mb-2">Fecha Preferida</label>
               <input type="date" id="preferredDate" name="preferredDate"
-                    class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                     class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent">
             </div>
             <div>
               <label for="preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Hora Preferida</label>
@@ -215,10 +204,7 @@
             Enviar Consulta
           </button>
 
-          <!-- Estado accesible -->
           <p id="form-status" class="text-sm mt-2 text-gray-700" aria-live="polite"></p>
-
-          <!-- Aviso de privacidad breve -->
           <p class="text-xs text-gray-500 mt-2">
             Al enviar este formulario, usted acepta que Natura Real Estate procese sus datos para contactarle.
           </p>
@@ -229,14 +215,12 @@
       <aside class="space-y-6">
         <div class="bg-white p-6 shadow-md rounded-xl">
           <h3 class="font-display text-2xl font-semibold text-gray-900">Contáctenos</h3>
-          <p class="text-gray-700 mt-2">
-            La Fortuna · San Carlos · Costa Rica
-          </p>
+          <p class="text-gray-700 mt-2">La Fortuna · San Carlos · Costa Rica</p>
 
           <div class="mt-4 space-y-3 text-gray-800">
             <p><strong>Tel:</strong> <a href="tel:+50683018999" class="hover:underline">+506 8301 8999</a></p>
             <p><strong>Email:</strong> <a href="mailto:naturacrre@gmail.com" class="hover:underline">naturacrre@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> <a class="hover:underline" href="https://wa.me/50683018999?text=Hola,%20me%20gustaría%20agendar%20una%20cita" target="_blank" rel="noopener">Chatear ahora</a></p>
+            <p><strong>WhatsApp:</strong> <a class="hover:underline" href="https://wa.me/50683018999?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20cita" target="_blank" rel="noopener">Chatear ahora</a></p>
           </div>
 
           <div class="mt-5">
@@ -248,7 +232,7 @@
             </ul>
           </div>
 
-          <a href="https://wa.me/50683018999?text=Hola,%20me%20gustaría%20agendar%20una%20cita"
+          <a href="https://wa.me/50683018999?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20cita"
              target="_blank" rel="noopener"
              class="mt-6 inline-flex w-full items-center justify-center rounded-md border border-green-600 py-3 font-medium text-green-700 hover:bg-green-50">
             Escribir por WhatsApp
@@ -257,7 +241,6 @@
 
         <div class="bg-white p-0 shadow-md rounded-xl overflow-hidden">
           <div class="h-64 w-full">
-            <!-- Reemplaza el src con tu mapa si lo deseas -->
             <iframe
               title="Mapa - Natura Real Estate"
               src="https://www.google.com/maps?q=La%20Fortuna%20de%20San%20Carlos&output=embed"
@@ -300,7 +283,7 @@
       </div>
       <div class="flex gap-3">
         <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-5 py-3 text-white rounded-md">Agendar ahora</a>
-        <a href="https://wa.me/50600000000?text=Hola,%20me%20gustaría%20más%20información" target="_blank" rel="noopener"
+        <a href="https://wa.me/50683018999?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener"
            class="inline-flex items-center justify-center px-5 py-3 rounded-md bg-green-600/10 text-green-700 ring-1 ring-green-600/30 hover:bg-green-600/15">
           WhatsApp
         </a>
@@ -308,66 +291,56 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <!-- Logo -->
+      <img src="/img/branding/1A2E35.png?w=250&fmt=webp&q=82"
+           alt="Natura Real Estate" class="footer-logo" width="125" height="40" loading="lazy">
 
-<!-- Footer -->
-<footer class="footer" role="contentinfo">
-  <div class="footer-content centered">
-    <!-- Logo -->
-    <img src="1A2E35.png" alt="Natura Real Estate" class="footer-logo">
+      <!-- Descripción -->
+      <p class="footer-text">
+        Propiedades seleccionadas en La Fortuna y alrededores.
+      </p>
 
-    <!-- Descripción -->
-    <p class="footer-text">
-      Propiedades seleccionadas en La Fortuna y alrededores.
-    </p>
+      <!-- Redes Sociales -->
+      <div class="footer-social">
+        <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
 
-    <!-- Redes Sociales -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/natura_realestate" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/share/18zPFwVkv8/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-        <i class="fab fa-facebook"></i>
-      </a>
-    </div>
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <form 
+          class="newsletter-form" 
+          action="https://formspree.io/f/mjkabpze" 
+          method="POST" 
+          target="_blank">
+          <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required>
+          <button type="submit" class="newsletter-btn">Suscribirse</button>
+        </form>
+        <div class="newsletter-status" aria-live="polite"></div>
+      </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-      <form 
-        class="newsletter-form" 
-        action="https://formspree.io/f/mjkabpze" 
-        method="POST" 
-        target="_blank">
-        
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Tu email" 
-          class="newsletter-input" 
-          required>
-          
-        <button type="submit" class="newsletter-btn">
-          Suscribirse
-        </button>
-      </form>
-      
-      <div class="newsletter-status" aria-live="polite"></div>
-    </section>
+      <!-- Contacto -->
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
+          <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+        </p>
+      </div>
 
-    <!-- Contacto -->
-    <div class="footer-contact">
-      <p><strong>La Fortuna · Costa Rica</strong></p>
-      <p>
-        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
-        <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+      <!-- Derechos -->
+      <p class="footer-bottom">
+        &copy; 2025 Natura Real Estate · Todos los derechos reservados
       </p>
     </div>
-
-    <!-- Derechos -->
-    <p class="footer-bottom">
-      &copy; 2025 Natura Real Estate · Todos los derechos reservados
-    </p>
-  </div>
-</footer>
+  </footer>
 
   <!-- (Bloque Cloudflare auto-inyectado de tu snippet original) -->
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965617e6100192fb',t:'MTc1MzU1NTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
@@ -378,7 +351,28 @@
   <script src="home.js" defer></script>
   <script src="form-handler.js" defer></script>
   <script src="newsletter.js" defer></script>
-  <script src="header.js"></script>
+  <script src="header.js" defer></script>
+
+  <!-- Solo para desarrollo con Live Server: reescribe /img -> /assets/images (no afecta producción) -->
+  <script>
+    (function () {
+      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      if (!isLocal) return;
+
+      // <img src="/img/...">
+      document.querySelectorAll('img[src^="/img/"]').forEach(img => {
+        img.src = img.src.replace('/img/', '/assets/images/').replace(/\?.*$/, '');
+      });
+
+      // background-image: url('/img/...')
+      document.querySelectorAll('[style*="background-image"]').forEach(el => {
+        const s = el.style.backgroundImage;
+        if (s.includes('/img/')) {
+          el.style.backgroundImage = s.replace('/img/', '/assets/images/').replace(/\?.*?\)/g, ')');
+        }
+      });
+    })();
+  </script>
 
   <!-- Datos estructurados básicos -->
   <script type="application/ld+json">
@@ -392,10 +386,10 @@
       "addressRegion": "Alajuela",
       "addressCountry": "CR"
     },
-    "url": "https://tusitio.com/contact.html",
-    "telephone": "+506 0000-0000",
+    "url": "https://www.realestatenatura.com/contact.html",
+    "telephone": "+506 8301 8999",
     "areaServed": "Costa Rica",
-    "image": "https://tusitio.com/1A2E35.png"
+    "image": "https://www.realestatenatura.com/img/branding/1A2E35.png?w=400&fmt=png"
   }
   </script>
 </body>
