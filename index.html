@@ -18,7 +18,7 @@
   <meta property="og:title" content="Natura Real Estate | Propiedades en Costa Rica" />
   <meta property="og:description" content="Casas, lotes y proyectos en La Fortuna." />
   <meta property="og:url" content="https://www.realestatenatura.com/" />
-  <!-- Usa /img para servir la imagen OG (mejor JPG estático) -->
+  <!-- Usa /img para servir la imagen OG -->
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/home.jpg?w=1200&fmt=jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -36,22 +36,26 @@
   <!-- Tailwind (si no lo usas, elimínalo) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons (sirviéndolos desde /img para usar 1 sola carpeta de imágenes) -->
+  <!-- Favicons servidos por /img -->
   <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
 
-  <!-- Font Awesome (solo el CSS CDN es suficiente para <i class="fab ...">) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <header class="header" id="header">
     <a href="index.html" class="logo" aria-label="Natura Real Estate">
-      <!-- Sirve el logo por /img (ajusta el nombre si es distinto) -->
-      <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82" 
-        alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
-
+      <!-- Logo por /img -->
+      <img
+        src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82"
+        alt="Natura Real Estate Logo"
+        width="150"
+        height="50"
+        loading="lazy"
+        decoding="async">
     </a>
 
     <!-- Navegación desktop -->
@@ -71,9 +75,13 @@
     <!-- Menú móvil -->
     <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
       <div class="mobile-logo">
-        <img src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82" 
-          alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
-
+        <img
+          src="/img/branding/natura_realestate_color_footer_600x200.png?w=300&fmt=webp&q=82"
+          alt="Natura Real Estate Logo"
+          width="150"
+          height="50"
+          loading="lazy"
+          decoding="async">
       </div>
       <ul>
         <li><a href="index.html" data-close>Inicio</a></li>
@@ -181,15 +189,16 @@
       </p>
 
       <div class="lafortuna-grid">
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/assets/lafortuna-naturaleza.jpg?w=1200&fmt=webp')">
+        <!-- Fondo por /img (tu función serve buscará en assets/images y originals) -->
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-naturaleza.jpg?w=1200&fmt=webp')">
           <div class="overlay"><div class="overlay-inner"><span></span><h4>Naturaleza Viva</h4><p>Vistas al volcán, senderos y cataratas.</p></div></div>
         </div>
 
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/assets/lafortuna-bienestar.jpg?w=1200&fmt=webp')">
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-bienestar.jpg?w=1200&fmt=webp')">
           <div class="overlay"><div class="overlay-inner"><span></span><h4>Bienestar Natural</h4><p>Termales, yoga y aire puro.</p></div></div>
         </div>
 
-        <div class="lafortuna-box fade-in" style="background-image:url('/img/assets/lafortuna-comunidad.jpg?w=1200&fmt=webp')">
+        <div class="lafortuna-box fade-in" style="background-image:url('/img/lafortuna-comunidad.jpg?w=1200&fmt=webp')">
           <div class="overlay"><div class="overlay-inner"><span></span><h4>Comunidad Vibrante</h4><p>Vecinos acogedores y espíritu sostenible.</p></div></div>
         </div>
       </div>
@@ -323,9 +332,14 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
       <!-- Logo -->
-      <img src="/img/branding/1A2E35.png?w=250&fmt=webp&q=82" 
-        alt="Natura Real Estate" class="footer-logo" width="125" height="40" loading="lazy">
-
+      <img
+        src="/img/branding/1A2E35.png?w=250&fmt=webp&q=82"
+        alt="Natura Real Estate"
+        class="footer-logo"
+        width="125"
+        height="40"
+        loading="lazy"
+        decoding="async">
 
       <!-- Descripción -->
       <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
