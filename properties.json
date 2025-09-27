@@ -10,13 +10,13 @@
     "badge": "Destacado",
     "folder": "008-lote-burrito",
     "images": [
-      { "src": "/img/properties/008-lote-burrito/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/1.jpg?date=1&filename=lote-san-francisco-burrito-1" },
-      { "src": "/img/properties/008-lote-burrito/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/2.jpg?date=1&filename=lote-san-francisco-burrito-2" },
-      { "src": "/img/properties/008-lote-burrito/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/3.jpg?date=1&filename=lote-san-francisco-burrito-3" },
-      { "src": "/img/properties/008-lote-burrito/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/4.jpg?date=1&filename=lote-san-francisco-burrito-4" },
-      { "src": "/img/properties/008-lote-burrito/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/5.jpg?date=1&filename=lote-san-francisco-burrito-5" },
-      { "src": "/img/properties/008-lote-burrito/6.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/6.jpg?date=1&filename=lote-san-francisco-burrito-6" },
-      { "src": "/img/properties/008-lote-burrito/7.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/008-lote-burrito/7.jpg?date=1&filename=lote-san-francisco-burrito-7" }
+      "/assets/images/properties/008-lote-burrito/1.jpg",
+      "/assets/images/properties/008-lote-burrito/2.jpg",
+      "/assets/images/properties/008-lote-burrito/3.jpg",
+      "/assets/images/properties/008-lote-burrito/4.jpg",
+      "/assets/images/properties/008-lote-burrito/5.jpg",
+      "/assets/images/properties/008-lote-burrito/6.jpg",
+      "/assets/images/properties/008-lote-burrito/7.jpg"
     ],
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
@@ -38,10 +38,10 @@
     "badge": "Financiamiento disponible",
     "folder": "002-lote-residencial-villa-azul",
     "images": [
-      { "src": "/img/properties/002-lote-residencial-villa-azul/1.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/1.jpeg?date=1&filename=lote-residencial-villa-azul-1" },
-      { "src": "/img/properties/002-lote-residencial-villa-azul/2.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/2.jpeg?date=1&filename=lote-residencial-villa-azul-2" },
-      { "src": "/img/properties/002-lote-residencial-villa-azul/3.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/3.jpeg?date=1&filename=lote-residencial-villa-azul-3" },
-      { "src": "/img/properties/002-lote-residencial-villa-azul/4.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/002-lote-residencial-villa-azul/4.jpeg?date=1&filename=lote-residencial-villa-azul-4" }
+      "/assets/images/properties/002-lote-residencial-villa-azul/1.jpeg",
+      "/assets/images/properties/002-lote-residencial-villa-azul/2.jpeg",
+      "/assets/images/properties/002-lote-residencial-villa-azul/3.jpeg",
+      "/assets/images/properties/002-lote-residencial-villa-azul/4.jpeg"
     ],
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
@@ -71,16 +71,16 @@
     "badge": "Destacado",
     "folder": "001-villa-el-manzano",
     "images": [
-      { "src": "/img/properties/001-villa-el-manzano/1.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/1.jpeg?date=1&filename=villa-el-manzano-1" },
-      { "src": "/img/properties/001-villa-el-manzano/2.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/2.jpeg?date=1&filename=villa-el-manzano-2" },
-      { "src": "/img/properties/001-villa-el-manzano/3.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/3.jpeg?date=1&filename=villa-el-manzano-3" },
-      { "src": "/img/properties/001-villa-el-manzano/4.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/4.jpeg?date=1&filename=villa-el-manzano-4" },
-      { "src": "/img/properties/001-villa-el-manzano/5.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/5.jpeg?date=1&filename=villa-el-manzano-5" },
-      { "src": "/img/properties/001-villa-el-manzano/6.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/6.jpeg?date=1&filename=villa-el-manzano-6" },
-      { "src": "/img/properties/001-villa-el-manzano/7.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/7.jpeg?date=1&filename=villa-el-manzano-7" },
-      { "src": "/img/properties/001-villa-el-manzano/8.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/8.jpeg?date=1&filename=villa-el-manzano-8" },
-      { "src": "/img/properties/001-villa-el-manzano/9.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/9.jpeg?date=1&filename=villa-el-manzano-9" },
-      { "src": "/img/properties/001-villa-el-manzano/10.jpeg?w=1200&fmt=webp&q=82", "download": "/download/properties/001-villa-el-manzano/10.jpeg?date=1&filename=villa-el-manzano-10" }
+      "/assets/images/properties/001-villa-el-manzano/1.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/2.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/3.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/4.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/5.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/6.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/7.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/8.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/9.jpeg",
+      "/assets/images/properties/001-villa-el-manzano/10.jpeg"
     ],
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.4705, "lng": -84.6408, "zoom": 15 },
@@ -108,11 +108,11 @@
     "badge": "Financiamiento disponible",
     "folder": "003-finca-agua-azul",
     "images": [
-      { "src": "/img/properties/003-finca-agua-azul/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/1.jpg?date=1&filename=finca-agua-azul-lotes-1000-1" },
-      { "src": "/img/properties/003-finca-agua-azul/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/2.jpg?date=1&filename=finca-agua-azul-lotes-1000-2" },
-      { "src": "/img/properties/003-finca-agua-azul/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/3.jpg?date=1&filename=finca-agua-azul-lotes-1000-3" },
-      { "src": "/img/properties/003-finca-agua-azul/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/4.jpg?date=1&filename=finca-agua-azul-lotes-1000-4" },
-      { "src": "/img/properties/003-finca-agua-azul/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/5.jpg?date=1&filename=finca-agua-azul-lotes-1000-5" }
+      "/assets/images/properties/003-finca-agua-azul/1.jpg",
+      "/assets/images/properties/003-finca-agua-azul/2.jpg",
+      "/assets/images/properties/003-finca-agua-azul/3.jpg",
+      "/assets/images/properties/003-finca-agua-azul/4.jpg",
+      "/assets/images/properties/003-finca-agua-azul/5.jpg"
     ],
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
@@ -141,11 +141,11 @@
     "badge": "Financiamiento disponible",
     "folder": "003-finca-agua-azul",
     "images": [
-      { "src": "/img/properties/003-finca-agua-azul/1.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/1.jpg?date=1&filename=finca-agua-azul-quintas-5000-1" },
-      { "src": "/img/properties/003-finca-agua-azul/2.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/2.jpg?date=1&filename=finca-agua-azul-quintas-5000-2" },
-      { "src": "/img/properties/003-finca-agua-azul/3.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/3.jpg?date=1&filename=finca-agua-azul-quintas-5000-3" },
-      { "src": "/img/properties/003-finca-agua-azul/4.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/4.jpg?date=1&filename=finca-agua-azul-quintas-5000-4" },
-      { "src": "/img/properties/003-finca-agua-azul/5.jpg?w=1200&fmt=webp&q=82", "download": "/download/properties/003-finca-agua-azul/5.jpg?date=1&filename=finca-agua-azul-quintas-5000-5" }
+      "/assets/images/properties/003-finca-agua-azul/1.jpg",
+      "/assets/images/properties/003-finca-agua-azul/2.jpg",
+      "/assets/images/properties/003-finca-agua-azul/3.jpg",
+      "/assets/images/properties/003-finca-agua-azul/4.jpg",
+      "/assets/images/properties/003-finca-agua-azul/5.jpg"
     ],
     "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
     "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
