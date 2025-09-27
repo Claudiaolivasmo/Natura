@@ -74,7 +74,9 @@ function primaryImage(p) {
 }
 
 const linkFor = (p) =>
-  p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}` : `property.html?id=${encodeURIComponent(p.id)}`;
+  p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}`
+         : `property.html?id=${encodeURIComponent(p.id)}`;
+
 
 function formatMoney(value = 0, currency = 'USD', locale = 'es-CR') {
   try {
@@ -324,6 +326,7 @@ function renderProperties() {
   renderPagination();
 }
 
+
 function renderCard(p) {
   const t = effectiveType(p);
   const isHome = isDwelling(t);
@@ -343,10 +346,8 @@ function renderCard(p) {
 
   const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
 
-  // Imagen
   const imgSrc = primaryImage(p);
 
-  // URL de descarga con marca
   const first = p.images?.[0];
   let dlUrl = '';
   if (first && typeof first === 'object') {
@@ -355,28 +356,20 @@ function renderCard(p) {
     dlUrl = toDownloadUrl(first, p.folder, p.slug || p.title || 'propiedad');
   }
 
-  // 🧠 USAR getPrices (Opción 1)
   const { priceUSD, priceCRC, currency } = getPrices(p);
   let priceHTML = 'Consultar';
 
   if (currency === 'CRC') {
-    // Moneda principal CRC
-    if (priceCRC) {
-      priceHTML = `${formatMoney(priceCRC, 'CRC')}`;
-    }
+    if (priceCRC) priceHTML = `${formatMoney(priceCRC, 'CRC')}`;
   } else {
-    // Moneda principal USD
     if (priceUSD) {
       priceHTML = `${formatMoney(priceUSD, 'USD')}`;
-      // Muestra CRC SOLO si viene fijo en JSON (priceCRC)
-      if (priceCRC) {
-        priceHTML += ` <small>(${formatMoney(priceCRC, 'CRC')})</small>`;
-      }
+      if (priceCRC) priceHTML += ` <small>(${formatMoney(priceCRC, 'CRC')})</small>`;
     }
   }
 
   return `
-    <a href="\${linkFor(p)}" class="property-card-link">
+    <a href="${linkFor(p)}" class="property-card-link">
       <div class="property-card img-card" ${dlUrl ? `data-download="${dlUrl}"` : ''}>
         <div class="property-image">
           <img class="property-photo"
@@ -404,6 +397,7 @@ function renderCard(p) {
     </a>
   `;
 }
+
 
 function sortProperties() {
   const v = document.getElementById('sortBy')?.value || '';

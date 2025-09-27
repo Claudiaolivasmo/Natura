@@ -1,4 +1,4 @@
-// === property.js (completo, actualizado) ===
+// === property.js (OPTIMIZADO SIN MAPAS) ===
 let currentImageIndex = 0;
 let currentProperty = null;
 let isLightboxOpen = false;
@@ -7,12 +7,12 @@ let lastFocusedBeforeLB = null;
 
 // ───────────── Helpers DOM Lightbox
 const q = (id) => document.getElementById(id);
-function lightboxEl()  { return q('lightbox'); }
-function lbImgEl()     { return q('lightboxImage'); }
+function lightboxEl() { return q('lightbox'); }
+function lbImgEl() { return q('lightboxImage'); }
 function lbCounterEl() { return q('lbCounter'); }
-function lbCloseEl()   { return q('lbClose'); }
-function lbPrevEl()    { return q('lbPrev'); }
-function lbNextEl()    { return q('lbNext'); }
+function lbCloseEl() { return q('lbClose'); }
+function lbPrevEl() { return q('lbPrev'); }
+function lbNextEl() { return q('lbNext'); }
 
 // ───────────── Util: construir src robusto para imágenes
 function buildImageSrc(i) {
@@ -24,12 +24,12 @@ function buildImageSrc(i) {
   if (entry && typeof entry === 'object' && entry.src) {
     const s = String(entry.src);
     if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
-    return `/img/properties/${folder}/${s}`; // relativo al folder
+    return `/assets/images/properties/${folder}/${s}`;
   }
   // Caso 2: string (nombre de archivo o ruta)
   if (typeof entry === 'string') {
     if (/^https?:\/\//i.test(entry) || entry.startsWith('/')) return entry; // absoluto
-    return `/img/properties/${folder}/${entry}`; // relativo al folder
+    return `/assets/images/properties/${folder}/${entry}`;
   }
   return '';
 }
@@ -39,11 +39,12 @@ document.addEventListener('DOMContentLoaded', initPropertyPage);
 
 async function initPropertyPage() {
   const params = new URLSearchParams(location.search);
-  const idParam   = params.get('id');
+  const idParam = params.get('id');
   const slugParam = params.get('slug');
 
   try {
-    const res = await fetch('properties.json'); // ajusta si está en subcarpeta
+    // usa ruta relativa como en home.js / properties.js
+    const res = await fetch('properties.json');
     const list = await res.json();
 
     if (slugParam) {
@@ -101,65 +102,21 @@ function joinPriceSize(priceStr, sizeStr) {
   return priceStr || sizeStr || 'Consultar';
 }
 
-function hasCoords(p) {
-  return p?.geo && typeof p.geo.lat === 'number' && typeof p.geo.lng === 'number';
-}
-
-function buildMapsEmbedSrc(p) {
-  const zoom = (p?.geo?.zoom && Number(p.geo.zoom)) || 15;
-  if (hasCoords(p)) {
-    const { lat, lng } = p.geo;
-    return `https://www.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed`;
-  }
-  const qq = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
-  return `https://www.google.com/maps?q=${qq}&z=${zoom}&output=embed`;
-}
-
-function buildMapsLink(p) {
-  if (hasCoords(p)) {
-    const { lat, lng } = p.geo;
-    return `https://www.google.com/maps?q=${lat},${lng}`;
-  }
-  const qq = encodeURIComponent(p.mapQuery || p.location || p.title || 'Costa Rica');
-  return `https://www.google.com/maps?q=${qq}`;
-}
-
-function renderMap(p) {
-  const sec   = q('locationSection');
-  const text  = q('locationText');
-  const iframe= q('mapIframe');
-  const link  = q('mapLink');
-
-  if (!(sec && iframe && link)) return;
-
-  const desc = p.mapText || p.location || '';
-  if (text) text.textContent = desc;
-
-  const src  = buildMapsEmbedSrc(p);
-  const href = buildMapsLink(p);
-
-  iframe.src = src;
-  link.href  = href;
-
-  const hasSomething = hasCoords(p) || p.mapQuery || p.location;
-  sec.classList.toggle('hidden', !hasSomething);
-}
-
 // ───────────── Bind de datos
 function bindProperty(p) {
   document.title = `${p.title} - Natura Real Estate`;
 
   const titleEl = q('propertyTitle');
-  const locEl   = q('propertyLocation');
+  const locEl = q('propertyLocation');
   const priceEl = q('propertyPriceTag');      // etiqueta verde
-  const bcEl    = q('breadcrumbTitle');
+  const bcEl = q('breadcrumbTitle');
 
   if (titleEl) titleEl.textContent = p.title || 'Propiedad';
-  if (locEl)   locEl.textContent   = p.location || '—';
+  if (locEl) locEl.textContent = p.location || '—';
 
   if (priceEl) {
     const priceStr = formatPrice(p.price);      // "$100,000"
-    const sizeStr  = formatLotSize(p.lotSize);  // "2,296 m²" o "0.23 ha"
+    const sizeStr = formatLotSize(p.lotSize);   // "2,296 m²" o "0.23 ha"
     priceEl.textContent = joinPriceSize(priceStr, sizeStr);
   }
   if (bcEl) bcEl.textContent = p.title || 'Propiedad';
@@ -168,7 +125,7 @@ function bindProperty(p) {
   generateThumbnails();
   loadDescription();
   renderFeatures(p);
-  renderMap(p);
+  // **renderMap(p) fue eliminado**
 }
 
 function loadDescription() {
@@ -313,7 +270,7 @@ function initLightboxEvents() {
   document.addEventListener('keydown', (e) => {
     if (!isLightboxOpen) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft')  previousImage();
+    if (e.key === 'ArrowLeft') previousImage();
     if (e.key === 'ArrowRight') nextImage();
   });
 
@@ -368,15 +325,15 @@ function getWhatsNumber() {
 
 function buildMessage(extra = '') {
   const form = q('contactForm');
-  const nameEl  = form?.querySelector('#name, input[type="text"]');
+  const nameEl = form?.querySelector('#name, input[type="text"]');
   const emailEl = form?.querySelector('#email, input[type="email"]');
   const phoneEl = form?.querySelector('#phone, input[type="tel"]');
-  const msgEl   = form?.querySelector('#message, textarea');
+  const msgEl = form?.querySelector('#message, textarea');
 
-  const name  = (nameEl?.value || '').trim();
+  const name = (nameEl?.value || '').trim();
   const email = (emailEl?.value || '').trim();
   const phone = (phoneEl?.value || '').trim();
-  const body  = (msgEl?.value || '').trim();
+  const body = (msgEl?.value || '').trim();
   const propName = currentProperty?.title || 'Propiedad';
 
   const lines = [
@@ -424,8 +381,8 @@ function setupContactForm() {
   }
 
   // Botones opcionales
-  const btnCall  = q('btnCall');
-  const btnWapp  = q('btnWhatsApp');
+  const btnCall = q('btnCall');
+  const btnWapp = q('btnWhatsApp');
   const btnVisit = q('btnVisit');
 
   btnWapp?.addEventListener('click', () => {
@@ -451,14 +408,14 @@ function setupContactForm() {
     e.preventDefault();
     const message = buildMessage();
 
-    const nameEl  = form.querySelector('#name, input[type="text"]');
+    const nameEl = form.querySelector('#name, input[type="text"]');
     const emailEl = form.querySelector('#email, input[type="email"]');
     const phoneEl = form.querySelector('#phone, input[type="tel"]');
 
     const payload = {
       source: 'contact_form',
       property: currentProperty?.title,
-      name:  (nameEl?.value  || '').trim(),
+      name: (nameEl?.value || '').trim(),
       email: (emailEl?.value || '').trim(),
       phone: (phoneEl?.value || '').trim(),
       message,
@@ -486,17 +443,17 @@ function renderFeatures(p) {
   }
 
   const ICONS = {
-    'frente a río':              'fa-solid fa-water',
-    'acceso por calle pública':  'fa-solid fa-road',
-    'agua disponible':           'fa-solid fa-droplet',
-    'electricidad disponible':   'fa-solid fa-bolt',
-    'internet disponible':       'fa-solid fa-wifi',
-    'internet por instalar':     'fa-solid fa-wifi-slash',
-    'topografía plana':          'fa-solid fa-chart-area',
-    'uso residencial':           'fa-solid fa-house',
-    'tamaño del lote':           'fa-solid fa-ruler-combined',
-    'entorno natural':           'fa-solid fa-seedling',
-    'zona tranquila':            'fa-solid fa-spa'
+    'frente a río': 'fa-solid fa-water',
+    'acceso por calle pública': 'fa-solid fa-road',
+    'agua disponible': 'fa-solid fa-droplet',
+    'electricidad disponible': 'fa-solid fa-bolt',
+    'internet disponible': 'fa-solid fa-wifi',
+    'internet por instalar': 'fa-solid fa-wifi-slash',
+    'topografía plana': 'fa-solid fa-chart-area',
+    'uso residencial': 'fa-solid fa-house',
+    'tamaño del lote': 'fa-solid fa-ruler-combined',
+    'entorno natural': 'fa-solid fa-seedling',
+    'zona tranquila': 'fa-solid fa-spa'
   };
 
   const items = raw.map(entry => {
@@ -527,6 +484,6 @@ function renderFeatures(p) {
 // ───────────── Navegación con flechas global (fuera del lightbox también)
 document.addEventListener('keydown', (e) => {
   if (isLightboxOpen) return; // cuando está el lightbox, ya lo maneja arriba
-  if (e.key === 'ArrowLeft')  previousImage();
+  if (e.key === 'ArrowLeft') previousImage();
   if (e.key === 'ArrowRight') nextImage();
 });
