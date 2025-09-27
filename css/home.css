@@ -4,26 +4,35 @@
 
 /* ===== Hero ===== */
 .hero {
+  position: relative; /* importante para que ::before se limite al section */
   background-image: url('/assets/images/hero-home.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 90vh; /* o lo que hayas definido */
+  min-height: 90vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;     /* centra vertical */
+  justify-content: center; /* centra horizontal */
+  text-align: center;      /* centra el texto */
   color: white;
+  overflow: hidden;
 }
-.hero::before{
-  content:"";
-  position:absolute; inset:0;
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(0,0,0,0.45);
+  z-index: 0;
 }
-.hero-content{
+
+.hero-content {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 1rem; /* para respiro en móvil */
   z-index: 1;
 }
+
 
 .tagline{
   font-family: var(--font-text);
@@ -36,7 +45,7 @@
 }
 .main-text{
   font-family: var(--font-title);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
   line-height: 1.35;
