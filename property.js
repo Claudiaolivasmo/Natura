@@ -102,6 +102,26 @@ function joinPriceSize(priceStr, sizeStr) {
   return priceStr || sizeStr || 'Consultar';
 }
 
+// ───────────── ✅ Badge VENDIDO (NUEVO)
+const isSold = (prop) => String(prop?.status || '').trim().toLowerCase() === 'vendido';
+
+function renderSoldBadge(prop) {
+  const main = document.getElementById('mainImage');
+  if (!main) return;
+
+  // eliminar cualquier badge previo
+  main.querySelectorAll('.property-badge.sold').forEach(n => n.remove());
+
+  if (isSold(prop)) {
+    const badge = document.createElement('div');
+    badge.className = 'property-badge sold';
+    badge.textContent = 'VENDIDO';
+    // prepend para que quede por encima de la imagen y antes de los botones
+    main.prepend(badge);
+  }
+}
+// ───────────── fin NUEVO
+
 // ───────────── Bind de datos
 function bindProperty(p) {
   document.title = `${p.title} - Natura Real Estate`;
@@ -125,6 +145,9 @@ function bindProperty(p) {
   generateThumbnails();
   loadDescription();
   renderFeatures(p);
+
+  // ───────────── Llamada NUEVA para el badge condicional
+  renderSoldBadge(p);
   // **renderMap(p) fue eliminado**
 }
 
