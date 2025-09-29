@@ -1,34 +1,5 @@
 [
-  {
-    "id": 1,
-    "slug": "lote-san-francisco-burrito",
-    "type": "lote",
-    "title": "Lote en San Francisco de Peñas Blancas",
-    "location": "San Ramón - El Burrito",
-    "price": 100000,
-    "priceCRC": 50000000,
-    "currency": "USD",
-    "lotSize": 2296,
-    "badge": "Destacado",
-    "folder": "008-lote-burrito",
-    "images": [
-      { "src": "/assets/images/properties/008-lote-burrito/1.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/2.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/3.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/4.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/5.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/6.jpg" },
-      { "src": "/assets/images/properties/008-lote-burrito/7.jpg" }
-    ],
-    "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
-    "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
-    "description": [
-      "Ubicado a solo 15 minutos del centro de La Fortuna, este lote de 2.296 m² ofrece un espacio amplio y rodeado de naturaleza.",
-      "Uno de sus principales atractivos es que colinda con el río Burrito, brindando un entorno fresco y tranquilo.",
-      "Cuenta con acceso por calle pública y disponibilidad de agua y electricidad, ideal para desarrollar una residencia, quinta privada o proyecto de retiro."
-    ],
-    "features": ["Frente a río", "Zona tranquila", "Entorno natural", "Acceso por calle pública", "Agua disponible", "Electricidad disponible"]
-  },
+
 
   {
     "id": 2,
@@ -135,39 +106,40 @@
     "highlights": ["Desde ₡35.000/m²","Lote tipo: 1.000 m²","Rodeado de bosque y fauna"]
   },
 
+
   {
-    "id": 5,
-    "slug": "finca-agua-azul-quintas-5000",
-    "type": "lote",
-    "subcategory": "quinta",
-    "title": "Finca Agua Azul – Quintas 5.000 m²",
-    "location": "La Fortuna de San Carlos – Agua Azul",
-    "price": 197000,
-    "priceCRC": 100000000,
-    "currency": "CRC",
-    "priceIsPerM2": true,
-    "pricePerM2": 20000,
-    "lotSize": 5000,
-    "badge": "Financiamiento disponible",
-    "folder": "003-finca-agua-azul",
-    "images": [
-      { "src": "/assets/images/properties/003-finca-agua-azul/1.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/2.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/3.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/4.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/5.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/6.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/7.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/8.jpg" }
-    ],
-    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-    "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
-    "description": [
-      "Estas quintas de 5.000 m² en Agua Azul combinan privacidad, amplitud y un entorno natural privilegiado.",
-      "Disfrute de vistas abiertas al Volcán Arenal y de un espacio ideal para proyectos turísticos, residenciales o de retiro.",
-      "Con acceso por calle pública, agua, electricidad e internet disponibles, y precios desde ₡20.000 por m², se presentan como una inversión estratégica en la zona."
-    ],
-    "features": ["Vistas al volcán","Alta privacidad","Entorno natural","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para desarrollo turístico","Financiamiento disponible"],
-    "highlights": ["Desde ₡20.000/m²","Quinta tipo: 5.000 m²","Zonas planas y arboladas"]
-  }
+  "id": 6,
+  "slug": "finca-san-isidro-10ha",
+  "type": "lote",
+  "subcategory": "finca",
+  "title": "Finca en San Isidro de La Fortuna",
+  "location": "San Isidro de La Fortuna",
+  "price": 76000,
+  "priceCRC": 40000000,
+  "currency": "CRC",
+  "lotSize": 100000,
+  "badge": "Vendido",
+  "status": "vendido",
+  "folder": "006-finca-san-isidro",
+  "images": [
+    { "src": "/assets/images/properties/006-finca-san-isidro/1.jpeg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/2.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/3.jpg" }
+  ],
+  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+  "geo": { "lat": 10.475, "lng": -84.65, "zoom": 14 },
+  "description": [
+    "Esta finca de 10 hectáreas se ubica en San Isidro de La Fortuna, a pocos minutos del centro.",
+    "El terreno es amplio y versátil, ideal para desarrollar proyectos de lotificación, agricultura o turismo.",
+    "Cuenta con acceso por calle pública y disponibilidad de agua y electricidad."
+  ],
+  "features": [
+    "10 hectáreas",
+    "Acceso por calle pública",
+    "Agua disponible",
+    "Electricidad disponible",
+    "Ideal para lotificación",
+    "Potencial agrícola y turístico"
+  ]
+}
 ]

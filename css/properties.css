@@ -221,6 +221,42 @@ aside.filters-sidebar{
   border-radius: 4px;    /* opcional: esquinas más suaves */
 }
 
+
+/* Asegura posicionamiento de los badges */
+.property-image { position: relative; }
+
+.property-badge.sold {
+  position: absolute;
+  top: 50%; /* lo colocamos a la mitad */
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: #c62828;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 200%;              /* cruza de esquina a esquina */
+  text-align: center;
+  padding: 14px 0;          /* grosor de la franja */
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+
+
+/* Estética opcional para tarjetas vendidas */
+.property-card.is-sold .property-photo {
+  filter: grayscale(100%) brightness(.9) contrast(.95);
+}
+.property-card.is-sold .property-price .price {
+  opacity: .7;
+  text-decoration: line-through;
+}
+
+
 .view-btn:hover {
   opacity: 0.9;
 }

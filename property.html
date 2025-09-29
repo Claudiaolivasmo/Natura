@@ -102,12 +102,18 @@
       <section class="property-details lg:grid lg:grid-cols-3 lg:gap-12">
         <div class="details-tabs lg:col-span-2">
           <div class="gallery-section mb-8">
-            <div class="main-image relative mb-4" id="mainImage" role="button" tabindex="0">
-              <button class="gallery-nav prev" onclick="previousImage()" aria-label="Imagen anterior">‹</button>
-              <button class="gallery-nav next" onclick="nextImage()" aria-label="Imagen siguiente">›</button>
-              <div class="image-placeholder"></div>
+            <div class="gallery-section mb-8">
+              <div class="main-image relative mb-4" id="mainImage" role="button" tabindex="0">
+                <!-- Badge Vendido -->
+                <div class="property-badge sold">VENDIDO</div>
+
+                <button class="gallery-nav prev" onclick="previousImage()" aria-label="Imagen anterior">‹</button>
+                <button class="gallery-nav next" onclick="nextImage()" aria-label="Imagen siguiente">›</button>
+                <div class="image-placeholder"></div>
+              </div>
+              <div class="thumbnail-grid" id="thumbnailGrid"></div>
             </div>
-            <div class="thumbnail-grid" id="thumbnailGrid"></div>
+
           </div>
 
           <section class="description-section bg-white p-6 rounded shadow mb-6">

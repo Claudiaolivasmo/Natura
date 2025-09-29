@@ -368,34 +368,42 @@ function renderCard(p) {
     }
   }
 
-  return `
-    <a href="${linkFor(p)}" class="property-card-link">
-      <div class="property-card img-card" ${dlUrl ? `data-download="${dlUrl}"` : ''}>
-        <div class="property-image">
-          <img class="property-photo"
-               src="${imgSrc}"
-               alt="${p.title}"
-               loading="lazy"
-               decoding="async"
-               draggable="false"
-               ${dlUrl ? `data-download="${dlUrl}"` : ''}>
-          ${badge ? `<div class="property-badge">${badge}</div>` : ''}
-          <div class="property-type-tag">${t}</div>
-        </div>
-        <div class="property-content">
-          <h4 class="property-title">${p.title}</h4>
-          <p class="property-location">${p.location || ''}</p>
-          ${meta.length ? `<p class="property-meta">${meta.join(' • ')}</p>` : ''}
-          <div class="property-price">
-            <span class="price" title="Precio">
-              ${priceHTML}
-            </span>
-            <span class="view-btn" aria-hidden="true">Ver Detalles</span>
-          </div>
+return `
+  <a href="${linkFor(p)}" class="property-card-link">
+    <div class="property-card img-card ${p.status === 'vendido' ? 'is-sold' : ''}" 
+         ${dlUrl ? `data-download="${dlUrl}"` : ''} 
+         data-status="${p.status || ''}">
+      <div class="property-image">
+        <img class="property-photo"
+             src="${imgSrc}"
+             alt="${p.title}"
+             loading="lazy"
+             decoding="async"
+             draggable="false"
+             ${dlUrl ? `data-download="${dlUrl}"` : ''}>
+
+        ${p.status === "vendido" ? `<div class="property-badge sold" aria-label="Propiedad vendida">VENDIDO</div>` : ""}
+
+        ${badge ? `<div class="property-badge">${badge}</div>` : ''}
+        <div class="property-type-tag">${t}</div>
+      </div>
+
+      <div class="property-content">
+        <h4 class="property-title">${p.title}</h4>
+        <p class="property-location">${p.location || ''}</p>
+        ${meta.length ? `<p class="property-meta">${meta.join(' • ')}</p>` : ''}
+        <div class="property-price">
+          <span class="price" title="Precio">
+            ${priceHTML}
+          </span>
+          <span class="view-btn" aria-hidden="true">Ver Detalles</span>
         </div>
       </div>
-    </a>
-  `;
+    </div>
+  </a>
+`;
+
+
 }
 
 
