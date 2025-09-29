@@ -81,8 +81,11 @@ const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}`
          : `property.html?id=${encodeURIComponent(p.id)}`;
 
+// ───────────────────────── Utils de estado ─
+const isSold = (p) => String(p?.status || '').toLowerCase() === 'vendido';
+
 const isFeatured = (p) =>
-  p?.featured === true || (p?.badge || '').toLowerCase().includes('destacado');
+  !isSold(p) && (p?.featured === true || (p?.badge || '').toLowerCase().includes('destacado'));
 
 function buildMeta(p) {
   const bits = [];
@@ -121,11 +124,19 @@ function renderCardHome(p) {
   `;
 }
 
+
 // ───────────────────────── Featured ─
 function pickFeatured(list, n = 3) {
   const props = Array.isArray(list) ? list : [];
-  const destacados = props.filter(isFeatured).sort((a, b) => (b.id || 0) - (a.id || 0));
-  const recientes  = [...props].sort((a, b) => (b.id || 0) - (a.id || 0));
+
+  // Excluir vendidas de todo el pipeline
+  const activos = props.filter(p => !isSold(p));
+
+  const destacados = activos
+    .filter(isFeatured)
+    .sort((a, b) => (b.id || 0) - (a.id || 0));
+
+  const recientes = [...activos].sort((a, b) => (b.id || 0) - (a.id || 0));
 
   const out = [];
   for (const p of destacados) { if (out.length < n) out.push(p); }
@@ -134,6 +145,7 @@ function pickFeatured(list, n = 3) {
   }
   return out;
 }
+
 
 function renderFeatured(props) {
   const container = document.getElementById('featuredGrid');
