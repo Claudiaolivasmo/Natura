@@ -1,5 +1,38 @@
 [
-
+    {
+  "id": 1,
+  "slug": "lote-santa-lucia",
+  "type": "lote",
+  "title": "Lote en Santa Lucia",
+  "location": "Santa Lucía, La Fortuna",
+  "price": 50000,
+  "priceCRC": 25000000,
+  "currency": "USD",
+  "lotSize": 1000,
+  "badge": "",
+  "folder": "003-lote-santa-lucia",
+  "images": [
+    { "src": "/assets/images/properties/003-lote-santa-lucia/1.png" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/2.png" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/3.jpg" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/4.jpg" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/5.mp4" }
+  ],
+  "utilities": { "water": false, "electricity": true, "internet": false, "publicRoad": true },
+  "geo": { "lat": 10.4715, "lng": -84.6450, "zoom": 15 },
+  "description": [
+    "Este lote de 1.000 m² se ubica en la zona de Santa Lucía, a 75 metros norte del transporte Chico en La Fortuna.",
+    "Cuenta con disponibilidad de electricidad y acceso por calle asfaltada.",
+    "Pendiente instalación del servicio de agua. Ideal para construir tu hogar en una zona tranquila y accesible."
+  ],
+  "features": [
+    "Acceso por calle asfaltada",
+    "Electricidad disponible",
+    "Pendiente servicio de agua",
+    "Zona tranquila",
+    "Cercanía a La Fortuna"
+  ]
+},
 
   {
     "id": 2,
@@ -105,7 +138,6 @@
     "features": ["Vistas al volcán","Privacidad y naturaleza","Zona tranquila","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para inversión","Financiamiento disponible"],
     "highlights": ["Desde ₡35.000/m²","Lote tipo: 1.000 m²","Rodeado de bosque y fauna"]
   },
-
 
   {
   "id": 6,
