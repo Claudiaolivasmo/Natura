@@ -1,4 +1,4 @@
-// === property.js (OPTIMIZADO SIN MAPAS) ===
+// === property.js (OPTIMIZADO SIN MAPAS) — IMÁGENES + VIDEOS ===
 let currentImageIndex = 0;
 let currentProperty = null;
 let isLightboxOpen = false;
@@ -9,29 +9,46 @@ let lastFocusedBeforeLB = null;
 const q = (id) => document.getElementById(id);
 function lightboxEl() { return q('lightbox'); }
 function lbImgEl() { return q('lightboxImage'); }
+function lbVideoEl() { return q('lightboxVideo'); } // si no existe, se creará
 function lbCounterEl() { return q('lbCounter'); }
 function lbCloseEl() { return q('lbClose'); }
 function lbPrevEl() { return q('lbPrev'); }
 function lbNextEl() { return q('lbNext'); }
 
-// ───────────── Util: construir src robusto para imágenes
-function buildImageSrc(i) {
-  if (!currentProperty?.images?.length) return '';
-  const folder = currentProperty.folder ? String(currentProperty.folder).replace(/^\/+|\/+$/g, '') : '';
+// ───────────── Media helpers (IMAGEN + VIDEO desde arrays separados)
+function getMediaList() {
+  const imgs = Array.isArray(currentProperty?.images) ? currentProperty.images : [];
+  const vids = Array.isArray(currentProperty?.videos) ? currentProperty.videos : [];
+  // normalizamos: cada item => { kind:'image'|'video', src, poster?, thumb? }
+  const folder = (currentProperty?.folder || '').replace(/^\/+|\/+$/g, '');
+  const norm = (entry, kind) => {
+    const obj = (typeof entry === 'string') ? { src: entry } : (entry || {});
+    return {
+      kind,
+      src: resolvePath(obj.src, folder),
+      poster: obj.poster ? resolvePath(obj.poster, folder) : (obj.thumb ? resolvePath(obj.thumb, folder) : ''),
+      thumb: obj.thumb ? resolvePath(obj.thumb, folder) : (obj.poster ? resolvePath(obj.poster, folder) : '')
+    };
+  };
+  const images = imgs.map(e => norm(e, 'image'));
+  const videos = vids.map(e => norm(e, 'video'));
+  return [...images, ...videos];
+}
 
-  const entry = currentProperty.images[i];
-  // Caso 1: objeto con {src}
-  if (entry && typeof entry === 'object' && entry.src) {
-    const s = String(entry.src);
-    if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
-    return `/assets/images/properties/${folder}/${s}`;
-  }
-  // Caso 2: string (nombre de archivo o ruta)
-  if (typeof entry === 'string') {
-    if (/^https?:\/\//i.test(entry) || entry.startsWith('/')) return entry; // absoluto
-    return `/assets/images/properties/${folder}/${entry}`;
-  }
-  return '';
+function resolvePath(raw, folder) {
+  if (!raw) return '';
+  const s = String(raw);
+  if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s; // absoluto
+  // relativo a /assets/images/properties/{folder}/
+  return `/assets/images/properties/${folder}/${s}`;
+}
+
+function mediaCount() { return getMediaList().length; }
+function mediaAt(i) {
+  const list = getMediaList();
+  if (!list.length) return null;
+  const idx = Math.max(0, Math.min(i, list.length - 1));
+  return list[idx];
 }
 
 // ───────────── Inicio
@@ -43,7 +60,6 @@ async function initPropertyPage() {
   const slugParam = params.get('slug');
 
   try {
-    // usa ruta relativa como en home.js / properties.js
     const res = await fetch('properties.json');
     const list = await res.json();
 
@@ -55,25 +71,22 @@ async function initPropertyPage() {
 
     if (!currentProperty) return fallbackToList();
 
-    // Corrige índice inicial por si la propiedad no tiene imágenes
-    if (!Array.isArray(currentProperty.images) || currentProperty.images.length === 0) {
-      currentProperty.images = [];
-    }
+    if (!Array.isArray(currentProperty.images)) currentProperty.images = [];
+    if (!Array.isArray(currentProperty.videos)) currentProperty.videos = [];
+
     currentImageIndex = 0;
 
     bindProperty(currentProperty);
-    setupContactForm?.();  // si existe, configura el formulario
-    initLightboxEvents();  // eventos del lightbox
-    initGalleryEvents();   // click/teclado en imagen principal
+    setupContactForm?.();
+    initLightboxEvents();
+    initGalleryEvents();
   } catch (err) {
     console.error('Error al cargar properties.json:', err);
     fallbackToList();
   }
 }
 
-function fallbackToList() {
-  location.href = 'properties.html'; // ajusta si tu listado vive en otra ruta
-}
+function fallbackToList() { location.href = 'properties.html'; }
 
 // ───────────── Formatos
 function formatPrice(value) {
@@ -102,25 +115,20 @@ function joinPriceSize(priceStr, sizeStr) {
   return priceStr || sizeStr || 'Consultar';
 }
 
-// ───────────── ✅ Badge VENDIDO (NUEVO)
+// ───────────── ✅ Badge VENDIDO
 const isSold = (prop) => String(prop?.status || '').trim().toLowerCase() === 'vendido';
 
 function renderSoldBadge(prop) {
   const main = document.getElementById('mainImage');
   if (!main) return;
-
-  // eliminar cualquier badge previo
   main.querySelectorAll('.property-badge.sold').forEach(n => n.remove());
-
   if (isSold(prop)) {
     const badge = document.createElement('div');
     badge.className = 'property-badge sold';
     badge.textContent = 'VENDIDO';
-    // prepend para que quede por encima de la imagen y antes de los botones
     main.prepend(badge);
   }
 }
-// ───────────── fin NUEVO
 
 // ───────────── Bind de datos
 function bindProperty(p) {
@@ -128,27 +136,24 @@ function bindProperty(p) {
 
   const titleEl = q('propertyTitle');
   const locEl = q('propertyLocation');
-  const priceEl = q('propertyPriceTag');      // etiqueta verde
+  const priceEl = q('propertyPriceTag');
   const bcEl = q('breadcrumbTitle');
 
   if (titleEl) titleEl.textContent = p.title || 'Propiedad';
   if (locEl) locEl.textContent = p.location || '—';
 
   if (priceEl) {
-    const priceStr = formatPrice(p.price);      // "$100,000"
-    const sizeStr = formatLotSize(p.lotSize);   // "2,296 m²" o "0.23 ha"
+    const priceStr = formatPrice(p.price);
+    const sizeStr = formatLotSize(p.lotSize);
     priceEl.textContent = joinPriceSize(priceStr, sizeStr);
   }
   if (bcEl) bcEl.textContent = p.title || 'Propiedad';
 
-  updateMainImage();
-  generateThumbnails();
+  updateMainMedia();
+  generateThumbnails();   // 👈 mantiene TUS thumbnails
   loadDescription();
   renderFeatures(p);
-
-  // ───────────── Llamada NUEVA para el badge condicional
   renderSoldBadge(p);
-  // **renderMap(p) fue eliminado**
 }
 
 function loadDescription() {
@@ -170,88 +175,169 @@ function loadDescription() {
   }
 }
 
-// ───────────── Galería
-function updateMainImage() {
-  const mainImageContainer = q('mainImage');
-  if (!mainImageContainer || !currentProperty?.images?.length) return;
+// ───────────── Galería (IMAGEN o VIDEO)
+function updateMainMedia() {
+  const main = q('mainImage');
+  if (!main || mediaCount() === 0) return;
 
-  // Protege índice fuera de rango
   if (currentImageIndex < 0) currentImageIndex = 0;
-  if (currentImageIndex >= currentProperty.images.length) currentImageIndex = 0;
+  if (currentImageIndex >= mediaCount()) currentImageIndex = 0;
 
-  mainImageContainer.style.backgroundImage = `url('${buildImageSrc(currentImageIndex)}')`;
-  mainImageContainer.style.backgroundSize = 'cover';
-  mainImageContainer.style.backgroundPosition = 'center';
-  mainImageContainer.style.cursor = 'zoom-in';
+  const item = mediaAt(currentImageIndex);
+
+  // Reset contenido (conserva tus flechas)
+  main.innerHTML = `
+    <button class="gallery-nav prev" onclick="previousImage()" aria-label="Anterior">‹</button>
+    <button class="gallery-nav next" onclick="nextImage()" aria-label="Siguiente">›</button>
+  `;
+
+  if (item.kind === 'video') {
+    // Render video principal
+    const v = document.createElement('video');
+    v.className = 'property-video';
+    v.setAttribute('playsinline', '');
+    v.setAttribute('controls', '');
+    v.setAttribute('preload', 'metadata');
+    v.src = item.src;
+    if (item.poster) v.setAttribute('poster', item.poster);
+
+    // Quita fondo para que no tape el video
+    main.style.backgroundImage = '';
+    main.style.cursor = 'zoom-in';
+    main.appendChild(v);
+  } else {
+    // Imagen como fondo (tu comportamiento original)
+    main.style.backgroundImage = `url('${item.src}')`;
+    main.style.backgroundSize = 'cover';
+    main.style.backgroundPosition = 'center';
+    main.style.cursor = 'zoom-in';
+  }
 }
 
 function generateThumbnails() {
   const thumbnailGrid = q('thumbnailGrid');
-  if (!thumbnailGrid || !currentProperty?.images?.length) return;
+  if (!thumbnailGrid || mediaCount() === 0) return;
 
-  thumbnailGrid.innerHTML = currentProperty.images
-    .map((_, i) => {
-      const src = buildImageSrc(i);
-      const active = i === currentImageIndex ? 'active' : '';
+  const html = getMediaList().map((item, i) => {
+    const active = i === currentImageIndex ? 'active' : '';
+    if (item.kind === 'video') {
+      const thumb = item.thumb || item.poster;
       return `
-        <div class="thumbnail ${active}" onclick="selectImage(${i})">
-          <img src="${src}" alt="Miniatura ${i + 1}" loading="lazy" decoding="async" />
+        <div class="thumbnail ${active}" onclick="selectImage(${i})" title="Video">
+          ${thumb
+            ? `<img src="${thumb}" alt="Miniatura video ${i + 1}" loading="lazy" decoding="async" />`
+            : `<div class="thumb-video-fallback"><i class="fa-solid fa-play"></i></div>`}
+          <span class="thumb-video-badge"><i class="fa-solid fa-play"></i></span>
         </div>
       `;
-    }).join('');
+    } else {
+      return `
+        <div class="thumbnail ${active}" onclick="selectImage(${i})">
+          <img src="${item.src}" alt="Miniatura ${i + 1}" loading="lazy" decoding="async" />
+        </div>
+      `;
+    }
+  }).join('');
+
+  thumbnailGrid.innerHTML = html;
 }
 
 function selectImage(index) {
-  if (!currentProperty?.images?.length) return;
-  currentImageIndex = Math.max(0, Math.min(index, currentProperty.images.length - 1));
-  updateMainImage();
+  if (mediaCount() === 0) return;
+  currentImageIndex = Math.max(0, Math.min(index, mediaCount() - 1));
+  updateMainMedia();
 
   document.querySelectorAll('.thumbnail').forEach((thumb, i) =>
     thumb.classList.toggle('active', i === currentImageIndex)
   );
 
-  if (isLightboxOpen) updateLightboxImage();
+  if (isLightboxOpen) updateLightboxMedia();
 }
 
 function previousImage() {
-  if (!currentProperty?.images?.length) return;
-  currentImageIndex = currentImageIndex > 0
-    ? currentImageIndex - 1
-    : currentProperty.images.length - 1;
+  if (mediaCount() === 0) return;
+  currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : mediaCount() - 1;
   selectImage(currentImageIndex);
 }
 
 function nextImage() {
-  if (!currentProperty?.images?.length) return;
-  currentImageIndex = currentImageIndex < currentProperty.images.length - 1
-    ? currentImageIndex + 1
-    : 0;
+  if (mediaCount() === 0) return;
+  currentImageIndex = currentImageIndex < mediaCount() - 1 ? currentImageIndex + 1 : 0;
   selectImage(currentImageIndex);
 }
 
 // ───────────── Lightbox
-function updateLightboxImage() {
-  const img = lbImgEl();
-  if (!img || !currentProperty?.images?.length) return;
+function ensureLbVideo() {
+  let v = lbVideoEl();
+  if (!v && lightboxEl()) {
+    v = document.createElement('video');
+    v.id = 'lightboxVideo';
+    v.className = 'lb-img';
+    v.setAttribute('controls', '');
+    v.setAttribute('playsinline', '');
+    v.style.display = 'none';
+    lightboxEl().appendChild(v);
+  }
+  return v;
+}
 
-  img.src = buildImageSrc(currentImageIndex);
-  img.alt = `${currentProperty.title} – imagen ${currentImageIndex + 1}`;
+function showOnlyImageInLB() {
+  const img = lbImgEl();
+  const vid = ensureLbVideo();
+  if (vid) {
+    vid.pause?.();
+    vid.style.display = 'none';
+    vid.removeAttribute('src');
+    vid.removeAttribute('poster');
+    vid.load?.();
+  }
+  if (img) img.style.display = '';
+}
+
+function showOnlyVideoInLB(src, poster) {
+  const img = lbImgEl();
+  const vid = ensureLbVideo();
+  if (img) img.style.display = 'none';
+  if (!vid) return;
+  vid.style.display = '';
+  if (poster) vid.setAttribute('poster', poster); else vid.removeAttribute('poster');
+  vid.src = src;
+  vid.load();
+  // no autoplay para no sorprender; el usuario decide
+}
+
+function updateLightboxMedia() {
+  const img = lbImgEl();
+  if (!lightboxEl() || !img || mediaCount() === 0) return;
+
+  const item = mediaAt(currentImageIndex);
+
+  if (item.kind === 'video') {
+    showOnlyVideoInLB(item.src, item.poster || '');
+  } else {
+    showOnlyImageInLB();
+    img.src = item.src;
+    img.alt = `${currentProperty.title} – imagen ${currentImageIndex + 1}`;
+  }
 
   const counter = lbCounterEl();
-  if (counter) counter.textContent = `${currentImageIndex + 1} / ${currentProperty.images.length}`;
+  if (counter) counter.textContent = `${currentImageIndex + 1} / ${mediaCount()}`;
 
-  // Preload vecinos
-  const n = currentProperty.images.length;
+  // Preload vecinos (solo imágenes para no cargar videos de más)
+  const n = mediaCount();
   [ (currentImageIndex + 1) % n, (currentImageIndex - 1 + n) % n ].forEach(i => {
-    const ph = new Image();
-    ph.loading = 'eager';
-    ph.decoding = 'async';
-    ph.src = buildImageSrc(i);
+    const it = mediaAt(i);
+    if (it?.kind === 'image') {
+      const ph = new Image();
+      ph.loading = 'eager';
+      ph.decoding = 'async';
+      ph.src = it.src;
+    }
   });
 }
 
 function openLightbox() {
-  if (!currentProperty?.images?.length) return;
+  if (mediaCount() === 0) return;
   const lb = lightboxEl();
   if (!lb) return;
 
@@ -261,7 +347,7 @@ function openLightbox() {
   lb.setAttribute('aria-hidden', 'false');
   lb.setAttribute('tabindex', '-1');
   document.body.style.overflow = 'hidden';
-  updateLightboxImage();
+  updateLightboxMedia();
   lb.focus?.();
 }
 
@@ -273,6 +359,10 @@ function closeLightbox() {
   lb.classList.add('hidden');
   lb.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  // detener video si estuviera reproduciéndose
+  const v = lbVideoEl();
+  v?.pause?.();
+
   if (lastFocusedBeforeLB?.focus) {
     lastFocusedBeforeLB.focus();
     lastFocusedBeforeLB = null;
@@ -284,12 +374,10 @@ function initLightboxEvents() {
   lbPrevEl()?.addEventListener('click', () => previousImage());
   lbNextEl()?.addEventListener('click', () => nextImage());
 
-  // Click en el overlay cierra
   lightboxEl()?.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeLightbox();
   });
 
-  // Teclado dentro del lightbox
   document.addEventListener('keydown', (e) => {
     if (!isLightboxOpen) return;
     if (e.key === 'Escape') closeLightbox();
@@ -297,7 +385,6 @@ function initLightboxEvents() {
     if (e.key === 'ArrowRight') nextImage();
   });
 
-  // Gestos touch
   lightboxEl()?.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].clientX;
   }, { passive: true });
@@ -308,44 +395,43 @@ function initLightboxEvents() {
 }
 
 function initGalleryEvents() {
-  const mainImageContainer = q('mainImage');
-  if (!mainImageContainer) return;
+  const main = q('mainImage');
+  if (!main) return;
 
-  mainImageContainer.setAttribute('role', 'button');
-  mainImageContainer.tabIndex = 0;
+  main.setAttribute('role', 'button');
+  main.tabIndex = 0;
 
-  mainImageContainer.addEventListener('click', (e) => {
+  main.addEventListener('click', (e) => {
     if (e.target.closest('.gallery-nav')) return;
     openLightbox();
   });
 
-  mainImageContainer.addEventListener('keydown', (e) => {
-    if (e.target !== mainImageContainer) return;
+  main.addEventListener('keydown', (e) => {
+    if (e.target !== main) return;
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       openLightbox();
     }
   });
 
-  mainImageContainer.querySelectorAll('.gallery-nav').forEach(btn => {
+  main.querySelectorAll('.gallery-nav').forEach(btn => {
     btn.addEventListener('click', (e) => e.stopPropagation());
     btn.addEventListener('keydown', (e) => e.stopPropagation());
     btn.addEventListener('pointerdown', (e) => e.stopPropagation());
   });
 }
 
-// Exponer funciones para HTML inline (prev/next en botones y miniaturas)
+// Exponer funciones para HTML inline
 window.previousImage = previousImage;
 window.nextImage = nextImage;
 window.selectImage = selectImage;
 
-// ───────────── Contacto / WhatsApp / Formspree
+// ───────────── Contacto / WhatsApp / Formspree (sin cambios)
 function getWhatsNumber() {
   const box = document.querySelector('.contact-agent');
-  const raw = box?.dataset?.whatsapp || '50683018999'; // cambia si quieres un número fijo
+  const raw = box?.dataset?.whatsapp || '50683018999';
   return raw.replace(/\D/g, '');
 }
-
 function buildMessage(extra = '') {
   const form = q('contactForm');
   const nameEl = form?.querySelector('#name, input[type="text"]');
@@ -369,17 +455,12 @@ function buildMessage(extra = '') {
 
   return `Hola, me interesa la propiedad "${propName}".\n` + lines.join('\n');
 }
-
 function openWhatsApp(message) {
   const number = getWhatsNumber();
-  if (!number) {
-    alert('No se configuró el número de WhatsApp.');
-    return;
-  }
+  if (!number) return alert('No se configuró el número de WhatsApp.');
   const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
   window.open(url, '_blank');
 }
-
 async function sendToFormspree(payload) {
   try {
     await fetch('https://formspree.io/f/xwpqdyka', {
@@ -391,19 +472,16 @@ async function sendToFormspree(payload) {
     console.warn('Formspree falló (no bloqueante):', e);
   }
 }
-
 function setupContactForm() {
   const form = q('contactForm');
   if (!form) return;
 
-  // Prefill mensaje
   const msgEl = form.querySelector('#message, textarea');
   if (msgEl && !msgEl.value) {
     const propName = currentProperty?.title || 'Propiedad';
     msgEl.value = `Hola, estoy interesado(a) en la propiedad "${propName}". ¿Podemos hablar?`;
   }
 
-  // Botones opcionales
   const btnCall = q('btnCall');
   const btnWapp = q('btnWhatsApp');
   const btnVisit = q('btnVisit');
@@ -426,7 +504,6 @@ function setupContactForm() {
     location.href = `tel:${tel}`;
   });
 
-  // Submit del formulario
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = buildMessage();
@@ -444,9 +521,8 @@ function setupContactForm() {
       message,
     };
 
-    sendToFormspree(payload); // no bloqueante
+    sendToFormspree(payload);
     openWhatsApp(message);
-    // form.reset(); // opcional
   });
 }
 
@@ -455,7 +531,6 @@ function renderFeatures(p) {
   if (!list || !p) return;
 
   const raw = Array.isArray(p.features) ? p.features.filter(Boolean) : [];
-
   const section = list.closest('.features-section');
   if (!raw.length) {
     if (section) section.style.display = 'none';
@@ -504,9 +579,9 @@ function renderFeatures(p) {
   `).join('');
 }
 
-// ───────────── Navegación con flechas global (fuera del lightbox también)
+// ───────────── Navegación con flechas global (fuera del lightbox)
 document.addEventListener('keydown', (e) => {
-  if (isLightboxOpen) return; // cuando está el lightbox, ya lo maneja arriba
+  if (isLightboxOpen) return;
   if (e.key === 'ArrowLeft') previousImage();
   if (e.key === 'ArrowRight') nextImage();
 });

@@ -15,16 +15,17 @@
     { "src": "/assets/images/properties/003-lote-santa-lucia/1.png" },
     { "src": "/assets/images/properties/003-lote-santa-lucia/2.png" },
     { "src": "/assets/images/properties/003-lote-santa-lucia/3.jpg" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/4.jpg" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/4.jpg" }
+  ],
+    "videos": [
     { "src": "/assets/images/properties/003-lote-santa-lucia/5.mp4" }
   ],
   "utilities": { "water": false, "electricity": true, "internet": false, "publicRoad": true },
   "geo": { "lat": 10.4715, "lng": -84.6450, "zoom": 15 },
   "description": [
-    "Este lote de 1.000 m² se ubica en la zona de Santa Lucía, a 75 metros norte del transporte Chico en La Fortuna.",
-    "Cuenta con disponibilidad de electricidad y acceso por calle asfaltada.",
-    "Pendiente instalación del servicio de agua. Ideal para construir tu hogar en una zona tranquila y accesible."
-  ],
+    "Este lote de 1.000 m² se encuentra en la zona de Santa Lucía, a pocos minutos del centro de La Fortuna. Su ubicación estratégica combina la tranquilidad de un entorno residencial con la cercanía a supermercados, restaurantes, centros educativos y todos los servicios que ofrece uno de los destinos turísticos más importantes de Costa Rica.",
+    "El lote cuenta con disponibilidad de electricidad y acceso por calle asfaltada, con la instalación del servicio de agua pendiente. Es una excelente oportunidad para construir tu hogar en una zona tranquila, accesible y con gran potencial de valorización gracias al crecimiento constante de la región."
+],
   "features": [
     "Acceso por calle asfaltada",
     "Electricidad disponible",
