@@ -14,11 +14,11 @@
   "images": [
     { "src": "/assets/images/properties/003-lote-santa-lucia/1.png" },
     { "src": "/assets/images/properties/003-lote-santa-lucia/2.png" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/3.jpg" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/4.jpg" }
+    { "src": "/assets/images/properties/003-lote-santa-lucia/3.JPG" },
+    { "src": "/assets/images/properties/003-lote-santa-lucia/4.JPG" }
   ],
     "videos": [
-    { "src": "/assets/images/properties/003-lote-santa-lucia/5.mp4" }
+    { "src": "/assets/images/properties/003-lote-santa-lucia/5.MP4" }
   ],
   "utilities": { "water": false, "electricity": true, "internet": false, "publicRoad": true },
   "geo": { "lat": 10.4715, "lng": -84.6450, "zoom": 15 },
