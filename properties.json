@@ -7,7 +7,7 @@
   "location": "Santa Lucía, La Fortuna",
   "price": 50000,
   "priceCRC": 25000000,
-  "currency": "USD",
+  "currency": "CRC",
   "lotSize": 1000,
   "badge": "",
   "folder": "003-lote-santa-lucia",
@@ -43,7 +43,7 @@
     "location": "Agua Azul, La Fortuna",
     "price": 130000,
     "priceCRC": 66235000,
-    "currency": "USD",
+    "currency": "CRC",
     "lotSize": 1019,
     "badge": "Financiamiento disponible",
     "folder": "002-lote-residencial-villa-azul",
@@ -71,7 +71,7 @@
     "location": "Chachagua, San Ramón",
     "price": 157000,
     "priceCRC": 80000000,
-    "currency": "USD",
+    "currency": "CRC",
     "constructionSize": 140,
     "lotSize": 1109,
     "bedrooms": 2,
@@ -144,7 +144,7 @@
   "id": 5,
   "slug": "lote-sona-fluca",
   "type": "lote",
-  "title": "Lote de en Sona Fluce",
+  "title": "Lote de en Sona Fluca",
   "location": "Sona Fluca, La Fortuna",
   "price": 58000,
   "priceCRC": 30000000,
@@ -173,9 +173,47 @@
   "status": "disponible"
 },
 
+{
+  "id": 6,
+  "slug": "lote-3-esquinas",
+  "type": "lote",
+  "title": "Lote Tres Esquinas",
+  "registryNumber": 328372,
+  "location": "Tres Esquinas, La Fortuna",
+  "price": 103000,
+  "priceCRC": 52500000,
+  "currency": "CRC",
+  "lotSize": 1694.48,
+  "badge": "Nuevo",
+  "folder": "006-lote-3-esquinas",
+  "images": [
+    { "src": "/assets/images/properties/006-lote-3-esquinas/1.JPG" },
+    { "src": "/assets/images/properties/006-lote-3-esquinas/2.JPG" },
+    { "src": "/assets/images/properties/006-lote-3-esquinas/3.JPG" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true,
+    "road": "Asfaltada"
+  },
+  "features": [
+    "Terreno amplio de 1.694,48 m²",
+    "Ubicación estratégica en 3 esquinas",
+    "Acceso directo por calle asfaltada",
+    "Disponibilidad de agua potable",
+    "Zona tranquila y de alta plusvalía"
+  ],
+  "description": [
+    "Este lote de 1.694,48 m² se encuentra en una ubicación estratégica de Santa Lucía, a tan solo 1 km de la Escuela Santa Lucía.",
+    "Cuenta con disponibilidad de agua, electricidad, internet y acceso directo por calle asfaltada.",
+    "Ideal para construcción de vivienda o desarrollo residencial en una zona de alta plusvalía y fácil acceso."
+  ]
+},
+
 
   {
-  "id": 6,
+  "id": 7,
   "slug": "finca-san-isidro-10ha",
   "type": "lote",
   "subcategory": "finca",
