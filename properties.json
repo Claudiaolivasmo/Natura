@@ -142,34 +142,34 @@
 
   {
   "id": 5,
-  "slug": "lote-santa-lucia-2",
+  "slug": "lote-sona-fluca",
   "type": "lote",
-  "title": "Lote de 1000 m² en Santa Lucía",
-  "location": "Santa Lucía, La Fortuna",
+  "title": "Lote de en Sona Fluce",
+  "location": "Sona Fluca, La Fortuna",
   "price": 58000,
   "priceCRC": 30000000,
   "currency": "CRC",
   "lotSize": 1000,
   "badge": "Nuevo",
-  "folder": "005-lote-santa-lucia-2",
+  "folder": "005-lote-sona-fluca",
   "images": [
-    { "src": "/assets/images/properties/005-lote-santa-lucia-2/1.JPG" },
-    { "src": "/assets/images/properties/005-lote-santa-lucia-2/2.JPG" },
-    { "src": "/assets/images/properties/005-lote-santa-lucia-2/3.JPG" },
-    { "src": "/assets/images/properties/005-lote-santa-lucia-2/4.png" }
+    { "src": "/assets/images/properties/005-lote-sona-fluca/1.JPG" },
+    { "src": "/assets/images/properties/005-lote-sona-fluca/2.JPG" },
+    { "src": "/assets/images/properties/005-lote-sona-fluca/3.JPG" },
+    { "src": "/assets/images/properties/005-lote-sona-fluca/4.png" }
   ],
   "description": [
-    "Este lote de 1.000 m² se encuentra en la tranquila comunidad de Santa Lucía, a pocos minutos de La Fortuna.",
-    "Cuenta con 20 metros de frente y 50 metros de fondo, ofreciendo un espacio amplio y versátil para construir tu hogar o proyecto residencial.",
+    "Este lote de 1.000 m² se encuentra en la tranquila comunidad de Sona Fluca, a pocos minutos de La Fortuna.",
     "Con acceso a electricidad disponible y su excelente ubicación, representa una gran oportunidad en una zona de alta plusvalía."
   ],
-  "features": {
+  "utilities": {
     "water": false,
     "electricity": true,
     "front": 20,
     "depth": 50,
     "closeToFortuna": true
   },
+  "features": ["Zona tranquila","Acceso por calle pública","Electricidad disponible","Internet disponible","Pendiente servicio de agua"],
   "status": "disponible"
 },
 
