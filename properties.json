@@ -40,7 +40,7 @@
     "slug": "lote-residencial-villa-azul",
     "type": "lote",
     "title": "Lote en Residencial Villa Azul",
-    "location": "La Fortuna - San Carlos",
+    "location": "Agua Azul, La Fortuna",
     "price": 130000,
     "priceCRC": 66235000,
     "currency": "USD",
@@ -68,7 +68,7 @@
     "slug": "villa-el-manzano",
     "type": "casa",
     "title": "Villa El Manzano",
-    "location": "Chachagua - San Ramón",
+    "location": "Chachagua, San Ramón",
     "price": 157000,
     "priceCRC": 80000000,
     "currency": "USD",
@@ -110,7 +110,7 @@
     "slug": "finca-agua-azul-lotes-1000",
     "type": "lote",
     "title": "Finca Agua Azul – Lotes 1.000 m²",
-    "location": "La Fortuna de San Carlos – Agua Azul",
+    "location": "Agua Azul, La Fortuna",
     "price": 69000,
     "priceCRC": 35000000,
     "currency": "CRC",
@@ -141,16 +141,50 @@
   },
 
   {
+  "id": 5,
+  "slug": "lote-santa-lucia-2",
+  "type": "lote",
+  "title": "Lote de 1000 m² en Santa Lucía",
+  "location": "Santa Lucía, La Fortuna",
+  "price": 58000,
+  "priceCRC": 30000000,
+  "currency": "CRC",
+  "lotSize": 1000,
+  "badge": "Nuevo",
+  "folder": "005-lote-santa-lucia-2",
+  "images": [
+    { "src": "/assets/images/properties/005-lote-santa-lucia-2/1.JPG" },
+    { "src": "/assets/images/properties/005-lote-santa-lucia-2/2.JPG" },
+    { "src": "/assets/images/properties/005-lote-santa-lucia-2/3.JPG" },
+    { "src": "/assets/images/properties/005-lote-santa-lucia-2/4.PNG" }
+  ],
+  "description": [
+    "Este lote de 1.000 m² se encuentra en la tranquila comunidad de Santa Lucía, a pocos minutos de La Fortuna.",
+    "Cuenta con 20 metros de frente y 50 metros de fondo, ofreciendo un espacio amplio y versátil para construir tu hogar o proyecto residencial.",
+    "Con acceso a electricidad disponible y su excelente ubicación, representa una gran oportunidad en una zona de alta plusvalía."
+  ],
+  "features": {
+    "water": false,
+    "electricity": true,
+    "front": 20,
+    "depth": 50,
+    "closeToFortuna": true
+  },
+  "status": "disponible"
+},
+
+
+  {
   "id": 6,
   "slug": "finca-san-isidro-10ha",
   "type": "lote",
   "subcategory": "finca",
   "title": "Finca en San Isidro de La Fortuna",
-  "location": "San Isidro de La Fortuna",
+  "location": "San Isidro, La Fortuna",
   "price": 76000,
   "priceCRC": 40000000,
   "currency": "CRC",
-  "lotSize": 100000,
+  "lotSize": 10000,
   "status": "vendido",
   "folder": "006-finca-san-isidro",
   "images": [
