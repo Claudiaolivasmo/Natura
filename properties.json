@@ -187,9 +187,9 @@
   "badge": "Nuevo",
   "folder": "006-lote-3-esquinas",
   "images": [
-    { "src": "/assets/images/properties/006-lote-3-esquinas/1.JPG" },
-    { "src": "/assets/images/properties/006-lote-3-esquinas/2.JPG" },
-    { "src": "/assets/images/properties/006-lote-3-esquinas/3.JPG" }
+    { "src": "/assets/images/properties/006-lote-3-esquinas/1.jpg" },
+    { "src": "/assets/images/properties/006-lote-3-esquinas/2.jpg" },
+    { "src": "/assets/images/properties/006-lote-3-esquinas/3.jpg" }
   ],
   "utilities": {
     "water": true,
