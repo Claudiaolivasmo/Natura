@@ -4,7 +4,6 @@
 
 [functions]
   node_bundler = "esbuild"
-  included_files = ["assets/**"]
   external_node_modules = ["sharp"]
 
 [[redirects]]
