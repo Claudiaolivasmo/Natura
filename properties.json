@@ -5,8 +5,8 @@
   "type": "lote",
   "title": "Lote en Santa Lucia",
   "location": "Santa Lucía, La Fortuna",
-  "price": 50000,
-  "priceCRC": 25000000,
+  "price": 60000,
+  "priceCRC": 30000000,
   "currency": "CRC",
   "lotSize": 1000,
   "badge": "",
@@ -48,10 +48,11 @@
     "badge": "Financiamiento disponible",
     "folder": "002-lote-residencial-villa-azul",
     "images": [
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.jpeg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.jpeg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.jpeg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.jpeg" }
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.jpg" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.jpg" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.jpg" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.jpg" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/5.jpg" }
     ],
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
@@ -165,8 +166,6 @@
   "utilities": {
     "water": false,
     "electricity": true,
-    "front": 20,
-    "depth": 50,
     "closeToFortuna": true
   },
   "features": ["Zona tranquila","Acceso por calle pública","Electricidad disponible","Internet disponible","Pendiente servicio de agua"],
@@ -211,24 +210,75 @@
   ]
 },
 
+{
+  "id": 7,
+  "slug": "cabinas-zeta-trece",
+  "type": "cabinas",
+  "title": "Propiedad con dos cabinas en Zeta Trece",
+  "location": "Zeta Trece, La Fortuna",
+  "price": 120000000,
+  "priceCRC": 120000000,
+  "currency": "CRC",
+  "lotSize": 1100,
+  "builtSize": 80,
+  "badge": "Destacado",
+  "folder": "004-cabinas-zeta-trece",
+  "images": [
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/1.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/2.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/3.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/4.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/5.png" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/6.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/7.jpg" }
+  ],
+  "videos": ["/assets/images/properties/007-cabinas-zeta-trece/video.mp4"],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
+  },
+  "geo": { "lat": 10.4702, "lng": -84.6428, "zoom": 15 },
+  "description": [
+    "Excelente oportunidad de inversión en una zona de alta demanda turística. Este terreno de 1.100 m² cuenta con 40 metros lineales frente a la carretera principal, lo que lo hace ideal para un desarrollo turístico o residencial.",
+    "La propiedad incluye dos cabinas de 40 m² cada una, totalmente equipadas y diseñadas para hospedaje tipo Airbnb. Cada unidad cuenta con dos habitaciones, baño completo, área de servicio y espacio integrado de sala y cocina.",
+    "Dispone de una amplia zona libre con potencial para expansión o construcción de nuevas unidades, rodeada de abundante vegetación y con vista directa al majestuoso Volcán Arenal.",
+    "Ubicada en Zeta Trece, muy cerca de la Catarata La Fortuna, termales, restaurantes y otras atracciones turísticas. En la parte trasera colinda con un patio protegido, lo que brinda privacidad y un entorno natural privilegiado."
+  ],
+  "features": [
+    "1.100 m² de terreno",
+    "40 metros de frente a calle principal",
+    "Dos cabinas equipadas de 40 m²",
+    "Ideal para Airbnb o desarrollo turístico",
+    "Vista al Volcán Arenal",
+    "Cercanía a Catarata La Fortuna y termales",
+    "Zona de alta demanda turística"
+  ]
+},
+
+
 
   {
-  "id": 7,
+  "id": 8,
   "slug": "finca-san-isidro-10ha",
   "type": "lote",
   "subcategory": "finca",
   "title": "Finca en San Isidro de La Fortuna",
   "location": "San Isidro, La Fortuna",
-  "price": 76000,
-  "priceCRC": 40000000,
+  "price": 235000,
+  "priceCRC": 120000,
   "currency": "CRC",
   "lotSize": 10000,
-  "status": "vendido",
+  "status": "Destacado",
   "folder": "006-finca-san-isidro",
   "images": [
-    { "src": "/assets/images/properties/006-finca-san-isidro/1.jpeg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/2.jpg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/3.jpg" }
+    { "src": "/assets/images/properties/006-finca-san-isidro/1.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/2.jpeg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/3.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/4.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/5.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/6.jpg" }
   ],
   "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
   "geo": { "lat": 10.475, "lng": -84.65, "zoom": 14 },
@@ -245,5 +295,93 @@
     "Ideal para lotificación",
     "Potencial agrícola y turístico"
   ]
+},
+{
+  "id": 9,
+  "slug": "lote-con-construccion-el-tanque",
+  "type": "lote",
+  "title": "Lote con construcción a medio terminar en El Tanque",
+  "location": "El Tanque, La Fortuna",
+  "price": 32000000,
+  "priceCRC": 32000000,
+  "currency": "CRC",
+  "lotSize": 300,
+  "builtSize": 60,
+  "badge": "Proyecto para inversión",
+  "folder": "005-lote-el-tanque",
+  "images": [
+    { "src": "/assets/images/properties/009-lote-el-tanque/1.png" },
+    { "src": "/assets/images/properties/009-lote-el-tanque/2.jpg" },
+    { "src": "/assets/images/properties/009-lote-el-tanque/3.png" },
+    { "src": "/assets/images/properties/009-lote-el-tanque/4.jpg" }
+  ],
+  "videos": [],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
+  },
+  "geo": { "lat": 10.4819, "lng": -84.6275, "zoom": 15 },
+  "description": [
+    "Excelente oportunidad para quienes buscan invertir en una propiedad con alto potencial. Este lote de 300 m² se encuentra en El Tanque de La Fortuna, a tan solo 150 metros de la plaza de deportes y con un entorno tranquilo rodeado de vegetación.",
+    "La propiedad cuenta con una construcción a medio terminar y planos arquitectónicos listos para continuar el proyecto. Se estima que con una inversión adicional de aproximadamente ₡10 millones se puede finalizar la obra, convirtiéndola en una vivienda moderna o en una opción ideal para renta turística.",
+    "El terreno colinda con un pequeño riachuelo y se encuentra rodeado de árboles, lo que brinda privacidad y una conexión natural única dentro de una zona de rápido crecimiento.",
+    "Listo para traspaso y con toda la documentación en regla."
+  ],
+  "features": [
+    "Lote de 300 m²",
+    "Construcción a medio terminar",
+    "Planos arquitectónicos incluidos",
+    "Colinda con riachuelo",
+    "Entorno rodeado de árboles y privacidad",
+    "Zona tranquila y en crecimiento",
+    "Listo para traspaso"
+  ]
+},
+{
+  "id": 10,
+  "slug": "lote-santa-rosa-centro",
+  "type": "lote",
+  "title": "Propiedad en el centro de Santa Rosa",
+  "location": "Santa Rosa, La Fortuna",
+  "price": 78500,
+  "priceCRC": 40000000,
+  "currency": "CRC",
+  "lotSize": 873,
+  "builtSize": 0,
+  "badge": "Oportunidad de inversión",
+  "folder": "Santa Rosa/001",
+  "images": [
+    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/1.jpg" },
+    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/2.png" },
+    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/3.jpg" },
+    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/4.jpg" },
+    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/5.jpg" }
+  ],
+  "videos": [],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
+  },
+  "geo": { "lat": 10.4758, "lng": -84.6399, "zoom": 15 },
+  "description": [
+    "Gran oportunidad de inversión en el corazón de Santa Rosa. Esta propiedad de 873 m² se ubica a tan solo 150 metros del parque central, en una zona con excelente acceso y alto potencial de desarrollo.",
+    "Ideal tanto para uso residencial como comercial, gracias a su cercanía con supermercados, escuelas y servicios locales. Su ubicación estratégica permite construir una vivienda amplia, apartamentos de renta o un proyecto comercial de alta visibilidad.",
+    "La propiedad cuenta con acceso a todos los servicios públicos y se encuentra en un entorno seguro y tranquilo."
+  ],
+  "features": [
+    "Lote de 873 m²",
+    "Ubicación céntrica a 150 m del parque de Santa Rosa",
+    "Ideal para vivienda o comercio",
+    "Acceso por calle pública",
+    "Disponibilidad de todos los servicios",
+    "Zona segura y en crecimiento",
+    "Excelente oportunidad de inversión"
+  ]
 }
+
+
 ]
