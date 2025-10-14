@@ -300,7 +300,7 @@
   "id": 9,
   "slug": "lote-con-construccion-el-tanque",
   "type": "lote",
-  "title": "Lote con construcción a medio terminar en El Tanque",
+  "title": "Lote con Airbnb en proceso en El Tanque",
   "location": "El Tanque, La Fortuna",
   "price": 32000000,
   "priceCRC": 32000000,
@@ -311,7 +311,7 @@
   "folder": "005-lote-el-tanque",
   "images": [
     { "src": "/assets/images/properties/009-lote-el-tanque/1.png" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/2.jpg" },
+    { "src": "/assets/images/properties/009-lote-el-tanque/2.JPG" },
     { "src": "/assets/images/properties/009-lote-el-tanque/3.png" },
     { "src": "/assets/images/properties/009-lote-el-tanque/4.jpg" }
   ],
@@ -331,7 +331,7 @@
   ],
   "features": [
     "Lote de 300 m²",
-    "Construcción a medio terminar",
+    "Construcción en proceso",
     "Planos arquitectónicos incluidos",
     "Colinda con riachuelo",
     "Entorno rodeado de árboles y privacidad",
