@@ -48,11 +48,11 @@
     "badge": "Financiamiento disponible",
     "folder": "002-lote-residencial-villa-azul",
     "images": [
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.jpg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.jpg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.jpg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.jpg" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/5.jpg" }
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/5.JPG" }
     ],
     "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
     "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
@@ -224,9 +224,9 @@
   "badge": "Destacado",
   "folder": "004-cabinas-zeta-trece",
   "images": [
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/1.jpg" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/2.jpg" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/3.jpg" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/1.JPG" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/2.JPG" },
+    { "src": "/assets/images/properties/007-cabinas-zeta-trece/3.JPG" },
     { "src": "/assets/images/properties/007-cabinas-zeta-trece/4.jpg" },
     { "src": "/assets/images/properties/007-cabinas-zeta-trece/5.png" },
     { "src": "/assets/images/properties/007-cabinas-zeta-trece/6.jpg" },
@@ -273,10 +273,10 @@
   "status": "Destacado",
   "folder": "006-finca-san-isidro",
   "images": [
-    { "src": "/assets/images/properties/006-finca-san-isidro/1.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/1.JPG" },
     { "src": "/assets/images/properties/006-finca-san-isidro/2.jpeg" },
     { "src": "/assets/images/properties/006-finca-san-isidro/3.jpg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/4.jpg" },
+    { "src": "/assets/images/properties/006-finca-san-isidro/4.JPG" },
     { "src": "/assets/images/properties/006-finca-san-isidro/5.jpg" },
     { "src": "/assets/images/properties/006-finca-san-isidro/6.jpg" }
   ],
