@@ -105,48 +105,65 @@
     ],
     "features": ["2 dormitorios","2 baños completos","Construcción de 140 m²","Lote de 1.109 m²","1 piso","Año 2023","Rancho BBQ","Cochera","Bodega","Jardines y árboles frutales","Cercas vivas"]
   },
-
   {
-    "id": 4,
-    "slug": "finca-agua-azul-lotes-1000",
-    "type": "lote",
-    "title": "Finca Agua Azul – Lotes 1.000 m²",
-    "location": "Agua Azul, La Fortuna",
-    "price": 69000,
-    "priceCRC": 35000000,
-    "currency": "CRC",
-    "priceIsPerM2": true,
-    "pricePerM2": 35000,
-    "lotSize": 1000,
-    "badge": "Financiamiento disponible",
-    "folder": "003-finca-agua-azul",
-    "images": [
-      { "src": "/assets/images/properties/003-finca-agua-azul/1.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/2.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/3.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/4.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/5.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/6.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/7.jpg" },
-      { "src": "/assets/images/properties/003-finca-agua-azul/8.jpg" }
-    ],
-    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-    "geo": { "lat": 10.471, "lng": -84.645, "zoom": 14 },
-    "description": [
-      "Estos lotes de 1.000 m² en Agua Azul ofrecen privacidad, tranquilidad y vistas privilegiadas al Volcán Arenal.",
-      "Cuentan con acceso por calle pública, así como disponibilidad de agua, electricidad e internet.",
-      "Con precios desde ₡35.000 por m², representan una oportunidad ideal para desarrollar proyectos residenciales o de inversión en un entorno natural."
-    ],
-    "features": ["Vistas al volcán","Privacidad y naturaleza","Zona tranquila","Acceso por calle pública","Agua y electricidad disponibles","Internet disponible","Ideal para inversión","Financiamiento disponible"],
-    "highlights": ["Desde ₡35.000/m²","Lote tipo: 1.000 m²","Rodeado de bosque y fauna"]
+  "id": 4,
+  "slug": "lotes-la-perla-la-fortuna",
+  "type": "lote",
+  "subcategory": "residencial",
+  "title": "Lotes en La Perla de La Fortuna",
+  "location": "La Perla, La Fortuna",
+  "price": 10000000,
+  "priceCRC": 10000000,
+  "currency": "CRC",
+  "lotSize": 235,
+  "status": "Disponible",
+  "negotiable": true,
+  "folder": "ARE-PER-LT-0001_lotes-la-perla",
+  "images": [
+    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/1.png" },
+    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/2.png" },
+    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/3.png" },
+    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/4.png" }
+  ],
+  "lotsAvailable": [
+    { "size": 235, "unit": "m²", "priceCRC": 10000000 },
+    { "size": 235, "unit": "m²", "priceCRC": 10000000 },
+    { "size": 234, "unit": "m²", "priceCRC": 10000000 }
+  ],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
   },
+  "geo": { 
+    "lat": 10.411, 
+    "lng": -84.631, 
+    "zoom": 15 
+  },
+  "description": [
+    "Tres lotes ubicados en La Perla de La Fortuna, a 14 km del centro del pueblo: dos de 235 m² y uno de 234 m².",
+    "Cada lote cuenta con árboles frutales y acceso a todos los servicios públicos, en una zona tranquila y rodeada de vegetación.",
+    "Es una excelente opción para locales que deseen construir su vivienda o invertir en una propiedad con buen potencial de crecimiento.",
+    "El precio por lote es de ₡10.000.000, con posibilidad de negociar un mejor valor por la compra conjunta de los tres terrenos."
+  ],
+  "features": [
+    "Lotes de 235 m² y 234 m²",
+    "Árboles frutales",
+    "Acceso a todos los servicios públicos",
+    "Zona residencial tranquila y segura",
+    "A 14 km del centro de La Fortuna",
+    "Precio por lote ₡10.000.000 (negociable por paquete)",
+    "Ideal para vivienda o inversión local"
+  ]
+},
 
   {
   "id": 5,
-  "slug": "lote-sona-fluca",
+  "slug": "lote-sonafluca",
   "type": "lote",
   "title": "Lote en Sona Fluca",
-  "location": "Sona Fluca, La Fortuna",
+  "location": "Sonafluca, La Fortuna",
   "price": 58000,
   "priceCRC": 30000000,
   "currency": "CRC",
@@ -341,6 +358,197 @@
 },
 {
   "id": 10,
+  "slug": "lote-santa-gertrudis-cima-volcan-arenal",
+  "type": "lote",
+  "title": "Lote en Santa Gertrudis — Cima con vista al Volcán Arenal",
+  "location": "Santa Gertrudis, San Ramón",
+  "price": 80000000,
+  "priceCRC": 80000000,
+  "currency": "CRC",
+  "lotSize": 8154.01,
+  "builtSize": null,
+  "badge": "Destacado",
+  "folder": "005-lote-santa-gertrudis",
+  "images": [
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/1.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/2.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/3.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/4.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/5.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/6.png" },
+    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/7.png" }
+  ],
+  "videos": [],
+  "utilities": { 
+    "water": false, 
+    "electricity": false, 
+    "internet": false, 
+    "publicRoad": true 
+  },
+  "geo": { "lat": 10.1619, "lng": -84.5301, "zoom": 15 },
+  "description": [
+    "En lo más alto de una montaña en Santa Gertrudis, este terreno de 8.154 m² domina vistas abiertas al Volcán Arenal y a la llanura de San Carlos.",
+    "El ingreso se realiza por un único acceso con portón, brindando una sensación de residencial privado y una atmósfera de total tranquilidad.",
+    "El lote está rodeado de naturaleza, con abundante flora y fauna; además, colinda con un sector de bosque, ideal para quienes buscan privacidad, frescura y conexión con el entorno.",
+    "La topografía en altura, el clima privilegiado y el carácter reservado del acceso hacen de este lote un sitio excepcional para desarrollar una vivienda de ensueño, una quinta de descanso o un proyecto turístico.",
+    "Actualmente, los servicios de agua, electricidad e internet se encuentran en proceso de gestión, lo que permite planificar la obra en paralelo a las factibilidades."
+  ],
+  "features": [
+    "Área total de 8.154 m²",
+    "Ubicación elevada con vista al Volcán Arenal",
+    "Entorno natural con flora y fauna abundante",
+    "Colinda con quebrada y bosque",
+    "Acceso privado con portón de ingreso",
+    "Ideal para vivienda, quinta o proyecto turístico",
+    "Servicios en gestión (agua, electricidad e internet)"
+  ]
+},
+
+{
+  "id": 11,
+  "slug": "finca-santa-cecilia-la-fortuna",
+  "type": "lote",
+  "subcategory": "finca",
+  "title": "Finca en Santa Cecilia de La Fortuna",
+  "location": "Santa Cecilia, La Fortuna",
+  "price": 120000000,
+  "priceCRC": 120000000,
+  "currency": "CRC",
+  "lotSize": 18343,
+  "status": "Disponible",
+  "negotiable": true,
+  "folder": "ARE-STC-FN-0001_finca-santa-cecilia",
+  "images": [
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/1.png" },
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/2.png" },
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/3.png" },
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/4.png" },
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/5.png" },
+    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/6.png" }
+  ],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": false, 
+    "publicRoad": false,
+    "agriculturalEasement": true
+  },
+  "geo": { 
+    "lat": 10.479, 
+    "lng": -84.68, 
+    "zoom": 14 
+  },
+  "description": [
+    "Finca de 1 hectárea y 8.343 m² ubicada en Santa Cecilia de La Fortuna, ideal para proyectos turísticos, agrícolas o ganaderos.",
+    "La propiedad cuenta con disponibilidad de agua y electricidad, y se accede mediante servidumbre agrícola, en un entorno tranquilo y seguro a solo 14 km del centro de La Fortuna.",
+    "Posee una zona de bosque con árboles y una quebrada natural que atrae abundante flora y fauna.",
+    "Existe la posibilidad de negociar la venta parcial del terreno según el interés del comprador."
+  ],
+  "features": [
+    "1 ha 8.343 m² de terreno",
+    "Acceso mediante servidumbre agrícola",
+    "Disponibilidad de agua y electricidad",
+    "Zona boscosa con quebrada",
+    "Posibilidad de venta parcial (5.000 m²)",
+    "Ideal para proyectos turísticos, agrícolas o ganaderos",
+    "Ubicada en zona tranquila y segura"
+  ]
+},
+{
+  "id": 12,
+  "slug": "lote-san-jose-la-tigra",
+  "type": "lote",
+  "subcategory": "residencial",
+  "title": "Lote en San José de La Tigra",
+  "location": "San José, La Tigra",
+  "price": 19000000,
+  "priceCRC": 19000000,
+  "currency": "CRC",
+  "lotSize": 1115,
+  "status": "Disponible",
+  "negotiable": false,
+  "folder": "ARE-LAT-LT-0001_lote-la-tigra",
+  "images": [
+    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/1.png" },
+    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/2.png" },
+    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/3.png" },
+    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/4.png" }
+  ],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
+  },
+  "geo": { 
+    "lat": 10.364, 
+    "lng": -84.553, 
+    "zoom": 15 
+  },
+  "description": [
+    "Lote de 1.115 m² ubicado en San José de La Tigra, una zona rodeada de naturaleza y vegetación exuberante.",
+    "La propiedad cuenta con acceso por calle de lastre y dispone de todos los servicios públicos esenciales: agua, electricidad e internet.",
+    "Su entorno tranquilo la convierte en una excelente opción para desarrollar un proyecto turístico o una vivienda en medio de un ambiente natural y seguro, a pocos minutos del centro de La Tigra."
+  ],
+  "features": [
+    "1.115 m² de terreno",
+    "Acceso por calle de lastre",
+    "Zona tranquila y segura",
+    "Entorno rodeado de naturaleza",
+    "Disponibilidad de todos los servicios públicos",
+    "Ideal para vivienda o proyecto turístico"
+  ]
+},
+{
+  "id": 13,
+  "slug": "lote-sanchal-la-fortuna",
+  "type": "lote",
+  "subcategory": "residencial",
+  "title": "Lote con vista al Volcán Arenal en Barrio Sanchal",
+  "location": "Barrio Sanchal, La Fortuna",
+  "price": 45000000,
+  "priceCRC": 45000000,
+  "currency": "CRC",
+  "lotSize": 753,
+  "status": "Disponible",
+  "negotiable": false,
+  "folder": "ARE-LAF-LT-0001_lote-sanchal",
+  "images": [
+    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/1.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/2.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/3.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/4.png" }
+  ],
+  "utilities": { 
+    "water": true, 
+    "electricity": true, 
+    "internet": true, 
+    "publicRoad": true 
+  },
+  "geo": { 
+    "lat": 10.473, 
+    "lng": -84.635, 
+    "zoom": 15 
+  },
+  "description": [
+    "Hermoso lote de 753 m² ubicado en Barrio Sanchal, a tan solo 2 km del centro de La Fortuna.",
+    "La propiedad cuenta con ingreso por calle asfaltada y ofrece un entorno rodeado de naturaleza con una  ubicación privilegiada.",
+    "En la parte posterior atraviesa un río de agua limpia rodeado de vegetación y bosque, donde se puede apreciar una abundante flora y fauna local.",
+    "Cuenta con todos los servicios públicos disponibles, ideal para construir una vivienda o desarrollar un pequeño proyecto turístico en un entorno natural privilegiado."
+  ],
+  "features": [
+    "753 m² de terreno",
+    "Acceso por calle asfaltada",
+    "Río de agua limpia en la parte posterior",
+    "Zona boscosa con flora y fauna",
+    "Disponibilidad de agua, electricidad e internet",
+    "Ubicación a solo 2 km del centro de La Fortuna"
+  ]
+},
+
+
+{
+  "id": 20,
   "slug": "lote-santa-rosa-centro",
   "type": "lote",
   "title": "Propiedad en el centro de Santa Rosa",

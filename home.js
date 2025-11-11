@@ -96,9 +96,44 @@ function buildMeta(p) {
   return bits.join(' • ');
 }
 
+// ───────────────────────── Precios (moneda) ─
+function selectPrice(p = {}) {
+  const curr = String(p.currency || 'CRC').toUpperCase();
+
+  // Preferencias por moneda declarada
+  if (curr === 'CRC') {
+    if (isFinite(Number(p.priceCRC))) return { amount: Number(p.priceCRC), curr: 'CRC' };
+    if (isFinite(Number(p.price)))    return { amount: Number(p.price),    curr: 'CRC' };
+  } else if (curr === 'USD') {
+    if (isFinite(Number(p.price)))    return { amount: Number(p.price),    curr: 'USD' };
+    if (isFinite(Number(p.priceUSD))) return { amount: Number(p.priceUSD), curr: 'USD' };
+  }
+
+  // Fallbacks si falta currency o campos “no estándar”
+  if (isFinite(Number(p.priceCRC)))   return { amount: Number(p.priceCRC), curr: 'CRC' };
+  if (isFinite(Number(p.priceUSD)))   return { amount: Number(p.priceUSD), curr: 'USD' };
+  if (isFinite(Number(p.price))) {
+    // Si no hay currency, asumimos USD para precios “pequeños” y CRC para montos grandes
+    const guessed = Number(p.price) >= 1_000_000 ? 'CRC' : 'USD';
+    return { amount: Number(p.price), curr: curr === 'CRC' || curr === 'USD' ? curr : guessed };
+  }
+
+  return null; // Precio desconocido
+}
+
+function formatPrice(sel) {
+  if (!sel) return 'Precio a consultar';
+  const symbol = sel.curr === 'CRC' ? '₡' : '$';
+  const locale = sel.curr === 'CRC' ? 'es-CR' : 'en-US';
+  return `${symbol}${sel.amount.toLocaleString(locale)}`;
+}
+
+
 function renderCardHome(p) {
   const badge = p.badge ? `<div class="property-badge">${p.badge}</div>` : '';
   const img = firstImageWatermarkedSrc(p);
+  const sel = selectPrice(p);
+  const priceText = formatPrice(sel);
 
   return `
   <a href="${linkFor(p)}" class="property-card-link">
@@ -115,7 +150,7 @@ function renderCardHome(p) {
         <h4 class="property-title">${p.title || ''}</h4>
         <p class="property-details">${buildMeta(p)}</p>
         <div class="property-price">
-          <span class="price">$${Number(p.price || 0).toLocaleString()}</span>
+          <span class="price">${priceText}</span>
           <span class="view-btn">Ver Detalles</span>
         </div>
       </div>
@@ -123,6 +158,7 @@ function renderCardHome(p) {
   </a>
   `;
 }
+
 
 
 // ───────────────────────── Featured ─
