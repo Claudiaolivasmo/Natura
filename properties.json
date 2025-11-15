@@ -545,6 +545,54 @@
     "Ubicación a solo 2 km del centro de La Fortuna"
   ]
 },
+{
+  "id": 14,
+  "slug": "lote-1000m2-el-tanque-vista-volcan",
+  "type": "lote",
+  "title": "Lote de 1000 m² en El Tanque con vista al Volcán Arenal",
+  "location": "El Tanque, La Fortuna",
+  "currency": "CRC",
+  "price": 35000000,
+  "priceCRC": 35000000,
+  "lotSize": 1000,
+  "builtSize": 0,
+  "badge": "Vista al volcán",
+  "folder": "ARE-ELT-LT-0002_lote-el-tanque",
+  "images": [
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/1.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/2.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/3.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/4.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/5.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/6.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/7.png" }
+  ],
+  "videos": [],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": false
+  },
+  "details": {
+    "roadAccess": "Calle pública de lastre",
+    "views": "Vista al Volcán Arenal y Cerro Chato",
+    "distanceToFortunaKm": 8.2,
+    "neighborhood": "Barrio tranquilo y seguro",
+    "waterProvider": "ASADA El Tanque",
+    "electricityProvider": "Coopelesca",
+    "topography": "Regular",
+    "idealFor": [
+      "Construcción de vivienda",
+      "Cabañas para Airbnb",
+      "Proyecto turístico",
+      "Casa vacacional",
+      "Tiny houses"
+    ]
+  },
+  "description": "Lote de 1000 m² ubicado en El Tanque de La Fortuna, con vista al Volcán Arenal y Cerro Chato. Cuenta con acceso por calle pública de lastre, disponibilidad de agua por ASADA El Tanque y electricidad por Coopelesca. Se encuentra en un barrio tranquilo y seguro, ideal tanto para vivienda como para proyectos turísticos. A solo 8.2 km del centro de La Fortuna.",
+  "status": "disponible"
+},
+
 
 
 {
