@@ -80,7 +80,7 @@
   margin-top: 3rem;
 }
 
-/* 2 columnas en desktop */
+/* Grid de equipo: 2 columnas en desktop, 1 en pantallas pequeñas */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -98,16 +98,15 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
-/* Foto alargada */
-
+/* Foto responsive */
 .team-photo {
   width: 100%;
-  height: 320px; /* Ajusta a tu gusto */
-  overflow: hidden;
   border-radius: 12px;
+  overflow: hidden;
+
+  /* 💡 Imagen proporcionada, sin desbordar */
+  aspect-ratio: 3 / 4;   /* más altita */
 }
-
-
 
 /* Imagen */
 .team-photo-img {
@@ -117,7 +116,6 @@
   object-position: center;
   display: block;
 }
-
 
 /* Texto del agente */
 .team-info {
@@ -146,31 +144,26 @@
   color: var(--text-dark);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr; /* 1 columna en mobile */
-  }
+/* ==========================
+   Responsive
+   ========================== */
 
-  .team-photo {
-    aspect-ratio: 2.5 / 1; /* un poco menos alargada en pantallas pequeñas */
-  }
-}
-
-/* Responsive */
+/* Tablets y abajo */
 @media (max-width: 900px) {
   .about-main {
     padding: 3rem 0 4rem;
   }
 
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 columna */
   }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .about-section {
     margin-bottom: 2.5rem;
+    padding: 0 1rem; /* un poco de margen lateral para que no pegue al borde */
   }
 
   .about-title {
@@ -179,5 +172,10 @@
 
   .team-member {
     padding: 1.25rem;
+  }
+
+  /* Foto un poquito menos alta en móviles si quieres */
+  .team-photo {
+    aspect-ratio: 4 / 5;
   }
 }
