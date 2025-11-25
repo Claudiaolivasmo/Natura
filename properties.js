@@ -146,12 +146,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupUI() {
   const gridBtn = document.getElementById('gridView');
   const listBtn = document.getElementById('listView');
+
+  // --- 1. Control de Vista (Grid/Lista) ---
   if (gridBtn && listBtn) {
     gridBtn.addEventListener('click', () => {
       gridBtn.classList.add('active');
       listBtn.classList.remove('active');
       renderProperties();
     });
+
     listBtn.addEventListener('click', () => {
       listBtn.classList.add('active');
       gridBtn.classList.remove('active');
@@ -159,26 +162,55 @@ function setupUI() {
     });
   }
 
-  document.getElementById('filterApply')?.addEventListener('click', () => {
+  // --- Función central para aplicar filtros y renderizar ---
+  const applyAndRenderFilters = () => {
     currentPage = 1;
     window.filteredProperties = getFilteredList();
     sortProperties();
     renderProperties();
-  });
+  };
 
+  // --- 2. Botón Aplicar ---
+  document.getElementById('filterApply')?.addEventListener('click', applyAndRenderFilters);
+
+  // --- 3. Toggle Avanzado ---
   document.getElementById('toggleAdvanced')?.addEventListener('click', () => {
     const panel = document.getElementById('advancedFilters');
-    applyAdvancedState(panel?.classList.contains('hidden'));
+    const isHidden = panel?.classList.contains('hidden');
+    applyAdvancedState(isHidden);
   });
 
-  document.getElementById('property-type')?.addEventListener('change', enforceTypeRules);
+  // --- 4. Cambio de Tipo ---
+  document.getElementById('property-type')?.addEventListener('change', () => {
+    enforceTypeRules();
+    applyAndRenderFilters();
+  });
 
+  // --- 5. Auto-aplicación de filtros en inputs ---
+  const filterInputsToListen = [
+    'price-min', 'price-max',
+    'size-min', 'size-max',
+    'bedrooms', 'bathrooms',
+    'search',
+    'location'
+  ];
+
+  filterInputsToListen.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', applyAndRenderFilters);
+      el.addEventListener('change', applyAndRenderFilters);
+    }
+  });
+
+  // --- 6. Ordenamiento ---
   document.getElementById('sortBy')?.addEventListener('change', () => {
     sortProperties();
     currentPage = 1;
     renderProperties();
   });
 
+  // --- 7. Limpiar Filtros ---
   document.getElementById('clearFilters')?.addEventListener('click', () => {
     clearFiltersUI();
     window.filteredProperties = [...(window.properties || [])];
@@ -187,6 +219,7 @@ function setupUI() {
     renderProperties();
   });
 }
+
 
 function applyAdvancedState(open) {
   const panel = document.getElementById('advancedFilters');
@@ -511,4 +544,81 @@ function initRightClickDownload() {
     a.click();
     a.remove();
   }, { passive: false });
+
+  /* -------------------- Dropdowns avanzados de filtros -------------------- */
+function initFilterDropdowns() {
+  const dropdowns = document.querySelectorAll('.filter-dropdown');
+
+  function closeAll(except) {
+    dropdowns.forEach(dd => {
+      if (dd !== except) {
+        dd.classList.remove('open');
+        const trig = dd.querySelector('.filter-trigger');
+        if (trig) trig.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  dropdowns.forEach(dd => {
+    const trigger = dd.querySelector('.filter-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = dd.classList.contains('open');
+      if (isOpen) {
+        dd.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        closeAll(dd);
+        dd.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Cerrar al hacer click fuera
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.filter-dropdown')) {
+      closeAll();
+    }
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  // Lógica específica para el dropdown de Tipo
+  const typePanel = document.getElementById('filterTypePanel');
+  const typeInput = document.getElementById('property-type');
+  const typeLabel = document.querySelector('[data-label="type"]');
+
+  if (typePanel && typeInput && typeLabel) {
+    const options = typePanel.querySelectorAll('[role="option"]');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const value = opt.dataset.value || '';
+        typeInput.value = value;
+        typeLabel.textContent = opt.textContent.trim();
+
+        // Marca visual de opción seleccionada
+        options.forEach(o =>
+          o.setAttribute('aria-selected', o === opt ? 'true' : 'false')
+        );
+
+        // Cierra el dropdown
+        const dd = typePanel.closest('.filter-dropdown');
+        const trig = dd?.querySelector('.filter-trigger');
+        dd?.classList.remove('open');
+        trig?.setAttribute('aria-expanded', 'false');
+
+        // Dispara el botón Aplicar automáticamente
+        document.getElementById('filterApply')?.click();
+      });
+    });
+
+  }
+}
+
 }

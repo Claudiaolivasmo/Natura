@@ -22,7 +22,7 @@
   <!-- Fuentes / Iconos -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
@@ -31,31 +31,24 @@
   <link rel="stylesheet" href="/css/animation.css">
   <link rel="stylesheet" href="/css/header.css">
 
-  <!-- Tailwind (si lo usas; si no, elimínalo) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Favicons servidos por /img -->
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
-
-  <!-- (tenías dos inclusiones de FA; esta basta) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
 </head>
 
 <body>
   <!-- Header -->
   <header class="header" id="header">
-  <a href="index.html" class="logo" aria-label="Natura Real Estate">
-    <!-- Logo corregido -->
-    <img
-      src="/assets/images/natura_realestate_color_footer_600x200.png"
-      alt="Natura Real Estate Logo"
-      width="150"
-      height="50"
-      loading="lazy"
-      decoding="async">
-  </a>
+    <a href="index.html" class="logo" aria-label="Natura Real Estate">
+      <img
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        alt="Natura Real Estate Logo"
+        width="150"
+        height="50"
+        loading="lazy"
+        decoding="async">
+    </a>
 
     <!-- Navegación desktop -->
     <nav class="nav" aria-label="Principal">
@@ -88,6 +81,7 @@
     </nav>
   </header>
 
+  <!-- Migas -->
   <nav class="breadcrumb">
     <div class="inner-page-container">
       <div class="breadcrumb-nav">
@@ -98,6 +92,7 @@
     </div>
   </nav>
 
+  <!-- Header de página -->
   <section class="page-header">
     <div class="inner-page-container">
       <h1 class="page-title">Nuestras Propiedades</h1>
@@ -108,16 +103,104 @@
     </div>
   </section>
 
+  <!-- =========================
+       BARRA SUPERIOR DE FILTROS
+       =========================
+  
+
+<section class="filters-top">
+  <div class="inner-page-container filters-top__wrap">
+
+    <div class="filter-group filter-type">
+      <label for="property-type" class="filter-label">Tipo</label>
+      <select id="property-type" aria-label="Seleccionar tipo de propiedad">
+        <option value="" selected>Todos los Tipos</option>
+        <option value="lote">Lote / Terreno</option>
+        <option value="casa">Casa / Villa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="cabana">Cabaña</option>
+      </select>
+    </div>
+
+    <div class="filter-group filter-price">
+      <label class="filter-label">Precio (USD)</label>
+      <div class="filter-duo range-inputs">
+        <input type="number" id="price-min" min="0" step="10000" placeholder="Mín. $">
+        <input type="number" id="price-max" min="0" step="10000" placeholder="Máx. $">
+      </div>
+    </div>
+
+
+    <div class="filter-group keyword-block">
+      <label for="search" class="filter-label">Buscar Ubicación / Palabra</label>
+      <input type="text" id="search" placeholder="La Fortuna, Nosara, Lote...">
+    </div>
+
+    <input type="hidden" id="location" value="">
+
+
+    <div class="filter-actions-top">
+      <button id="filterApply" class="btn primary small">Aplicar</button>
+      <button id="clearFilters" class="btn ghost small">Limpiar</button>
+    </div>
+
+
+    <div class="filter-toggle-wrap">
+      <button id="toggleAdvanced" class="btn small" aria-controls="advancedFilters" aria-expanded="false">
+        Avanzado
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="advanced-filters-panel inner-page-container hidden" id="advancedFilters">
+    <div class="advanced-filters-row">
+
+
+      <div class="filter-group filter-bedrooms">
+        <label for="bedrooms" class="filter-label">Habitaciones</label>
+        <select id="bedrooms" disabled aria-label="Número mínimo de habitaciones">
+          <option value="">Cualquiera</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+
+
+      <div class="filter-group filter-bathrooms">
+        <label for="bathrooms" class="filter-label">Baños</label>
+        <select id="bathrooms" disabled aria-label="Número mínimo de baños">
+          <option value="">Cualquiera</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+        </select>
+      </div>
+
+ 
+      <div class="filter-group filter-size">
+        <label class="filter-label">Tamaño (m²)</label>
+        <div class="filter-duo range-inputs">
+          <input type="number" id="size-min" min="0" step="50" placeholder="Min.">
+          <input type="number" id="size-max" min="0" step="50" placeholder="Máx.">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+ -->
+
+
+  <!-- Contenido principal -->
   <div class="inner-page-container">
     <main class="main-content">
       <!-- =========================================================
-           FILTROS (dejados comentados como en tu versión)
-      ========================================================== -->
-      <!-- ... aside de filtros comentado ... -->
-
-      <!-- =========================================================
            RESULTADOS / ORDEN / VISTAS
-      ========================================================== -->
+          ========================================================== -->
       <div class="properties-content">
         <div class="properties-header">
           <div class="results-count">
@@ -149,51 +232,48 @@
     </main>
   </div>
 
-<footer class="footer" role="contentinfo">
-  <div class="footer-content centered">
-    <!-- Logo -->
-    <img src="/assets/images/natura-logo.png" 
-     alt="Natura Real Estate" 
-     class="footer-logo" 
-     loading="lazy" 
-     decoding="async">
-     
-    <!-- Descripción -->
-    <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <!-- Logo -->
+      <img src="/assets/images/natura-logo.png" 
+           alt="Natura Real Estate" 
+           class="footer-logo" 
+           loading="lazy" 
+           decoding="async">
+      
+      <!-- Descripción -->
+      <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
 
-    <!-- Redes Sociales -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <!-- Redes Sociales -->
+      <div class="footer-social">
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
+          <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
+          <button type="submit" class="newsletter-btn">Suscribirse</button>
+        </form>
+        <div class="newsletter-status" aria-live="polite"></div>
+      </section>
+
+      <!-- Contacto -->
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+          <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+        </p>
+      </div>
+
+      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
     </div>
+  </footer>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-      <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
-        <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
-        <button type="submit" class="newsletter-btn">Suscribirse</button>
-      </form>
-      <div class="newsletter-status" aria-live="polite"></div>
-    </section>
-
-    <!-- Contacto -->
-    <div class="footer-contact">
-      <p><strong>La Fortuna · Costa Rica</strong></p>
-      <p>
-        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-        <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
-      </p>
-    </div>
-
-    <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
-  </div>
-</footer>
-
-
-  <!-- (opcional, mantenido como en tu archivo original) -->
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96562e47811a92ff',t:'MTc1MzU1Njg1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-
-  <!-- Tu JS -->
+  <!-- JS -->
   <script src="utils.js" defer></script>
   <script src="main.js" defer></script>
   <script src="properties.js" defer></script>
@@ -219,41 +299,5 @@
       });
     })();
   </script>
-  <script>
-(function () {
-  const SELECTOR_IMG = '.property-gallery img, .img-card img, img[data-download]';
-
-  document.addEventListener('contextmenu', function (e) {
-    const img = e.target.closest(SELECTOR_IMG);
-    if (!img) return;
-    e.preventDefault();
-
-    // 1) data-download del <img>
-    let dlUrl = img.dataset.download || '';
-
-    // 2) o data-download del contenedor
-    if (!dlUrl) dlUrl = img.closest('.img-card')?.dataset?.download || '';
-
-    // 3) o un botón/anchor de descarga cercano
-    if (!dlUrl) dlUrl = img.closest('.img-card')?.querySelector('.dl-btn')?.getAttribute('href') || '';
-
-    if (!dlUrl) {
-      console.warn('[WM] No download URL for image', img);
-      return;
-    }
-
-    // añade marca mínima para depurar
-    const url = dlUrl + (dlUrl.includes('?') ? '&' : '?') + 'from=rclick';
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = ''; // sugiere descarga
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }, { passive: false });
-})();
-</script>
-
 </body>
 </html>

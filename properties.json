@@ -510,7 +510,7 @@
   "priceCRC": 45000000,
   "currency": "CRC",
   "lotSize": 753,
-  "status": "Disponible",
+  "status": "vendido",
   "negotiable": false,
   "folder": "ARE-LAF-LT-0001_lote-sanchal",
   "images": [
@@ -592,7 +592,78 @@
   "description": "Lote de 1000 m² ubicado en El Tanque de La Fortuna, con vista al Volcán Arenal y Cerro Chato. Cuenta con acceso por calle pública de lastre, disponibilidad de agua por ASADA El Tanque y electricidad por Coopelesca. Se encuentra en un barrio tranquilo y seguro, ideal tanto para vivienda como para proyectos turísticos. A solo 8.2 km del centro de La Fortuna.",
   "status": "disponible"
 },
+{
+  "id": 15,
+  "slug": "lote-343m2-ecoquintas-salida-granja",
+  "type": "lote",
+  "title": "Lote de 343 m² en Residencial Ecoquintas, La Fortuna",
+  "location": "Residencial Ecoquintas, La Fortuna",
+  "currency": "CRC",
+  "price": 35000000,
+  "priceCRC": 35000000,
+  "lotSize": 343,
+  "builtSize": 0,
+  "badge": "Vista al Volcán Arenal",
+  "folder": "ARE-LAF-LT-0005_lote-ecoquintas-salida-granja",
+  "images": [
+    { "src": "/assets/images/properties/ARE-LAF-LT-0005_lote-ecoquintas-salida-granja/1.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0005_lote-ecoquintas-salida-granja/2.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0005_lote-ecoquintas-salida-granja/3.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0005_lote-ecoquintas-salida-granja/4.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0005_lote-ecoquintas-salida-granja/5.png" }
+  ],
+  "videos": [],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true
+  },
+"features": [
+  "Terreno de 343 m²",
+  "Terreno completamente plano",
+  "Vista limpia al Volcán Arenal",
+  "Calle interna de lastre",
+  "Zona residencial segura y tranquila",
+  "Disponibilidad de agua y electricidad",
+  "Ideal para vivienda o proyecto turístico pequeño"
+],
 
+  "description": ["Lote de 343 m² en Residencial Ecoquintas, a solo 2.5 km del centro de La Fortuna, en una ubicación estratégica que combina tranquilidad residencial con acceso rápido a todo lo esencial.",
+  " Terreno plano, con vista limpia al Volcán Arenal, calle de lastre y todos los servicios disponibles, ideal para construir tu vivienda o incluso un proyecto turístico gracias a su ubicación privilegiada. Vivir aquí te coloca a minutos de restaurantes, cafeterías, supermercados, escuelas, farmacias, servicios esenciales y las principales atracciones de La Fortuna, en una zona de alta demanda con naturaleza, seguridad y fácil acceso."],
+  "status": "disponible"
+},
+{
+  "id": 16,
+  "slug": "lote-305m2-ecoquintas-la-fortuna",
+  "type": "lote",
+  "title": "Lote de 305 m² en Residencial Ecoquintas, La Fortuna",
+  "location": "Residencial Ecoquintas, La Fortuna",
+  "currency": "CRC",
+  "price": 29000000,
+  "priceCRC": 29000000,
+  "lotSize": 305,
+  "builtSize": 0,
+  "badge": "Vista al Volcán Arenal",
+  "folder": "ARE-LAF-LT-0003_lote-305-ecoquintas",
+  "images": [
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/1.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/2.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/3.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/4.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/5.png" },
+    { "src": "/assets/images/properties/ARE-LAF-LT-0003_lote-305-ecoquintas/6.png" }
+  ],
+  "videos": [],
+  "features": [
+    "Vista al Volcán Arenal",
+    "Terreno plano y listo para construir",
+    "Disponibilidad de agua y electricidad",
+    "Zona residencial segura y en crecimiento"
+
+  ],
+  "description": "Lote de 305 m² ubicado en Residencial Ecoquintas, a solo 1.9 km del parque central de La Fortuna. El terreno es plano, con vista al Volcán Arenal y acceso por calle interna de lastre. Cuenta con medidor eléctrico instalado y tubos galvanizados 2x2 ya colocados para facilitar la instalación de malla perimetral. Dispone de todos los servicios y se ubica en una zona residencial segura y en crecimiento, ideal para construir vivienda, casa vacacional o un proyecto turístico de pequeña escala.",
+  "status": "disponible"
+},
 
 
 {
