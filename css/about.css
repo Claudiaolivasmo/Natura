@@ -1,0 +1,183 @@
+/* ==========================
+   ABOUT - Natura Real Estate
+   ========================== */
+
+/* Encabezado y texto superior */
+.about-header {
+  background: var(--background-light);
+}
+
+.about-main {
+  padding: 4rem 0 5rem;
+}
+
+/* Secciones generales */
+.about-section {
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+.about-title {
+  font-family: var(--font-title, "Cormorant Garamond", serif);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--main-color);
+}
+
+/* Título centrado */
+.page-title {
+  text-align: center;
+  width: 100%;
+}
+
+.page-subtitle {
+  font-size: 1.15rem;
+  max-width: 650px;
+  margin: 0.5rem auto 0;
+  text-align: center;
+}
+
+/* Texto general */
+.about-section p {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.about-highlight {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Listas */
+.about-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.6;
+}
+
+.about-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--main-color);
+}
+
+/* ==========================
+   EQUIPO — TEAM SECTION
+   ========================== */
+
+.about-team {
+  margin-top: 3rem;
+}
+
+/* 2 columnas en desktop */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+/* Card del agente */
+.team-member {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Foto alargada */
+
+.team-photo {
+  width: 100%;
+  height: 320px; /* Ajusta a tu gusto */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+
+
+/* Imagen */
+.team-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* Texto del agente */
+.team-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.team-name {
+  font-family: var(--font-title, "Cormorant Garamond", serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.team-role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  opacity: 0.85;
+}
+
+.team-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr; /* 1 columna en mobile */
+  }
+
+  .team-photo {
+    aspect-ratio: 2.5 / 1; /* un poco menos alargada en pantallas pequeñas */
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-main {
+    padding: 3rem 0 4rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-title {
+    font-size: 1.7rem;
+  }
+
+  .team-member {
+    padding: 1.25rem;
+  }
+}
