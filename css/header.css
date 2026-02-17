@@ -23,24 +23,24 @@ body{
 
 /* ===== Header (STICKY) con efecto shrink ===== */
 .header{
-  position:-webkit-sticky; /* iOS */
   position:sticky;
   top:0;
   z-index:1000;
   height:var(--header-h);
   width:100%;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
+  transition: height .3s ease, box-shadow .3s ease;
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 2rem;                 /* padding lateral */
-  background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
-  transition:
-    height .3s ease,
-    box-shadow .3s ease,
-    background .3s ease,
-    padding .3s ease;
-  will-change:transform;
+  padding:0 2rem;
 }
 
 /* Al hacer scroll: encoge el header cambiando su propia var */
@@ -170,13 +170,6 @@ body.header-fixed::before{ content:""; display:block; height:var(--header-h); }
 .container-wide{
   width:100%;
   padding:2rem;
-}
-
-.header-inner{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
 }
 
 
