@@ -1,40 +1,4 @@
 [
-    {
-  "id": 1,
-  "slug": "lote-santa-lucia",
-  "type": "lote",
-  "title": "Lote en Santa Lucia",
-  "location": "Santa Lucía, La Fortuna",
-  "price": 60000,
-  "priceCRC": 30000000,
-  "currency": "CRC",
-  "lotSize": 1000,
-  "badge": "",
-  "folder": "003-lote-santa-lucia",
-  "images": [
-    { "src": "/assets/images/properties/003-lote-santa-lucia/1.png" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/2.png" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/3.JPG" },
-    { "src": "/assets/images/properties/003-lote-santa-lucia/4.JPG" }
-  ],
-    "videos": [
-    { "src": "/assets/images/properties/003-lote-santa-lucia/5.MP4" }
-  ],
-  "utilities": { "water": false, "electricity": true, "internet": false, "publicRoad": true },
-  "geo": { "lat": 10.4715, "lng": -84.6450, "zoom": 15 },
-  "description": [
-    "Este lote de 1.000 m² se encuentra en la zona de Santa Lucía, a pocos minutos del centro de La Fortuna. Su ubicación estratégica combina la tranquilidad de un entorno residencial con la cercanía a supermercados, restaurantes, centros educativos y todos los servicios que ofrece uno de los destinos turísticos más importantes de Costa Rica.",
-    "El lote cuenta con disponibilidad de electricidad y acceso por calle asfaltada, con la instalación del servicio de agua pendiente. Es una excelente oportunidad para construir tu hogar en una zona tranquila, accesible y con gran potencial de valorización gracias al crecimiento constante de la región."
-],
-  "features": [
-    "Acceso por calle asfaltada",
-    "Electricidad disponible",
-    "Pendiente servicio de agua",
-    "Zona tranquila",
-    "Cercanía a La Fortuna"
-  ]
-},
-
   {
     "id": 2,
     "slug": "lote-residencial-villa-azul",
@@ -545,53 +509,7 @@
     "Ubicación a solo 2 km del centro de La Fortuna"
   ]
 },
-{
-  "id": 14,
-  "slug": "lote-1000m2-el-tanque-vista-volcan",
-  "type": "lote",
-  "title": "Lote de 1000 m² en El Tanque con vista al Volcán Arenal",
-  "location": "El Tanque, La Fortuna",
-  "currency": "CRC",
-  "price": 35000000,
-  "priceCRC": 35000000,
-  "lotSize": 1000,
-  "builtSize": 0,
-  "badge": "Vista al volcán",
-  "folder": "ARE-ELT-LT-0002_lote-el-tanque",
-  "images": [
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/1.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/2.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/3.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/4.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/5.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/6.png" },
-    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/7.png" }
-  ],
-  "videos": [],
-  "utilities": {
-    "water": true,
-    "electricity": true,
-    "internet": false
-  },
-  "details": {
-    "roadAccess": "Calle pública de lastre",
-    "views": "Vista al Volcán Arenal y Cerro Chato",
-    "distanceToFortunaKm": 8.2,
-    "neighborhood": "Barrio tranquilo y seguro",
-    "waterProvider": "ASADA El Tanque",
-    "electricityProvider": "Coopelesca",
-    "topography": "Regular",
-    "idealFor": [
-      "Construcción de vivienda",
-      "Cabañas para Airbnb",
-      "Proyecto turístico",
-      "Casa vacacional",
-      "Tiny houses"
-    ]
-  },
-  "description": "Lote de 1000 m² ubicado en El Tanque de La Fortuna, con vista al Volcán Arenal y Cerro Chato. Cuenta con acceso por calle pública de lastre, disponibilidad de agua por ASADA El Tanque y electricidad por Coopelesca. Se encuentra en un barrio tranquilo y seguro, ideal tanto para vivienda como para proyectos turísticos. A solo 8.2 km del centro de La Fortuna.",
-  "status": "disponible"
-},
+
 {
   "id": 15,
   "slug": "lote-343m2-ecoquintas-salida-granja",

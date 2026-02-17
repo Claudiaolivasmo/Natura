@@ -41,51 +41,68 @@
 </head>
 
 <body class="bg-gray-50">
-  <!-- Header -->
-  <header class="header" id="header">
-  <a href="index.html" class="logo" aria-label="Natura Real Estate">
-    <!-- Logo corregido -->
-    <img
-      src="/assets/images/natura_realestate_color_footer_600x200.png"
-      alt="Natura Real Estate Logo"
-      width="150"
-      height="50"
-      loading="lazy"
-      decoding="async">
-  </a>
+
+  <!-- HEADER -->
+   <header class="header" id="header">
+  <div class="header-inner">
+    
+    <!-- Logo -->
+    <a href="/index.html" class="logo" aria-label="Natura Real Estate">
+      <img
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        alt="Natura Real Estate Logo"
+        width="150"
+        height="50"
+        loading="lazy"
+        decoding="async">
+    </a>
 
     <!-- Navegación desktop -->
     <nav class="nav" aria-label="Principal">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="properties.html">Propiedades</a></li>
-        <li><a href="about.html" data-close>Sobre Nosotros</a></li>
-        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="/index.html" data-i18n="navHome">Inicio</a></li>
+        <li><a href="/properties.html" data-i18n="navProperties">Propiedades</a></li>
+        <li><a href="/about.html" data-i18n="navAbout">Sobre Nosotros</a></li>
+        <li><a href="/contact.html" data-i18n="navContact">Contacto</a></li>
       </ul>
     </nav>
 
+    <!-- Switch idioma -->
+    <div class="lang-switch">
+      <a href="/index.html" aria-label="Español">ES</a>
+      <a href="/en/index.html" aria-label="English">EN</a>
+    </div>
+
     <!-- Botón hamburguesa -->
-    <button class="hamburger" id="hamburger"
-            aria-label="Abrir menú"
-            aria-controls="navMobile"
-            aria-expanded="false">
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-controls="navMobile"
+      aria-expanded="false"
+      aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
 
-    <!-- Menú móvil -->
-    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
-      <div class="mobile-logo">
-        <img src="/assets/images/natura_realestate_color_footer_600x200.png"
-             alt="Natura Real Estate Logo" width="120" height="40" loading="lazy">
-      </div>
-      <ul>
-        <li><a href="index.html" data-close>Inicio</a></li>
-        <li><a href="properties.html" data-close>Propiedades</a></li>
-        <li><a href="about.html" data-close>Sobre Nosotros</a></li>
-        <li><a href="contact.html" data-close>Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  </div>
+
+  <!-- Menú móvil -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+    <div class="mobile-logo">
+      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
+           alt="Natura Real Estate Logo"
+           width="120"
+           height="40"
+           loading="lazy">
+    </div>
+    <ul>
+      <li><a href="/index.html" data-close>Inicio</a></li>
+      <li><a href="/properties.html" data-close>Propiedades</a></li>
+      <li><a href="/about.html" data-close>Sobre Nosotros</a></li>
+      <li><a href="/contact.html" data-close>Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <!-- Hero (fondo servido por /img) -->
   <section class="relative overflow-hidden bg-cover bg-center"
@@ -345,12 +362,13 @@
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'965617e6100192fb',t:'MTc1MzU1NTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
   <!-- Scripts del sitio -->
-  <script src="utils.js" defer></script>
-  <script src="main.js" defer></script>
-  <script src="home.js" defer></script>
-  <script src="form-handler.js" defer></script>
-  <script src="newsletter.js" defer></script>
-  <script src="header.js" defer></script>
+  <script src="/js/utils.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/home.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
+  <script src="/js/newsletter.js" defer></script>
+  <script src="/js/header.js" defer></script>
+
 
   <!-- Solo para desarrollo con Live Server: reescribe /img -> /assets/images (no afecta producción) -->
   <script>

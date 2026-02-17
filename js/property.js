@@ -1,4 +1,4 @@
-// === property.js (OPTIMIZADO SIN MAPAS) — IMÁGENES + VIDEOS ===
+// === property.js — IMÁGENES + VIDEOS ===
 let currentImageIndex = 0;
 let currentProperty = null;
 let isLightboxOpen = false;
@@ -51,6 +51,13 @@ function mediaAt(i) {
   return list[idx];
 }
 
+const isEnglish = window.location.pathname.startsWith('/en/');
+
+const PROPERTIES_URL = isEnglish
+  ? '/assets/data/properties-en.json'
+  : '/assets/data/properties.json';
+
+
 // ───────────── Inicio
 document.addEventListener('DOMContentLoaded', initPropertyPage);
 
@@ -60,7 +67,7 @@ async function initPropertyPage() {
   const slugParam = params.get('slug');
 
   try {
-    const res = await fetch('properties.json');
+    const res = await fetch(PROPERTIES_URL);
     const list = await res.json();
 
     if (slugParam) {
@@ -86,7 +93,10 @@ async function initPropertyPage() {
   }
 }
 
-function fallbackToList() { location.href = 'properties.html'; }
+function fallbackToList() {
+  location.href = isEnglish ? 'properties-en.html' : 'properties.html';
+}
+
 
 // ───────────── Formatos
 function formatPrice(value) {
@@ -432,6 +442,7 @@ function getWhatsNumber() {
   const raw = box?.dataset?.whatsapp || '50683018999';
   return raw.replace(/\D/g, '');
 }
+
 function buildMessage(extra = '') {
   const form = q('contactForm');
   const nameEl = form?.querySelector('#name, input[type="text"]');
@@ -443,18 +454,30 @@ function buildMessage(extra = '') {
   const email = (emailEl?.value || '').trim();
   const phone = (phoneEl?.value || '').trim();
   const body = (msgEl?.value || '').trim();
-  const propName = currentProperty?.title || 'Propiedad';
+  const propName = currentProperty?.title || (isEnglish ? 'Property' : 'Propiedad');
+
+
+  const labels = isEnglish
+    ? { message: 'Message', name: 'Name', phone: 'Phone', email: 'Email' }
+    : { message: 'Mensaje', name: 'Nombre', phone: 'Tel', email: 'Email' };
 
   const lines = [
-    body ? `Mensaje: ${body}` : '',
-    name ? `Nombre: ${name}` : '',
-    phone ? `Tel: ${phone}` : '',
-    email ? `Email: ${email}` : '',
+    body ? `${labels.message}: ${body}` : '',
+    name ? `${labels.name}: ${name}` : '',
+    phone ? `${labels.phone}: ${phone}` : '',
+    email ? `${labels.email}: ${email}` : '',
     extra
   ].filter(Boolean);
 
-  return `Hola, me interesa la propiedad "${propName}".\n` + lines.join('\n');
+  const intro = isEnglish
+    ? `Hello, I'm interested in the property "${propName}".\n`
+    : `Hola, me interesa la propiedad "${propName}".\n`;
+
+  return intro + lines.join('\n');
 }
+
+
+
 function openWhatsApp(message) {
   const number = getWhatsNumber();
   if (!number) return alert('No se configuró el número de WhatsApp.');
@@ -478,9 +501,14 @@ function setupContactForm() {
 
   const msgEl = form.querySelector('#message, textarea');
   if (msgEl && !msgEl.value) {
-    const propName = currentProperty?.title || 'Propiedad';
-    msgEl.value = `Hola, estoy interesado(a) en la propiedad "${propName}". ¿Podemos hablar?`;
+    const propName = currentProperty?.title || (isEnglish ? 'Property' : 'Propiedad');
+
+    msgEl.value = isEnglish
+      ? `Hello, I'm interested in the property "${propName}". Can we talk?`
+      : `Hola, estoy interesado(a) en la propiedad "${propName}". ¿Podemos hablar?`;
   }
+
+  
 
   const btnCall = q('btnCall');
   const btnWapp = q('btnWhatsApp');
@@ -492,11 +520,6 @@ function setupContactForm() {
     openWhatsApp(message);
   });
 
-  btnVisit?.addEventListener('click', () => {
-    const message = buildMessage('Me gustaría agendar una visita. ¿Qué fechas y horarios tienen disponibles?');
-    sendToFormspree({ source: 'visit_button', property: currentProperty?.title, message });
-    openWhatsApp(message);
-  });
 
   btnCall?.addEventListener('click', () => {
     const tel = getWhatsNumber();

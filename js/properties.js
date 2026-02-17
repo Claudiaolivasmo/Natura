@@ -1,9 +1,24 @@
 // === 🏘️ PROPERTIES.JS — Filtros al botón + Vista + Orden + Paginación ===
+const isEnglish = window.location.pathname.startsWith("/en/");
+const propertiesDataUrl = isEnglish
+  ? "/assets/data/properties-en.json"
+  : "/assets/data/properties.json";
+
+
 let currentPage = 1;
 const propertiesPerPage = 9;
 
 // ───────────────────────── Config
 const USD_TO_CRC = 525;
+
+// Helper i18n (igual idea que en home.js)
+const hasT = typeof window !== 'undefined' && typeof window.t === 'function';
+const translate = (key, fallback) => {
+  if (!hasT) return fallback;
+  const v = window.t(key);
+  // Si i18n no tiene esa key, window.t devuelve la key → usamos el fallback (ES)
+  return v === key ? fallback : v;
+};
 
 // ───────────────────────── Utils robustas
 const normalizeText = (s = '') =>
@@ -77,7 +92,6 @@ const linkFor = (p) =>
   p.slug ? `property.html?slug=${encodeURIComponent(p.slug)}`
          : `property.html?id=${encodeURIComponent(p.id)}`;
 
-
 function formatMoney(value = 0, currency = 'USD', locale = 'es-CR') {
   try {
     return new Intl.NumberFormat(locale, {
@@ -105,12 +119,11 @@ function getPrices(p) {
   let priceCRC = 0;
 
   if (currency === 'CRC') {
-    priceCRC = crcExplicit !== null ? crcExplicit : base; // usa priceCRC o, en su defecto, price en CRC
-    priceUSD = 0; // referencia opcional si quisieras, pero Opción 1 no convierte
+    priceCRC = crcExplicit !== null ? crcExplicit : base;
+    priceUSD = 0;
   } else {
-    // currency = 'USD' (o vacío)
-    priceUSD = base; // USD del JSON
-    priceCRC = crcExplicit !== null ? crcExplicit : 0; // SOLO muestra CRC si viene en JSON
+    priceUSD = base;
+    priceCRC = crcExplicit !== null ? crcExplicit : 0;
   }
 
   return { priceUSD, priceCRC, currency };
@@ -126,7 +139,8 @@ function effectivePriceUSD(p) {
 
 /* -------------------- Carga inicial -------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('properties.json')
+  // OJO: ruta absoluta → funciona igual en / y /en/
+  fetch(propertiesDataUrl)
     .then(r => r.json())
     .then(data => {
       const normalized = (data || []).map(p => ({ ...p, type: effectiveType(p) }));
@@ -138,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
       applyAdvancedState(false);
       enforceTypeRules();
       initRightClickDownload();
+      // initFilterDropdowns(); // si más adelante activas el dropdown avanzado
     })
     .catch(err => console.error('Error al cargar el JSON:', err));
 });
@@ -220,7 +235,6 @@ function setupUI() {
   });
 }
 
-
 function applyAdvancedState(open) {
   const panel = document.getElementById('advancedFilters');
   const btn = document.getElementById('toggleAdvanced');
@@ -229,11 +243,11 @@ function applyAdvancedState(open) {
   if (open) {
     panel.classList.remove('hidden');
     btn.setAttribute('aria-expanded', 'true');
-    btn.textContent = 'Ocultar avanzado';
+    btn.textContent = translate('propHideAdvanced', 'Ocultar avanzado');
   } else {
     panel.classList.add('hidden');
     btn.setAttribute('aria-expanded', 'false');
-    btn.textContent = 'Avanzado';
+    btn.textContent = translate('propShowAdvanced', 'Avanzado');
   }
 }
 
@@ -261,7 +275,7 @@ function getFilteredList() {
     const t = effectiveType(p);
     if (q.type && t !== q.type) return false;
 
-    const priceUSD = effectivePriceUSD(p); // unificado para comparaciones
+    const priceUSD = effectivePriceUSD(p);
     if (priceUSD < q.priceMin) return false;
     if (priceUSD > q.priceMax) return false;
 
@@ -334,8 +348,12 @@ function renderProperties() {
   resultsCount.textContent = String(props.length);
 
   if (props.length === 0) {
-    const empty = `<div class="no-results" role="status" aria-live="polite">No se encontraron propiedades con los filtros seleccionados.</div>`;
-    grid.innerHTML = empty; list.innerHTML = empty;
+    const empty = `<div class="no-results" role="status" aria-live="polite">${translate(
+      'propNoResults',
+      'No se encontraron propiedades con los filtros seleccionados.'
+    )}</div>`;
+    grid.innerHTML = empty;
+    list.innerHTML = empty;
     grid.style.display = currentView === 'grid' ? 'grid' : 'none';
     list.style.display = currentView === 'list' ? 'flex' : 'none';
     pagination.innerHTML = '';
@@ -359,25 +377,25 @@ function renderProperties() {
   renderPagination();
 }
 
-
 function renderCard(p) {
-  const t = effectiveType(p);
-  const isHome = isDwelling(t);
+  const tType = effectiveType(p);
+  const isHome = isDwelling(tType);
   const meta = [];
 
   if (isHome) {
-    if (p.bedrooms != null) meta.push(`${p.bedrooms} Hab`);
-    if (p.bathrooms != null) meta.push(`${p.bathrooms} Baños`);
-    if (p.area) meta.push(`<i class="fas fa-ruler-combined" aria-hidden="true"></i> ${p.area} m² constr.`);
-    if (p.lotSize) meta.push(`<i class="fas fa-ruler-combined" aria-hidden="true"></i> ${p.lotSize} m² lote`);
+    if (p.bedrooms != null) meta.push(`${p.bedrooms} ${translate('labelBedrooms', 'Hab')}`);
+    if (p.bathrooms != null) meta.push(`${p.bathrooms} ${translate('labelBathrooms', 'Baños')}`);
+    if (p.area) meta.push(`<i class="fas fa-ruler-combined" aria-hidden="true"></i> ${p.area} m² ${translate('labelArea', 'constru.')}`);
+    if (p.lotSize) meta.push(`<i class="fas fa-ruler-combined" aria-hidden="true"></i> ${p.lotSize} m² ${translate('labelLot', 'lote')}`);
   } else {
     const s = effectiveSize(p);
     if (s) meta.push(`<i class="fas fa-ruler-combined" aria-hidden="true"></i> ${s} m²`);
-    if (p.topography) meta.push(`Topografía: ${p.topography}`);
-    if (p.zoning) meta.push(`Uso: ${p.zoning}`);
+    if (p.topography) meta.push(`${translate('propTopography', 'Topografía')}: ${p.topography}`);
+    if (p.zoning) meta.push(`${translate('propUse', 'Uso')}: ${p.zoning}`);
   }
 
-  const badge = p.badge || (t === 'lote' ? 'Terreno' : '');
+  const badge =
+    p.badge || (tType === 'lote' ? translate('propLandBadge', 'Terreno') : '');
 
   const imgSrc = primaryImage(p);
 
@@ -390,7 +408,7 @@ function renderCard(p) {
   }
 
   const { priceUSD, priceCRC, currency } = getPrices(p);
-  let priceHTML = 'Consultar';
+  let priceHTML = translate('propContactPrice', 'Consultar');
 
   if (currency === 'CRC') {
     if (priceCRC) priceHTML = `${formatMoney(priceCRC, 'CRC')}`;
@@ -401,9 +419,11 @@ function renderCard(p) {
     }
   }
 
-return `
+  const sold = String(p.status || '').toLowerCase() === 'vendido';
+
+  return `
   <a href="${linkFor(p)}" class="property-card-link">
-    <div class="property-card img-card ${p.status === 'vendido' ? 'is-sold' : ''}" 
+    <div class="property-card img-card ${sold ? 'is-sold' : ''}" 
          ${dlUrl ? `data-download="${dlUrl}"` : ''} 
          data-status="${p.status || ''}">
       <div class="property-image">
@@ -415,10 +435,12 @@ return `
              draggable="false"
              ${dlUrl ? `data-download="${dlUrl}"` : ''}>
 
-        ${p.status === "vendido" ? `<div class="property-badge sold" aria-label="Propiedad vendida">VENDIDO</div>` : ""}
+        ${sold
+          ? `<div class="property-badge sold" aria-label="${translate('propSoldLabel', 'Propiedad vendida')}">${translate('propSold', 'VENDIDO')}</div>`
+          : ''}
 
         ${badge ? `<div class="property-badge">${badge}</div>` : ''}
-        <div class="property-type-tag">${t}</div>
+        <div class="property-type-tag">${tType}</div>
       </div>
 
       <div class="property-content">
@@ -426,19 +448,19 @@ return `
         <p class="property-location">${p.location || ''}</p>
         ${meta.length ? `<p class="property-meta">${meta.join(' • ')}</p>` : ''}
         <div class="property-price">
-          <span class="price" title="Precio">
+          <span class="price" title="${translate('labelPrice', 'Precio')}">
             ${priceHTML}
           </span>
-          <span class="view-btn" aria-hidden="true">Ver Detalles</span>
+          <span class="view-btn" aria-hidden="true">
+            ${isEnglish ? 'View details' : 'Ver detalles'}
+          </span>
+
         </div>
       </div>
     </div>
   </a>
 `;
-
-
 }
-
 
 function sortProperties() {
   const v = document.getElementById('sortBy')?.value || '';
@@ -471,11 +493,14 @@ function renderPagination() {
 
   const total = window.filteredProperties?.length || 0;
   const totalPages = Math.ceil(total / propertiesPerPage);
-  if (totalPages <= 1) { pagination.innerHTML = ''; return; }
+  if (totalPages <= 1) {
+    pagination.innerHTML = '';
+    return;
+  }
 
   let html = '';
   if (currentPage > 1) {
-    html += `<button class="page-btn" onclick="changePage(${currentPage - 1})" aria-label="Página anterior">‹ Anterior</button>`;
+    html += `<button class="page-btn" onclick="changePage(${currentPage - 1})" aria-label="${translate('propPrevPageLabel', 'Página anterior')}">‹ ${translate('propPrevPage', 'Anterior')}</button>`;
   }
   for (let i = 1; i <= totalPages; i++) {
     const near = i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1);
@@ -485,7 +510,7 @@ function renderPagination() {
     else if (dots) html += `<span class="page-btn ellipsis" aria-hidden="true">...</span>`;
   }
   if (currentPage < totalPages) {
-    html += `<button class="page-btn" onclick="changePage(${currentPage + 1})" aria-label="Página siguiente">Siguiente ›</button>`;
+    html += `<button class="page-btn" onclick="changePage(${currentPage + 1})" aria-label="${translate('propNextPageLabel', 'Página siguiente')}">${translate('propNextPage', 'Siguiente')} ›</button>`;
   }
   pagination.innerHTML = html;
 }
@@ -544,8 +569,9 @@ function initRightClickDownload() {
     a.click();
     a.remove();
   }, { passive: false });
+}
 
-  /* -------------------- Dropdowns avanzados de filtros -------------------- */
+/* -------------------- Dropdowns avanzados de filtros -------------------- */
 function initFilterDropdowns() {
   const dropdowns = document.querySelectorAll('.filter-dropdown');
 
@@ -617,8 +643,5 @@ function initFilterDropdowns() {
         document.getElementById('filterApply')?.click();
       });
     });
-
   }
-}
-
 }

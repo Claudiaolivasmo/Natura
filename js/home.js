@@ -1,9 +1,13 @@
 // === 🏠 HOME.JS ===
 
 // ───────────────────────── Configuración ─
-const WATERMARK_PATH = '/.netlify/functions/watermark'; 
+const WATERMARK_PATH = '/.netlify/functions/watermark';
 // ⚠️ Si tienes redirect en netlify.toml de "/watermark" → "/.netlify/functions/watermark",
 // puedes cambiarlo por const WATERMARK_PATH = '/watermark';
+
+// Helper de traducción (usa t() si existe; si no, usa fallback en ES)
+const hasT = typeof window !== 'undefined' && typeof window.t === 'function';
+const translate = (key, fallback) => (hasT ? window.t(key) : fallback);
 
 // ───────────────────────── Hero Buttons ─
 const exploreBtn = document.getElementById('exploreBtn');
@@ -17,7 +21,7 @@ if (exploreBtn) {
 const contactBtn = document.getElementById('contactBtn');
 if (contactBtn) {
   contactBtn.addEventListener('click', () => {
-    window.location.href = 'tel:+50688888888';
+    window.location.href = 'tel:+50683018999';
   });
 }
 
@@ -90,9 +94,9 @@ const isFeatured = (p) =>
 function buildMeta(p) {
   const bits = [];
   if (p.location) bits.push(p.location);
-  if (p.bedrooms != null) bits.push(`${p.bedrooms} Hab`);
-  if (p.bathrooms != null) bits.push(`${p.bathrooms} Baños`);
-  if (p.lotSize != null) bits.push(`${p.lotSize} m² lote`);
+  if (p.bedrooms != null) bits.push(`${p.bedrooms} ${translate('labelBedrooms', 'Hab')}`);
+  if (p.bathrooms != null) bits.push(`${p.bathrooms} ${translate('labelBathrooms', 'Baños')}`);
+  if (p.lotSize != null) bits.push(`${p.lotSize} m² ${translate('labelLot', 'lote')}`);
   return bits.join(' • ');
 }
 
@@ -122,12 +126,11 @@ function selectPrice(p = {}) {
 }
 
 function formatPrice(sel) {
-  if (!sel) return 'Precio a consultar';
+  if (!sel) return translate('priceOnRequest', 'Precio a consultar');
   const symbol = sel.curr === 'CRC' ? '₡' : '$';
   const locale = sel.curr === 'CRC' ? 'es-CR' : 'en-US';
   return `${symbol}${sel.amount.toLocaleString(locale)}`;
 }
-
 
 function renderCardHome(p) {
   const badge = p.badge ? `<div class="property-badge">${p.badge}</div>` : '';
@@ -141,7 +144,7 @@ function renderCardHome(p) {
       <div class="property-image">
         <img class="property-photo"
              src="${img}"
-             alt="${p.title || 'Propiedad'}"
+             alt="${p.title || translate('propertyAltFallback', 'Propiedad')}"
              loading="lazy"
              decoding="async">
         ${badge}
@@ -151,15 +154,13 @@ function renderCardHome(p) {
         <p class="property-details">${buildMeta(p)}</p>
         <div class="property-price">
           <span class="price">${priceText}</span>
-          <span class="view-btn">Ver Detalles</span>
+          <span class="view-btn">${translate('viewDetails', 'Ver detalles')}</span>
         </div>
       </div>
     </div>
   </a>
   `;
 }
-
-
 
 // ───────────────────────── Featured ─
 function pickFeatured(list, n = 3) {
@@ -182,7 +183,6 @@ function pickFeatured(list, n = 3) {
   return out;
 }
 
-
 function renderFeatured(props) {
   const container = document.getElementById('featuredGrid');
   if (!container) { console.warn('[home] NO featuredGrid'); return; }
@@ -190,14 +190,20 @@ function renderFeatured(props) {
   const chosen = pickFeatured(props, 3);
   container.innerHTML = chosen.length
     ? chosen.map(renderCardHome).join('')
-    : `<div class="no-results">Aún no hay propiedades destacadas.</div>`;
+    : `<div class="no-results">${translate('homeNoFeatured', 'Aún no hay propiedades destacadas.')}</div>`;
 
   attachHoverToCards();
 }
 
 // ───────────────────────── Init ─
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('properties.json')
+  const isEnglish = /^\/en(\/|$)/.test(window.location.pathname);
+
+  const PROPERTIES_PATH = isEnglish
+    ? '/assets/data/properties-en.json'
+    : '/assets/data/properties.json';
+
+  fetch(PROPERTIES_PATH)
     .then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
@@ -208,10 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
       renderFeatured(list);
     })
     .catch(err => {
-      console.error('Error al cargar properties.json:', err);
+      console.error('Error loading:', PROPERTIES_PATH, err);
       const container = document.getElementById('featuredGrid');
       if (container) {
-        container.innerHTML = `<div class="no-results">No se pudieron cargar las propiedades.</div>`;
+        container.innerHTML = `<div class="no-results">${translate('homePropsLoadError', 'Properties could not be loaded.')}</div>`;
       }
     });
 });
+
+

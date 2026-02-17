@@ -1,0 +1,536 @@
+[
+  {
+    "id": 2,
+    "slug": "lote-residencial-villa-azul",
+    "type": "lot",
+    "title": "Lot in Villa Azul Residential Community",
+    "location": "Agua Azul, La Fortuna",
+    "price": 130000,
+    "priceCRC": 66235000,
+    "currency": "CRC",
+    "lotSize": 0.252,
+    "badge": "Financing available",
+    "folder": "002-lote-residencial-villa-azul",
+    "images": [
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.JPG" },
+      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/5.JPG" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
+    "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
+    "description": [
+      "This 1,019 m² lot is located at the entrance of Agua Azul, just minutes from downtown La Fortuna.",
+      "It is part of a მშვიდ, nature-surrounded residential community with views of Arenal Volcano and excellent accessibility.",
+      "Ideal for building a retirement or vacation home, with financing available and close proximity to essential services."
+    ],
+    "features": [
+      "Quiet area",
+      "Natural surroundings",
+      "Public road access",
+      "Water available",
+      "Electricity available",
+      "Volcano view",
+      "Close to services",
+      "Investment opportunity",
+      "Financing available"
+    ]
+  },
+
+  {
+    "id": 3,
+    "slug": "villa-el-manzano",
+    "type": "house",
+    "title": "Villa El Manzano",
+    "location": "Chachagua, San Ramón",
+    "price": 157000,
+    "priceCRC": 80000000,
+    "currency": "CRC",
+    "constructionSize": 140,
+    "lotSize": 0.274,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "totalRooms": 2,
+    "floors": 1,
+    "yearBuilt": 2023,
+    "parking": 2,
+    "badge": "Featured",
+    "folder": "001-villa-el-manzano",
+    "images": [
+      { "src": "/assets/images/properties/001-villa-el-manzano/1.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/2.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/3.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/4.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/5.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/6.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/7.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/8.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/9.jpeg" },
+      { "src": "/assets/images/properties/001-villa-el-manzano/10.jpeg" }
+    ],
+    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
+    "geo": { "lat": 10.4705, "lng": -84.6408, "zoom": 15 },
+    "description": [
+      "Villa El Manzano is a charming property located on a corner lot of 1,109 m² with a 140 m² construction.",
+      "It features 2 bedrooms and 2 bathrooms, offering comfort and a cozy atmosphere.",
+      "Amenities include a BBQ ranch, garage, storage room, separate gated entrances, and spacious green areas with gardens and fruit trees.",
+      "Just 50 meters from the Chachaguita River, it is an excellent investment for a family residence or vacation rental."
+    ],
+    "features": [
+      "2 bedrooms",
+      "2 full bathrooms",
+      "140 m² construction",
+      "0.274 acres lot",
+      "Single-story",
+      "Built in 2023",
+      "BBQ ranch",
+      "Garage",
+      "Storage room",
+      "Gardens and fruit trees",
+      "Living fences"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "lotes-la-perla-la-fortuna",
+    "type": "lot",
+    "subcategory": "residential",
+    "title": "Lots in La Perla, La Fortuna",
+    "location": "La Perla, La Fortuna",
+    "price": 10000000,
+    "priceCRC": 10000000,
+    "currency": "CRC",
+    "lotSize": 0.058,
+    "status": "Available",
+    "negotiable": true,
+    "folder": "ARE-PER-LT-0001_lotes-la-perla",
+    "images": [
+      { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/1.png" },
+      { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/2.png" },
+      { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/3.png" },
+      { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/4.png" }
+    ],
+    "lotsAvailable": [
+      { "size": 0.058, "unit": "acres", "priceCRC": 10000000 },
+      { "size": 0.058, "unit": "acres", "priceCRC": 10000000 },
+      { "size": 0.058, "unit": "acres", "priceCRC": 10000000 }
+    ],
+    "utilities": { 
+      "water": true, 
+      "electricity": true, 
+      "internet": true, 
+      "publicRoad": true 
+    },
+    "geo": { 
+      "lat": 10.411, 
+      "lng": -84.631, 
+      "zoom": 15 
+    },
+    "description": [
+      "Three lots located in La Perla, La Fortuna, 14 km from downtown: two measuring 235 m² and one 234 m².",
+      "Each lot includes fruit trees and access to all public utilities, in a quiet area surrounded by vegetation.",
+      "An excellent option for locals looking to build a home or invest in a property with strong growth potential.",
+      "Price per lot is ₡10,000,000, with the possibility of negotiating a better value when purchasing all three."
+    ],
+    "features": [
+      "Lots of 0.058 acres",
+      "Fruit trees",
+      "Access to all public utilities",
+      "Quiet and safe residential area",
+      "14 km from La Fortuna downtown",
+      "₡10,000,000 per lot (negotiable as package)",
+      "Ideal for residential or local investment"
+    ]
+  },
+
+  {
+    "id": 5,
+    "slug": "lote-sonafluca",
+    "type": "lot",
+    "title": "Lot in Sonafluca",
+    "location": "Sonafluca, La Fortuna",
+    "price": 58000,
+    "priceCRC": 30000000,
+    "currency": "CRC",
+    "lotSize": 0.247,
+    "badge": "New",
+    "folder": "005-lote-sona-fluca",
+    "images": [
+      { "src": "/assets/images/properties/005-lote-sona-fluca/1.JPG" },
+      { "src": "/assets/images/properties/005-lote-sona-fluca/2.JPG" },
+      { "src": "/assets/images/properties/005-lote-sona-fluca/3.JPG" },
+      { "src": "/assets/images/properties/005-lote-sona-fluca/4.png" }
+    ],
+    "description": [
+      "This 1,000 m² lot is located in the quiet community of Sonafluca, just minutes from La Fortuna.",
+      "With electricity available and an excellent location, it represents a great opportunity in a high-value growth area."
+    ],
+    "utilities": {
+      "water": false,
+      "electricity": true,
+      "closeToFortuna": true
+    },
+    "features": [
+      "Quiet area",
+      "Public road access",
+      "Electricity available",
+      "Internet available",
+      "Water service pending"
+    ],
+    "status": "Available"
+  },
+
+  {
+    "id": 6,
+    "slug": "lote-3-esquinas",
+    "type": "lot",
+    "title": "Tres Esquinas Lot",
+    "registryNumber": 328372,
+    "location": "Tres Esquinas, La Fortuna",
+    "price": 103000,
+    "priceCRC": 52500000,
+    "currency": "CRC",
+    "lotSize": 0.419,
+    "badge": "New",
+    "folder": "006-lote-3-esquinas",
+    "images": [
+      { "src": "/assets/images/properties/006-lote-3-esquinas/1.jpg" },
+      { "src": "/assets/images/properties/006-lote-3-esquinas/2.jpg" },
+      { "src": "/assets/images/properties/006-lote-3-esquinas/3.jpg" }
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": true,
+      "road": "Paved"
+    },
+    "features": [
+      "Spacious 0.419-acre lot",
+      "Strategic three-corner location",
+      "Direct access via paved road",
+      "Potable water available",
+      "Quiet, high-value area"
+    ],
+    "description": [
+      "This 1,694.48 m² lot is strategically located in Santa Lucía, just 1 km from Santa Lucía School.",
+      "It has access to water, electricity, internet, and direct entry via paved road.",
+      "Ideal for residential construction or development in a high-value area with easy access."
+    ]
+  },
+
+  {
+    "id": 7,
+    "slug": "cabinas-zeta-trece",
+    "type": "cabins",
+    "title": "Property with Two Cabins in Zeta Trece",
+    "location": "Zeta Trece, La Fortuna",
+    "price": 120000000,
+    "priceCRC": 120000000,
+    "currency": "CRC",
+    "lotSize": 0.272,
+    "builtSize": 80,
+    "badge": "Featured",
+    "folder": "004-cabinas-zeta-trece",
+    "images": [
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/1.JPG" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/2.JPG" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/3.JPG" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/4.jpg" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/5.png" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/6.jpg" },
+      { "src": "/assets/images/properties/007-cabinas-zeta-trece/7.jpg" }
+    ],
+    "videos": ["/assets/images/properties/007-cabinas-zeta-trece/video.mp4"],
+    "utilities": { 
+      "water": true, 
+      "electricity": true, 
+      "internet": true, 
+      "publicRoad": true 
+    },
+    "geo": { "lat": 10.4702, "lng": -84.6428, "zoom": 15 },
+    "description": [
+      "Excellent investment opportunity in a high-demand tourist area. This 1,100 m² property features 40 meters of frontage on the main road, making it ideal for tourism or residential development.",
+      "The property includes two fully equipped 40 m² cabins designed for Airbnb-style lodging. Each unit features two bedrooms, a full bathroom, service area, and integrated living room and kitchen.",
+      "It offers a large open area with expansion potential, surrounded by lush vegetation and direct views of the majestic Arenal Volcano.",
+      "Located in Zeta Trece, near La Fortuna Waterfall, hot springs, restaurants, and major attractions. The rear borders a protected backyard area, providing privacy and a privileged natural setting."
+    ],
+    "features": [
+      "0.272-acre property",
+      "40 meters of main road frontage",
+      "Two fully equipped 40 m² cabins",
+      "Ideal for Airbnb or tourism development",
+      "Arenal Volcano view",
+      "Near La Fortuna Waterfall and hot springs",
+      "High-demand tourist area"
+    ]
+  },
+{
+  "id": 8,
+  "slug": "finca-el-tanque",
+  "type": "farm",
+  "title": "Farm in El Tanque",
+  "location": "El Tanque, La Fortuna",
+  "price": 275000,
+  "priceCRC": 140000000,
+  "currency": "USD",
+  "lotSize": 6.18,
+  "badge": "Featured",
+  "folder": "008-finca-el-tanque",
+  "images": [
+    { "src": "/assets/images/properties/008-finca-el-tanque/1.jpg" },
+    { "src": "/assets/images/properties/008-finca-el-tanque/2.jpg" },
+    { "src": "/assets/images/properties/008-finca-el-tanque/3.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true,
+    "publicRoad": true
+  },
+  "description": [
+    "Beautiful 6.18-acre farm located in El Tanque, just minutes from La Fortuna.",
+    "The property features open areas ideal for livestock, agriculture, eco-tourism, or residential development.",
+    "Surrounded by nature and offering easy access, this farm is perfect for investors seeking space, privacy, and long-term value."
+  ],
+  "features": [
+    "6.18 acres of usable land",
+    "Public road access",
+    "Utilities available",
+    "Ideal for eco-tourism or agriculture",
+    "Peaceful natural surroundings"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 9,
+  "slug": "finca-santa-gertrudis",
+  "type": "farm",
+  "title": "Farm in Santa Gertrudis",
+  "location": "Santa Gertrudis, La Fortuna",
+  "price": 350000,
+  "priceCRC": 178000000,
+  "currency": "USD",
+  "lotSize": 9.88,
+  "folder": "009-finca-santa-gertrudis",
+  "images": [
+    { "src": "/assets/images/properties/009-finca-santa-gertrudis/1.jpg" },
+    { "src": "/assets/images/properties/009-finca-santa-gertrudis/2.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true
+  },
+  "description": [
+    "Expansive 9.88-acre farm located in Santa Gertrudis, a peaceful rural area near La Fortuna.",
+    "The property offers fertile soil, ideal for agriculture, livestock, or sustainable tourism projects.",
+    "A great opportunity for investors seeking large land in a growing region."
+  ],
+  "features": [
+    "9.88 acres of fertile land",
+    "Ideal for agriculture or eco-projects",
+    "Quiet rural location",
+    "High investment potential"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 10,
+  "slug": "lote-san-isidro",
+  "type": "lot",
+  "title": "Lot in San Isidro",
+  "location": "San Isidro, La Fortuna",
+  "price": 45000,
+  "priceCRC": 23000000,
+  "currency": "USD",
+  "lotSize": 0.247,
+  "folder": "010-lote-san-isidro",
+  "images": [
+    { "src": "/assets/images/properties/010-lote-san-isidro/1.jpg" },
+    { "src": "/assets/images/properties/010-lote-san-isidro/2.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true
+  },
+  "description": [
+    "Residential lot located in San Isidro, minutes from La Fortuna.",
+    "With access to utilities and a peaceful environment, it is ideal for building a home or vacation property."
+  ],
+  "features": [
+    "0.247-acre lot",
+    "Utilities available",
+    "Quiet residential area",
+    "Great for a vacation home"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 11,
+  "slug": "lote-la-fortuna-centro",
+  "type": "lot",
+  "title": "Lot near La Fortuna Downtown",
+  "location": "La Fortuna",
+  "price": 85000,
+  "priceCRC": 43000000,
+  "currency": "USD",
+  "lotSize": 0.173,
+  "badge": "New",
+  "folder": "011-lote-fortuna-centro",
+  "images": [
+    { "src": "/assets/images/properties/011-lote-fortuna-centro/1.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true,
+    "publicRoad": true
+  },
+  "description": [
+    "Excellent lot located near downtown La Fortuna, with quick access to shops, restaurants, and tourist attractions.",
+    "Ideal for residential or commercial development in one of Costa Rica’s most visited destinations."
+  ],
+  "features": [
+    "Prime location near downtown",
+    "Utilities available",
+    "Ideal for residential or commercial use",
+    "High tourist demand area"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 12,
+  "slug": "propiedad-el-castillo",
+  "type": "home",
+  "title": "Home in El Castillo",
+  "location": "El Castillo, Arenal",
+  "price": 295000,
+  "priceCRC": 150000000,
+  "currency": "USD",
+  "lotSize": 0.494,
+  "builtSize": 120,
+  "folder": "012-casa-el-castillo",
+  "images": [
+    { "src": "/assets/images/properties/012-casa-el-castillo/1.jpg" },
+    { "src": "/assets/images/properties/012-casa-el-castillo/2.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true
+  },
+  "description": [
+    "Charming home located in El Castillo, near Lake Arenal, offering tranquility and stunning natural surroundings.",
+    "Perfect for a permanent residence, vacation home, or rental investment in a high-demand eco-tourism area."
+  ],
+  "features": [
+    "0.494-acre property",
+    "120 m² construction",
+    "Near Lake Arenal",
+    "Ideal for vacation rental",
+    "Peaceful natural environment"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 13,
+  "slug": "lote-chachagua",
+  "type": "lot",
+  "title": "Lot in Chachagua",
+  "location": "Chachagua, San Ramón",
+  "price": 39000,
+  "priceCRC": 20000000,
+  "currency": "USD",
+  "lotSize": 0.247,
+  "folder": "013-lote-chachagua",
+  "images": [
+    { "src": "/assets/images/properties/013-lote-chachagua/1.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true
+  },
+  "description": [
+    "Affordable lot in Chachagua, located in a peaceful rural setting surrounded by nature.",
+    "Ideal for those seeking privacy, fresh air, and a connection with Costa Rica’s natural beauty."
+  ],
+  "features": [
+    "0.247-acre lot",
+    "Quiet rural area",
+    "Utilities available",
+    "Great for a private residence"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 14,
+  "slug": "finca-la-tigra",
+  "type": "farm",
+  "title": "Farm in La Tigra",
+  "location": "La Tigra, San Carlos",
+  "price": 420000,
+  "priceCRC": 213000000,
+  "currency": "USD",
+  "lotSize": 14.82,
+  "folder": "014-finca-la-tigra",
+  "images": [
+    { "src": "/assets/images/properties/014-finca-la-tigra/1.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true
+  },
+  "description": [
+    "Large 14.82-acre farm located in La Tigra, a region known for its fertile land and agricultural potential.",
+    "Ideal for livestock, farming, eco-tourism, or long-term investment in a growing area."
+  ],
+  "features": [
+    "14.82 acres",
+    "Fertile land",
+    "Agricultural potential",
+    "Quiet countryside setting"
+  ],
+  "status": "Available"
+},
+
+{
+  "id": 15,
+  "slug": "lote-monterrey",
+  "type": "lot",
+  "title": "Lot in Monterrey",
+  "location": "Monterrey, San Carlos",
+  "price": 52000,
+  "priceCRC": 26500000,
+  "currency": "USD",
+  "lotSize": 0.247,
+  "folder": "015-lote-monterrey",
+  "images": [
+    { "src": "/assets/images/properties/015-lote-monterrey/1.jpg" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true
+  },
+  "description": [
+    "Residential lot located in Monterrey, San Carlos, offering a peaceful environment with convenient access to nearby towns.",
+    "An excellent opportunity for building a home or investment property in a developing area."
+  ],
+  "features": [
+    "0.247-acre lot",
+    "Utilities available",
+    "Quiet area",
+    "Growing region"
+  ],
+  "status": "Available"
+}
+]
+
+

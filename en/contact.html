@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Contact | Natura Real Estate – La Fortuna, Costa Rica</title>
+  <meta name="description" content="Contact us to buy or sell property in La Fortuna. Schedule an appointment and receive personalized guidance with Natura Real Estate.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.realestatenatura.com/en/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | Natura Real Estate">
+  <meta property="og:description" content="Ready to take the next step? Write to us and schedule an appointment.">
+  <meta property="og:url" content="https://www.realestatenatura.com/en/contact.html">
+  <meta property="og:image" content="https://www.realestatenatura.com/img/og/contact.jpg?w=1200&fmt=jpg&q=90">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/animation.css">
+  <link rel="stylesheet" href="/css/header.css">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
+</head>
+
+<body class="bg-gray-50">
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+
+    <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
+      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
+           alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
+        <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
+        <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
+        <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch">
+      <a href="/contact.html">ES</a>
+      <a href="/en/contact.html">EN</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-controls="navMobile" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile -->
+  <nav class="nav-mobile" id="navMobile" hidden>
+    <div class="mobile-logo">
+      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
+           alt="Natura Real Estate Logo" width="120" height="40" loading="lazy">
+    </div>
+    <ul>
+      <li><a href="/en/index.html" data-close>Home</a></li>
+      <li><a href="/en/properties.html" data-close>Properties</a></li>
+      <li><a href="/en/about.html" data-close>About Us</a></li>
+      <li><a href="/en/contact.html" data-close>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden bg-cover bg-center"
+  style="background-image:url('/assets/images/arenal-hero.jpg?w=1920&fmt=webp&q=82')">
+  <div class="backdrop-brightness-75">
+    <div class="mx-auto max-w-6xl px-6 py-24 text-white">
+      <p class="uppercase tracking-widest text-sm opacity-90">Natura Real Estate</p>
+      <h1 class="font-display text-4xl md:text-5xl font-semibold">
+        Let's talk about your next property
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg opacity-95">
+        Write to us or schedule an appointment and let us guide you with professional advice in La Fortuna and surrounding areas.
+      </p>
+      <div class="mt-6 flex gap-3">
+        <a href="#contact" class="btn-primary px-5 py-3 text-white rounded-md">Schedule appointment</a>
+        <a href="https://wa.me/50683018999?text=Hello,%20I%20would%20like%20to%20schedule%20an%20appointment"
+           target="_blank" rel="noopener"
+           class="px-5 py-3 rounded-md bg-white/10 ring-1 ring-white/30 hover:bg-white/20">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main id="contact" class="mx-auto max-w-6xl px-6 pb-16 mt-16">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+    <!-- FORM -->
+    <section class="bg-white p-8 shadow-lg rounded-xl">
+      <h2 class="font-display text-3xl font-semibold text-gray-900 mb-2">Schedule an Appointment</h2>
+      <p class="text-gray-700">
+        Let us guide you in discovering your ideal property.
+        Our specialists are ready to provide personalized advice and show you the best opportunities in La Fortuna.
+      </p>
+
+      <form id="appointmentForm"
+            action="https://formspree.io/f/movkakwl"
+            method="POST"
+            class="space-y-4 mt-6">
+
+        <input type="hidden" name="_language" value="en">
+        <input type="text" name="_gotcha" style="display:none">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input type="text" name="firstName" required class="w-full p-3 border rounded-md" placeholder="First name">
+          <input type="text" name="lastName" required class="w-full p-3 border rounded-md" placeholder="Last name">
+        </div>
+
+        <input type="email" name="email" required class="w-full p-3 border rounded-md" placeholder="Email">
+        <input type="tel" name="phone" class="w-full p-3 border rounded-md" placeholder="Phone">
+
+        <select name="service" required class="w-full p-3 border rounded-md">
+          <option value="">Select a service</option>
+          <option value="buy">Buying property</option>
+          <option value="sell">Selling property</option>
+          <option value="finance">Financial advice</option>
+        </select>
+
+        <textarea name="message" rows="4" required class="w-full p-3 border rounded-md"
+          placeholder="Tell us about your needs..."></textarea>
+
+        <button type="submit" class="w-full btn-primary text-white py-3 rounded-md">
+          Send inquiry
+        </button>
+
+        <p class="text-xs text-gray-500 mt-2">
+          By submitting this form, you agree that Natura Real Estate may process your data to contact you.
+        </p>
+      </form>
+    </section>
+
+    <!-- INFO -->
+    <aside class="space-y-6">
+
+      <!-- Contact card -->
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h3 class="text-2xl font-semibold">Contact Us</h3>
+        <p class="mt-2">La Fortuna · San Carlos · Costa Rica</p>
+
+        <div class="mt-4 space-y-2">
+          <p><strong>Phone:</strong> +506 8301 8999</p>
+          <p><strong>Email:</strong> naturacrre@gmail.com</p>
+          <p><strong>WhatsApp:</strong> Chat now</p>
+        </div>
+
+        <div class="mt-5">
+          <h4 class="font-semibold">Business Hours</h4>
+          <ul class="mt-2">
+            <li>Monday to Friday: 8:00 — 17:00</li>
+            <li>Saturday: 9:00 — 13:00</li>
+            <li>Sunday: By appointment</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/50683018999?text=Hello,%20I%20would%20like%20to%20schedule%20an%20appointment"
+            target="_blank" rel="noopener"
+            class="mt-6 inline-flex w-full items-center justify-center rounded-md border border-green-600 py-3 font-medium text-green-700 hover:bg-green-50">
+            Message us on WhatsApp
+        </a>
+
+      </div>
+
+      <!-- Map -->
+      <div class="bg-white p-0 shadow-md rounded-xl overflow-hidden">
+        <iframe
+          title="Map - Natura Real Estate"
+          src="https://www.google.com/maps?q=La%20Fortuna%20de%20San%20Carlos&output=embed"
+          width="100%" height="250" style="border:0;" loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- FAQ -->
+      <div class="bg-white p-6 shadow-md rounded-xl">
+        <h4 class="font-semibold text-gray-900">Frequently Asked Questions</h4>
+
+        <details class="mt-3">
+          <summary class="cursor-pointer font-medium">Can I schedule a visit the same day?</summary>
+          <p class="mt-2 text-gray-700">Depending on availability. Share your schedule in the form and we will confirm soon.</p>
+        </details>
+
+        <details class="mt-3">
+          <summary class="cursor-pointer font-medium">Do you work with financing?</summary>
+          <p class="mt-2 text-gray-700">We provide guidance and connect you with partners to explore financing options.</p>
+        </details>
+
+        <details class="mt-3">
+          <summary class="cursor-pointer font-medium">Can I sell my property with you?</summary>
+          <p class="mt-2 text-gray-700">Yes. Select “Selling property” in the form and share the details.</p>
+        </details>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<!-- CTA -->
+<section class="bg-white/60">
+  <div class="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div>
+      <h3 class="font-display text-2xl font-semibold text-gray-900">Ready to take the next step?</h3>
+      <p class="text-gray-700">Send the form or message us on WhatsApp. We respond promptly.</p>
+    </div>
+    <div class="flex gap-3">
+      <a href="#contact" class="btn-primary px-5 py-3 text-white rounded-md">Schedule now</a>
+      <a href="https://wa.me/50683018999" target="_blank"
+         class="px-5 py-3 rounded-md bg-green-600/10 text-green-700 ring-1 ring-green-600/30 hover:bg-green-600/15">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content centered">
+    <img src="/assets/images/natura-logo.png" alt="Natura Real Estate" class="footer-logo">
+
+    <p class="footer-text">Selected properties in La Fortuna and surrounding areas.</p>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/realestatenatura"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+    </div>
+
+    <div class="footer-contact">
+      <p><strong>La Fortuna · Costa Rica</strong></p>
+      <p>
+        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
+        <a href="https://wa.me/50683018999">WhatsApp: +506 8301 8999</a>
+      </p>
+    </div>
+
+    <p class="footer-bottom">© 2025 Natura Real Estate · All rights reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>

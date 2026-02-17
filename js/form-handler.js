@@ -1,7 +1,11 @@
-// === 📋 FORM-HANDLER.JS ===
+// === 📋 FORM-HANDLER.JS (multilenguaje) ===
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('appointmentForm');
   if (!form) return;
+
+  // Pequeño wrapper para usar t(...) si existe, o texto por defecto si no
+  const hasT = typeof window !== 'undefined' && typeof window.t === 'function';
+  const translate = (key, fallback) => (hasT ? window.t(key) : fallback);
 
   // Elementos auxiliares
   const submitBtn = form.querySelector('.submit-btn') || form.querySelector('button[type="submit"]');
@@ -26,10 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Validación simple
     const formData = new FormData(form);
-    const requiredFields = ['firstName', 'lastName', 'email']; // phone ya no lo marcamos obligatorio si no quieres
+    const requiredFields = ['firstName', 'lastName', 'email']; // phone no obligatorio
     for (const field of requiredFields) {
       if (!String(formData.get(field) || '').trim()) {
-        alert('Por favor complete todos los campos obligatorios.');
+        alert(
+          translate(
+            'formRequiredFields',
+            'Por favor complete todos los campos obligatorios.'
+          )
+        );
         return;
       }
     }
@@ -37,10 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // UX: estado y botón
     const originalHTML = submitBtn ? submitBtn.innerHTML : null;
     if (submitBtn) {
-      submitBtn.innerHTML = '<span>Enviando…</span><div class="btn-icon">⏳</div>';
+      submitBtn.innerHTML = '<span>' +
+        translate('formSending', 'Enviando…') +
+        '</span><div class="btn-icon">⏳</div>';
       submitBtn.disabled = true;
     }
-    statusEl.textContent = 'Enviando…';
+    statusEl.textContent = translate('formSending', 'Enviando…');
 
     try {
       const res = await fetch(form.action, {
@@ -51,14 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res.ok) {
         form.reset();
-        statusEl.textContent = '¡Gracias! Hemos recibido su solicitud. Nos pondremos en contacto pronto.';
+        statusEl.textContent = translate(
+          'formSuccess',
+          '¡Gracias! Hemos recibido su solicitud. Nos pondremos en contacto pronto.'
+        );
       } else {
         const err = await res.json().catch(() => ({}));
-        const msg = err?.errors?.[0]?.message || 'Hubo un problema al enviar. Intente de nuevo.';
+        const fallbackMsg = translate(
+          'formGenericError',
+          'Hubo un problema al enviar. Intente de nuevo.'
+        );
+        const msg = err?.errors?.[0]?.message || fallbackMsg;
         statusEl.textContent = msg;
       }
     } catch (err) {
-      statusEl.textContent = 'Error de red. Revise su conexión e intente nuevamente.';
+      statusEl.textContent = translate(
+        'formNetworkError',
+        'Error de red. Revise su conexión e intente nuevamente.'
+      );
     } finally {
       if (submitBtn && originalHTML !== null) {
         submitBtn.innerHTML = originalHTML;
