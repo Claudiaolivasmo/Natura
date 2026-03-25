@@ -43,46 +43,74 @@
 <!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
-
+    
+    <!-- Logo -->
     <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
-      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
-           alt="Natura Real Estate Logo" width="150" height="50" loading="lazy">
+      <img
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        alt="Natura Real Estate Logo"
+        width="150"
+        height="50"
+        loading="lazy"
+        decoding="async">
     </a>
 
+    <!-- Desktop navigation -->
     <nav class="nav" aria-label="Main">
       <ul>
         <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
         <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
+        <li>
+          <a href="/en/property-management.html" data-i18n="navManagement">
+            Property Management
+          </a>
+        </li>
         <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
         <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
       </ul>
     </nav>
 
+    <!-- Language switch -->
     <div class="lang-switch">
-      <a href="/contact.html">ES</a>
-      <a href="/en/contact.html">EN</a>
+      <a href="/property-management.html" aria-label="Español">ES</a>
+      <a href="/en/property-management.html" aria-label="English">EN</a>
     </div>
 
-    <button class="hamburger" id="hamburger" aria-controls="navMobile" aria-expanded="false">
+    <!-- Hamburger button -->
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-controls="navMobile"
+      aria-expanded="false"
+      aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
+
   </div>
 
-  <!-- Mobile -->
-  <nav class="nav-mobile" id="navMobile" hidden>
+  <!-- Mobile menu -->
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
     <div class="mobile-logo">
-      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
-           alt="Natura Real Estate Logo" width="120" height="40" loading="lazy">
+      <img
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        alt="Natura Real Estate Logo"
+        width="120"
+        height="40"
+        loading="lazy">
     </div>
     <ul>
-      <li><a href="/en/index.html" data-close>Home</a></li>
-      <li><a href="/en/properties.html" data-close>Properties</a></li>
-      <li><a href="/en/about.html" data-close>About Us</a></li>
-      <li><a href="/en/contact.html" data-close>Contact</a></li>
+      <li><a href="/en/index.html" data-close data-i18n="navHome">Home</a></li>
+      <li><a href="/en/properties.html" data-close data-i18n="navProperties">Properties</a></li>
+      <li>
+        <a href="/en/property-management.html" data-close data-i18n="navManagement">
+          Property Management
+        </a>
+      </li>
+      <li><a href="/en/about.html" data-close data-i18n="navAbout">About Us</a></li>
+      <li><a href="/en/contact.html" data-close data-i18n="navContact">Contact</a></li>
     </ul>
   </nav>
 </header>
-
 <!-- HERO -->
 <section class="relative overflow-hidden bg-cover bg-center"
   style="background-image:url('/assets/images/arenal-hero.jpg?w=1920&fmt=webp&q=82')">

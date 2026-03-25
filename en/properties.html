@@ -46,7 +46,7 @@
 <body>
 
   <!-- Header -->
-  <header class="header" id="header">
+<header class="header" id="header">
   <div class="header-inner">
     
     <!-- Logo -->
@@ -65,6 +65,11 @@
       <ul>
         <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
         <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
+        <li>
+          <a href="/en/property-management.html" data-i18n="navManagement">
+            Property Management
+          </a>
+        </li>
         <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
         <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
       </ul>
@@ -72,8 +77,8 @@
 
     <!-- Language switch -->
     <div class="lang-switch">
-      <a href="/index.html" aria-label="Spanish">ES</a>
-      <a href="/en/index.html" aria-label="English">EN</a>
+      <a href="/property-management.html" aria-label="Español">ES</a>
+      <a href="/en/property-management.html" aria-label="English">EN</a>
     </div>
 
     <!-- Hamburger button -->
@@ -91,20 +96,26 @@
   <!-- Mobile menu -->
   <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
     <div class="mobile-logo">
-      <img src="/assets/images/natura_realestate_color_footer_600x200.png"
-           alt="Natura Real Estate Logo"
-           width="120"
-           height="40"
-           loading="lazy">
+      <img
+        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        alt="Natura Real Estate Logo"
+        width="120"
+        height="40"
+        loading="lazy">
     </div>
     <ul>
-      <li><a href="/en/index.html" data-close>Home</a></li>
-      <li><a href="/en/properties.html" data-close>Properties</a></li>
-      <li><a href="/en/about.html" data-close>About Us</a></li>
-      <li><a href="/en/contact.html" data-close>Contact</a></li>
+      <li><a href="/en/index.html" data-close data-i18n="navHome">Home</a></li>
+      <li><a href="/en/properties.html" data-close data-i18n="navProperties">Properties</a></li>
+      <li>
+        <a href="/en/property-management.html" data-close data-i18n="navManagement">
+          Property Management
+        </a>
+      </li>
+      <li><a href="/en/about.html" data-close data-i18n="navAbout">About Us</a></li>
+      <li><a href="/en/contact.html" data-close data-i18n="navContact">Contact</a></li>
     </ul>
   </nav>
-  </header>
+</header>
 
   <!-- Breadcrumb -->
   <nav class="breadcrumb">

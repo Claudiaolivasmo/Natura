@@ -1,0 +1,556 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Administración de Propiedades en La Fortuna | Natura Real Estate</title>
+  <meta
+    name="description"
+    content="Natura Real Estate ofrece administración profesional de propiedades en La Fortuna, Costa Rica. Gestión premium de alquiler vacacional, concierge, atención al huésped, mantenimiento y optimización de ingresos."
+  />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.realestatenatura.com/property-management.html" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Administración de Propiedades en La Fortuna | Natura Real Estate" />
+  <meta
+    property="og:description"
+    content="Gestión premium de propiedades en La Fortuna con concierge, atención al huésped, coordinación de mantenimiento y optimización de ingresos."
+  />
+  <meta property="og:url" content="https://www.realestatenatura.com/property-management.html" />
+  <meta property="og:image" content="https://www.realestatenatura.com/img/og/property-management.jpg?w=1200&fmt=jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/animation.css" />
+  <link rel="stylesheet" href="/css/property-management.css" />
+
+  <!-- Tailwind optional -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+
+      <a href="/index.html" class="logo" aria-label="Natura Real Estate">
+        <img
+          src="/assets/images/natura_realestate_color_footer_600x200.png"
+          alt="Logo de Natura Real Estate"
+          width="150"
+          height="50"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/properties.html">Propiedades</a></li>
+          <li><a href="/property-management.html" aria-current="page">Administración de Propiedades</a></li>
+          <li><a href="/about.html">Nosotros</a></li>
+          <li><a href="/contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switch">
+        <a href="/property-management.html" aria-label="Español">ES</a>
+        <a href="/en/property-management.html" aria-label="Inglés">EN</a>
+      </div>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-controls="navMobile"
+        aria-expanded="false"
+        aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+      <div class="mobile-logo">
+        <img
+          src="/assets/images/natura_realestate_color_footer_600x200.png"
+          alt="Logo de Natura Real Estate"
+          width="120"
+          height="40"
+          loading="lazy"
+        />
+      </div>
+      <ul>
+        <li><a href="/index.html" data-close>Inicio</a></li>
+        <li><a href="/properties.html" data-close>Propiedades</a></li>
+        <li><a href="/property-management.html" data-close>Administración de Propiedades</a></li>
+        <li><a href="/about.html" data-close>Nosotros</a></li>
+        <li><a href="/contact.html" data-close>Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="pm-hero">
+    <div class="pm-hero-overlay"></div>
+
+    <div class="pm-hero-inner max-w-7xl mx-auto px-6">
+      <div class="pm-hero-content fade-in">
+        <p class="pm-kicker">Natura Homes</p>
+        <h1>Administración de Propiedades en La Fortuna</h1>
+        <p class="pm-subtitle">
+          Elevamos casas vacacionales y propiedades de inversión mediante una gestión premium,
+          experiencias de huésped cuidadosamente diseñadas, apoyo concierge y un enfoque claro en rentabilidad.
+        </p>
+
+        <div class="pm-hero-buttons">
+          <a href="https://wa.me/50683018999" target="_blank" rel="noopener" class="pm-btn-primary">
+            Contáctanos
+          </a>
+          <a href="#services" class="pm-btn-secondary">
+            Explorar servicios
+          </a>
+        </div>
+
+        <div class="pm-hero-highlights">
+          <span><i class="fa-solid fa-house"></i> Alquileres vacacionales premium</span>
+          <span><i class="fa-solid fa-star"></i> Experiencia de huésped 5 estrellas</span>
+          <span><i class="fa-solid fa-chart-line"></i> Optimización de ingresos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="pm-intro py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center fade-in">
+      <p class="pm-section-tag">Gestión con intención</p>
+      <h2 class="font-display text-4xl text-gray-900 mb-6">
+        Administración profesional para propiedades excepcionales en La Fortuna
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+        Tu propiedad merece más que una administración básica. En Natura Homes,
+        combinamos hospitalidad, operación, presentación y conocimiento local para proteger
+        tu inversión, mejorar su desempeño y ofrecer una experiencia impecable a cada huésped.
+      </p>
+    </div>
+  </section>
+
+  <!-- Value cards -->
+  <section class="pm-value py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <article class="pm-card fade-in">
+          <div class="pm-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>Gestión completa de reservas</h3>
+          <p>
+            Administramos consultas, reservas, coordinación de calendario, comunicación con huéspedes
+            y desempeño del anuncio en las principales plataformas.
+          </p>
+        </article>
+
+        <article class="pm-card fade-in">
+          <div class="pm-card-icon"><i class="fa-solid fa-concierge-bell"></i></div>
+          <h3>Experiencia concierge</h3>
+          <p>
+            Ayudamos a los huéspedes a disfrutar La Fortuna con atención personalizada, guía local
+            y recomendaciones cuidadosamente seleccionadas que elevan su estadía.
+          </p>
+        </article>
+
+        <article class="pm-card fade-in">
+          <div class="pm-card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3>Coordinación de mantenimiento</h3>
+          <p>
+            Coordinamos limpieza, inspecciones, reposición y necesidades de mantenimiento para mantener
+            tu propiedad lista para recibir huéspedes y bien protegida.
+          </p>
+        </article>
+
+        <article class="pm-card fade-in">
+          <div class="pm-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <h3>Optimización de ingresos</h3>
+          <p>
+            Apoyamos la estrategia de precios, el posicionamiento y la presentación para que tu propiedad
+            alcance su máximo potencial.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Natura -->
+  <section class="pm-why py-24 bg-[#1F3D2B] text-white">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-in">
+        <p class="pm-section-tag pm-section-tag-light">Por qué los propietarios eligen Natura</p>
+        <h2 class="font-display text-4xl mb-6">
+          Cuidamos tu propiedad como un activo premium de hospitalidad
+        </h2>
+        <p class="text-lg text-gray-200 leading-relaxed mb-8">
+          Nuestro enfoque combina conocimiento inmobiliario, hospitalidad centrada en el huésped
+          y supervisión operativa local. No solo administramos una casa. Protegemos una marca,
+          una reputación y una inversión.
+        </p>
+
+        <ul class="pm-check-list">
+          <li>Comunicación clara y acompañamiento al propietario</li>
+          <li>Experiencia de huésped cuidada desde la consulta hasta el check-out</li>
+          <li>Altos estándares de presentación en anuncios y operación en sitio</li>
+          <li>Atención al detalle en cada paso operativo</li>
+          <li>Presencia local y conocimiento de la hospitalidad en La Fortuna</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="pm-services py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+        <p class="pm-section-tag">Nuestros servicios</p>
+        <h2 class="font-display text-4xl text-gray-900 mb-5">
+          Soluciones integrales de administración de propiedades
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Desde la creación del anuncio hasta la atención continua al huésped y la coordinación de mantenimiento,
+          nuestro modelo de gestión está diseñado para brindar tranquilidad al propietario y una experiencia elevada al huésped.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <article class="pm-service-box fade-in">
+          <h3>Creación y optimización de anuncios</h3>
+          <p>
+            Ayudamos a presentar tu propiedad con un posicionamiento sólido, descripciones cuidadas,
+            coherencia visual y una estructura lista para plataformas.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Gestión de reservas</h3>
+          <p>
+            Nos encargamos de consultas, coordinación de reservas, comunicación previa a la llegada
+            y mensajería con huéspedes durante toda la estadía.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Experiencia y apoyo al huésped</h3>
+          <p>
+            Creamos una experiencia fluida y cálida con guía de check-in, apoyo durante la estadía,
+            recomendaciones locales y comunicación enfocada en hospitalidad.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Servicios de concierge</h3>
+          <p>
+            Ayudamos a los huéspedes con tours, transporte, recomendaciones y experiencias locales
+            personalizadas para hacer cada estadía más memorable.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Coordinación de limpieza y cambios</h3>
+          <p>
+            Coordinamos horarios de limpieza, preparación entre reservas y reposición para asegurar
+            que la propiedad siempre esté lista para la próxima llegada.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Supervisión de mantenimiento</h3>
+          <p>
+            Identificamos necesidades, coordinamos reparaciones y damos seguimiento a temas que puedan afectar
+            la satisfacción del huésped o el estado de la propiedad.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Reportes y comunicación con propietarios</h3>
+          <p>
+            Mantenemos a los propietarios informados con actualizaciones claras, visibilidad operativa
+            y apoyo cuando es necesario tomar decisiones.
+          </p>
+        </article>
+
+        <article class="pm-service-box fade-in">
+          <h3>Estrategia enfocada en rendimiento</h3>
+          <p>
+            Apoyamos el potencial de ocupación e ingresos mediante una dirección estratégica de precios,
+            presentación y calidad de servicio.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="pm-process py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+        <p class="pm-section-tag">Cómo funciona</p>
+        <h2 class="font-display text-4xl text-gray-900 mb-5">
+          Un proceso claro y profesional
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Mantenemos la experiencia organizada desde el inicio para que tu propiedad sea administrada
+          con claridad, consistencia y altos estándares.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <article class="pm-step fade-in">
+          <span class="pm-step-number">01</span>
+          <h3>Evaluación de la propiedad</h3>
+          <p>Analizamos la propiedad, su potencial, necesidades, posicionamiento y requerimientos operativos.</p>
+        </article>
+
+        <article class="pm-step fade-in">
+          <span class="pm-step-number">02</span>
+          <h3>Estrategia y configuración</h3>
+          <p>Organizamos la presentación del anuncio, sistemas, flujo del huésped y estructura del servicio.</p>
+        </article>
+
+        <article class="pm-step fade-in">
+          <span class="pm-step-number">03</span>
+          <h3>Lanzamiento y gestión</h3>
+          <p>Supervisamos reservas, comunicación con huéspedes, cambios de estadía y coordinación local.</p>
+        </article>
+
+        <article class="pm-step fade-in">
+          <span class="pm-step-number">04</span>
+          <h3>Optimización y acompañamiento</h3>
+          <p>Seguimos refinando el rendimiento y apoyando la propiedad con una visión de largo plazo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="pm-ideal py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+      <div class="fade-in">
+        <p class="pm-section-tag">Ideal para</p>
+        <h2 class="font-display text-4xl text-gray-900 mb-6">
+          Para quién está diseñado este servicio
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+          Nuestro servicio de administración es ideal para propietarios que buscan una presentación sólida,
+          operaciones confiables y una mejor experiencia para el huésped sin tener que encargarse de cada detalle.
+        </p>
+
+        <ul class="pm-check-list pm-check-list-dark">
+          <li>Propietarios de alquiler vacacional</li>
+          <li>Villas de lujo y alojamientos boutique</li>
+          <li>Propietarios que viven fuera de la zona o en el extranjero</li>
+          <li>Inversionistas que buscan supervisión profesional</li>
+          <li>Propietarios que desean una presencia de marca más premium</li>
+        </ul>
+      </div>
+
+      <div class="pm-benefits-box fade-in">
+        <h3>Lo que gana el propietario</h3>
+        <div class="pm-benefit-item">
+          <strong>Más tranquilidad</strong>
+          <p>Con coordinación local y una estructura confiable de apoyo al huésped.</p>
+        </div>
+        <div class="pm-benefit-item">
+          <strong>Mayor satisfacción del huésped</strong>
+          <p>Mediante comunicación atenta, hospitalidad y apoyo concierge.</p>
+        </div>
+        <div class="pm-benefit-item">
+          <strong>Mayor consistencia en la propiedad</strong>
+          <p>Con limpieza, mantenimiento y preparación gestionados de manera más profesional.</p>
+        </div>
+        <div class="pm-benefit-item">
+          <strong>Mejor potencial de ingresos</strong>
+          <p>Gracias a un posicionamiento estratégico y una gestión orientada al rendimiento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pm-cta py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+      <p class="pm-section-tag pm-section-tag-light">Conversemos</p>
+      <h2 class="font-display text-5xl text-white mb-6">
+        ¿Listo para elevar tu propiedad en La Fortuna?
+      </h2>
+      <p class="text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto mb-10">
+        Deja que Natura Homes administre tu propiedad con cuidado, intención y una mentalidad premium de hospitalidad
+        diseñada tanto para propietarios como para huéspedes.
+      </p>
+
+      <div class="pm-cta-buttons">
+        <a href="https://wa.me/50683018999" target="_blank" rel="noopener" class="pm-btn-primary">
+          Contactar por WhatsApp
+        </a>
+        <a href="/contact.html" class="pm-btn-outline-light">
+          Solicitar información
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section class="pm-form-section py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-6 fade-in">
+      <div class="text-center mb-12">
+        <p class="pm-section-tag">Consulta para propietarios</p>
+        <h2 class="font-display text-4xl text-gray-900 mb-4">
+          Cuéntanos sobre tu propiedad
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Comparte algunos detalles y nos pondremos en contacto para conversar sobre cómo podemos apoyarte.
+        </p>
+      </div>
+
+      <form
+        id="propertyManagementForm"
+        action="https://formspree.io/f/mpqoarqa"
+        method="POST"
+        class="pm-form"
+      >
+        <input type="hidden" name="formulario" value="Consulta de administración de propiedades - Natura Real Estate" />
+        <input type="hidden" name="_subject" value="Nueva consulta de administración de propiedades desde la web" />
+        <input type="hidden" name="_language" value="es" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="fullName">Nombre completo</label>
+            <input type="text" id="fullName" name="fullName" required placeholder="Tu nombre completo" />
+          </div>
+
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+          </div>
+
+          <div>
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="+506 0000 0000" />
+          </div>
+
+          <div>
+            <label for="propertyType">Tipo de propiedad</label>
+            <select id="propertyType" name="propertyType" required>
+              <option value="">Selecciona un tipo de propiedad</option>
+              <option value="vacation-home">Casa vacacional</option>
+              <option value="villa">Villa</option>
+              <option value="apartment">Apartamento</option>
+              <option value="cabin">Cabaña</option>
+              <option value="other">Otra</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="location">Ubicación de la propiedad</label>
+            <input type="text" id="location" name="location" placeholder="La Fortuna, El Castillo, etc." />
+          </div>
+
+          <div>
+            <label for="rentalGoal">Objetivo principal</label>
+            <select id="rentalGoal" name="rentalGoal">
+              <option value="">Selecciona un objetivo</option>
+              <option value="maximize-income">Maximizar ingresos</option>
+              <option value="reduce-involvement">Reducir involucramiento del propietario</option>
+              <option value="improve-guest-experience">Mejorar la experiencia del huésped</option>
+              <option value="need-full-management">Necesito gestión completa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label for="message">Cuéntanos sobre tu propiedad</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            placeholder="Cantidad de habitaciones, situación actual del alquiler, objetivos y cualquier otro detalle que quieras compartir."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary pm-submit-btn">
+          Enviar consulta
+        </button>
+
+        <p id="form-status" class="text-sm mt-4" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <img
+        src="/assets/images/natura-logo.png"
+        alt="Natura Real Estate"
+        class="footer-logo"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <p class="footer-text">Propiedades seleccionadas y servicios premium en La Fortuna y sus alrededores.</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+          <a href="https://wa.me/50683018999" rel="noopener">WhatsApp: +506 8301 8999</a>
+        </p>
+      </div>
+
+      <p class="footer-bottom">© 2025 Natura Real Estate · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/property-management-form.js" defer></script>
+  <script src="/js/utils.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
+  <script src="/js/header.js" defer></script>
+</body>
+</html>
+
