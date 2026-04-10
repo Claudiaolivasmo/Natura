@@ -21,7 +21,7 @@ if (exploreBtn) {
 const contactBtn = document.getElementById('contactBtn');
 if (contactBtn) {
   contactBtn.addEventListener('click', () => {
-    window.location.href = 'tel:+50683018999';
+    window.location.href = 'tel:+50685675060';
   });
 }
 

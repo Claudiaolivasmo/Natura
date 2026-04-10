@@ -439,7 +439,7 @@ window.selectImage = selectImage;
 // ───────────── Contacto / WhatsApp / Formspree (sin cambios)
 function getWhatsNumber() {
   const box = document.querySelector('.contact-agent');
-  const raw = box?.dataset?.whatsapp || '50683018999';
+  const raw = box?.dataset?.whatsapp || '50685675060';
   return raw.replace(/\D/g, '');
 }
 
