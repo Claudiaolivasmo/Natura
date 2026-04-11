@@ -1,74 +1,55 @@
 [
-  {
-    "id": 2,
-    "slug": "lote-residencial-villa-azul",
-    "type": "lote",
-    "title": "Lote en Residencial Villa Azul",
-    "location": "Agua Azul, La Fortuna",
-    "price": 130000,
-    "priceCRC": 66235000,
-    "currency": "CRC",
-    "lotSize": 1019,
-    "badge": "Financiamiento disponible",
-    "folder": "002-lote-residencial-villa-azul",
-    "images": [
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/1.JPG" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/2.JPG" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/3.JPG" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/4.JPG" },
-      { "src": "/assets/images/properties/002-lote-residencial-villa-azul/5.JPG" }
-    ],
-    "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
-    "geo": { "lat": 10.431228, "lng": -84.601254, "zoom": 15 },
-    "description": [
-      "Este lote de 1.019 m² se ubica en la entrada de Agua Azul, a pocos minutos del centro de La Fortuna.",
-      "Forma parte de un residencial tranquilo y rodeado de naturaleza, con vistas al Volcán Arenal y excelente accesibilidad.",
-      "Es ideal para construir una casa de retiro o vacaciones, con la ventaja de contar con financiamiento disponible y cercanía a servicios."
-    ],
-    "features": ["Zona tranquila","Entorno natural","Acceso por calle pública","Agua disponible","Electricidad disponible","Vista al volcán","Cercanía a servicios","Oportunidad de inversión","Financiamiento disponible"]
-  },
 
   {
-    "id": 3,
-    "slug": "villa-el-manzano",
-    "type": "casa",
-    "title": "Villa El Manzano",
-    "location": "Chachagua, San Ramón",
-    "price": 157000,
-    "priceCRC": 80000000,
-    "currency": "CRC",
-    "constructionSize": 140,
-    "lotSize": 1109,
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "totalRooms": 2,
-    "floors": 1,
-    "yearBuilt": 2023,
-    "parking": 2,
-    "badge": "Destacado",
-    "folder": "001-villa-el-manzano",
-    "images": [
-      { "src": "/assets/images/properties/001-villa-el-manzano/1.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/2.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/3.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/4.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/5.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/6.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/7.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/8.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/9.jpeg" },
-      { "src": "/assets/images/properties/001-villa-el-manzano/10.jpeg" }
-    ],
-    "utilities": { "water": true, "electricity": true, "internet": true, "publicRoad": true },
-    "geo": { "lat": 10.4705, "lng": -84.6408, "zoom": 15 },
-    "description": [
-      "Villa El Manzano es una encantadora propiedad ubicada en un terreno esquinero de 1.109 m², con una construcción de 140 m².",
-      "Cuenta con 2 dormitorios y 2 baños, brindando comodidad y un ambiente acogedor.",
-      "Entre sus amenidades destacan un rancho BBQ, cochera, bodega, accesos separados con portones y amplias áreas verdes con jardines y árboles frutales.",
-      "A tan solo 50 metros del río Chachaguita, es una excelente alternativa de inversión para residencia familiar o renta vacacional."
-    ],
-    "features": ["2 dormitorios","2 baños completos","Construcción de 140 m²","Lote de 1.109 m²","1 piso","Año 2023","Rancho BBQ","Cochera","Bodega","Jardines y árboles frutales","Cercas vivas"]
+  "id": 1,
+  "slug": "lote-posada-del-rio",
+  "type": "lote",
+  "subcategory": "residencial",
+  "title": "Lote en Ecoquintas Posada del Río",
+  "location": "INVU de Peñas Blancas, La Fortuna",
+  "price": 16000000,
+  "priceCRC": 16000000,
+  "currency": "CRC",
+  "lotSize": 583,
+  "status": "Disponible",
+  "negotiable": true,
+  "folder": "ARE-PEN-LT-0001_lote-posada-del-rio",
+  "images": [
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/1.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/2.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/3.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/4.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/5.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/6.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/7.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/8.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/9.png" },
+    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/10.png" }
+  ],
+  "utilities": {
+    "water": true,
+    "electricity": true,
+    "internet": true,
+    "publicRoad": true
   },
+  "description": [
+    "Hermoso lote residencial de 583 m² ubicado en Ecoquintas Posada del Río, uno de los residenciales con entorno natural más atractivo de la zona.",
+    "Rodeado de ríos cristalinos, fauna silvestre y vegetación exuberante, ofrece una experiencia única para construir una vivienda, cabaña vacacional o proyecto de inversión.",
+    "Se encuentra en el INVU de Peñas Blancas, a solo 17 km de La Fortuna, en una zona de alta plusvalía rodeada de proyectos turísticos.",
+    "Ideal para quienes buscan tranquilidad, naturaleza y excelente potencial de crecimiento patrimonial."
+  ],
+  "features": [
+    "583 m²",
+    "Rodeado de ríos cristalinos",
+    "Fauna silvestre y naturaleza exuberante",
+    "Zona residencial tranquila",
+    "Excelente acceso",
+    "A solo 17 km de La Fortuna",
+    "Alta plusvalía",
+    "Ideal para vivienda o inversión"
+  ]
+},
+
   {
   "id": 4,
   "slug": "lotes-la-perla-la-fortuna",
@@ -122,74 +103,8 @@
   ]
 },
 
-  {
-  "id": 5,
-  "slug": "lote-sonafluca",
-  "type": "lote",
-  "title": "Lote en Sona Fluca",
-  "location": "Sonafluca, La Fortuna",
-  "price": 58000,
-  "priceCRC": 30000000,
-  "currency": "CRC",
-  "lotSize": 1000,
-  "badge": "Nuevo",
-  "folder": "005-lote-sona-fluca",
-  "images": [
-    { "src": "/assets/images/properties/005-lote-sona-fluca/1.JPG" },
-    { "src": "/assets/images/properties/005-lote-sona-fluca/2.JPG" },
-    { "src": "/assets/images/properties/005-lote-sona-fluca/3.JPG" },
-    { "src": "/assets/images/properties/005-lote-sona-fluca/4.png" }
-  ],
-  "description": [
-    "Este lote de 1.000 m² se encuentra en la tranquila comunidad de Sona Fluca, a pocos minutos de La Fortuna.",
-    "Con acceso a electricidad disponible y su excelente ubicación, representa una gran oportunidad en una zona de alta plusvalía."
-  ],
-  "utilities": {
-    "water": false,
-    "electricity": true,
-    "closeToFortuna": true
-  },
-  "features": ["Zona tranquila","Acceso por calle pública","Electricidad disponible","Internet disponible","Pendiente servicio de agua"],
-  "status": "disponible"
-},
 
-{
-  "id": 6,
-  "slug": "lote-3-esquinas",
-  "type": "lote",
-  "title": "Lote Tres Esquinas",
-  "registryNumber": 328372,
-  "location": "Tres Esquinas, La Fortuna",
-  "price": 103000,
-  "priceCRC": 52500000,
-  "currency": "CRC",
-  "lotSize": 1694.48,
-  "badge": "Nuevo",
-  "folder": "006-lote-3-esquinas",
-  "images": [
-    { "src": "/assets/images/properties/006-lote-3-esquinas/1.jpg" },
-    { "src": "/assets/images/properties/006-lote-3-esquinas/2.jpg" },
-    { "src": "/assets/images/properties/006-lote-3-esquinas/3.jpg" }
-  ],
-  "utilities": {
-    "water": true,
-    "electricity": true,
-    "internet": true,
-    "road": "Asfaltada"
-  },
-  "features": [
-    "Terreno amplio de 1.694,48 m²",
-    "Ubicación estratégica en 3 esquinas",
-    "Acceso directo por calle asfaltada",
-    "Disponibilidad de agua potable",
-    "Zona tranquila y de alta plusvalía"
-  ],
-  "description": [
-    "Este lote de 1.694,48 m² se encuentra en una ubicación estratégica de Santa Lucía, a tan solo 1 km de la Escuela Santa Lucía.",
-    "Cuenta con disponibilidad de agua, electricidad, internet y acceso directo por calle asfaltada.",
-    "Ideal para construcción de vivienda o desarrollo residencial en una zona de alta plusvalía y fácil acceso."
-  ]
-},
+
 
 {
   "id": 7,
@@ -416,51 +331,6 @@
     "Posibilidad de venta parcial (5.000 m²)",
     "Ideal para proyectos turísticos, agrícolas o ganaderos",
     "Ubicada en zona tranquila y segura"
-  ]
-},
-{
-  "id": 12,
-  "slug": "lote-san-jose-la-tigra",
-  "type": "lote",
-  "subcategory": "residencial",
-  "title": "Lote en San José de La Tigra",
-  "location": "San José, La Tigra",
-  "price": 19000000,
-  "priceCRC": 19000000,
-  "currency": "CRC",
-  "lotSize": 1115,
-  "status": "Disponible",
-  "negotiable": false,
-  "folder": "ARE-LAT-LT-0001_lote-la-tigra",
-  "images": [
-    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/1.png" },
-    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/2.png" },
-    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/3.png" },
-    { "src": "/assets/images/properties/ARE-LAT-LT-0001_lote-la-tigra/4.png" }
-  ],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
-  },
-  "geo": { 
-    "lat": 10.364, 
-    "lng": -84.553, 
-    "zoom": 15 
-  },
-  "description": [
-    "Lote de 1.115 m² ubicado en San José de La Tigra, una zona rodeada de naturaleza y vegetación exuberante.",
-    "La propiedad cuenta con acceso por calle de lastre y dispone de todos los servicios públicos esenciales: agua, electricidad e internet.",
-    "Su entorno tranquilo la convierte en una excelente opción para desarrollar un proyecto turístico o una vivienda en medio de un ambiente natural y seguro, a pocos minutos del centro de La Tigra."
-  ],
-  "features": [
-    "1.115 m² de terreno",
-    "Acceso por calle de lastre",
-    "Zona tranquila y segura",
-    "Entorno rodeado de naturaleza",
-    "Disponibilidad de todos los servicios públicos",
-    "Ideal para vivienda o proyecto turístico"
   ]
 },
 {
