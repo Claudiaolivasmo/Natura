@@ -71,9 +71,9 @@
     { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/4.png" }
   ],
   "lotsAvailable": [
-    { "size": 235, "unit": "m²", "priceCRC": 10000000 },
-    { "size": 235, "unit": "m²", "priceCRC": 10000000 },
-    { "size": 234, "unit": "m²", "priceCRC": 10000000 }
+    { "size": 235, "unit": "m²", "priceCRC": 8750000 },
+    { "size": 235, "unit": "m²", "priceCRC": 8750000 },
+    { "size": 234, "unit": "m²", "priceCRC": 8750000 }
   ],
   "utilities": { 
     "water": true, 
@@ -102,9 +102,6 @@
     "Ideal para vivienda o inversión local"
   ]
 },
-
-
-
 
 {
   "id": 7,
