@@ -198,12 +198,12 @@
   "lotSize": 300,
   "builtSize": 60,
   "badge": "Proyecto para inversión",
-  "folder": "005-lote-el-tanque",
+  "folder": "ARE-ELT-LT-0002_lote-el-tanque",
   "images": [
-    { "src": "/assets/images/properties/009-lote-el-tanque/1.png" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/2.JPG" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/3.png" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/4.jpg" }
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/1.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/2.JPG" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/3.png" },
+    { "src": "/assets/images/properties/ARE-ELT-LT-0002_lote-el-tanque/4.jpg" }
   ],
   "videos": [],
   "utilities": { 
@@ -334,7 +334,7 @@
   "subcategory": "residencial",
   "title": "Lote a 2 Km del centro de La Fortuna",
   "location": "Barrio Sanchal, La Fortuna",
-  "price": 45000000,
+  "price": 99000,
   "priceCRC": 45000000,
   "currency": "CRC",
   "lotSize": 753,
