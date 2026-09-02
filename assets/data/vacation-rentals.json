@@ -36,14 +36,12 @@
       "Jardín amplio con árboles"
     ],
     "images": [
-      "/assets/images/vacation-rentals/aurora-serenity-home/1.JPG",
-      "/assets/images/vacation-rentals/aurora-serenity-home/2.JPG",
-      "/assets/images/vacation-rentals/aurora-serenity-home/3.JPG",
-      "/assets/images/vacation-rentals/aurora-serenity-home/4.JPG",
-      "/assets/images/vacation-rentals/aurora-serenity-home/5.JPG"
-    ],
-    "tagline": "Casa familiar con piscina y vista parcial al Arenal",
-    "shortDescription": "Casa de cuatro habitaciones para hasta diez huéspedes, con piscina privada, terraza y área de BBQ en El Tanque de La Fortuna."
+      "/assets/images/vacation-rentals/aurora-serenity-home/1.jpg",
+      "/assets/images/vacation-rentals/aurora-serenity-home/2.jpg",
+      "/assets/images/vacation-rentals/aurora-serenity-home/3.jpg",
+      "/assets/images/vacation-rentals/aurora-serenity-home/4.jpg",
+      "/assets/images/vacation-rentals/aurora-serenity-home/5.jpg"
+    ]
   },
   {
     "slug": "volterra-house",
@@ -81,19 +79,17 @@
     ],
     "images": [
       "/assets/images/vacation-rentals/volterra-house/1.avif",
-      "/assets/images/vacation-rentals/volterra-house/2.JPG",
-      "/assets/images/vacation-rentals/volterra-house/3.JPG",
-      "/assets/images/vacation-rentals/volterra-house/4.JPG",
-      "/assets/images/vacation-rentals/volterra-house/5.JPG",
-      "/assets/images/vacation-rentals/volterra-house/6.JPG",
-      "/assets/images/vacation-rentals/volterra-house/7.JPG",
-      "/assets/images/vacation-rentals/volterra-house/8.JPG",
-      "/assets/images/vacation-rentals/volterra-house/9.JPG",
-      "/assets/images/vacation-rentals/volterra-house/10.JPG",
-      "/assets/images/vacation-rentals/volterra-house/11.JPG",
-      "/assets/images/vacation-rentals/volterra-house/12.JPG"
-    ],
-    "tagline": "Dos habitaciones y ducha exterior cerca de La Fortuna",
-    "shortDescription": "Casa de dos habitaciones con camas king, balcón privado y ducha exterior, a 2 km del Parque Central de La Fortuna."
+      "/assets/images/vacation-rentals/volterra-house/2.jpg",
+      "/assets/images/vacation-rentals/volterra-house/3.jpg",
+      "/assets/images/vacation-rentals/volterra-house/4.jpg",
+      "/assets/images/vacation-rentals/volterra-house/5.jpg",
+      "/assets/images/vacation-rentals/volterra-house/6.jpg",
+      "/assets/images/vacation-rentals/volterra-house/7.jpg",
+      "/assets/images/vacation-rentals/volterra-house/8.jpg",
+      "/assets/images/vacation-rentals/volterra-house/9.jpg",
+      "/assets/images/vacation-rentals/volterra-house/10.jpg",
+      "/assets/images/vacation-rentals/volterra-house/11.jpg",
+      "/assets/images/vacation-rentals/volterra-house/12.jpg"
+    ]
   }
 ]
