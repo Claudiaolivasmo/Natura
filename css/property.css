@@ -221,44 +221,6 @@ html, body {
 }
 .thumbnail{ position:relative; }
 
-
-/* =========================================================
-   Botones
-========================================================= */
-.btn-primary,
-.btn-secondary {
-  padding: 1rem 2rem;
-  font-family: var(--font-text);
-  font-size: 1rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-.btn-primary {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-}
-.btn-primary:hover {
-  background: var(--main-color);
-  transform: translateY(-2px);
-}
-.btn-secondary {
-  background: transparent;
-  color: var(--main-color);
-  border: 2px solid var(--main-color);
-}
-.btn-secondary:hover {
-  background: var(--main-color);
-  color: #fff;
-}
-
 /* =========================================================
    Tabs & Descripción
 ========================================================= */

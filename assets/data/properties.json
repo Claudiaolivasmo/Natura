@@ -1,422 +1,545 @@
 [
-
   {
-  "id": 1,
-  "slug": "lote-posada-del-rio",
-  "type": "lote",
-  "subcategory": "residencial",
-  "title": "Lote en Ecoquintas Posada del Río",
-  "location": "INVU de Peñas Blancas, La Fortuna",
-  "price": 35000,
-  "priceCRC": 16000000,
-  "currency": "CRC",
-  "lotSize": 583,
-  "status": "Disponible",
-  "negotiable": true,
-  "folder": "ARE-PEN-LT-0001_lote-posada-del-rio",
-  "images": [
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/1.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/2.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/3.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/4.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/5.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/6.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/7.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/8.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/9.png" },
-    { "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/10.png" }
-  ],
-  "utilities": {
-    "water": true,
-    "electricity": true,
-    "internet": true,
-    "publicRoad": true
+    "id": 1,
+    "slug": "lote-posada-del-rio",
+    "type": "lote",
+    "subcategory": "residencial",
+    "title": "Lote en Ecoquintas Posada del Río",
+    "location": "INVU de Peñas Blancas, La Fortuna",
+    "price": 35000,
+    "priceCRC": 16000000,
+    "currency": "CRC",
+    "lotSize": 583,
+    "status": "Disponible",
+    "negotiable": true,
+    "folder": "ARE-PEN-LT-0001_lote-posada-del-rio",
+    "images": [
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/1.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/2.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/3.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/4.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/5.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/6.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/7.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/8.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/9.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-PEN-LT-0001_lote-posada-del-rio/10.png"
+      }
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": true,
+      "publicRoad": true
+    },
+    "description": [
+      "Hermoso lote residencial de 583 m² ubicado en Ecoquintas Posada del Río, uno de los residenciales con entorno natural más atractivo de la zona.",
+      "Rodeado de ríos cristalinos, fauna silvestre y vegetación exuberante, ofrece una experiencia única para construir una vivienda, cabaña vacacional o proyecto de inversión.",
+      "Se encuentra en el INVU de Peñas Blancas, a solo 17 km de La Fortuna, en una zona de alta plusvalía rodeada de proyectos turísticos.",
+      "Ideal para quienes buscan tranquilidad, naturaleza y excelente potencial de crecimiento patrimonial."
+    ],
+    "features": [
+      "583 m²",
+      "Rodeado de ríos cristalinos",
+      "Fauna silvestre y naturaleza exuberante",
+      "Zona residencial tranquila",
+      "Excelente acceso",
+      "A solo 17 km de La Fortuna",
+      "Alta plusvalía",
+      "Ideal para vivienda o inversión"
+    ],
+    "alternateSlug": "lot-posada-del-rio",
+    "alternateId": 1
   },
-  "description": [
-    "Hermoso lote residencial de 583 m² ubicado en Ecoquintas Posada del Río, uno de los residenciales con entorno natural más atractivo de la zona.",
-    "Rodeado de ríos cristalinos, fauna silvestre y vegetación exuberante, ofrece una experiencia única para construir una vivienda, cabaña vacacional o proyecto de inversión.",
-    "Se encuentra en el INVU de Peñas Blancas, a solo 17 km de La Fortuna, en una zona de alta plusvalía rodeada de proyectos turísticos.",
-    "Ideal para quienes buscan tranquilidad, naturaleza y excelente potencial de crecimiento patrimonial."
-  ],
-  "features": [
-    "583 m²",
-    "Rodeado de ríos cristalinos",
-    "Fauna silvestre y naturaleza exuberante",
-    "Zona residencial tranquila",
-    "Excelente acceso",
-    "A solo 17 km de La Fortuna",
-    "Alta plusvalía",
-    "Ideal para vivienda o inversión"
-  ]
-},
-
+  
   {
-  "id": 2,
-  "slug": "lotes-la-perla-la-fortuna",
-  "type": "lote",
-  "subcategory": "residencial",
-  "title": "Lotes en La Perla de La Fortuna",
-  "location": "La Perla, La Fortuna",
-  "price": 19500,
-  "priceCRC": 8750000,
-  "currency": "CRC",
-  "lotSize": 235,
-  "status": "Disponible",
-  "negotiable": true,
-  "folder": "ARE-PER-LT-0001_lotes-la-perla",
-  "images": [
-    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/1.png" },
-    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/2.png" },
-    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/3.png" },
-    { "src": "/assets/images/properties/ARE-PER-LT-0001_lotes-la-perla/4.png" }
-  ],
-  "lotsAvailable": [
-    { "size": 235, "unit": "m²", "priceCRC": 8750000 },
-    { "size": 235, "unit": "m²", "priceCRC": 8750000 },
-    { "size": 234, "unit": "m²", "priceCRC": 8750000 }
-  ],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
+    "id": 11,
+    "slug": "loft-condominio-perla-ii",
+    "type": "casa",
+    "title": "Loft en venta en Condominio Perla II",
+    "location": "Condominio Perla II, La Perla, La Fortuna",
+    "price": null,
+    "priceCRC": 68000000,
+    "currency": "CRC",
+    "lotSize": null,
+    "builtSize": null,
+    "bedrooms": 1,
+    "bathrooms": 2,
+    "status": "Disponible",
+    "featured": true,
+    "badge": "En venta",
+    "folder": "loft-la-perla",
+    "images": [
+      {
+        "src": "/assets/images/properties/loft-la-perla/1.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/2.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/3.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/4.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/5.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/6.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/7.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/8.jpeg"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/9.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/10.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/11.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/12.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/13.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/14.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/15.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/16.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/17.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/18.avif"
+      },
+      {
+        "src": "/assets/images/properties/loft-la-perla/19.avif"
+      }
+    ],
+    "videos": [],
+    "description": [
+      "Loft de diseño moderno en venta en Condominio Perla II, un condominio privado ubicado en La Perla, La Fortuna.",
+      "La propiedad cuenta con una habitación amplia, dos baños completos, balcón privado y jacuzzi. Dispone de cocina, aire acondicionado, espacio de trabajo y estacionamiento privado.",
+      "El condominio ofrece áreas comunes con piscina, rancho y parque infantil para el disfrute de sus residentes.",
+      "Precio de venta: ₡68.000.000. Contáctenos para obtener más información o coordinar una visita."
+    ],
+    "features": [
+      "Condominio privado",
+      "Una habitación amplia",
+      "Dos baños completos",
+      "Jacuzzi privado",
+      "Balcón privado",
+      "Aire acondicionado",
+      "Espacio de trabajo",
+      "Estacionamiento privado",
+      "Piscina compartida",
+      "Rancho en áreas comunes",
+      "Parque infantil"
+    ],
+    "alternateSlug": "loft-for-sale-perla-ii",
+    "alternateId": 11
   },
-  "geo": { 
-    "lat": 10.411, 
-    "lng": -84.631, 
-    "zoom": 15 
-  },
-  "description": [
-    "Tres lotes ubicados en La Perla de La Fortuna, a 14 km del centro del pueblo: dos de 235 m² y uno de 234 m².",
-    "Cada lote cuenta con árboles frutales y acceso a todos los servicios públicos, en una zona tranquila y rodeada de vegetación.",
-    "Es una excelente opción para locales que deseen construir su vivienda o invertir en una propiedad con buen potencial de crecimiento.",
-    "El precio por lote es de ₡10.000.000, con posibilidad de negociar un mejor valor por la compra conjunta de los tres terrenos."
-  ],
-  "features": [
-    "Lotes de 235 m² y 234 m²",
-    "Árboles frutales",
-    "Acceso a todos los servicios públicos",
-    "Zona residencial tranquila y segura",
-    "A 14 km del centro de La Fortuna",
-    "Precio por lote ₡10.000.000 (negociable por paquete)",
-    "Ideal para vivienda o inversión local"
-  ]
-},
-
-{
-  "id": 3,
-  "slug": "cabinas-zeta-trece",
-  "type": "cabinas",
-  "title": "Propiedad con dos cabinas en Zeta Trece",
-  "location": "Zeta Trece, La Fortuna",
-  "price": 264000,
-  "priceCRC": 120000000,
-  "currency": "CRC",
-  "lotSize": 1100,
-  "builtSize": 80,
-  "badge": "Destacado",
-  "folder": "004-cabinas-zeta-trece",
-  "images": [
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/1.JPG" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/2.JPG" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/3.JPG" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/4.jpg" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/5.png" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/6.jpg" },
-    { "src": "/assets/images/properties/007-cabinas-zeta-trece/7.jpg" }
-  ],
-  "videos": ["/assets/images/properties/007-cabinas-zeta-trece/video.mp4"],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
-  },
-  "geo": { "lat": 10.4702, "lng": -84.6428, "zoom": 15 },
-  "description": [
-    "Excelente oportunidad de inversión en una zona de alta demanda turística. Este terreno de 1.100 m² cuenta con 40 metros lineales frente a la carretera principal, lo que lo hace ideal para un desarrollo turístico o residencial.",
-    "La propiedad incluye dos cabinas de 40 m² cada una, totalmente equipadas y diseñadas para hospedaje tipo Airbnb. Cada unidad cuenta con dos habitaciones, baño completo, área de servicio y espacio integrado de sala y cocina.",
-    "Dispone de una amplia zona libre con potencial para expansión o construcción de nuevas unidades, rodeada de abundante vegetación y con vista directa al majestuoso Volcán Arenal.",
-    "Ubicada en Zeta Trece, muy cerca de la Catarata La Fortuna, termales, restaurantes y otras atracciones turísticas. En la parte trasera colinda con un patio protegido, lo que brinda privacidad y un entorno natural privilegiado."
-  ],
-  "features": [
-    "1.100 m² de terreno",
-    "40 metros de frente a calle principal",
-    "Dos cabinas equipadas de 40 m²",
-    "Ideal para Airbnb o desarrollo turístico",
-    "Vista al Volcán Arenal",
-    "Cercanía a Catarata La Fortuna y termales",
-    "Zona de alta demanda turística"
-  ]
-},
   {
-  "id": 4,
-  "slug": "finca-san-isidro-10ha",
-  "type": "lote",
-  "subcategory": "finca",
-  "title": "Finca en San Isidro de La Fortuna",
-  "location": "San Isidro, La Fortuna",
-  "price": 264000,
-  "priceCRC": 120000000,
-  "currency": "CRC",
-  "lotSize": 10000,
-  "status": "Destacado",
-  "folder": "006-finca-san-isidro",
-  "images": [
-    { "src": "/assets/images/properties/006-finca-san-isidro/1.JPG" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/2.jpeg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/3.jpg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/4.JPG" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/5.jpg" },
-    { "src": "/assets/images/properties/006-finca-san-isidro/6.jpg" }
-  ],
-  "utilities": { "water": true, "electricity": true, "internet": false, "publicRoad": true },
-  "geo": { "lat": 10.475, "lng": -84.65, "zoom": 14 },
-  "description": [
-    "Esta finca de 10 hectáreas se ubica en San Isidro de La Fortuna, a pocos minutos del centro.",
-    "El terreno es amplio y versátil, ideal para desarrollar proyectos de lotificación, agricultura o turismo.",
-    "Cuenta con acceso por calle pública y disponibilidad de agua y electricidad."
-  ],
-  "features": [
-    "10 hectáreas",
-    "Acceso por calle pública",
-    "Agua disponible",
-    "Electricidad disponible",
-    "Ideal para lotificación",
-    "Potencial agrícola y turístico"
-  ]
-},
-{
-  "id": 5,
-  "slug": "lote-con-construccion-el-tanque",
-  "type": "lote",
-  "title": "Lote con Airbnb en proceso en El Tanque",
-  "location": "El Tanque, La Fortuna",
-  "price": 70500,
-  "priceCRC": 32000000,
-  "currency": "CRC",
-  "lotSize": 300,
-  "builtSize": 60,
-  "badge": "Proyecto para inversión",
-  "folder": "009-lote-el-tanque",
-  "images": [
-    { "src": "/assets/images/properties/009-lote-el-tanque/1.png" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/2.JPG" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/3.png" },
-    { "src": "/assets/images/properties/009-lote-el-tanque/4.jpg" }
-  ],
-  "videos": [],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
+    "id": 3,
+    "slug": "cabinas-zeta-trece",
+    "type": "cabinas",
+    "title": "Propiedad con dos cabinas en Zeta Trece",
+    "location": "Zeta Trece, La Fortuna",
+    "price": 264000,
+    "priceCRC": 120000000,
+    "currency": "CRC",
+    "lotSize": 1100,
+    "builtSize": 80,
+    "badge": "Destacado",
+    "folder": "004-cabinas-zeta-trece",
+    "images": [
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/1.JPG"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/2.JPG"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/3.JPG"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/4.jpg"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/5.png"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/6.jpg"
+      },
+      {
+        "src": "/assets/images/properties/007-cabinas-zeta-trece/7.jpg"
+      }
+    ],
+    "videos": [
+      "/assets/images/properties/007-cabinas-zeta-trece/video.mp4"
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": true,
+      "publicRoad": true
+    },
+    "geo": {
+      "lat": 10.4702,
+      "lng": -84.6428,
+      "zoom": 15
+    },
+    "description": [
+      "Excelente oportunidad de inversión en una zona de alta demanda turística. Este terreno de 1.100 m² cuenta con 40 metros lineales frente a la carretera principal, lo que lo hace ideal para un desarrollo turístico o residencial.",
+      "La propiedad incluye dos cabinas de 40 m² cada una, totalmente equipadas y diseñadas para hospedaje tipo Airbnb. Cada unidad cuenta con dos habitaciones, baño completo, área de servicio y espacio integrado de sala y cocina.",
+      "Dispone de una amplia zona libre con potencial para expansión o construcción de nuevas unidades, rodeada de abundante vegetación y con vista directa al majestuoso Volcán Arenal.",
+      "Ubicada en Zeta Trece, muy cerca de la Catarata La Fortuna, termales, restaurantes y otras atracciones turísticas. En la parte trasera colinda con un patio protegido, lo que brinda privacidad y un entorno natural privilegiado."
+    ],
+    "features": [
+      "1.100 m² de terreno",
+      "40 metros de frente a calle principal",
+      "Dos cabinas equipadas de 40 m²",
+      "Ideal para Airbnb o desarrollo turístico",
+      "Vista al Volcán Arenal",
+      "Cercanía a Catarata La Fortuna y termales",
+      "Zona de alta demanda turística"
+    ],
+    "alternateSlug": "two-cabins-zeta-trece",
+    "alternateId": 3
   },
-  "geo": { "lat": 10.4819, "lng": -84.6275, "zoom": 15 },
-  "description": [
-    "Excelente oportunidad para quienes buscan invertir en una propiedad con alto potencial. Este lote de 300 m² se encuentra en El Tanque de La Fortuna, a tan solo 150 metros de la plaza de deportes y con un entorno tranquilo rodeado de vegetación.",
-    "La propiedad cuenta con una construcción a medio terminar y planos arquitectónicos listos para continuar el proyecto. Se estima que con una inversión adicional de aproximadamente ₡10 millones se puede finalizar la obra, convirtiéndola en una vivienda moderna o en una opción ideal para renta turística.",
-    "El terreno colinda con un pequeño riachuelo y se encuentra rodeado de árboles, lo que brinda privacidad y una conexión natural única dentro de una zona de rápido crecimiento.",
-    "Listo para traspaso y con toda la documentación en regla."
-  ],
-  "features": [
-    "Lote de 300 m²",
-    "Construcción en proceso",
-    "Planos arquitectónicos incluidos",
-    "Colinda con riachuelo",
-    "Entorno rodeado de árboles y privacidad",
-    "Zona tranquila y en crecimiento",
-    "Listo para traspaso"
-  ]
-},
-{
-  "id": 6,
-  "slug": "lote-santa-gertrudis-cima-volcan-arenal",
-  "type": "lote",
-  "title": "Lote en Santa Gertrudis — Cima con vista al Volcán Arenal",
-  "location": "Santa Gertrudis, San Ramón",
-  "price": 268000,
-  "priceCRC": 123000000,
-  "currency": "CRC",
-  "lotSize": 8154.01,
-  "builtSize": null,
-  "badge": "Destacado",
-  "folder": "005-lote-santa-gertrudis",
-  "images": [
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/1.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/2.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/3.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/4.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/5.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/6.png" },
-    { "src": "/assets/images/properties/010-quinta-santa-gertrudis/7.png" }
-  ],
-  "videos": [],
-  "utilities": { 
-    "water": false, 
-    "electricity": false, 
-    "internet": false, 
-    "publicRoad": true 
+  {
+    "id": 4,
+    "slug": "finca-san-isidro-10ha",
+    "type": "lote",
+    "subcategory": "finca",
+    "title": "Finca en San Isidro de La Fortuna",
+    "location": "San Isidro, La Fortuna",
+    "price": 264000,
+    "priceCRC": 120000000,
+    "currency": "CRC",
+    "lotSize": 10000,
+    "status": "Destacado",
+    "folder": "006-finca-san-isidro",
+    "images": [
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/1.JPG"
+      },
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/2.jpeg"
+      },
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/3.jpg"
+      },
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/4.JPG"
+      },
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/5.jpg"
+      },
+      {
+        "src": "/assets/images/properties/006-finca-san-isidro/6.jpg"
+      }
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": false,
+      "publicRoad": true
+    },
+    "geo": {
+      "lat": 10.475,
+      "lng": -84.65,
+      "zoom": 14
+    },
+    "description": [
+      "Esta finca de 10 hectáreas se ubica en San Isidro de La Fortuna, a pocos minutos del centro.",
+      "El terreno es amplio y versátil, ideal para desarrollar proyectos de lotificación, agricultura o turismo.",
+      "Cuenta con acceso por calle pública y disponibilidad de agua y electricidad."
+    ],
+    "features": [
+      "10 hectáreas",
+      "Acceso por calle pública",
+      "Agua disponible",
+      "Electricidad disponible",
+      "Ideal para lotificación",
+      "Potencial agrícola y turístico"
+    ],
+    "alternateSlug": "san-isidro-farm-la-fortuna",
+    "alternateId": 4
   },
-  "geo": { "lat": 10.1619, "lng": -84.5301, "zoom": 15 },
-  "description": [
-    "En lo más alto de una montaña en Santa Gertrudis, este terreno de 8.154 m² domina vistas abiertas al Volcán Arenal y a la llanura de San Carlos.",
-    "El ingreso se realiza por un único acceso con portón, brindando una sensación de residencial privado y una atmósfera de total tranquilidad.",
-    "El lote está rodeado de naturaleza, con abundante flora y fauna; además, colinda con un sector de bosque, ideal para quienes buscan privacidad, frescura y conexión con el entorno.",
-    "La topografía en altura, el clima privilegiado y el carácter reservado del acceso hacen de este lote un sitio excepcional para desarrollar una vivienda de ensueño, una quinta de descanso o un proyecto turístico.",
-    "Actualmente, los servicios de agua, electricidad e internet se encuentran en proceso de gestión, lo que permite planificar la obra en paralelo a las factibilidades."
-  ],
-  "features": [
-    "Área total de 8.154 m²",
-    "Ubicación elevada con vista al Volcán Arenal",
-    "Entorno natural con flora y fauna abundante",
-    "Colinda con quebrada y bosque",
-    "Acceso privado con portón de ingreso",
-    "Ideal para vivienda, quinta o proyecto turístico",
-    "Servicios en gestión (agua, electricidad e internet)"
-  ]
-},
-
-{
-  "id": 7,
-  "slug": "finca-santa-cecilia-la-fortuna",
-  "type": "lote",
-  "subcategory": "finca",
-  "title": "Finca en Santa Cecilia de La Fortuna",
-  "location": "Santa Cecilia, La Fortuna",
-  "price": 264000,
-  "priceCRC": 120000000,
-  "currency": "CRC",
-  "lotSize": 18343,
-  "status": "Disponible",
-  "negotiable": true,
-  "folder": "ARE-STC-FN-0001_finca-santa-cecilia",
-  "images": [
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/1.png" },
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/2.png" },
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/3.png" },
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/4.png" },
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/5.png" },
-    { "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/6.png" }
-  ],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": false, 
-    "publicRoad": false,
-    "agriculturalEasement": true
+  {
+    "id": 5,
+    "slug": "lote-con-construccion-el-tanque",
+    "type": "lote",
+    "title": "Lote con Airbnb en proceso en El Tanque",
+    "location": "El Tanque, La Fortuna",
+    "price": 70500,
+    "priceCRC": 32000000,
+    "currency": "CRC",
+    "lotSize": 300,
+    "builtSize": 60,
+    "badge": "Proyecto para inversión",
+    "folder": "009-lote-el-tanque",
+    "images": [
+      {
+        "src": "/assets/images/properties/009-lote-el-tanque/1.png"
+      },
+      {
+        "src": "/assets/images/properties/009-lote-el-tanque/2.JPG"
+      },
+      {
+        "src": "/assets/images/properties/009-lote-el-tanque/3.png"
+      },
+      {
+        "src": "/assets/images/properties/009-lote-el-tanque/4.jpg"
+      }
+    ],
+    "videos": [],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": true,
+      "publicRoad": true
+    },
+    "geo": {
+      "lat": 10.4819,
+      "lng": -84.6275,
+      "zoom": 15
+    },
+    "description": [
+      "Excelente oportunidad para quienes buscan invertir en una propiedad con alto potencial. Este lote de 300 m² se encuentra en El Tanque de La Fortuna, a tan solo 150 metros de la plaza de deportes y con un entorno tranquilo rodeado de vegetación.",
+      "La propiedad cuenta con una construcción a medio terminar y planos arquitectónicos listos para continuar el proyecto. Se estima que con una inversión adicional de aproximadamente ₡10 millones se puede finalizar la obra, convirtiéndola en una vivienda moderna o en una opción ideal para renta turística.",
+      "El terreno colinda con un pequeño riachuelo y se encuentra rodeado de árboles, lo que brinda privacidad y una conexión natural única dentro de una zona de rápido crecimiento.",
+      "Listo para traspaso y con toda la documentación en regla."
+    ],
+    "features": [
+      "Lote de 300 m²",
+      "Construcción en proceso",
+      "Planos arquitectónicos incluidos",
+      "Colinda con riachuelo",
+      "Entorno rodeado de árboles y privacidad",
+      "Zona tranquila y en crecimiento",
+      "Listo para traspaso"
+    ],
+    "alternateSlug": "lot-with-construction-el-tanque",
+    "alternateId": 5
   },
-  "geo": { 
-    "lat": 10.479, 
-    "lng": -84.68, 
-    "zoom": 14 
+  {
+    "id": 6,
+    "slug": "lote-santa-gertrudis-cima-volcan-arenal",
+    "type": "lote",
+    "title": "Lote en Santa Gertrudis — Cima con vista al Volcán Arenal",
+    "location": "Santa Gertrudis, San Ramón",
+    "price": 268000,
+    "priceCRC": 123000000,
+    "currency": "CRC",
+    "lotSize": 8154.01,
+    "builtSize": null,
+    "badge": "Destacado",
+    "folder": "005-lote-santa-gertrudis",
+    "images": [
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/1.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/2.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/3.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/4.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/5.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/6.png"
+      },
+      {
+        "src": "/assets/images/properties/010-quinta-santa-gertrudis/7.png"
+      }
+    ],
+    "videos": [],
+    "utilities": {
+      "water": false,
+      "electricity": false,
+      "internet": false,
+      "publicRoad": true
+    },
+    "geo": {
+      "lat": 10.1619,
+      "lng": -84.5301,
+      "zoom": 15
+    },
+    "description": [
+      "En lo más alto de una montaña en Santa Gertrudis, este terreno de 8.154 m² domina vistas abiertas al Volcán Arenal y a la llanura de San Carlos.",
+      "El ingreso se realiza por un único acceso con portón, brindando una sensación de residencial privado y una atmósfera de total tranquilidad.",
+      "El lote está rodeado de naturaleza, con abundante flora y fauna; además, colinda con un sector de bosque, ideal para quienes buscan privacidad, frescura y conexión con el entorno.",
+      "La topografía en altura, el clima privilegiado y el carácter reservado del acceso hacen de este lote un sitio excepcional para desarrollar una vivienda de ensueño, una quinta de descanso o un proyecto turístico.",
+      "Actualmente, los servicios de agua, electricidad e internet se encuentran en proceso de gestión, lo que permite planificar la obra en paralelo a las factibilidades."
+    ],
+    "features": [
+      "Área total de 8.154 m²",
+      "Ubicación elevada con vista al Volcán Arenal",
+      "Entorno natural con flora y fauna abundante",
+      "Colinda con quebrada y bosque",
+      "Acceso privado con portón de ingreso",
+      "Ideal para vivienda, quinta o proyecto turístico",
+      "Servicios en gestión (agua, electricidad e internet)"
+    ],
+    "alternateSlug": "mountaintop-lot-santa-gertrudis-arenal-view",
+    "alternateId": 6
   },
-  "description": [
-    "Finca de 1 hectárea y 8.343 m² ubicada en Santa Cecilia de La Fortuna, ideal para proyectos turísticos, agrícolas o ganaderos.",
-    "La propiedad cuenta con disponibilidad de agua y electricidad, y se accede mediante servidumbre agrícola, en un entorno tranquilo y seguro a solo 14 km del centro de La Fortuna.",
-    "Posee una zona de bosque con árboles y una quebrada natural que atrae abundante flora y fauna.",
-    "Existe la posibilidad de negociar la venta parcial del terreno según el interés del comprador."
-  ],
-  "features": [
-    "1 ha 8.343 m² de terreno",
-    "Acceso mediante servidumbre agrícola",
-    "Disponibilidad de agua y electricidad",
-    "Zona boscosa con quebrada",
-    "Posibilidad de venta parcial (5.000 m²)",
-    "Ideal para proyectos turísticos, agrícolas o ganaderos",
-    "Ubicada en zona tranquila y segura"
-  ]
-},
-{
-  "id": 8,
-  "slug": "lote-sanchal-la-fortuna",
-  "type": "lote",
-  "subcategory": "residencial",
-  "title": "Lote a 2 Km del centro de La Fortuna",
-  "location": "Barrio Sanchal, La Fortuna",
-  "price": 99000,
-  "priceCRC": 45000000,
-  "currency": "CRC",
-  "lotSize": 753,
-  "status": "vendido",
-  "negotiable": false,
-  "folder": "ARE-LAF-LT-0001_lote-sanchal",
-  "images": [
-    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/1.png" },
-    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/2.png" },
-    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/3.png" },
-    { "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/4.png" }
-  ],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
+  {
+    "id": 7,
+    "slug": "finca-santa-cecilia-la-fortuna",
+    "type": "lote",
+    "subcategory": "finca",
+    "title": "Finca en Santa Cecilia de La Fortuna",
+    "location": "Santa Cecilia, La Fortuna",
+    "price": 264000,
+    "priceCRC": 120000000,
+    "currency": "CRC",
+    "lotSize": 18343,
+    "status": "Disponible",
+    "negotiable": true,
+    "folder": "ARE-STC-FN-0001_finca-santa-cecilia",
+    "images": [
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/1.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/2.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/3.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/4.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/5.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-STC-FN-0001_finca-santa-cecilia/6.png"
+      }
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": false,
+      "publicRoad": false,
+      "agriculturalEasement": true
+    },
+    "geo": {
+      "lat": 10.479,
+      "lng": -84.68,
+      "zoom": 14
+    },
+    "description": [
+      "Finca de 1 hectárea y 8.343 m² ubicada en Santa Cecilia de La Fortuna, ideal para proyectos turísticos, agrícolas o ganaderos.",
+      "La propiedad cuenta con disponibilidad de agua y electricidad, y se accede mediante servidumbre agrícola, en un entorno tranquilo y seguro a solo 14 km del centro de La Fortuna.",
+      "Posee una zona de bosque con árboles y una quebrada natural que atrae abundante flora y fauna.",
+      "Existe la posibilidad de negociar la venta parcial del terreno según el interés del comprador."
+    ],
+    "features": [
+      "1 ha 8.343 m² de terreno",
+      "Acceso mediante servidumbre agrícola",
+      "Disponibilidad de agua y electricidad",
+      "Zona boscosa con quebrada",
+      "Posibilidad de venta parcial (5.000 m²)",
+      "Ideal para proyectos turísticos, agrícolas o ganaderos",
+      "Ubicada en zona tranquila y segura"
+    ],
+    "alternateSlug": "farm-santa-cecilia-la-fortuna",
+    "alternateId": 7
   },
-  "geo": { 
-    "lat": 10.473, 
-    "lng": -84.635, 
-    "zoom": 15 
-  },
-  "description": [
-    "Hermoso lote de 753 m² ubicado en Barrio Sanchal, a tan solo 2 km del centro de La Fortuna.",
-    "La propiedad cuenta con ingreso por calle asfaltada y ofrece un entorno rodeado de naturaleza con una  ubicación privilegiada.",
-    "En la parte posterior atraviesa un río de agua limpia rodeado de vegetación y bosque, donde se puede apreciar una abundante flora y fauna local.",
-    "Cuenta con todos los servicios públicos disponibles, ideal para construir una vivienda o desarrollar un pequeño proyecto turístico en un entorno natural privilegiado."
-  ],
-  "features": [
-    "753 m² de terreno",
-    "Acceso por calle asfaltada",
-    "Río de agua limpia en la parte posterior",
-    "Zona boscosa con flora y fauna",
-    "Disponibilidad de agua, electricidad e internet",
-    "Ubicación a solo 2 km del centro de La Fortuna"
-  ]
-},
-
-{
-  "id": 9,
-  "slug": "lote-santa-rosa-centro",
-  "type": "lote",
-  "title": "Propiedad en el centro de Santa Rosa",
-  "location": "Santa Rosa, Pocosol",
-  "price": 78500,
-  "priceCRC": 40000000,
-  "currency": "CRC",
-  "lotSize": 873,
-  "builtSize": 0,
-  "badge": "Nuevo",
-  "folder": "Santa Rosa/003-casa-en-santa-rosa-centro",
-  "images": [
-    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/1.jpg" },
-    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/2.png" },
-    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/3.jpg" },
-    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/4.jpg" },
-    { "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/5.jpg" }
-  ],
-  "videos": [],
-  "utilities": { 
-    "water": true, 
-    "electricity": true, 
-    "internet": true, 
-    "publicRoad": true 
-  },
-  "geo": { "lat": 10.4758, "lng": -84.6399, "zoom": 15 },
-  "description": [
-    "Gran oportunidad de inversión en el corazón de Santa Rosa. Esta propiedad de 873 m² se ubica a tan solo 150 metros del parque central, en una zona con excelente acceso y alto potencial de desarrollo.",
-    "Ideal tanto para uso residencial como comercial, gracias a su cercanía con supermercados, escuelas y servicios locales. Su ubicación estratégica permite construir una vivienda amplia, apartamentos de renta o un proyecto comercial de alta visibilidad.",
-    "La propiedad cuenta con acceso a todos los servicios públicos y se encuentra en un entorno seguro y tranquilo."
-  ],
-  "features": [
-    "Lote de 873 m²",
-    "Ubicación céntrica a 150 m del parque de Santa Rosa",
-    "Ideal para vivienda o comercio",
-    "Acceso por calle pública",
-    "Disponibilidad de todos los servicios",
-    "Zona segura y en crecimiento",
-    "Excelente oportunidad de inversión"
-  ]
-}
-
-
+  {
+    "id": 8,
+    "slug": "lote-sanchal-la-fortuna",
+    "type": "lote",
+    "subcategory": "residencial",
+    "title": "Lote a 2 Km del centro de La Fortuna",
+    "location": "Barrio Sanchal, La Fortuna",
+    "price": 99000,
+    "priceCRC": 45000000,
+    "currency": "CRC",
+    "lotSize": 753,
+    "status": "sold",
+    "negotiable": false,
+    "folder": "ARE-LAF-LT-0001_lote-sanchal",
+    "images": [
+      {
+        "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/1.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/2.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/3.png"
+      },
+      {
+        "src": "/assets/images/properties/ARE-LAF-LT-0001_lote-sanchal/4.png"
+      }
+    ],
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "internet": true,
+      "publicRoad": true
+    },
+    "geo": {
+      "lat": 10.473,
+      "lng": -84.635,
+      "zoom": 15
+    },
+    "description": [
+      "Hermoso lote de 753 m² ubicado en Barrio Sanchal, a tan solo 2 km del centro de La Fortuna.",
+      "La propiedad cuenta con ingreso por calle asfaltada y ofrece un entorno rodeado de naturaleza con una  ubicación privilegiada.",
+      "En la parte posterior atraviesa un río de agua limpia rodeado de vegetación y bosque, donde se puede apreciar una abundante flora y fauna local.",
+      "Cuenta con todos los servicios públicos disponibles, ideal para construir una vivienda o desarrollar un pequeño proyecto turístico en un entorno natural privilegiado."
+    ],
+    "features": [
+      "753 m² de terreno",
+      "Acceso por calle asfaltada",
+      "Río de agua limpia en la parte posterior",
+      "Zona boscosa con flora y fauna",
+      "Disponibilidad de agua, electricidad e internet",
+      "Ubicación a solo 2 km del centro de La Fortuna"
+    ],
+    "alternateSlug": "lot-sanchal-la-fortuna",
+    "alternateId": 8
+  }
 ]

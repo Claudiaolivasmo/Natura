@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Vacation Rental | Natura Homes</title>
+  <meta name="description" content="Detalle de vacation rental en La Fortuna, Costa Rica, administrado por Natura Homes." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
+
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  
+  <link rel="stylesheet" href="/css/vacation-rentals.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="/index.html" class="logo" aria-label="Natura Real Estate">
+        <img
+          src="/assets/branding/natura_realestate_color_footer_600x200.png"
+          alt="Logo de Natura Real Estate"
+          width="150"
+          height="50"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul>
+<li><a href="/index.html">Inicio</a></li>
+<li><a href="/properties.html">Propiedades</a></li>
+<li><a href="/vacation-rentals.html">Alquileres vacacionales</a></li>
+<li><a href="/property-management.html">Administración</a></li>
+<li><a href="/about.html">Sobre Nosotros</a></li>
+<li><a href="/contact.html">Contacto</a></li>
+</ul>
+      </nav>
+
+      <div class="lang-switch">
+        <a href="/vacation-rentals.html" aria-label="Español">ES</a>
+        <a href="/en/vacation-rentals.html" aria-label="Inglés">EN</a>
+      </div>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-controls="navMobile"
+        aria-expanded="false"
+        aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
+      <div class="mobile-logo">
+        <img
+          src="/assets/branding/natura_realestate_color_footer_600x200.png"
+          alt="Logo de Natura Real Estate"
+          width="120"
+          height="40"
+          loading="lazy"
+        />
+      </div>
+      <ul>
+<li><a href="/index.html" data-close>Inicio</a></li>
+<li><a href="/properties.html" data-close>Propiedades</a></li>
+<li><a href="/vacation-rentals.html" data-close>Alquileres vacacionales</a></li>
+<li><a href="/property-management.html" data-close>Administración</a></li>
+<li><a href="/about.html" data-close>Sobre Nosotros</a></li>
+<li><a href="/contact.html" data-close>Contacto</a></li>
+</ul>
+    </nav>
+  </header>
+
+  <main id="vrMain">
+    
+    <section class="vr-detail-hero">
+      <img id="vrHeroImg" class="vr-detail-hero-img" src="" alt="" />
+      <div class="vr-detail-hero-scrim"></div>
+      <div class="vr-detail-hero-inner">
+        <p class="vr-breadcrumb">
+          <a href="/vacation-rentals.html">Vacation Rentals</a> / <span id="vrBreadcrumbTitle">...</span>
+        </p>
+        <h1 id="vrTitle">Cargando propiedad...</h1>
+        <p class="vr-detail-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span id="vrLocation"></span></p>
+        <p class="vr-detail-tagline" id="vrTagline"></p>
+      </div>
+    </section>
+
+    <div class="vr-stats-bar">
+      <div class="vr-stats-group">
+        <div class="vr-stat">
+          <strong id="vrStatBedrooms">-</strong>
+          <span>Habitaciones</span>
+        </div>
+        <div class="vr-stat">
+          <strong id="vrStatBathrooms">-</strong>
+          <span>Baños</span>
+        </div>
+        <div class="vr-stat">
+          <strong id="vrStatGuests">-</strong>
+          <span>Huéspedes</span>
+        </div>
+      </div>
+      <a href="#" id="vrStatsAirbnbLink" target="_blank" rel="noopener" class="vr-stats-cta hidden natura-btn">
+        <i class="fa-brands fa-airbnb" aria-hidden="true"></i> Reservar
+      </a>
+    </div>
+
+    <div class="vr-detail-body">
+      <div class="vr-detail-main">
+
+        <div class="vr-gallery" id="vrGallery"></div>
+        <p style="font-size:0.82rem; color:var(--text-dark); opacity:0.55; margin-bottom:1rem;">
+          Haz clic en cualquier foto para ampliarla.
+        </p>
+
+        <div class="vr-divider"></div>
+
+        <h2>Sobre esta propiedad</h2>
+        <div id="vrDescription"></div>
+
+        <div class="vr-divider"></div>
+
+        <h2>Amenidades</h2>
+        <div class="vr-amenities" id="vrAmenities"></div>
+
+        <div class="vr-divider"></div>
+
+        <div id="vrLocationSection">
+          <h2>Ubicación</h2>
+          <p style="font-size:0.95rem; color:var(--text-dark); opacity:0.7; margin-bottom:1.25rem;">
+            <i class="fa-solid fa-location-dot" style="color:var(--vr-gold-deep);" aria-hidden="true"></i>
+            <span id="vrLocationLabel">La Fortuna, Costa Rica</span> — la dirección exacta se comparte al confirmar tu reserva.
+          </p>
+          <div class="vr-map-frame">
+            <iframe
+              id="vrLocationMap" title="Mapa de la zona de la propiedad"
+              src=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <aside class="vr-sidebar">
+        <div class="vr-booking-card" id="vrBookingCard">
+          <p class="vr-booking-kicker">Disponibilidad y reservas</p>
+          <ul class="vr-booking-list" id="vrBookingList"></ul>
+
+          <a href="#" id="vrAirbnbLink" target="_blank" rel="noopener" class="hidden natura-btn">
+            <i class="fa-brands fa-airbnb" aria-hidden="true"></i> Reservar
+          </a>
+
+          <p class="vr-booking-note" id="vrBookingNote">
+            La reserva y el pago se gestionan directamente en Airbnb.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="vr-related" id="vrRelatedSection">
+      <div class="vr-related-inner">
+        <div class="vr-section-head fade-in" style="margin-bottom:2.5rem;">
+          <p class="vr-section-tag">Explorar más</p>
+          <h2>Otras propiedades que te podrían gustar</h2>
+        </div>
+        <div class="listings-grid" id="vrRelatedGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="vr-lightbox" id="vrLightbox">
+    <button class="vr-lightbox-close" id="vrLightboxClose" aria-label="Cerrar">&times;</button>
+    <button class="vr-lightbox-nav vr-lightbox-prev" id="vrLightboxPrev" aria-label="Anterior">&#8249;</button>
+    <img id="vrLightboxImg" src="" alt="Foto ampliada de la propiedad" />
+    <button class="vr-lightbox-nav vr-lightbox-next" id="vrLightboxNext" aria-label="Siguiente">&#8250;</button>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <img
+        src="/assets/branding/natura-logo.png"
+        alt="Natura Real Estate"
+        class="footer-logo"
+        loading="lazy"
+        decoding="async"
+      />
+      <p class="footer-text">Propiedades seleccionadas y servicios premium en La Fortuna y sus alrededores.</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
+        </p>
+      </div>
+
+      <p class="footer-bottom">© 2026 Natura Real Estate · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/vacation-rental.js" defer></script>
+</body>
+</html>

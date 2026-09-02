@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,7 +10,6 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.realestatenatura.com/en/contact.html">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | Natura Real Estate">
   <meta property="og:description" content="Ready to take the next step? Write to us and schedule an appointment.">
@@ -18,36 +17,36 @@
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/contact.jpg?w=1200&fmt=jpg&q=90">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts / Icons -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/home.css">
-  <link rel="stylesheet" href="/css/animation.css">
+  
   <link rel="stylesheet" href="/css/header.css">
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons -->
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
+  <script src="/js/i18n.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  
+  <script src="/js/main.js" defer></script>
+  <script src="/js/form-handler.js" defer></script>
+  <link rel="stylesheet" href="/css/components.css">
 </head>
 
 <body class="bg-gray-50">
 
-<!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -55,28 +54,22 @@
         decoding="async">
     </a>
 
-    <!-- Desktop navigation -->
     <nav class="nav" aria-label="Main">
       <ul>
-        <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
-        <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
-        <li>
-          <a href="/en/property-management.html" data-i18n="navManagement">
-            Property Management
-          </a>
-        </li>
-        <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
-        <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
-      </ul>
+<li><a href="/en/index.html">Home</a></li>
+<li><a href="/en/properties.html">Properties</a></li>
+<li><a href="/en/vacation-rentals.html">Vacation Rentals</a></li>
+<li><a href="/en/property-management.html">Property Management</a></li>
+<li><a href="/en/about.html">About Us</a></li>
+<li><a href="/en/contact.html" aria-current="page">Contact</a></li>
+</ul>
     </nav>
 
-    <!-- Language switch -->
     <div class="lang-switch">
       <a href="/contact.html" aria-label="Español">ES</a>
       <a href="/en/contact.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Hamburger button -->
     <button
       class="hamburger"
       id="hamburger"
@@ -88,30 +81,26 @@
 
   </div>
 
-  <!-- Mobile menu -->
   <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/en/index.html" data-close data-i18n="navHome">Home</a></li>
-      <li><a href="/en/properties.html" data-close data-i18n="navProperties">Properties</a></li>
-      <li>
-        <a href="/en/property-management.html" data-close data-i18n="navManagement">
-          Property Management
-        </a>
-      </li>
-      <li><a href="/en/about.html" data-close data-i18n="navAbout">About Us</a></li>
-      <li><a href="/en/contact.html" data-close data-i18n="navContact">Contact</a></li>
-    </ul>
+<li><a href="/en/index.html" data-close>Home</a></li>
+<li><a href="/en/properties.html" data-close>Properties</a></li>
+<li><a href="/en/vacation-rentals.html" data-close>Vacation Rentals</a></li>
+<li><a href="/en/property-management.html" data-close>Property Management</a></li>
+<li><a href="/en/about.html" data-close>About Us</a></li>
+<li><a href="/en/contact.html" data-close aria-current="page">Contact</a></li>
+</ul>
   </nav>
 </header>
-<!-- HERO -->
+
 <section class="relative overflow-hidden bg-cover bg-center"
   style="background-image:url('/assets/images/arenal-hero.jpg?w=1920&fmt=webp&q=82')">
   <div class="backdrop-brightness-75">
@@ -124,7 +113,7 @@
         Write to us or schedule an appointment and let us guide you with professional advice in La Fortuna and surrounding areas.
       </p>
       <div class="mt-6 flex gap-3">
-        <a href="#contact" class="btn-primary px-5 py-3 text-white rounded-md">Schedule appointment</a>
+        <a href="#contact" class="natura-btn">Schedule appointment</a>
         <a href="https://wa.me/50685675060?text=Hello,%20I%20would%20like%20to%20schedule%20an%20appointment"
            target="_blank" rel="noopener"
            class="px-5 py-3 rounded-md bg-white/10 ring-1 ring-white/30 hover:bg-white/20">
@@ -135,11 +124,9 @@
   </div>
 </section>
 
-<!-- MAIN -->
 <main id="contact" class="mx-auto max-w-6xl px-6 pb-16 mt-16">
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-    <!-- FORM -->
     <section class="bg-white p-8 shadow-lg rounded-xl">
       <h2 class="font-display text-3xl font-semibold text-gray-900 mb-2">Schedule an Appointment</h2>
       <p class="text-gray-700">
@@ -173,7 +160,7 @@
         <textarea name="message" rows="4" required class="w-full p-3 border rounded-md"
           placeholder="Tell us about your needs..."></textarea>
 
-        <button type="submit" class="w-full btn-primary text-white py-3 rounded-md">
+        <button type="submit" class="w-full natura-btn">
           Send inquiry
         </button>
 
@@ -183,16 +170,14 @@
       </form>
     </section>
 
-    <!-- INFO -->
     <aside class="space-y-6">
 
-      <!-- Contact card -->
       <div class="bg-white p-6 shadow-md rounded-xl">
         <h3 class="text-2xl font-semibold">Contact Us</h3>
         <p class="mt-2">La Fortuna · San Carlos · Costa Rica</p>
 
         <div class="mt-4 space-y-2">
-          <p><strong>Phone:</strong> +506 8567 5090</p>
+          <p><strong>Phone:</strong> +506 8567 5060</p>
           <p><strong>Email:</strong> naturacrre@gmail.com</p>
           <p><strong>WhatsApp:</strong> Chat now</p>
         </div>
@@ -214,7 +199,6 @@
 
       </div>
 
-      <!-- Map -->
       <div class="bg-white p-0 shadow-md rounded-xl overflow-hidden">
         <iframe
           title="Map - Natura Real Estate"
@@ -223,7 +207,6 @@
         </iframe>
       </div>
 
-      <!-- FAQ -->
       <div class="bg-white p-6 shadow-md rounded-xl">
         <h4 class="font-semibold text-gray-900">Frequently Asked Questions</h4>
 
@@ -247,7 +230,6 @@
   </div>
 </main>
 
-<!-- CTA -->
 <section class="bg-white/60">
   <div class="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
     <div>
@@ -255,36 +237,35 @@
       <p class="text-gray-700">Send the form or message us on WhatsApp. We respond promptly.</p>
     </div>
     <div class="flex gap-3">
-      <a href="#contact" class="btn-primary px-5 py-3 text-white rounded-md">Schedule now</a>
+      <a href="#contact" class="natura-btn">Schedule now</a>
       <a href="https://wa.me/50685675060" target="_blank"
-         class="px-5 py-3 rounded-md bg-green-600/10 text-green-700 ring-1 ring-green-600/30 hover:bg-green-600/15">
+         class="natura-btn natura-btn--outline">
         WhatsApp
       </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-content centered">
-    <img src="/assets/images/natura-logo.png" alt="Natura Real Estate" class="footer-logo">
+    <img src="/assets/branding/natura-logo.png" alt="Natura Real Estate" class="footer-logo">
 
     <p class="footer-text">Selected properties in La Fortuna and surrounding areas.</p>
 
     <div class="footer-social">
-      <a href="https://www.instagram.com/realestatenatura"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/realestatenatura"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr"><i class="fab fa-facebook" aria-hidden="true"></i></a>
     </div>
 
     <div class="footer-contact">
       <p><strong>La Fortuna · Costa Rica</strong></p>
       <p>
         <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
-        <a href="https://wa.me/50685675060">WhatsApp: +506 8567 5090</a>
+        <a href="https://wa.me/50685675060">WhatsApp: +506 8567 5060</a>
       </p>
     </div>
 
-    <p class="footer-bottom">© 2025 Natura Real Estate · All rights reserved</p>
+    <p class="footer-bottom">© 2026 Natura Real Estate · All rights reserved</p>
   </div>
 </footer>
 

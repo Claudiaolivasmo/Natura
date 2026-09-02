@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Vacation Rentals in La Fortuna | Natura Homes</title>
+  <meta name="description" content="Explore vacation homes in La Fortuna managed by Natura Homes.">
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.realestatenatura.com/en/vacation-rentals.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vacation Rentals in La Fortuna | Natura Homes" />
+  <meta property="og:description" content="Vacation homes in La Fortuna with local support.">
+  <meta property="og:url" content="https://www.realestatenatura.com/en/vacation-rentals.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
+
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  
+  <link rel="stylesheet" href="/css/vacation-rentals.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+
+      <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
+        <img
+          src="/assets/branding/natura_realestate_color_footer_600x200.png"
+          alt="Natura Real Estate logo"
+          width="150"
+          height="50"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <nav class="nav" aria-label="Main">
+        <ul>
+<li><a href="/en/index.html">Home</a></li>
+<li><a href="/en/properties.html">Properties</a></li>
+<li><a href="/en/vacation-rentals.html" aria-current="page">Vacation Rentals</a></li>
+<li><a href="/en/property-management.html">Property Management</a></li>
+<li><a href="/en/about.html">About Us</a></li>
+<li><a href="/en/contact.html">Contact</a></li>
+</ul>
+      </nav>
+
+      <div class="lang-switch">
+        <a href="/vacation-rentals.html" aria-label="Español">ES</a>
+        <a href="/en/vacation-rentals.html" aria-label="English">EN</a>
+      </div>
+
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-controls="navMobile"
+        aria-expanded="false"
+        aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
+      <div class="mobile-logo">
+        <img
+          src="/assets/branding/natura_realestate_color_footer_600x200.png"
+          alt="Natura Real Estate logo"
+          width="120"
+          height="40"
+          loading="lazy"
+        />
+      </div>
+      <ul>
+<li><a href="/en/index.html" data-close>Home</a></li>
+<li><a href="/en/properties.html" data-close>Properties</a></li>
+<li><a href="/en/vacation-rentals.html" data-close aria-current="page">Vacation Rentals</a></li>
+<li><a href="/en/property-management.html" data-close>Property Management</a></li>
+<li><a href="/en/about.html" data-close>About Us</a></li>
+<li><a href="/en/contact.html" data-close>Contact</a></li>
+</ul>
+    </nav>
+  </header>
+
+  <section class="vr-hero catalog-hero">
+    <div class="vr-hero-inner">
+      <p class="vr-kicker">Natura Homes · Vacation Rentals</p>
+      <h1>Your home in La Fortuna</h1>
+<p>Discover our homes in La Fortuna: comfortable spaces, thoughtful details and local support throughout your stay.</p>
+      <div class="vr-hero-buttons natura-actions">
+        <a href="#rentals" class="natura-btn">Explore properties</a>
+        <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="natura-btn natura-btn--light">
+          Message us on WhatsApp
+        </a>
+      </div>
+
+      <div class="vr-hero-stats">
+        <div class="vr-hero-stat">
+          <strong id="statCount">--</strong>
+          <span>Properties available</span>
+        </div>
+        <div class="vr-hero-stat">
+          <strong>100%</strong>
+          <span>Locally managed</span>
+        </div>
+        <div class="vr-hero-stat">
+          <strong>5★</strong>
+          <span>Guest experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rentals" class="vr-section">
+    <div class="vr-section-head fade-in">
+      <p class="vr-section-tag">Our selection</p>
+      <h2>Every property, chosen with intention</h2>
+      <p>
+        We don't list everything available on the market. Every vacation rental we manage goes through
+        a filter of location, design and upkeep before it's available to book.
+      </p>
+    </div>
+
+    <div class="listings-grid" id="vrGridAll" data-vr-grid aria-busy="true">
+      <div class="vr-loading">Loading properties...</div>
+    </div>
+  </section>
+
+  <section class="vr-cta-strip">
+    <p class="vr-kicker" style="justify-content:center; color:var(--vr-gold-light);">Have a property?</p>
+    <h2>Turn it into a profitable vacation rental</h2>
+    <p>
+      If you own a property in La Fortuna and want it to be part of this selection,
+      our management team handles everything: from the listing to guest care.
+    </p>
+    <div class="vr-cta-buttons">
+      <a href="/en/property-management.html" class="natura-btn">Property Management</a>
+      <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="natura-btn natura-btn--light">
+        Talk to Natura
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-content centered">
+      <img
+        src="/assets/branding/natura-logo.png"
+        alt="Natura Real Estate"
+        class="footer-logo"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <p class="footer-text">Handpicked properties and premium services in La Fortuna and the surrounding area.</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="footer-contact">
+        <p><strong>La Fortuna · Costa Rica</strong></p>
+        <p>
+          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
+        </p>
+      </div>
+
+      <p class="footer-bottom">© 2026 Natura Real Estate · All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/header.js" defer></script>
+  <script src="/js/vacation-rentals.js" defer></script>
+  
+</body>
+</html>

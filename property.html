@@ -17,32 +17,32 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/animation.css">
+  
   <link rel="stylesheet" href="/css/property.css">
   <link rel="stylesheet" href="/css/header.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -50,28 +50,22 @@
         decoding="async">
     </a>
 
-    <!-- Navegación desktop -->
     <nav class="nav" aria-label="Principal">
       <ul>
-        <li><a href="/index.html" data-i18n="navHome">Inicio</a></li>
-        <li><a href="/properties.html" data-i18n="navProperties">Propiedades</a></li>
-        <li>
-          <a href="/property-management.html" data-i18n="navManagement">
-            Administración de Propiedades
-          </a>
-        </li>
-        <li><a href="/about.html" data-i18n="navAbout">Sobre Nosotros</a></li>
-        <li><a href="/contact.html" data-i18n="navContact">Contacto</a></li>
-      </ul>
+<li><a href="/index.html">Inicio</a></li>
+<li><a href="/properties.html">Propiedades</a></li>
+<li><a href="/vacation-rentals.html">Alquileres vacacionales</a></li>
+<li><a href="/property-management.html">Administración</a></li>
+<li><a href="/about.html">Sobre Nosotros</a></li>
+<li><a href="/contact.html">Contacto</a></li>
+</ul>
     </nav>
 
-    <!-- Switch idioma -->
     <div class="lang-switch">
       <a href="/property.html" aria-label="Español">ES</a>
       <a href="/en/property.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Botón hamburguesa -->
     <button
       class="hamburger"
       id="hamburger"
@@ -83,30 +77,25 @@
 
   </div>
 
-  <!-- Menú móvil -->
   <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/index.html" data-close data-i18n="navHome">Inicio</a></li>
-      <li><a href="/properties.html" data-close data-i18n="navProperties">Propiedades</a></li>
-      <li>
-        <a href="/property-management.html" data-close data-i18n="navManagement">
-          Administración de Propiedades
-        </a>
-      </li>
-      <li><a href="/about.html" data-close data-i18n="navAbout">Sobre Nosotros</a></li>
-      <li><a href="/contact.html" data-close data-i18n="navContact">Contacto</a></li>
-    </ul>
+<li><a href="/index.html" data-close>Inicio</a></li>
+<li><a href="/properties.html" data-close>Propiedades</a></li>
+<li><a href="/vacation-rentals.html" data-close>Alquileres vacacionales</a></li>
+<li><a href="/property-management.html" data-close>Administración</a></li>
+<li><a href="/about.html" data-close>Sobre Nosotros</a></li>
+<li><a href="/contact.html" data-close>Contacto</a></li>
+</ul>
   </nav>
 </header>
-
 
   <nav class="breadcrumb">
     <div class="inner-page-container">
@@ -123,9 +112,9 @@
   <main class="main-content">
     <div class="inner-page-container">
       <header class="property-header mb-8">
-        <h1 id="propertyTitle" class="property-title">Terreno con Vista Natural</h1>
-        <span id="propertyPriceTag" class="price-tag">USD 100 000</span>
-        <p id="propertyLocation" class="property-location">Lago Arenal</p>
+        <h1 id="propertyTitle" class="property-title">Cargando propiedad…</h1>
+        <span id="propertyPriceTag" class="price-tag"></span>
+        <p id="propertyLocation" class="property-location"></p><div id="propertyQuickFacts"></div>
       </header>
 
       <section class="property-details lg:grid lg:grid-cols-3 lg:gap-12">
@@ -144,14 +133,14 @@
 
           <section class="description-section bg-white p-6 rounded shadow mb-6">
             <h2 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
-              <i class="fa-solid fa-align-left"></i> Descripción General
+              <i class="fa-solid fa-align-left" aria-hidden="true"></i> Descripción General
             </h2>
             <div class="prose prose-gray max-w-none" id="propertyDescription"></div>
           </section>
 
           <section class="property-section features-section bg-white p-6 rounded shadow">
             <h3 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
-              <i class="fa-solid fa-list-check"></i> Características
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i> Características
             </h3>
             <ul id="featuresList" class="features-grid"></ul>
           </section>
@@ -200,7 +189,7 @@
                   class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Estoy interesado en esta propiedad..."></textarea>
               </div>
-              <button type="submit" class="w-full btn-primary text-white py-3 font-medium">
+              <button type="submit" class="w-full natura-btn">
                 Enviar Whatsapp
               </button>
             </form>
@@ -213,7 +202,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
       <img
-        src="/assets/images/natura-logo.png"
+        src="/assets/branding/natura-logo.png"
         alt="Natura Real Estate"
         class="footer-logo"
         loading="lazy"
@@ -222,14 +211,14 @@
       <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
 
       <div class="footer-social">
-        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
       </div>
 
       <section class="newsletter">
         <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
           <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required>
-          <button type="submit" class="newsletter-btn">Suscribirse</button>
+          <button type="submit" class="newsletter-btn natura-btn">Suscribirse</button>
         </form>
         <div class="newsletter-status" aria-live="polite"></div>
       </section>
@@ -238,11 +227,11 @@
         <p><strong>La Fortuna · Costa Rica</strong></p>
         <p>
           <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5090</a>
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
         </p>
       </div>
 
-      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
+      <p class="footer-bottom">&copy; 2026 Natura Real Estate · Todos los derechos reservados</p>
     </div>
   </footer>
 
@@ -254,63 +243,9 @@
     <div id="lbCounter" class="lb-counter">1 / 1</div>
   </div>
 
-  <script>
-    (function () {
-      function c() {
-        var b = a.contentDocument || a.contentWindow.document;
-        if (b) {
-          var d = b.createElement('script');
-          d.innerHTML = "window.__CF$cv$params={r:'965617e6100192fb',t:'MTc1MzU1NTkzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-          b.getElementsByTagName('head')[0].appendChild(d);
-        }
-      }
-      if (document.body) {
-        var a = document.createElement('iframe');
-        a.height = 1;
-        a.width = 1;
-        a.style.position = 'absolute';
-        a.style.top = 0;
-        a.style.left = 0;
-        a.style.border = 'none';
-        a.style.visibility = 'hidden';
-        document.body.appendChild(a);
-        if ('loading' !== document.readyState) c();
-        else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
-        else {
-          var e = document.onreadystatechange || function () { };
-          document.onreadystatechange = function (b) {
-            e(b);
-            'loading' !== document.readyState && (document.onreadystatechange = e, c());
-          };
-        }
-      }
-    })();
-  </script>
-
-  <script src="/js/utils.js" defer></script>
   <script src="/js/main.js" defer></script>
   <script src="/js/property.js" defer></script>
   <script src="/js/header.js" defer></script>
-
-  <script>
-    (function () {
-      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-      if (!isLocal) return;
-
-      // <img src="/img/...">
-      document.querySelectorAll('img[src^="/img/"]').forEach(img => {
-        img.src = img.src.replace('/img/', '/assets/images/').replace(/\?.*$/, '');
-      });
-
-      // background-image: url('/img/...')
-      document.querySelectorAll('[style*="background-image"]').forEach(el => {
-        const s = el.style.backgroundImage;
-        if (s.includes('/img/')) {
-          el.style.backgroundImage = s.replace('/img/', '/assets/images/').replace(/\?.*?\)/g, ')');
-        }
-      });
-    })();
-  </script>
 
   <script>
     (function () {
@@ -347,5 +282,6 @@
       }, { passive: false });
     })();
   </script>
+<script src="/js/newsletter.js" defer></script>
 </body>
 </html>

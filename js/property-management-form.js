@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
+      submitBtn.textContent = window.t("formSending");
     }
 
     status.textContent = "";
@@ -29,19 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (response.ok) {
         form.reset();
-        status.textContent = "Your inquiry has been sent successfully. We will get back to you shortly.";
+        status.textContent = window.t("formSuccess");
         status.style.color = "#1A2E35";
       } else {
         const data = await response.json();
         if (data.errors && data.errors.length > 0) {
           status.textContent = data.errors.map(error => error.message).join(", ");
         } else {
-          status.textContent = "Something went wrong. Please try again.";
+          status.textContent = window.t("formGenericError");
         }
         status.style.color = "#b00020";
       }
     } catch (error) {
-      status.textContent = "There was a problem sending your inquiry. Please try again.";
+      status.textContent = window.t("formNetworkError");
       status.style.color = "#b00020";
     } finally {
       if (submitBtn) {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Básico -->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,7 +10,6 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.realestatenatura.com/about.html">
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sobre Nosotros | Natura Real Estate">
   <meta property="og:description" content="Natura Real Estate combina conocimiento local, experiencia en finanzas y un profundo respeto por la naturaleza.">
@@ -18,34 +17,30 @@
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/about.jpg?w=1200&fmt=jpg&q=90">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fuentes / Iconos -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/animation.css">
+  
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/about.css">
 
-  <!-- Favicons -->
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
+  <link rel="stylesheet" href="/css/components.css">
 </head>
 
 <body>
 
-  <!-- Header -->
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -53,28 +48,22 @@
         decoding="async">
     </a>
 
-    <!-- Navegación desktop -->
     <nav class="nav" aria-label="Principal">
       <ul>
-        <li><a href="/index.html" data-i18n="navHome">Inicio</a></li>
-        <li><a href="/properties.html" data-i18n="navProperties">Propiedades</a></li>
-        <li>
-          <a href="/property-management.html" data-i18n="navManagement">
-            Administración de Propiedades
-          </a>
-        </li>
-        <li><a href="/about.html" data-i18n="navAbout">Sobre Nosotros</a></li>
-        <li><a href="/contact.html" data-i18n="navContact">Contacto</a></li>
-      </ul>
+<li><a href="/index.html">Inicio</a></li>
+<li><a href="/properties.html">Propiedades</a></li>
+<li><a href="/vacation-rentals.html">Alquileres vacacionales</a></li>
+<li><a href="/property-management.html">Administración</a></li>
+<li><a href="/about.html" aria-current="page">Sobre Nosotros</a></li>
+<li><a href="/contact.html">Contacto</a></li>
+</ul>
     </nav>
 
-    <!-- Switch idioma -->
     <div class="lang-switch">
       <a href="/about.html" aria-label="Español">ES</a>
       <a href="/en/about.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Botón hamburguesa -->
     <button
       class="hamburger"
       id="hamburger"
@@ -86,32 +75,26 @@
 
   </div>
 
-  <!-- Menú móvil -->
   <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/index.html" data-close data-i18n="navHome">Inicio</a></li>
-      <li><a href="/properties.html" data-close data-i18n="navProperties">Propiedades</a></li>
-      <li>
-        <a href="/property-management.html" data-close data-i18n="navManagement">
-          Administración de Propiedades
-        </a>
-      </li>
-      <li><a href="/about.html" data-close data-i18n="navAbout">Sobre Nosotros</a></li>
-      <li><a href="/contact.html" data-close data-i18n="navContact">Contacto</a></li>
-    </ul>
+<li><a href="/index.html" data-close>Inicio</a></li>
+<li><a href="/properties.html" data-close>Propiedades</a></li>
+<li><a href="/vacation-rentals.html" data-close>Alquileres vacacionales</a></li>
+<li><a href="/property-management.html" data-close>Administración</a></li>
+<li><a href="/about.html" data-close aria-current="page">Sobre Nosotros</a></li>
+<li><a href="/contact.html" data-close>Contacto</a></li>
+</ul>
   </nav>
 </header>
 
-
-  <!-- Migas de pan -->
   <nav class="breadcrumb">
     <div class="inner-page-container">
       <div class="breadcrumb-nav">
@@ -122,7 +105,6 @@
     </div>
   </nav>
 
-  <!-- Header de página -->
   <section class="page-header about-header">
     <div class="inner-page-container">
       <h1 class="page-title">Sobre Natura Real Estate</h1>
@@ -132,11 +114,9 @@
     </div>
   </section>
 
-  <!-- Contenido principal -->
   <div class="inner-page-container">
     <main class="about-main">
 
-      <!-- Sección: Quiénes somos -->
       <section class="about-section fade-section">
         <h2 class="about-title">Quiénes somos</h2>
         <p>
@@ -147,12 +127,10 @@
         </p>
       </section>
 
-      <!-- Sección: Nuestro equipo -->
       <section class="about-section about-team fade-section">
         <h2 class="about-title">Nuestro equipo</h2>
         <div class="team-grid">
 
-          <!-- Mauricio -->
           <article class="team-member">
             <div class="team-photo">
               <img src="/assets/images/team/mauricio.jpeg"
@@ -170,7 +148,6 @@
             </div>
           </article>
 
-          <!-- Claudia -->
           <article class="team-member">
             <div class="team-photo">
               <img src="/assets/images/team/claudia.jpeg"
@@ -196,7 +173,6 @@
         </div>
       </section>
 
-      <!-- Sección: Filosofía de trabajo -->
       <section class="about-section fade-section">
         <h2 class="about-title">Nuestra filosofía</h2>
         <p>
@@ -210,7 +186,6 @@
         </p>
       </section>
 
-      <!-- Sección: Cómo trabajamos -->
       <section class="about-section fade-section">
         <h2 class="about-title">Cómo trabajamos</h2>
         <ul class="about-list">
@@ -225,10 +200,9 @@
     </main>
   </div>
 
-  <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
-      <img src="/assets/images/natura-logo.png" 
+      <img src="/assets/branding/natura-logo.png" 
            alt="Natura Real Estate" 
            class="footer-logo" 
            loading="lazy" 
@@ -238,17 +212,17 @@
 
       <div class="footer-social">
         <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
+          <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
         <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
+          <i class="fab fa-facebook" aria-hidden="true"></i>
         </a>
       </div>
 
       <section class="newsletter">
         <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
           <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
-          <button type="submit" class="newsletter-btn">Suscribirse</button>
+          <button type="submit" class="newsletter-btn natura-btn">Suscribirse</button>
         </form>
         <div class="newsletter-status" aria-live="polite"></div>
       </section>
@@ -257,16 +231,16 @@
         <p><strong>La Fortuna · Costa Rica</strong></p>
         <p>
           <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5090</a>
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
         </p>
       </div>
 
-      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
+      <p class="footer-bottom">&copy; 2026 Natura Real Estate · Todos los derechos reservados</p>
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="/js/header.js" defer></script>
-  <script src="/js/animation.js" defer></script>
+  <script src="/js/main.js" defer></script>
+<script src="/js/newsletter.js" defer></script>
 </body>
 </html>

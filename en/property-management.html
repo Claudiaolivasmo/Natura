@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -13,7 +13,6 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.realestatenatura.com/en/property-management.html" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Best Property Management in La Fortuna | Natura Real Estate" />
   <meta
@@ -24,46 +23,40 @@
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/property-management.jpg?w=1200&fmt=jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/layout.css" />
   <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/animation.css" />
+  
   <link rel="stylesheet" href="/css/property-management.css" />
 
-  <!-- Tailwind optional -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Favicons -->
   <link rel="icon" href="/img/favicon.png?fmt=png&w=64" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?fmt=png&w=180" />
 
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     referrerpolicy="no-referrer"
   />
+  <script src="/js/i18n.js" defer></script>
+<link rel="stylesheet" href="/css/vacation-rentals.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Header -->
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -71,28 +64,22 @@
         decoding="async">
     </a>
 
-    <!-- Desktop navigation -->
     <nav class="nav" aria-label="Main">
       <ul>
-        <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
-        <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
-        <li>
-          <a href="/en/property-management.html" data-i18n="navManagement">
-            Property Management
-          </a>
-        </li>
-        <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
-        <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
-      </ul>
+<li><a href="/en/index.html">Home</a></li>
+<li><a href="/en/properties.html">Properties</a></li>
+<li><a href="/en/vacation-rentals.html">Vacation Rentals</a></li>
+<li><a href="/en/property-management.html" aria-current="page">Property Management</a></li>
+<li><a href="/en/about.html">About Us</a></li>
+<li><a href="/en/contact.html">Contact</a></li>
+</ul>
     </nav>
 
-    <!-- Language switch -->
     <div class="lang-switch">
       <a href="/property-management.html" aria-label="Español">ES</a>
       <a href="/en/property-management.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Hamburger button -->
     <button
       class="hamburger"
       id="hamburger"
@@ -104,30 +91,26 @@
 
   </div>
 
-  <!-- Mobile menu -->
   <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/en/index.html" data-close data-i18n="navHome">Home</a></li>
-      <li><a href="/en/properties.html" data-close data-i18n="navProperties">Properties</a></li>
-      <li>
-        <a href="/en/property-management.html" data-close data-i18n="navManagement">
-          Property Management
-        </a>
-      </li>
-      <li><a href="/en/about.html" data-close data-i18n="navAbout">About Us</a></li>
-      <li><a href="/en/contact.html" data-close data-i18n="navContact">Contact</a></li>
-    </ul>
+<li><a href="/en/index.html" data-close>Home</a></li>
+<li><a href="/en/properties.html" data-close>Properties</a></li>
+<li><a href="/en/vacation-rentals.html" data-close>Vacation Rentals</a></li>
+<li><a href="/en/property-management.html" data-close aria-current="page">Property Management</a></li>
+<li><a href="/en/about.html" data-close>About Us</a></li>
+<li><a href="/en/contact.html" data-close>Contact</a></li>
+</ul>
   </nav>
 </header>
-  <!-- Hero -->
+  
   <section class="pm-hero">
     <div class="pm-hero-overlay"></div>
 
@@ -141,24 +124,23 @@
         </p>
 
         <div class="pm-hero-buttons">
-            <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="pm-btn-primary">
+            <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="natura-btn">
                 Contact Us
             </a>
-            <a href="#services" class="pm-btn-secondary">
+            <a href="#services" class="natura-btn natura-btn--light">
                 Explore Services
             </a>
         </div>
 
         <div class="pm-hero-highlights">
-          <span><i class="fa-solid fa-house"></i> Premium Vacation Rentals</span>
-          <span><i class="fa-solid fa-star"></i> 5-Star Guest Experience</span>
-          <span><i class="fa-solid fa-chart-line"></i> Revenue Optimization</span>
+          <span><i class="fa-solid fa-house" aria-hidden="true"></i> Premium Vacation Rentals</span>
+          <span><i class="fa-solid fa-star" aria-hidden="true"></i> 5-Star Guest Experience</span>
+          <span><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Revenue Optimization</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Intro -->
   <section class="pm-intro py-20 bg-white">
     <div class="max-w-5xl mx-auto px-6 text-center fade-in">
       <p class="pm-section-tag">Property Oversight with Intention</p>
@@ -173,12 +155,11 @@
     </div>
   </section>
 
-  <!-- Value cards -->
   <section class="pm-value py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
         <article class="pm-card fade-in">
-          <div class="pm-card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="pm-card-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
           <h3>Full Booking Management</h3>
           <p>
             We manage inquiries, reservations, calendar coordination, guest communication,
@@ -187,7 +168,7 @@
         </article>
 
         <article class="pm-card fade-in">
-          <div class="pm-card-icon"><i class="fa-solid fa-concierge-bell"></i></div>
+          <div class="pm-card-icon"><i class="fa-solid fa-concierge-bell" aria-hidden="true"></i></div>
           <h3>Concierge Experience</h3>
           <p>
             We help guests enjoy La Fortuna through personalized attention, local guidance,
@@ -196,7 +177,7 @@
         </article>
 
         <article class="pm-card fade-in">
-          <div class="pm-card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <div class="pm-card-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></div>
           <h3>Maintenance Coordination</h3>
           <p>
             We coordinate cleaning, inspections, restocking, and maintenance needs to keep
@@ -205,7 +186,7 @@
         </article>
 
         <article class="pm-card fade-in">
-          <div class="pm-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="pm-card-icon"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
           <h3>Revenue Optimization</h3>
           <p>
             We support pricing strategy, positioning, and presentation so your property can
@@ -216,7 +197,6 @@
     </div>
   </section>
 
-  <!-- Why Natura -->
   <section class="pm-why py-24 bg-[#1F3D2B] text-white">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
       <div class="fade-in">
@@ -242,7 +222,6 @@
     </div>
   </section>
 
-  <!-- Services -->
   <section id="services" class="pm-services py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
@@ -325,7 +304,16 @@
     </div>
   </section>
 
-  <!-- Process -->
+  <section class="vr-section">
+    <div class="vr-section-head fade-in">
+      <p class="vr-section-tag">Our managed portfolio</p>
+      <h2>Properties we manage</h2>
+      <p>Explore the homes in our vacation rental collection.</p>
+    </div>
+    <div class="listings-grid" id="vrGridPM" data-vr-grid data-vr-limit="3" aria-busy="true"><div class="vr-loading">Loading properties...</div></div>
+    <div style="text-align:center; margin-top:3rem;"><a href="/en/vacation-rentals.html" class="natura-btn natura-btn--outline">View all vacation rentals</a></div>
+  </section>
+
   <section class="pm-process py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
@@ -367,7 +355,6 @@
     </div>
   </section>
 
-  <!-- Ideal For -->
   <section class="pm-ideal py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
       <div class="fade-in">
@@ -411,7 +398,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="pm-cta py-24">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">
       <p class="pm-section-tag pm-section-tag-light">Let’s Talk</p>
@@ -424,17 +410,16 @@
       </p>
 
       <div class="pm-cta-buttons">
-        <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="pm-btn-primary">
+        <a href="https://wa.me/50685675060" target="_blank" rel="noopener" class="natura-btn">
             Contact on WhatsApp
         </a>
-        <a href="/en/contact.html" class="pm-btn-outline-light">
+        <a href="/en/contact.html" class="natura-btn natura-btn--light">
             Request Information
         </a>
     </div>
     </div>
   </section>
 
-  <!-- Contact form -->
   <section class="pm-form-section py-24 bg-white">
     <div class="max-w-4xl mx-auto px-6 fade-in">
       <div class="text-center mb-12">
@@ -514,7 +499,7 @@
           ></textarea>
         </div>
 
-        <button type="submit" class="btn-primary pm-submit-btn">
+        <button type="submit" class="natura-btn">
           Send Inquiry
         </button>
 
@@ -523,11 +508,10 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
       <img
-        src="/assets/images/natura-logo.png"
+        src="/assets/branding/natura-logo.png"
         alt="Natura Real Estate"
         class="footer-logo"
         loading="lazy"
@@ -538,10 +522,10 @@
 
       <div class="footer-social">
         <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
+          <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
         <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
+          <i class="fab fa-facebook" aria-hidden="true"></i>
         </a>
       </div>
 
@@ -549,19 +533,18 @@
         <p><strong>La Fortuna · Costa Rica</strong></p>
         <p>
           <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5090</a>
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
         </p>
       </div>
 
-      <p class="footer-bottom">© 2025 Natura Real Estate · All rights reserved</p>
+      <p class="footer-bottom">© 2026 Natura Real Estate · All rights reserved</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="/js/property-management-form.js" defer></script>
-  <script src="/js/utils.js" defer></script>
+  
   <script src="/js/main.js" defer></script>
-  <script src="/js/form-handler.js" defer></script>
   <script src="/js/header.js" defer></script>
+<script src="/js/vacation-rentals.js" defer></script>
 </body>
 </html>

@@ -1,87 +1,13 @@
 :root {
-    --main-color: #1A2E35;
-    --main-color-light: #E8EFF1; /* o un tono claro que combine */
-    --accent-color: #A9A9A9;
-    --background-light: #F9F5EC;
-    --text-dark: #1D1D1D;
-    --font-title: 'Cormorant Garamond', serif;
-    --font-text: 'Lato', sans-serif;
+  --main-color:#1a2e35; --main-color-light:#e8eff1; --accent-color:#e4b06b;
+  --background-light:#f9f5ec; --text-dark:#1d1d1d;
+  --font-title:'Cormorant Garamond',Georgia,serif; --font-text:'Lato',Arial,sans-serif;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-text);
-    color: var(--text-dark);
-    background-color: var(--background-light);
-    line-height: 1.6;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* === Breakpoints estandarizados === */
-
-/* Pantallas pequeñas (≥480px) */
-@media (min-width: 480px) {
-  body {
-    font-size: 1rem; /* un poco más grande que en mobile */
-  }
-}
-
-/* Tablets en vertical (≥768px) */
-@media (min-width: 768px) {
-  body {
-    font-size: 1.05rem;
-  }
-
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
-}
-
-/* Tablets horizontales y laptops pequeñas (≥1024px) */
-@media (min-width: 1024px) {
-  body {
-    font-size: 1.1rem;
-  }
-
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
-  h3 { font-size: 1.35rem; }
-}
-
-/* Escritorios grandes (≥1280px) */
-@media (min-width: 1280px) {
-  body {
-    font-size: 1.15rem;
-  }
-
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-text); color:var(--text-dark); background:var(--background-light); line-height:1.7; }
+img,video { max-width:100%; }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+/* Content remains visible if scripts or observers are unavailable. */
+.fade-in { opacity:1; }
+.fade-in.will-animate { opacity:0; transform:translateY(16px); transition:opacity .45s,transform .45s; }
+.fade-in.visible { opacity:1; transform:none; }

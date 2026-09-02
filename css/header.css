@@ -1,234 +1,38 @@
-:root{
-  --main-color:#1A2E35;
-  --main-color-light:#E8EFF1;
-  --accent-color:#A9A9A9;
-  --background-light:#F9F5EC;
-  --text-dark:#1D1D1D;
-  --font-title:'Cormorant Garamond',serif;
-  --font-text:'Lato',sans-serif;
-
-  /* Altura base del header */
-  --header-h: 72px;
-}
-
-/* Reset básico */
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{
-  font-family:var(--font-text);
-  color:var(--text-dark);
-  background-color:var(--background-light);
-  line-height:1.6;
-}
-
-/* ===== Header (STICKY) con efecto shrink ===== */
-.header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  height:var(--header-h);
-  width:100%;
-  background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,.1);
-  transition: height .3s ease, box-shadow .3s ease;
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:0 auto;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 2rem;
-}
-
-/* Al hacer scroll: encoge el header cambiando su propia var */
-.header.scrolled{
-  --header-h: 56px;                /* reduce altura */
-  background:rgba(255,255,255,.98);
-  box-shadow:0 2px 18px rgba(0,0,0,.12);
-  padding:0 2rem;
-}
-
-/* Logo dimensionado respecto a la altura del header */
-.logo img{
-  height:calc(var(--header-h) - 22px); /* margen vertical interno */
-  width:auto;
-  display:block;
-  transition:height .3s ease;
-}
-
-/* Nav desktop */
-.nav ul{
-  display:flex;
-  list-style:none;
-  gap:2rem;
-}
-.nav a{
-  text-decoration:none;
-  color:var(--text-dark);
-  font-weight:500;
-  padding:.5rem 1rem;
-  transition:color .3s ease, background .3s ease, transform .3s ease;
-}
-.nav a:hover{ color:var(--main-color); }
-
-/* Botón hamburguesa (oculto en desktop) */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:6px;
-  cursor:pointer;
-  padding:.5rem;
-  background:none;
-  border:none;
-  z-index:1001;
-}
-.hamburger span{
-  width:26px;
-  height:3px;
-  background:var(--main-color);
-  border-radius:2px;
-  transition:transform .3s ease, opacity .3s ease;
-}
-/* Animación X */
-.hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(6px,6px); }
-.hamburger.active span:nth-child(2){ opacity:0; }
-.hamburger.active span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
-
-/* ===== Menú móvil (overlay) ===== */
-.nav-mobile{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100vh;
-  background:rgba(26,46,53,.95);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  display:flex;              /* se controla con [hidden]/aria-hidden en HTML+JS */
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  padding-top:var(--header-h);
-  z-index:1000;
-
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s ease;
-}
-.nav-mobile[aria-hidden="false"]{
-  opacity:1; pointer-events:auto;
-}
-.nav-mobile[hidden]{ display:flex; }
-
-.mobile-logo{ margin-bottom:2rem; padding:1rem; }
-.mobile-logo img{
-  height:60px;width:auto;display:block;
-  filter:brightness(0) invert(1);
-}
-
-.nav-mobile ul{ list-style:none; text-align:center; }
-.nav-mobile li{ margin:1.6rem 0; }
-.nav-mobile a{
-  color:#fff;
-  text-decoration:none;
-  font-size:1.5rem;
-  font-weight:500;
-  padding:1rem 2rem;
-  display:block;
-  transition:color .3s ease;
-}
-.nav-mobile a:hover{ color:var(--main-color-light); }
-
-/* ===== Responsive ===== */
-@media (max-width:768px){
-  :root{ --header-h: 64px; }  /* base un poco más baja en móvil */
-  .nav{ display:none; }
-  .hamburger{ display:flex; }
-  .header{ padding:0 1rem; }
-  .logo img{ height:calc(var(--header-h) - 18px); }
-}
-
-/* ===== Offset para anclas ===== */
-/* ojo: scroll-padding-top usa la var global; si quieres compensar dinámicamente,
-   puedes aplicar margen al primer section con JS al cargar. */
-html{ scroll-padding-top: var(--header-h); }
-section[id], [id].anchor{ scroll-margin-top: var(--header-h); }
-
-/* ===== Fallback opcional a fixed si algún contenedor rompe sticky ===== */
-body.header-fixed .header{ position:fixed; top:0; left:0; right:0; }
-body.header-fixed::before{ content:""; display:block; height:var(--header-h); }
-
-/* Demo contenido opcional */
-.content{
-  max-width:1200px;
-  margin:0 auto;
-  padding:2rem;
-}
-
-.container-wide{
-  width:100%;
-  padding:2rem;
-}
-
-
-.content h1{
-  font-family:var(--font-title);
-  color:var(--main-color);
-  font-size:2.2rem;
-  margin-bottom:1rem;
-}
-
-/* ===== Language switch ===== */
-.lang-switch{
-  display:flex;
-  align-items:center;
-  gap:.4rem;
-  font-size:.9rem;
-  margin-left:1rem;
-}
-
-.lang-link{
-  text-decoration:none;
-  color:var(--text-dark);
-  font-weight:500;
-  transition:opacity .2s ease;
-}
-
-.lang-link:hover{ opacity:.6; }
-
-.lang-separator{ opacity:.5; }
-
-/* Mobile language switch */
-.lang-switch-mobile{
-  margin-top:2rem;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  align-items:center;
-}
-
-.lang-switch-mobile .lang-link{
-  color:#fff;
-  font-size:1.2rem;
-}
-
-
-.lang-switch{
-  display:flex;
-  gap:.5rem;
-}
-
-.lang-switch a{
-  text-decoration:none;
-  font-weight:600;
-  color:var(--main-color);
-  padding:.3rem .5rem;
-  border-radius:4px;
-  transition:background .2s ease;
-}
-
-.lang-switch a:hover{
-  background:var(--main-color-light);
+/* One responsive header for all pages. */
+:root { --header-h:72px; }
+.header { position:sticky; top:0; z-index:1000; height:var(--header-h); width:100%; background:white; box-shadow:0 2px 10px #14262c0d; transition:height .25s,box-shadow .25s; }
+.header.scrolled { --header-h:64px; box-shadow:0 3px 16px #14262c16; }
+.header-inner { max-width:1280px; height:100%; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0 2rem; }
+.logo { flex-shrink:0; }
+.logo img { height:calc(var(--header-h) - 22px); width:auto; display:block; transition:height .25s; }
+.nav ul { display:flex; align-items:center; list-style:none; gap:.6rem; }
+.nav a { color:var(--main-color); text-decoration:none; font-weight:700; font-size:.9rem; padding:.5rem .35rem; white-space:nowrap; }
+.nav a:hover,.nav a[aria-current=page] { text-decoration:underline; text-decoration-color:#956322; text-underline-offset:.4rem; }
+.lang-switch { display:flex; gap:.35rem; align-items:center; flex-shrink:0; font-size:.875rem; }
+.lang-switch a { padding:.4rem .5rem; color:var(--main-color); font-weight:700; text-decoration:none; border-radius:8px; }
+.lang-switch a:hover,.lang-switch a[aria-current=page] { background:var(--main-color-light); }
+.lang-separator { opacity:.5; }
+.hamburger { display:none; position:relative; z-index:1001; flex-direction:column; align-items:center; justify-content:center; gap:6px; width:44px; height:44px; background:none; border:none; cursor:pointer; }
+.hamburger span { width:26px; height:3px; background:var(--main-color); border-radius:2px; transition:transform .25s,opacity .25s; }
+.hamburger.active span { background:white; }
+.hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(6px,6px); }
+.hamburger.active span:nth-child(2) { opacity:0; }
+.hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(6px,-6px); }
+.nav-mobile { position:fixed; inset:0; z-index:1000; width:100%; height:100dvh; overflow-y:auto; background:#14262cf7; display:flex; flex-direction:column; align-items:center; padding:var(--header-h) 1rem 1.5rem; opacity:0; pointer-events:none; transition:opacity .25s; }
+.nav-mobile[hidden] { display:none; }
+.nav-mobile[aria-hidden=false] { opacity:1; pointer-events:auto; }
+.mobile-logo { margin:1rem auto; }
+.mobile-logo img { display:block; height:55px; width:auto; filter:brightness(0) invert(1); }
+.nav-mobile ul { list-style:none; text-align:center; }
+.nav-mobile li { margin:.3rem 0; }
+.nav-mobile a { display:block; padding:.65rem 1.5rem; color:white; text-decoration:none; font-size:1.15rem; }
+.nav-mobile a:hover,.nav-mobile a[aria-current=page] { color:#e4b06b; }
+html { scroll-padding-top:80px; }
+section[id],[id].anchor { scroll-margin-top:80px; }
+@media(max-width:1100px) {
+  :root { --header-h:64px; }
+  .header-inner { padding:0 1rem; }
+  .nav { display:none; }
+  .hamburger { display:flex; }
+  .lang-switch { margin-left:auto; }
 }

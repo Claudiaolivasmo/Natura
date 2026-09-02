@@ -1,0 +1,99 @@
+[
+  {
+    "slug": "aurora-serenity-home",
+    "title": "Aurora Serenity Home",
+    "location": "El Tanque, La Fortuna",
+    "tagline": "Family home with pool and partial Arenal views",
+    "shortDescription": "Spacious four-bedroom house for up to ten guests, with a private pool, terrace and BBQ area in El Tanque, La Fortuna.",
+    "description": [
+      "Aurora Serenity Home is a spacious, elegant vacation house located in El Tanque, La Fortuna, San Carlos, just minutes from downtown and the area's main attractions. Surrounded by nature and offering a partial view of Arenal Volcano, it strikes the perfect balance between tranquility, comfort and a privileged location.",
+      "Designed for families and groups of friends, the property features bright, generous spaces. Its open-concept social area brings together a fully equipped kitchen, dining room and living room, flowing directly onto the terrace, the private pool and the BBQ area — perfect for gathering and unwinding.",
+      "The house sleeps up to 10 guests across four air-conditioned bedrooms. It offers two full bathrooms, a half bath by the pool, and a cozy standalone TV room, making it comfortable for both short stays and longer getaways.",
+      "The garden surrounding the property creates a serene setting where you can enjoy a morning coffee, read a book, or simply unwind while taking in the partial view of Arenal Volcano.",
+      "Aurora Serenity Home combines design, space and functionality to offer a comfortable experience in one of Costa Rica's most visited destinations, making it the ideal home base for exploring everything La Fortuna and Arenal Volcano have to offer."
+    ],
+    "bedrooms": 4,
+    "bathrooms": 2.5,
+    "maxGuests": 10,
+    "pricePerNight": null,
+    "currency": "USD",
+    "badge": "Family favorite",
+    "featured": true,
+    "rating": 5,
+    "reviewsCount": 10,
+    "airbnbUrl": "https://es-l.airbnb.com/rooms/1503069777314371349",
+    "mapQuery": "El Tanque, La Fortuna, San Carlos, Costa Rica",
+    "amenities": [
+      "Private pool, available year-round",
+      "Partial view of Arenal Volcano",
+      "Fully equipped kitchen",
+      "High-speed Wifi",
+      "Air conditioning in all 4 bedrooms",
+      "BBQ area and covered walkway",
+      "Private TV room",
+      "Half bath by the pool",
+      "Washer and dryer",
+      "Free on-site parking",
+      "Self check-in with security code",
+      "Large garden with mature trees"
+    ],
+    "images": [
+      "/assets/images/vacation-rentals/aurora-serenity-home/1.JPG",
+      "/assets/images/vacation-rentals/aurora-serenity-home/2.JPG",
+      "/assets/images/vacation-rentals/aurora-serenity-home/3.JPG",
+      "/assets/images/vacation-rentals/aurora-serenity-home/4.JPG",
+      "/assets/images/vacation-rentals/aurora-serenity-home/5.JPG"
+    ]
+  },
+  {
+    "slug": "volterra-house",
+    "title": "Volterra House",
+    "location": "Downtown La Fortuna, Alajuela",
+    "tagline": "Suite with outdoor shower and partial Arenal views",
+    "shortDescription": "Modern 2-bedroom house just 2 km from La Fortuna's Central Park, with a main suite featuring an outdoor shower and partial views of Arenal Volcano.",
+    "description": [
+      "Volterra House is a modern, peaceful home just 2 km from La Fortuna's Central Park. Enjoy the perfect balance of comfort and tranquility, with the area's main attractions only minutes away.",
+      "Thoughtfully designed for couples, families or friends, Volterra House blends modern comfort with the lush beauty of La Fortuna. The house features two spacious bedrooms, each with a king-size bed and air conditioning.",
+      "The primary suite is the home's standout feature: floor-to-ceiling windows fill the room with natural light and open onto a private balcony overlooking the surrounding greenery, with partial views of Arenal Volcano on clear days. Its private bathroom offers a unique outdoor shower, where you can unwind under the stars immersed in Costa Rica's tropical atmosphere.",
+      "The second bedroom is equally comfortable, with a king-size bed, air conditioning and a relaxing atmosphere. The fully equipped kitchen flows seamlessly into the dining area in an open-concept layout, ideal for preparing meals and spending quality time together.",
+      "Outside, the property is surrounded by lush tropical vegetation that adds privacy and tranquility, in one of the most beloved areas of La Fortuna."
+    ],
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "maxGuests": 4,
+    "pricePerNight": null,
+    "currency": "USD",
+    "badge": "2 km from downtown",
+    "featured": true,
+    "airbnbUrl": "https://es-l.airbnb.com/rooms/1732759038083828684",
+    "mapQuery": "La Fortuna Centro, San Carlos, Alajuela, Costa Rica",
+    "amenities": [
+      "Partial view of Arenal Volcano",
+      "Outdoor shower in the primary suite",
+      "Private balcony with garden views",
+      "Patio and garden views",
+      "Fully equipped kitchen",
+      "High-speed Wifi",
+      "Air conditioning in both bedrooms",
+      "Television",
+      "Washer",
+      "Free on-site parking",
+      "EV charger",
+      "Self check-in with security code"
+    ],
+    "images": [
+      "/assets/images/vacation-rentals/volterra-house/1.avif",
+      "/assets/images/vacation-rentals/volterra-house/2.JPG",
+      "/assets/images/vacation-rentals/volterra-house/3.JPG",
+      "/assets/images/vacation-rentals/volterra-house/4.JPG",
+      "/assets/images/vacation-rentals/volterra-house/5.JPG",
+      "/assets/images/vacation-rentals/volterra-house/6.JPG",
+      "/assets/images/vacation-rentals/volterra-house/7.JPG",
+      "/assets/images/vacation-rentals/volterra-house/8.JPG",
+      "/assets/images/vacation-rentals/volterra-house/9.JPG",
+      "/assets/images/vacation-rentals/volterra-house/10.JPG",
+      "/assets/images/vacation-rentals/volterra-house/11.JPG",
+      "/assets/images/vacation-rentals/volterra-house/12.JPG"
+    ]
+  }
+]

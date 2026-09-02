@@ -96,12 +96,20 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    navMobile.hidden = true;
+    navMobile.setAttribute('aria-hidden', 'true');
     applyHeaderState();
     window.addEventListener('scroll', onScroll, { passive: true });
 
     hamburger.addEventListener('click', toggleMenu);
 
     document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && isMenuOpen()) {
+        const items = [hamburger, ...navMobile.querySelectorAll(focusableSelectors)];
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
       if (e.key === 'Escape' && isMenuOpen()) {
         closeMenu();
       }
@@ -123,9 +131,17 @@
 
     // Si se cambia a desktop, cerrar menú automáticamente
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 991 && isMenuOpen()) {
+      if (window.innerWidth > 1100 && isMenuOpen()) {
         closeMenu();
       }
     });
+  });
+})();
+(() => {
+  document.querySelectorAll('.lang-switch a').forEach(link => {
+    const url = new URL(link.getAttribute('href'), location.href);
+    url.search = location.search;
+    url.hash = location.hash;
+    link.href = url.pathname + url.search + url.hash;
   });
 })();

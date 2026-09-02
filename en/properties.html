@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Properties for Sale in La Fortuna & Nosara | Natura Real Estate</title>
-  <meta name="description" content="Explore homes, villas and land in La Fortuna and surrounding areas. Filter by price, type and location with Natura Real Estate.">
+  <meta name="description" content="Explore houses and land for sale in La Fortuna and surrounding areas with Natura Real Estate.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.realestatenatura.com/en/properties.html">
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Properties for Sale | Natura Real Estate">
   <meta property="og:description" content="Selected properties in La Fortuna. Filter and find your next investment.">
   <meta property="og:url" content="https://www.realestatenatura.com/en/properties.html">
-  <!-- Served from /img with fixed size and format for sharing -->
+  
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/properties.jpg?w=1200&fmt=jpg&q=90">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts / Icons -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/properties.css">
-  <link rel="stylesheet" href="/css/animation.css">
+
   <link rel="stylesheet" href="/css/header.css">
 
-  <!-- Favicons served from /img -->
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
-
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
 </head>
 
 <body>
 
-  <!-- Header -->
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/en/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -60,28 +49,22 @@
         decoding="async">
     </a>
 
-    <!-- Desktop navigation -->
     <nav class="nav" aria-label="Main">
       <ul>
-        <li><a href="/en/index.html" data-i18n="navHome">Home</a></li>
-        <li><a href="/en/properties.html" data-i18n="navProperties">Properties</a></li>
-        <li>
-          <a href="/en/property-management.html" data-i18n="navManagement">
-            Property Management
-          </a>
-        </li>
-        <li><a href="/en/about.html" data-i18n="navAbout">About Us</a></li>
-        <li><a href="/en/contact.html" data-i18n="navContact">Contact</a></li>
-      </ul>
+<li><a href="/en/index.html">Home</a></li>
+<li><a href="/en/properties.html" aria-current="page">Properties</a></li>
+<li><a href="/en/vacation-rentals.html">Vacation Rentals</a></li>
+<li><a href="/en/property-management.html">Property Management</a></li>
+<li><a href="/en/about.html">About Us</a></li>
+<li><a href="/en/contact.html">Contact</a></li>
+</ul>
     </nav>
 
-    <!-- Language switch -->
     <div class="lang-switch">
       <a href="/properties.html" aria-label="Español">ES</a>
       <a href="/en/properties.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Hamburger button -->
     <button
       class="hamburger"
       id="hamburger"
@@ -93,31 +76,26 @@
 
   </div>
 
-  <!-- Mobile menu -->
   <nav class="nav-mobile" id="navMobile" aria-label="Mobile menu" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/en/index.html" data-close data-i18n="navHome">Home</a></li>
-      <li><a href="/en/properties.html" data-close data-i18n="navProperties">Properties</a></li>
-      <li>
-        <a href="/en/property-management.html" data-close data-i18n="navManagement">
-          Property Management
-        </a>
-      </li>
-      <li><a href="/en/about.html" data-close data-i18n="navAbout">About Us</a></li>
-      <li><a href="/en/contact.html" data-close data-i18n="navContact">Contact</a></li>
-    </ul>
+<li><a href="/en/index.html" data-close>Home</a></li>
+<li><a href="/en/properties.html" data-close aria-current="page">Properties</a></li>
+<li><a href="/en/vacation-rentals.html" data-close>Vacation Rentals</a></li>
+<li><a href="/en/property-management.html" data-close>Property Management</a></li>
+<li><a href="/en/about.html" data-close>About Us</a></li>
+<li><a href="/en/contact.html" data-close>Contact</a></li>
+</ul>
   </nav>
 </header>
 
-  <!-- Breadcrumb -->
   <nav class="breadcrumb">
     <div class="inner-page-container">
       <div class="breadcrumb-nav">
@@ -128,10 +106,10 @@
     </div>
   </nav>
 
-  <!-- Page header -->
-  <section class="page-header">
+  <section class="catalog-hero">
     <div class="inner-page-container">
-      <h1 class="page-title">Our Properties</h1>
+      <p class="catalog-eyebrow">Natura Real Estate · For sale</p>
+<h1 class="page-title">Our Properties</h1>
       <p class="page-subtitle">
         Discover unique spaces where architecture embraces nature.
         Each property is an invitation to live in harmony with the environment.
@@ -139,203 +117,72 @@
     </div>
   </section>
 
-  <!-- =========================
-       TOP FILTER BAR (optional)
-       =========================
-  (If you later want filters in EN, we can translate and enable this block too.)
-  -->
-
-  <!-- Main content -->
-  <div class="inner-page-container">
+  <div class="inner-page-container catalog-content">
     <main class="main-content">
-      <!-- =========================================================
-           RESULTS / SORT / VIEW
-          ========================================================== -->
+      
       <div class="properties-content">
         <div class="properties-header">
-          <div class="results-count">
+          <div class="results-count" aria-live="polite">
             <span id="resultsCount">0</span> properties found
           </div>
           <div class="sort-controls">
-            <select class="sort-select" id="sortBy">
+            <label for="sortBy">Sort by</label><select class="sort-select" id="sortBy">
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
               <option value="newest">Newest</option>
             </select>
-            <div class="view-toggle">
-              <button class="view-btn active" id="gridView" aria-label="Grid view">📱</button>
-            </div>
+            
           </div>
         </div>
 
-        <div class="properties-grid" id="propertiesGrid">
-          <!-- Grid generated by JavaScript -->
-        </div>
+        <div class="listings-grid" id="propertiesGrid" aria-busy="true"><p class="listing-empty">Loading properties…</p></div>
 
-        <div class="properties-list" id="propertiesList">
-          <!-- List generated by JavaScript -->
-        </div>
-
-        <div id="pagination" class="pagination mt-8 text-center"></div>
+        <div id="pagination" class="pagination" role="navigation" aria-label="Property pages"></div>
       </div>
     </main>
   </div>
 
-  <!-- =========================================================
-       PROPERTIES MAP (optional)
-       Same logic as ES version; uncomment if you want it visible.
-  ========================================================== 
-  <section class="properties-map-section">
-    <div class="inner-page-container">
-      <h2 class="map-title">Properties Map</h2>
-      <p class="map-subtitle">
-        View the location of our properties in La Fortuna and nearby areas.
-      </p>
-      <div id="propertiesMap" class="properties-map"></div>
-    </div>
-  </section>
-  -->
-
-  <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
-      <!-- Logo -->
-      <img src="/assets/images/natura-logo.png" 
+      
+      <img src="/assets/branding/natura-logo.png" 
            alt="Natura Real Estate" 
            class="footer-logo" 
            loading="lazy" 
            decoding="async">
-      
-      <!-- Description -->
+
       <p class="footer-text">Selected properties in La Fortuna and surrounding areas.</p>
 
-      <!-- Social -->
       <div class="footer-social">
-        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
       </div>
 
-      <!-- Newsletter -->
       <section class="newsletter">
         <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
           <input type="email" name="email" placeholder="Your email" class="newsletter-input" required />
-          <button type="submit" class="newsletter-btn">Subscribe</button>
+          <button type="submit" class="newsletter-btn natura-btn">Subscribe</button>
         </form>
         <div class="newsletter-status" aria-live="polite"></div>
       </section>
 
-      <!-- Contact -->
       <div class="footer-contact">
         <p><strong>La Fortuna · Costa Rica</strong></p>
         <p>
           <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5090</a>
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
         </p>
       </div>
 
-      <p class="footer-bottom">&copy; 2025 Natura Real Estate · All rights reserved</p>
+      <p class="footer-bottom">&copy; 2026 Natura Real Estate · All rights reserved</p>
     </div>
   </footer>
 
-  <!-- JS -->
-  <!-- Third-party JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  ></script>
-
-  <!-- Site JS (same bundle, paths stay absolute so they work from /en/) -->
-  <script src="/js/utils.js" defer></script>
   <script src="/js/main.js" defer></script>
   <script src="/js/properties.js" defer></script>
   <script src="/js/header.js" defer></script>
 
-  <!-- Local dev helper: rewrite /img -> /assets/images -->
-  <script>
-    (function () {
-      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-      if (!isLocal) return;
-
-      document.querySelectorAll('img[src^="/img/"]').forEach(img => {
-        img.src = img.src.replace('/img/', '/assets/images/').replace(/\?.*$/, '');
-      });
-
-      document.querySelectorAll('[style*="background-image"]').forEach(el => {
-        const s = el.style.backgroundImage;
-        if (s.includes('/img/')) {
-          el.style.backgroundImage = s.replace('/img/', '/assets/images/').replace(/\?.*?\)/g, ')');
-        }
-      });
-    })();
-  </script>
-
-  <!-- MAP: initialization (same logic, solo cambia el texto del botón) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const mapContainer = document.getElementById('propertiesMap');
-      if (!mapContainer || !window.L) return;
-
-      try {
-        const res = await fetch('/properties.json');
-        const properties = await res.json();
-
-        const map = L.map('propertiesMap').setView([10.4718, -84.6458], 12);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        const bounds = [];
-
-        properties.forEach(p => {
-          if (!p.geo || typeof p.geo.lat !== 'number' || typeof p.geo.lng !== 'number') {
-            return;
-          }
-
-          const { lat, lng } = p.geo;
-          const marker = L.marker([lat, lng]).addTo(map);
-          bounds.push([lat, lng]);
-
-          let priceText = '';
-          if (p.price && p.currency === 'USD') {
-            priceText = `$${Number(p.price).toLocaleString('en-US')}`;
-          } else if (p.priceCRC) {
-            priceText = `₡${Number(p.priceCRC).toLocaleString('es-CR')}`;
-          }
-
-          const popupHTML = `
-            <div style="min-width: 180px">
-              <h3 style="margin:0 0 4px;font-size:1rem;font-weight:600;">
-                ${p.title || 'Property'}
-              </h3>
-              <p style="margin:0 0 4px;font-size:.85rem;opacity:.75;">
-                ${p.location || ''}
-              </p>
-              ${priceText ? `<p style="margin:0 0 8px;font-size:.9rem;font-weight:600;">${priceText}</p>` : ''}
-              <a href="property.html?id=${encodeURIComponent(p.id)}"
-                 style="
-                  display:inline-block;
-                  padding:.3rem .8rem;
-                  font-size:.85rem;
-                  border-radius:999px;
-                  border:1px solid #1a2e35;
-                  text-decoration:none;
-                 ">
-                View details
-              </a>
-            </div>
-          `;
-
-          marker.bindPopup(popupHTML);
-        });
-
-        if (bounds.length > 0) {
-          map.fitBounds(bounds, { padding: [30, 30] });
-        }
-      } catch (err) {
-        console.error('Error loading properties map:', err);
-      }
-    });
-  </script>
+<script src="/js/newsletter.js" defer></script>
 </body>
 </html>

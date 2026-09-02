@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (submitBtn) {
       submitBtn.innerHTML = '<span>' +
         translate('formSending', 'Enviando…') +
-        '</span><div class="btn-icon">⏳</div>';
+        '</span>';
       submitBtn.disabled = true;
     }
     statusEl.textContent = translate('formSending', 'Enviando…');
@@ -88,19 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3) Efecto focus (adaptado: tu HTML no usa .form-group)
-  const fields = form.querySelectorAll('input, select, textarea');
-  fields.forEach((field) => {
-    field.addEventListener('focus', function () {
-      const wrapper = this.parentElement;
-      if (!wrapper) return;
-      wrapper.style.transform = 'scale(1.02)';
-      wrapper.style.transition = 'transform 0.2s ease';
-    });
-    field.addEventListener('blur', function () {
-      const wrapper = this.parentElement;
-      if (!wrapper) return;
-      wrapper.style.transform = 'scale(1)';
-    });
-  });
 });

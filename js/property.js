@@ -71,9 +71,9 @@ async function initPropertyPage() {
     const list = await res.json();
 
     if (slugParam) {
-      currentProperty = list.find(p => (p.slug || '').toLowerCase() === slugParam.toLowerCase());
+      currentProperty = list.find(p => [p.slug, p.alternateSlug].some(value => (value || '').toLowerCase() === slugParam.toLowerCase()));
     } else if (idParam) {
-      currentProperty = list.find(p => String(p.id) === String(idParam) || Number(p.id) === Number(idParam));
+      currentProperty = list.find(p => String(p.id) === idParam || String(p.alternateId) === idParam);
     }
 
     if (!currentProperty) return fallbackToList();
@@ -94,22 +94,11 @@ async function initPropertyPage() {
 }
 
 function fallbackToList() {
-  location.href = isEnglish ? 'properties-en.html' : 'properties.html';
+  location.href = 'properties.html';
 }
 
 
 // ───────────── Formatos
-function formatPrice(value) {
-  if (value == null) return 'Consultar';
-  try {
-    return new Intl.NumberFormat('es-CR', {
-      style: 'currency', currency: 'USD', maximumFractionDigits: 0
-    }).format(value);
-  } catch {
-    return `$${Number(value || 0).toLocaleString('en-US')}`;
-  }
-}
-
 function formatLotSize(m2) {
   if (m2 == null || isNaN(m2)) return null;
   const n = Number(m2);
@@ -126,7 +115,7 @@ function joinPriceSize(priceStr, sizeStr) {
 }
 
 // ───────────── ✅ Badge VENDIDO
-const isSold = (prop) => String(prop?.status || '').trim().toLowerCase() === 'vendido';
+const isSold = (prop) => String(prop?.status || '').trim().toLowerCase() .match(/^(vendido|sold)$/) !== null;
 
 function renderSoldBadge(prop) {
   const main = document.getElementById('mainImage');
@@ -135,7 +124,7 @@ function renderSoldBadge(prop) {
   if (isSold(prop)) {
     const badge = document.createElement('div');
     badge.className = 'property-badge sold';
-    badge.textContent = 'VENDIDO';
+    badge.textContent = isEnglish ? 'SOLD' : 'VENDIDO';
     main.prepend(badge);
   }
 }
@@ -153,12 +142,14 @@ function bindProperty(p) {
   if (locEl) locEl.textContent = p.location || '—';
 
   if (priceEl) {
-    const priceStr = formatPrice(p.price);
+    const priceStr = NaturaListings.price(p);
     const sizeStr = formatLotSize(p.lotSize);
     priceEl.textContent = joinPriceSize(priceStr, sizeStr);
   }
   if (bcEl) bcEl.textContent = p.title || 'Propiedad';
 
+  const facts = q("propertyQuickFacts");
+  if (facts) facts.innerHTML = NaturaListings.metadata(p);
   updateMainMedia();
   generateThumbnails();   // 👈 mantiene TUS thumbnails
   loadDescription();
@@ -197,8 +188,8 @@ function updateMainMedia() {
 
   // Reset contenido (conserva tus flechas)
   main.innerHTML = `
-    <button class="gallery-nav prev" onclick="previousImage()" aria-label="Anterior">‹</button>
-    <button class="gallery-nav next" onclick="nextImage()" aria-label="Siguiente">›</button>
+    <button class="gallery-nav prev" onclick="previousImage()" aria-label="${isEnglish ? 'Previous image' : 'Imagen anterior'}">‹</button>
+    <button class="gallery-nav next" onclick="nextImage()" aria-label="${isEnglish ? 'Next image' : 'Imagen siguiente'}">›</button>
   `;
 
   if (item.kind === 'video') {
@@ -581,14 +572,14 @@ function renderFeatures(p) {
     if (typeof entry === 'string') {
       const label = entry.trim();
       const key = Object.keys(ICONS).find(k => label.toLowerCase().startsWith(k));
-      const icon = key ? ICONS[key] : 'fa-solid fa-circle';
+      const icon = key ? ICONS[key] : 'fa-solid ' + NaturaListings.featureIcon(label);
       return { label, icon };
     } else if (entry && typeof entry === 'object') {
       const label = String(entry.label || '').trim();
       const forcedIcon = String(entry.icon || '').trim();
       if (forcedIcon) return { label, icon: forcedIcon };
       const key = Object.keys(ICONS).find(k => label.toLowerCase().startsWith(k));
-      const icon = key ? ICONS[key] : 'fa-solid fa-circle';
+      const icon = key ? ICONS[key] : 'fa-solid ' + NaturaListings.featureIcon(label);
       return { label, icon };
     }
     return null;

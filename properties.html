@@ -1,57 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Básico -->
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Propiedades en venta en La Fortuna y Nosara | Natura Real Estate</title>
-  <meta name="description" content="Explora casas, villas y lotes en La Fortuna y alrededores. Filtra por precio, tipo y ubicación con Natura Real Estate.">
+  <title>Propiedades en venta en La Fortuna | Natura Real Estate</title>
+  <meta name="description" content="Explore casas y terrenos en venta en La Fortuna y alrededores con Natura Real Estate.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.realestatenatura.com/properties.html">
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Propiedades en venta | Natura Real Estate">
-  <meta property="og:description" content="Propiedades seleccionadas en La Fortuna. Filtra y encuentra tu próxima inversión.">
+  <meta property="og:description" content="Propiedades seleccionadas en La Fortuna. Encuentra tu próxima inversión.">
   <meta property="og:url" content="https://www.realestatenatura.com/properties.html">
-  <!-- Servida por /img con tamaño y formato fijo para compartir -->
+  
   <meta property="og:image" content="https://www.realestatenatura.com/img/og/properties.jpg?w=1200&fmt=jpg&q=90">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fuentes / Iconos -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Lato:wght@400;700&amp;display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
-  <link rel="stylesheet" href="/css/properties.css">
-  <link rel="stylesheet" href="/css/animation.css">
+
   <link rel="stylesheet" href="/css/header.css">
 
-  <!-- Favicons servidos por /img -->
   <link rel="icon" href="/img/favicon.png?w=64&fmt=png" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg?fmt=jpg&w=64">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
-    <!-- Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-
+  <link rel="stylesheet" href="/css/components.css">
+  <script src="/js/listings.js" defer></script>
 </head>
 
 <body>
 
 <header class="header" id="header">
   <div class="header-inner">
-    
-    <!-- Logo -->
+
     <a href="/index.html" class="logo" aria-label="Natura Real Estate">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="150"
         height="50"
@@ -59,28 +49,22 @@
         decoding="async">
     </a>
 
-    <!-- Navegación desktop -->
     <nav class="nav" aria-label="Principal">
       <ul>
-        <li><a href="/index.html" data-i18n="navHome">Inicio</a></li>
-        <li><a href="/properties.html" data-i18n="navProperties">Propiedades</a></li>
-        <li>
-          <a href="/property-management.html" data-i18n="navManagement">
-            Administración de Propiedades
-          </a>
-        </li>
-        <li><a href="/about.html" data-i18n="navAbout">Sobre Nosotros</a></li>
-        <li><a href="/contact.html" data-i18n="navContact">Contacto</a></li>
-      </ul>
+<li><a href="/index.html">Inicio</a></li>
+<li><a href="/properties.html" aria-current="page">Propiedades</a></li>
+<li><a href="/vacation-rentals.html">Alquileres vacacionales</a></li>
+<li><a href="/property-management.html">Administración</a></li>
+<li><a href="/about.html">Sobre Nosotros</a></li>
+<li><a href="/contact.html">Contacto</a></li>
+</ul>
     </nav>
 
-    <!-- Switch idioma -->
     <div class="lang-switch">
       <a href="/properties.html" aria-label="Español">ES</a>
       <a href="/en/properties.html" aria-label="English">EN</a>
     </div>
 
-    <!-- Botón hamburguesa -->
     <button
       class="hamburger"
       id="hamburger"
@@ -92,32 +76,26 @@
 
   </div>
 
-  <!-- Menú móvil -->
   <nav class="nav-mobile" id="navMobile" aria-label="Menú móvil" hidden>
     <div class="mobile-logo">
       <img
-        src="/assets/images/natura_realestate_color_footer_600x200.png"
+        src="/assets/branding/natura_realestate_color_footer_600x200.png"
         alt="Natura Real Estate Logo"
         width="120"
         height="40"
         loading="lazy">
     </div>
     <ul>
-      <li><a href="/index.html" data-close data-i18n="navHome">Inicio</a></li>
-      <li><a href="/properties.html" data-close data-i18n="navProperties">Propiedades</a></li>
-      <li>
-        <a href="/property-management.html" data-close data-i18n="navManagement">
-          Administración de Propiedades
-        </a>
-      </li>
-      <li><a href="/about.html" data-close data-i18n="navAbout">Sobre Nosotros</a></li>
-      <li><a href="/contact.html" data-close data-i18n="navContact">Contacto</a></li>
-    </ul>
+<li><a href="/index.html" data-close>Inicio</a></li>
+<li><a href="/properties.html" data-close aria-current="page">Propiedades</a></li>
+<li><a href="/vacation-rentals.html" data-close>Alquileres vacacionales</a></li>
+<li><a href="/property-management.html" data-close>Administración</a></li>
+<li><a href="/about.html" data-close>Sobre Nosotros</a></li>
+<li><a href="/contact.html" data-close>Contacto</a></li>
+</ul>
   </nav>
 </header>
 
-
-  <!-- Migas -->
   <nav class="breadcrumb">
     <div class="inner-page-container">
       <div class="breadcrumb-nav">
@@ -128,10 +106,10 @@
     </div>
   </nav>
 
-  <!-- Header de página -->
-  <section class="page-header">
+  <section class="catalog-hero">
     <div class="inner-page-container">
-      <h1 class="page-title">Nuestras Propiedades</h1>
+      <p class="catalog-eyebrow">Natura Real Estate · En venta</p>
+<h1 class="page-title">Nuestras Propiedades</h1>
       <p class="page-subtitle">
         Descubra espacios únicos donde la arquitectura abraza la naturaleza.
         Cada propiedad es una invitación a vivir en armonía con el entorno.
@@ -139,302 +117,72 @@
     </div>
   </section>
 
-  <!-- =========================
-       BARRA SUPERIOR DE FILTROS
-       =========================
-  
-
-<section class="filters-top">
-  <div class="inner-page-container filters-top__wrap">
-
-    <div class="filter-group filter-type">
-      <label for="property-type" class="filter-label">Tipo</label>
-      <select id="property-type" aria-label="Seleccionar tipo de propiedad">
-        <option value="" selected>Todos los Tipos</option>
-        <option value="lote">Lote / Terreno</option>
-        <option value="casa">Casa / Villa</option>
-        <option value="apartamento">Apartamento</option>
-        <option value="cabana">Cabaña</option>
-      </select>
-    </div>
-
-    <div class="filter-group filter-price">
-      <label class="filter-label">Precio (USD)</label>
-      <div class="filter-duo range-inputs">
-        <input type="number" id="price-min" min="0" step="10000" placeholder="Mín. $">
-        <input type="number" id="price-max" min="0" step="10000" placeholder="Máx. $">
-      </div>
-    </div>
-
-
-    <div class="filter-group keyword-block">
-      <label for="search" class="filter-label">Buscar Ubicación / Palabra</label>
-      <input type="text" id="search" placeholder="La Fortuna, Nosara, Lote...">
-    </div>
-
-    <input type="hidden" id="location" value="">
-
-
-    <div class="filter-actions-top">
-      <button id="filterApply" class="btn primary small">Aplicar</button>
-      <button id="clearFilters" class="btn ghost small">Limpiar</button>
-    </div>
-
-
-    <div class="filter-toggle-wrap">
-      <button id="toggleAdvanced" class="btn small" aria-controls="advancedFilters" aria-expanded="false">
-        Avanzado
-      </button>
-    </div>
-
-  </div>
-
-
-  <div class="advanced-filters-panel inner-page-container hidden" id="advancedFilters">
-    <div class="advanced-filters-row">
-
-
-      <div class="filter-group filter-bedrooms">
-        <label for="bedrooms" class="filter-label">Habitaciones</label>
-        <select id="bedrooms" disabled aria-label="Número mínimo de habitaciones">
-          <option value="">Cualquiera</option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
-        </select>
-      </div>
-
-
-      <div class="filter-group filter-bathrooms">
-        <label for="bathrooms" class="filter-label">Baños</label>
-        <select id="bathrooms" disabled aria-label="Número mínimo de baños">
-          <option value="">Cualquiera</option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-        </select>
-      </div>
-
- 
-      <div class="filter-group filter-size">
-        <label class="filter-label">Tamaño (m²)</label>
-        <div class="filter-duo range-inputs">
-          <input type="number" id="size-min" min="0" step="50" placeholder="Min.">
-          <input type="number" id="size-max" min="0" step="50" placeholder="Máx.">
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
- -->
-
-
-  <!-- Contenido principal -->
-  <div class="inner-page-container">
+  <div class="inner-page-container catalog-content">
     <main class="main-content">
-      <!-- =========================================================
-           RESULTADOS / ORDEN / VISTAS
-          ========================================================== -->
+      
       <div class="properties-content">
         <div class="properties-header">
-          <div class="results-count">
+          <div class="results-count" aria-live="polite">
             <span id="resultsCount">0</span> propiedades encontradas
           </div>
           <div class="sort-controls">
-            <select class="sort-select" id="sortBy">
+            <label for="sortBy">Ordenar por</label><select class="sort-select" id="sortBy">
               <option value="featured">Destacadas</option>
               <option value="price-low">Precio: Menor a Mayor</option>
               <option value="price-high">Precio: Mayor a Menor</option>
               <option value="newest">Más Recientes</option>
             </select>
-            <div class="view-toggle">
-              <button class="view-btn active" id="gridView" aria-label="Vista grid">📱</button>
-            </div>
+            
           </div>
         </div>
 
-        <div class="properties-grid" id="propertiesGrid">
-          <!-- Grid generado por JavaScript -->
-        </div>
+        <div class="listings-grid" id="propertiesGrid" aria-busy="true"><p class="listing-empty">Cargando propiedades…</p></div>
 
-        <div class="properties-list" id="propertiesList">
-          <!-- Lista generada por JavaScript -->
-        </div>
-
-        <div id="pagination" class="pagination mt-8 text-center"></div>
+        <div id="pagination" class="pagination" role="navigation" aria-label="Páginas de propiedades"></div>
       </div>
     </main>
   </div>
-      <!-- =========================================================
-MAPA DE PROPIEDADES 
-  <section class="properties-map-section">
-    <div class="inner-page-container">
-      <h2 class="map-title">Mapa de propiedades</h2>
-      <p class="map-subtitle">
-        Visualiza la ubicación de nuestras propiedades en La Fortuna y alrededores.
-      </p>
-      <div id="propertiesMap" class="properties-map"></div>
-    </div>
-  </section>
 
-
-Contenido principal 
-  <div class="inner-page-container">
-    <main class="main-content">
-
-           RESULTADOS / ORDEN / VISTAS
-          ========================================================== -->
-
-
-  <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer-content centered">
-      <!-- Logo -->
-      <img src="/assets/images/natura-logo.png" 
+      
+      <img src="/assets/branding/natura-logo.png" 
            alt="Natura Real Estate" 
            class="footer-logo" 
            loading="lazy" 
            decoding="async">
-      
-      <!-- Descripción -->
+
       <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
 
-      <!-- Redes Sociales -->
       <div class="footer-social">
-        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
       </div>
 
-      <!-- Newsletter -->
       <section class="newsletter">
         <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
           <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required />
-          <button type="submit" class="newsletter-btn">Suscribirse</button>
+          <button type="submit" class="newsletter-btn natura-btn">Suscribirse</button>
         </form>
         <div class="newsletter-status" aria-live="polite"></div>
       </section>
 
-      <!-- Contacto -->
       <div class="footer-contact">
         <p><strong>La Fortuna · Costa Rica</strong></p>
         <p>
           <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br />
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5090</a>
+          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
         </p>
       </div>
 
-      <p class="footer-bottom">&copy; 2025 Natura Real Estate · Todos los derechos reservados</p>
+      <p class="footer-bottom">&copy; 2026 Natura Real Estate · Todos los derechos reservados</p>
     </div>
   </footer>
 
-  <!-- JS -->
-    <!-- JS de terceros -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  ></script>
-
-  <!-- JS del sitio -->
-  <script src="/js/utils.js" defer></script>
   <script src="/js/main.js" defer></script>
   <script src="/js/properties.js" defer></script>
   <script src="/js/header.js" defer></script>
 
-  <!-- Solo para desarrollo con Live Server: reescribe /img -> /assets/images (no afecta producción) -->
-  <script>
-    (function () {
-      const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-      if (!isLocal) return;
-
-      document.querySelectorAll('img[src^="/img/"]').forEach(img => {
-        img.src = img.src.replace('/img/', '/assets/images/').replace(/\?.*$/, '');
-      });
-
-      document.querySelectorAll('[style*="background-image"]').forEach(el => {
-        const s = el.style.backgroundImage;
-        if (s.includes('/img/')) {
-          el.style.backgroundImage = s.replace('/img/', '/assets/images/').replace(/\?.*?\)/g, ')');
-        }
-      });
-    })();
-  </script>
-
-  <!-- MAPA: inicialización -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', async () => {
-    const mapContainer = document.getElementById('propertiesMap');
-    if (!mapContainer || !window.L) return;
-
-    try {
-      // 1. Cargar propiedades
-      const res = await fetch('/properties.json');
-      const properties = await res.json();
-
-      // 2. Crear el mapa centrado en La Fortuna
-      const map = L.map('propertiesMap').setView([10.4718, -84.6458], 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-
-      const bounds = [];
-
-      properties.forEach(p => {
-        // Asegurarnos de que exista p.geo y sus coordenadas
-        if (!p.geo || typeof p.geo.lat !== 'number' || typeof p.geo.lng !== 'number') {
-          return;
-        }
-
-        const { lat, lng } = p.geo;
-        const marker = L.marker([lat, lng]).addTo(map);
-        bounds.push([lat, lng]);
-
-        // Precio: usamos USD si está, si no colones
-        let priceText = '';
-        if (p.price && p.currency === 'USD') {
-          priceText = `$${Number(p.price).toLocaleString('en-US')}`;
-        } else if (p.priceCRC) {
-          priceText = `₡${Number(p.priceCRC).toLocaleString('es-CR')}`;
-        }
-
-        const popupHTML = `
-          <div style="min-width: 180px">
-            <h3 style="margin:0 0 4px;font-size:1rem;font-weight:600;">
-              ${p.title || 'Propiedad'}
-            </h3>
-            <p style="margin:0 0 4px;font-size:.85rem;opacity:.75;">
-              ${p.location || ''}
-            </p>
-            ${priceText ? `<p style="margin:0 0 8px;font-size:.9rem;font-weight:600;">${priceText}</p>` : ''}
-            <a href="property.html?id=${encodeURIComponent(p.id)}"
-               style="
-                display:inline-block;
-                padding:.3rem .8rem;
-                font-size:.85rem;
-                border-radius:999px;
-                border:1px solid #1a2e35;
-                text-decoration:none;
-               ">
-              Ver detalles
-            </a>
-          </div>
-        `;
-
-        marker.bindPopup(popupHTML);
-      });
-
-      // Ajustar vista a todos los puntos
-      if (bounds.length > 0) {
-        map.fitBounds(bounds, { padding: [30, 30] });
-      }
-    } catch (err) {
-      console.error('Error cargando el mapa de propiedades:', err);
-    }
-  });
-</script>
-
-
+<script src="/js/newsletter.js" defer></script>
 </body>
 </html>

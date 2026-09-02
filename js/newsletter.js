@@ -1,70 +1,23 @@
-// === ✉️ NEWSLETTER.JS (upgrade) ===
-document.addEventListener('DOMContentLoaded', () => {
-  const form   = document.querySelector('.newsletter-form');
-  const input  = document.querySelector('.newsletter-input');
-  const btn    = document.querySelector('.newsletter-btn');
-  const status = document.querySelector('.newsletter-status');
-
-  if (!form || !input || !btn) return;
-
-  const setStatus = (msg, ok = true) => {
-    if (!status) return;
-    status.textContent = msg;
-    status.style.color = ok ? 'green' : 'crimson';
-  };
-
-  const validateEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const email = input.value.trim();
-    if (!email) {
-      setStatus('Por favor ingrese su email.', false);
-      input.focus();
-      return;
-    }
-    if (!validateEmail(email)) {
-      setStatus('Por favor ingrese un email válido.', false);
-      input.focus();
-      return;
-    }
-
-    const originalText = btn.textContent;
-    btn.textContent = 'Enviando…';
-    btn.disabled = true;
-    setStatus('');
-
+/* Preserve the existing newsletter endpoint, with localized status messages. */
+(() => {
+  const form=document.querySelector('.newsletter-form');
+  if(!form) return;
+  const input=form.querySelector('.newsletter-input'), button=form.querySelector('.newsletter-btn');
+  if(!input||!button) return;
+  let status=document.querySelector('.newsletter-status');
+  if(!status){status=document.createElement('p');status.className='newsletter-status';form.after(status);}
+  status.setAttribute('aria-live','polite');
+  const en=document.documentElement.lang.startsWith('en');
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    const original=button.textContent;button.disabled=true;
+    button.textContent=en?'Sending…':'Enviando…';status.textContent='';
     try {
-      // Puedes enviar como JSON:
-      const resp = await fetch('https://formspree.io/f/mjkabpze', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({ email })
-      });
-
-      if (resp.ok) {
-        input.value = '';
-        setStatus('¡Gracias! Te has suscrito correctamente.', true);
-      } else {
-        // Extrae detalle si lo hay
-        let msg = 'Hubo un error al suscribirte. Intenta de nuevo.';
-        try {
-          const data = await resp.json();
-          if (data && data.error) msg = data.error;
-        } catch {}
-        setStatus(msg, false);
-      }
-    } catch (err) {
-      setStatus('Error de conexión. Por favor intenta más tarde.', false);
-    } finally {
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
+      const response=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({email:input.value.trim()})});
+      if(!response.ok)throw Error(`HTTP ${response.status}`);
+      input.value='';status.textContent=en?'Thank you! You have subscribed successfully.':'¡Gracias! Te suscribiste correctamente.';
+    } catch(error) {status.textContent=en?'We could not submit your subscription. Please try again.':'No se pudo enviar tu suscripción. Intentá de nuevo.';}
+    finally {button.disabled=false;button.textContent=original;}
   });
-});
-
+})();
