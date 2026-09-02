@@ -106,11 +106,6 @@ position:relative; aspect-ratio: 4/5;
 .lafortuna-box:hover {
 transform: scale(1.03); background-size:110%;
 }
-@media (hover:none) {
-.overlay {
-opacity:1; transform:none;
-}
-}
 .overlay {
 position:absolute; inset:0; z-index:2; display:flex; justify-content:center; align-items:center;
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.78));
@@ -387,4 +382,29 @@ font-size: 2.8rem;
 * {
 animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;
 }
+}
+
+/* La Fortuna: touch/phone reveal. Desktop hover remains unchanged.
+   Without JS, or with reduced motion, the text stays visible. */
+@media (hover: none), (pointer: coarse), (max-width: 767px) {
+  .lafortuna-box,
+  .lafortuna-box:hover { transform:none; background-size:100%; cursor:default; }
+  .lafortuna-box .overlay { opacity:1; transform:none; transition:opacity .65s ease, transform .65s ease; }
+  .lafortuna-box .overlay-inner::before,
+  .lafortuna-box .overlay-inner span::before { width:100%; }
+  .lafortuna-box .overlay-inner::after,
+  .lafortuna-box .overlay-inner span::after { height:100%; }
+  .lafortuna-box.scroll-reveal-ready:not(.scroll-revealed) .overlay { opacity:0; transform:translateY(16px); }
+  .lafortuna-box.scroll-reveal-ready:not(.scroll-revealed) .overlay-inner::before,
+  .lafortuna-box.scroll-reveal-ready:not(.scroll-revealed) .overlay-inner span::before { width:0; }
+  .lafortuna-box.scroll-reveal-ready:not(.scroll-revealed) .overlay-inner::after,
+  .lafortuna-box.scroll-reveal-ready:not(.scroll-revealed) .overlay-inner span::after { height:0; }
+  .lafortuna-box.scroll-revealed { background-size:106%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lafortuna-box .overlay { transition:none; }
+  .lafortuna-box .overlay-inner::before,
+  .lafortuna-box .overlay-inner::after,
+  .lafortuna-box .overlay-inner span::before,
+  .lafortuna-box .overlay-inner span::after { transition:none; }
 }

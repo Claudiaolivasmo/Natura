@@ -70,7 +70,6 @@
     "alternateSlug": "lote-posada-del-rio",
     "alternateId": 1
   },
-  
   {
     "id": 2,
     "slug": "loft-for-sale-perla-ii",
@@ -314,19 +313,16 @@
     "folder": "009-lote-el-tanque",
     "images": [
       {
-        "src": "/assets/images/properties/009-lote-el-tanque/1.jpg"
+        "src": "/assets/images/properties/009-lote-el-tanque/1.png"
       },
       {
-        "src": "/assets/images/properties/009-lote-el-tanque/2.jpg"
+        "src": "/assets/images/properties/009-lote-el-tanque/2.JPG"
       },
       {
-        "src": "/assets/images/properties/009-lote-el-tanque/3.jpg"
+        "src": "/assets/images/properties/009-lote-el-tanque/3.png"
       },
       {
         "src": "/assets/images/properties/009-lote-el-tanque/4.jpg"
-      },
-      {
-        "src": "/assets/images/properties/009-lote-el-tanque/5.jpg"
       }
     ],
     "utilities": {
@@ -540,64 +536,5 @@
     ],
     "alternateSlug": "lote-sanchal-la-fortuna",
     "alternateId": 8
-  },
-  {
-    "id": 10,
-    "slug": "property-santa-rosa-center",
-    "type": "lot",
-    "title": "Property in the Heart of Santa Rosa",
-    "location": "Santa Rosa, Pocosol",
-    "price": 78500,
-    "priceCRC": 40000000,
-    "currency": "USD",
-    "lotSize": 873,
-    "builtSize": 0,
-    "badge": "New",
-    "folder": "Santa Rosa/003-casa-en-santa-rosa-centro",
-    "images": [
-      {
-        "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/1.jpg"
-      },
-      {
-        "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/2.png"
-      },
-      {
-        "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/3.jpg"
-      },
-      {
-        "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/4.jpg"
-      },
-      {
-        "src": "/assets/images/properties/Santa Rosa/003-casa-en-santa-rosa-centro/5.jpg"
-      }
-    ],
-    "videos": [],
-    "utilities": {
-      "water": true,
-      "electricity": true,
-      "internet": true,
-      "publicRoad": true
-    },
-    "geo": {
-      "lat": 10.4758,
-      "lng": -84.6399,
-      "zoom": 15
-    },
-    "description": [
-      "Outstanding investment opportunity in the heart of Santa Rosa. This 873 m² property is located just 150 meters from the central park, in an area with excellent access and strong development potential.",
-      "Ideal for residential or commercial use thanks to its proximity to supermarkets, schools, and local services. Its strategic location makes it perfect for building a spacious home, rental apartments, or a high-visibility commercial project.",
-      "The property offers access to all public utilities and is situated in a secure and peaceful setting."
-    ],
-    "features": [
-      "873 m² lot",
-      "Central location just 150 m from Santa Rosa park",
-      "Ideal for residential or commercial use",
-      "Public road access",
-      "All utilities available",
-      "Secure and growing area",
-      "Excellent investment opportunity"
-    ],
-    "alternateSlug": "lote-santa-rosa-centro",
-    "alternateId": 9
   }
 ]

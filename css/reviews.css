@@ -1,0 +1,20 @@
+/* Guest reviews: shared ES/EN layout; static HTML remains readable without JavaScript. */
+.guest-reviews { padding:clamp(3rem,6vw,5rem) 0; background:#eef2ef; border-top:1px solid var(--natura-line); }
+.guest-review-group + .guest-review-group { margin-top:3rem; }
+.guest-review-group-heading { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:1.25rem; }
+.guest-review-group-heading h3 { margin:0; color:var(--natura-ink); font-size:clamp(1.75rem,3vw,2.25rem); }
+.guest-review-property { display:inline-flex; align-items:center; gap:.6rem; color:var(--natura-forest); font-size:.875rem; font-weight:700; text-underline-offset:.25em; }
+.guest-review-property:hover { color:var(--natura-gold-dark); }
+.guest-reviews-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; align-items:stretch; }
+.guest-review { display:flex; flex-direction:column; min-width:0; margin:0; padding:clamp(1.25rem,2.5vw,2rem); background:white; border:1px solid var(--natura-line); border-radius:var(--natura-radius); box-shadow:0 6px 24px #14262c08; }
+.guest-review-rating { color:var(--natura-gold-dark); font-size:1.25rem; letter-spacing:.15em; margin-bottom:1rem; }
+.guest-review blockquote { margin:0 0 1.5rem; padding:0; color:var(--natura-ink); font-size:1rem; line-height:1.8; }
+.guest-review blockquote p { margin:0; overflow-wrap:anywhere; }
+.guest-review figcaption { display:flex; flex-direction:column; align-items:flex-start; gap:.15rem; margin-top:auto; padding-top:1rem; border-top:1px solid var(--natura-line); }
+.guest-review-name { color:var(--natura-ink); font-size:1rem; font-weight:700; }
+.guest-review-location,.guest-review time,.guest-review-translation { color:var(--natura-muted); font-size:.875rem; line-height:1.6; }
+.guest-review-translation { margin-top:.35rem; font-style:italic; }
+.guest-review-original { margin-top:.75rem; font-size:.875rem; color:var(--natura-muted); }
+.guest-review-original summary { cursor:pointer; color:var(--natura-forest); text-decoration:underline; text-underline-offset:.2em; min-height:44px; padding:.5rem 0; }
+.guest-review-original p { margin:.5rem 0 0; line-height:1.75; overflow-wrap:anywhere; }
+@media(max-width:700px) { .guest-reviews-grid { grid-template-columns:minmax(0,1fr); } }
