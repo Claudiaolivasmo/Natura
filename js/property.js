@@ -68,11 +68,14 @@ async function initPropertyPage() {
 
   try {
     const res = await fetch(PROPERTIES_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const list = await res.json();
+    if (!Array.isArray(list)) throw new Error('Invalid catalog');
 
     if (slugParam) {
-      currentProperty = list.find(p => [p.slug, p.alternateSlug].some(value => (value || '').toLowerCase() === slugParam.toLowerCase()));
-    } else if (idParam) {
+      currentProperty = list.find(p => [p.slug, p.alternateSlug].some(value => String(value ?? '').toLowerCase() === slugParam.toLowerCase()));
+    }
+    if (!currentProperty && idParam) {
       currentProperty = list.find(p => String(p.id) === idParam || String(p.alternateId) === idParam);
     }
 
@@ -84,6 +87,7 @@ async function initPropertyPage() {
     currentImageIndex = 0;
 
     bindProperty(currentProperty);
+    setupPropertySharing(currentProperty);
     setupContactForm?.();
     initLightboxEvents();
     initGalleryEvents();
@@ -599,3 +603,91 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') previousImage();
   if (e.key === 'ArrowRight') nextImage();
 });
+
+
+// Enlaces individuales: conservan el idioma y usan los identificadores del catálogo.
+function propertyURL(property, pathname = location.pathname) {
+  const url = new URL(pathname, location.origin);
+  if (property.slug) {
+    url.searchParams.set('slug', property.slug);
+  } else if (property.id != null && String(property.id) !== '') {
+    url.searchParams.set('id', String(property.id));
+  } else if (property.alternateId != null) {
+    url.searchParams.set('id', String(property.alternateId));
+  } else if (property.alternateSlug) {
+    url.searchParams.set('slug', property.alternateSlug);
+  }
+  return url;
+}
+
+function setupPropertySharing(property) {
+  const shareURL = propertyURL(property);
+  // Mantener los parámetros de campañas en la barra de direcciones.
+  const address = new URL(location.href);
+  address.searchParams.delete('id');
+  address.searchParams.delete('slug');
+  shareURL.searchParams.forEach((value, key) => address.searchParams.set(key, value));
+  history.replaceState(history.state, '', address.href);
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.append(canonical);
+  }
+  canonical.href = shareURL.href;
+  let ogURL = document.querySelector('meta[property="og:url"]');
+  if (!ogURL) {
+    ogURL = document.createElement('meta');
+    ogURL.setAttribute('property', 'og:url');
+    document.head.append(ogURL);
+  }
+  ogURL.content = shareURL.href;
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', document.title);
+  document.querySelectorAll('.lang-switch a').forEach(link => {
+    const url = new URL(link.href, location.href);
+    if (url.origin === location.origin) {
+      // Preferir el slug actual: el otro catálogo puede reconocerlo como alternateSlug.
+      const target = propertyURL(property, url.pathname);
+      if (property.slug) target.searchParams.set('slug', property.slug);
+      link.href = target.href;
+    }
+  });
+
+  const header = document.querySelector('.property-header');
+  if (!header || document.getElementById('shareProperty')) return;
+  const actions = document.createElement('div');
+  actions.className = 'property-share-actions';
+  const button = document.createElement('button');
+  button.id = 'shareProperty';
+  button.type = 'button';
+  button.className = 'property-share-button';
+  button.innerHTML = '<i class="fa-solid fa-share-nodes" aria-hidden="true"></i> ' + (isEnglish ? 'Share' : 'Compartir');
+  const status = document.createElement('span');
+  status.className = 'property-share-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  actions.append(button, status);
+  header.append(actions);
+  button.addEventListener('click', async () => {
+    status.textContent = '';
+    try {
+      await navigator.clipboard.writeText(shareURL.href);
+      status.textContent = isEnglish ? 'Link copied!' : '¡Enlace copiado!';
+    } catch {
+      // Último recurso: permitir copiar manualmente sin anunciar un éxito falso.
+      let input = actions.querySelector('input');
+      if (!input) {
+        input = document.createElement('input');
+        input.type = 'text';
+        input.readOnly = true;
+        input.className = 'property-share-link';
+        input.setAttribute('aria-label', isEnglish ? 'Property link' : 'Enlace de la propiedad');
+        actions.append(input);
+      }
+      input.value = shareURL.href;
+      input.focus();
+      input.select();
+      status.textContent = isEnglish ? 'Copy this link to share it.' : 'Copiá este enlace para compartirlo.';
+    }
+  });
+}

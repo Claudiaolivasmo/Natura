@@ -485,3 +485,11 @@ html, body {
   .features-grid { grid-template-columns: 1fr; } 
   */
 }
+
+/* Compartir propiedad */
+.property-share-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.75rem; width:100%; }
+.property-share-button { display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.65rem 1.1rem; border:1px solid var(--main-color, #1a2e35); border-radius:999px; background:#fff; color:var(--main-color, #1a2e35); font:inherit; cursor:pointer; }
+.property-share-button:hover { background:#edf2ef; }
+.property-share-button:focus-visible, .property-share-link:focus-visible { outline:3px solid #517563; outline-offset:3px; }
+.property-share-status { font-size:.9rem; }
+.property-share-link { flex-basis:100%; min-width:0; width:100%; padding:.65rem; border:1px solid #777; border-radius:6px; }

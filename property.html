@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Casa / Terreno en La Fortuna | Natura Real Estate</title>
-  <meta name="description" content="Detalles de la propiedad: ubicación, características, galería e información de contacto. Descubre tu próxima inversión.">
+  <title>Detalles de la propiedad | Natura Real Estate</title>
+  <meta name="description" content="Detalles de la propiedad, ubicación, galería, características e información de contacto.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.realestatenatura.com/property.html?id=manzano">
+
+  <link rel="canonical" href="https://www.realestatenatura.com/property.html">
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Casa / Terreno en venta | Natura Real Estate">
-  <meta property="og:description" content="Propiedad en Costa Rica con excelente ubicación y características únicas.">
-  <meta property="og:url" content="https://www.realestatenatura.com/property.html?id=manzano">
-  <meta property="og:image" content="https://www.realestatenatura.com/img/properties/manzano/1.jpg?w=1200&fmt=jpg&q=90">
+  <meta property="og:title" content="Propiedad en venta | Natura Real Estate">
+  <meta property="og:description" content="Propiedad en Costa Rica con excelente ubicación y entorno natural.">
+  <meta property="og:url" content="https://www.realestatenatura.com/property.html">
+  <meta property="og:image" content="https://www.realestatenatura.com/img/properties/default/1.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +30,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?w=180&fmt=png">
   <link rel="stylesheet" href="/css/components.css">
   <script src="/js/listings.js" defer></script>
 </head>
@@ -54,8 +54,8 @@
 <li><a href="/index.html">Inicio</a></li>
 <li><a href="/properties.html">Propiedades</a></li>
 <li><a href="/vacation-rentals.html">Alquileres vacacionales</a></li>
-<li><a href="/property-management.html">Administración</a></li>
-<li><a href="/about.html">Sobre Nosotros</a></li>
+<li><a href="/property-management.html">Administración de propiedades</a></li>
+<li><a href="/about.html">Nosotros</a></li>
 <li><a href="/contact.html">Contacto</a></li>
 </ul>
     </nav>
@@ -89,150 +89,151 @@
 <li><a href="/index.html" data-close>Inicio</a></li>
 <li><a href="/properties.html" data-close>Propiedades</a></li>
 <li><a href="/vacation-rentals.html" data-close>Alquileres vacacionales</a></li>
-<li><a href="/property-management.html" data-close>Administración</a></li>
-<li><a href="/about.html" data-close>Sobre Nosotros</a></li>
+<li><a href="/property-management.html" data-close>Administración de propiedades</a></li>
+<li><a href="/about.html" data-close>Nosotros</a></li>
 <li><a href="/contact.html" data-close>Contacto</a></li>
 </ul>
   </nav>
 </header>
 
-  <nav class="breadcrumb">
-    <div class="inner-page-container">
-      <div class="breadcrumb-nav">
-        <a href="index.html">Inicio</a>
-        <span>›</span>
-        <a href="properties.html">Propiedades</a>
-        <span>›</span>
-        <span id="breadcrumbTitle">Casa Vista Volcán</span>
-      </div>
+<nav class="breadcrumb">
+  <div class="inner-page-container">
+    <div class="breadcrumb-nav">
+      <a href="/index.html">Inicio</a>
+      <span>›</span>
+      <a href="/properties.html">Propiedades</a>
+      <span>›</span>
+      <span id="breadcrumbTitle">Propiedad</span>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main class="main-content">
-    <div class="inner-page-container">
-      <header class="property-header mb-8">
-        <h1 id="propertyTitle" class="property-title">Cargando propiedad…</h1>
-        <span id="propertyPriceTag" class="price-tag"></span>
-        <p id="propertyLocation" class="property-location"></p><div id="propertyQuickFacts"></div>
-      </header>
+<main class="main-content">
+  <div class="inner-page-container">
 
-      <section class="property-details lg:grid lg:grid-cols-3 lg:gap-12">
-        <div class="details-tabs lg:col-span-2">
-          <div class="gallery-section mb-8">
-            <div class="gallery-section mb-8">
-              <div class="main-image relative mb-4" id="mainImage" role="button" tabindex="0">
-                <button class="gallery-nav prev" onclick="previousImage()" aria-label="Imagen anterior">‹</button>
-                <button class="gallery-nav next" onclick="nextImage()" aria-label="Imagen siguiente">›</button>
-                <div class="image-placeholder"></div>
-              </div>
-              <div class="thumbnail-grid" id="thumbnailGrid"></div>
-            </div>
+    <header class="property-header mb-8">
+      <h1 id="propertyTitle" class="property-title">Cargando propiedad…</h1>
+      <span id="propertyPriceTag" class="price-tag"></span>
+      <p id="propertyLocation" class="property-location"></p><div id="propertyQuickFacts"></div>
+    </header>
 
+    <section class="property-details lg:grid lg:grid-cols-3 lg:gap-12">
+
+      <div class="lg:col-span-2">
+
+        <div class="gallery-section mb-8">
+          <div class="main-image relative mb-4" id="mainImage" role="button" tabindex="0">
+            <button class="gallery-nav prev" onclick="previousImage()" aria-label="Imagen anterior">‹</button>
+            <button class="gallery-nav next" onclick="nextImage()" aria-label="Imagen siguiente">›</button>
+            <div class="image-placeholder"></div>
           </div>
-
-          <section class="description-section bg-white p-6 rounded shadow mb-6">
-            <h2 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
-              <i class="fa-solid fa-align-left" aria-hidden="true"></i> Descripción General
-            </h2>
-            <div class="prose prose-gray max-w-none" id="propertyDescription"></div>
-          </section>
-
-          <section class="property-section features-section bg-white p-6 rounded shadow">
-            <h3 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
-              <i class="fa-solid fa-list-check" aria-hidden="true"></i> Características
-            </h3>
-            <ul id="featuresList" class="features-grid"></ul>
-          </section>
+          <div class="thumbnail-grid" id="thumbnailGrid"></div>
         </div>
 
-        <aside class="lg:col-span-1">
-          <div
-            class="contact-agent p-6 rounded-lg mb-6 bg-white shadow lg:sticky lg:top-24"
-            data-whatsapp="50685675060"
-            data-property-name="Casa Tropical en La Fortuna">
-            <div class="text-center mb-6">
-              <h3 class="font-display text-xl font-semibold text-gray-900">Contáctenos</h3>
-              <p class="text-gray-600">Estamos aquí para ayudarle</p>
+        <section class="description-section bg-white p-6 rounded shadow mb-6">
+          <h2 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
+            <i class="fa-solid fa-align-left" aria-hidden="true"></i> Description
+          </h2>
+          <div id="propertyDescription" class="prose max-w-none"></div>
+        </section>
+
+        <section class="property-section features-section bg-white p-6 rounded shadow">
+          <h3 class="section-title flex items-center gap-2 text-xl font-semibold mb-4">
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i> Features
+          </h3>
+          <ul id="featuresList" class="features-grid"></ul>
+        </section>
+
+      </div>
+
+      <aside class="lg:col-span-1">
+        <div
+          class="contact-agent p-6 rounded-lg mb-6 bg-white shadow lg:sticky lg:top-24"
+          data-whatsapp="50685675060"
+          data-property-name="Property">
+
+          <div class="text-center mb-6">
+            <h3 class="font-display text-xl font-semibold text-gray-900">Contáctenos</h3>
+            <p class="text-gray-600">Estamos aquí para ayudarle</p>
+          </div>
+
+          <form id="contactForm" class="space-y-4">
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" for="name">Nombre</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="Su nombre">
             </div>
 
-            <form id="contactForm" class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2" for="name">Nombre</label>
-                <input
-                  id="name"
-                  type="text"
-                  class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Su nombre">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2" for="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="su@email.com">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2" for="phone">Teléfono</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="+506 0000-0000">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2" for="message">Mensaje</label>
-                <textarea
-                  id="message"
-                  rows="3"
-                  class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Estoy interesado en esta propiedad..."></textarea>
-              </div>
-              <button type="submit" class="w-full natura-btn">
-                Enviar Whatsapp
-              </button>
-            </form>
-          </div>
-        </aside>
-      </section>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="your@email.com">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" for="phone">Teléfono</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="+506 0000-0000">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" for="message">Mensaje</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                required
+                class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="Estoy interesado en esta propiedad..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full natura-btn">
+              Enviar por WhatsApp
+            </button>
+
+          </form>
+        </div>
+      </aside>
+
+    </section>
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-content centered">
+    <img src="/assets/branding/natura-logo.png" alt="Natura Real Estate" class="footer-logo">
+    <p class="footer-text">Propiedades seleccionadas en La Fortuna y sus alrededores.</p>
+
+    <div class="footer-contact">
+      <p><strong>La Fortuna · Costa Rica</strong></p>
+      <p>
+        <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
+        <a href="https://wa.me/50685675060">WhatsApp: +506 8567 5060</a>
+      </p>
     </div>
-  </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer-content centered">
-      <img
-        src="/assets/branding/natura-logo.png"
-        alt="Natura Real Estate"
-        class="footer-logo"
-        loading="lazy"
-        decoding="async">
+    <p class="footer-bottom">© 2026 Natura Real Estate · Todos los derechos reservados</p>
+  </div>
+</footer>
 
-      <p class="footer-text">Propiedades seleccionadas en La Fortuna y alrededores.</p>
-
-      <div class="footer-social">
-        <a href="https://www.instagram.com/realestatenatura" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://www.facebook.com/share/1Zudwicr3E/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-      </div>
-
-      <section class="newsletter">
-        <form class="newsletter-form" action="https://formspree.io/f/mjkabpze" method="POST" target="_blank">
-          <input type="email" name="email" placeholder="Tu email" class="newsletter-input" required>
-          <button type="submit" class="newsletter-btn natura-btn">Suscribirse</button>
-        </form>
-        <div class="newsletter-status" aria-live="polite"></div>
-      </section>
-
-      <div class="footer-contact">
-        <p><strong>La Fortuna · Costa Rica</strong></p>
-        <p>
-          <a href="mailto:naturacrre@gmail.com">naturacrre@gmail.com</a><br>
-          <a href="https://wa.me/50685675060" rel="noopener">WhatsApp: +506 8567 5060</a>
-        </p>
-      </div>
-
-      <p class="footer-bottom">&copy; 2026 Natura Real Estate · Todos los derechos reservados</p>
-    </div>
-  </footer>
+<script src="/js/main.js" defer></script>
+<script src="/js/property.js" defer></script>
+<script src="/js/header.js" defer></script>
 
   <div id="lightbox" class="lb hidden" aria-hidden="true" tabindex="-1">
     <button id="lbClose" class="lb-close" aria-label="Cerrar">×</button>
@@ -241,46 +242,5 @@
     <button id="lbNext" class="lb-nav lb-next" aria-label="Imagen siguiente">›</button>
     <div id="lbCounter" class="lb-counter">1 / 1</div>
   </div>
-
-  <script src="/js/main.js" defer></script>
-  <script src="/js/property.js" defer></script>
-  <script src="/js/header.js" defer></script>
-
-  <script>
-    (function () {
-      const SELECTOR_IMG = '.property-gallery img, .img-card img, img[data-download]';
-
-      document.addEventListener('contextmenu', function (e) {
-        const img = e.target.closest(SELECTOR_IMG);
-        if (!img) return;
-        e.preventDefault();
-
-        // 1) data-download del <img>
-        let dlUrl = img.dataset.download || '';
-
-        // 2) o data-download del contenedor
-        if (!dlUrl) dlUrl = img.closest('.img-card')?.dataset?.download || '';
-
-        // 3) o un botón/anchor de descarga cercano
-        if (!dlUrl) dlUrl = img.closest('.img-card')?.querySelector('.dl-btn')?.getAttribute('href') || '';
-
-        if (!dlUrl) {
-          console.warn('[WM] No download URL for image', img);
-          return;
-        }
-
-        // añade marca mínima para depurar
-        const url = dlUrl + (dlUrl.includes('?') ? '&' : '?') + 'from=rclick';
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = '';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      }, { passive: false });
-    })();
-  </script>
-<script src="/js/newsletter.js" defer></script>
 </body>
 </html>

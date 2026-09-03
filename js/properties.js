@@ -23,9 +23,26 @@
       return Number(NaturaListings.sold(a))-Number(NaturaListings.sold(b)) || Number(NaturaListings.featured(b))-Number(NaturaListings.featured(a)) || b.id-a.id;
     });
   }
+  function propertyCard(property) {
+    const template = document.createElement('template');
+    template.innerHTML = NaturaListings.card(property);
+    const url = new URL(en ? '/en/property.html' : '/property.html', location.origin);
+    if (property.slug) url.searchParams.set('slug', property.slug);
+    else if (property.id != null && String(property.id) !== '') url.searchParams.set('id', String(property.id));
+    else if (property.alternateId != null) url.searchParams.set('id', String(property.alternateId));
+    else if (property.alternateSlug) url.searchParams.set('slug', property.alternateSlug);
+    // Corregir enlaces de detalle sin cambiar el diseño de las tarjetas compartidas.
+    template.content.querySelectorAll('a[href]').forEach(link => {
+      const destination = new URL(link.getAttribute('href'), location.href);
+      if (destination.origin === location.origin && /\/property(?:\.html)?(?:\/|$)/.test(destination.pathname)) {
+        link.setAttribute('href', url.pathname + url.search);
+      }
+    });
+    return template.innerHTML;
+  }
   function render() {
     count.textContent = properties.length;
-    grid.innerHTML = properties.length ? properties.slice((page-1)*pageSize,page*pageSize).map(p=>NaturaListings.card(p)).join('') : `<p class="listing-empty">${en?'No properties are currently listed.':'Aún no hay propiedades publicadas.'}</p>`;
+    grid.innerHTML = properties.length ? properties.slice((page-1)*pageSize,page*pageSize).map(propertyCard).join('') : `<p class="listing-empty">${en?'No properties are currently listed.':'Aún no hay propiedades publicadas.'}</p>`;
     grid.setAttribute('aria-busy','false');
     const pages = Math.ceil(properties.length/pageSize);
     pagination.innerHTML = pages > 1 ? Array.from({length:pages},(_,i)=>`<button type="button" class="page-btn${page===i+1?' active':''}" data-page="${i+1}" aria-label="${en?'Page':'Página'} ${i+1}"${page===i+1?' aria-current="page"':''}>${i+1}</button>`).join('') : '';
